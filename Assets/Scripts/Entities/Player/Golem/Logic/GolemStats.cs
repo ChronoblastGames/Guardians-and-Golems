@@ -19,4 +19,7 @@ public abstract class GolemStats : MonoBehaviour
 
     [Header("Golem Mana/Energy Attributes")]
     public float maxMana;
+
+    [Header("Golem Abilities")]
+    public GolemAbility[] golemAbilities;
 }

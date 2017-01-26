@@ -10,7 +10,6 @@ public enum DamageType {
 
 public abstract class GolemAbility : MonoBehaviour
 {
-
     [Header("Ability Attributes")]
     public DamageType damageType;
 
@@ -31,7 +30,6 @@ public abstract class GolemAbility : MonoBehaviour
     public bool canDrainHealth;
     public bool canDrainMana;
     public bool canBlind;
-
 
     public virtual void CastAbility()
     {

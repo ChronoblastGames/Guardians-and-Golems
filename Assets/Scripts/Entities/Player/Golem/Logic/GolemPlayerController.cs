@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof (GolemInputManager))]
 [System.Serializable]
 public class GolemPlayerController : GolemStats 
 {
@@ -10,6 +11,11 @@ public class GolemPlayerController : GolemStats
 
     private float xAxis;
     private float zAxis;
+
+    [Header("Ground Check Attributes")]
+    public float groundCheckLength;
+
+    public bool isGrounded;
 
     [Header("Debug")]
     public bool controlType;
@@ -21,7 +27,7 @@ public class GolemPlayerController : GolemStats
 	
 	void Update () 
     {
-		
+        GroundCheck();
 	}
 
     private void FixedUpdate()
@@ -57,5 +63,24 @@ public class GolemPlayerController : GolemStats
                 playerRigidbody.AddForce(new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime, ForceMode.Impulse);
             }
         }       
+    }
+
+    public void UseAbility(int abilityNumber)
+    {
+        Vector3 forwardVec = transform.forward;
+
+        GameObject newAbility = Instantiate(golemAbilities[abilityNumber], transform.position, transform.rotation) as GameObject;
+    }
+
+    void GroundCheck()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, groundCheckLength))
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 }
