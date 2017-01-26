@@ -19,6 +19,13 @@ public class GolemInputManager : MonoBehaviour
     public float xAxis;
     public float zAxis;
 
+    public bool isUsingKeyBoard;
+
+    [Header("Input Axis Booleans")]
+    public bool isAbilityButton1Down;
+    public bool isAbilityButton2Down;
+    public bool isAbilityButton3Down;
+
     private void Start()
     {
         PlayerSetup();
@@ -36,30 +43,52 @@ public class GolemInputManager : MonoBehaviour
 
     void GetInput()
     {
-        xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
-        zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber);
+        if (!isUsingKeyBoard)
+        {
+            xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
+            zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber);
+        }
+        else
+        {
+            xAxis = Input.GetAxis("Horizontal");
+            zAxis = Input.GetAxis("Vertical");
+        }
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 
-        if (Input.GetKeyDown(ABILITY_1))
+        if (Input.GetAxisRaw("Ability2Player" + PlayerNumber + "Win") > 0)
         {
-
+            Debug.Log("Use Ability 2");
         }
 
-        if (Input.GetKeyDown(ABILITY_2))
+        if (Input.GetAxisRaw("Ability3Player" + PlayerNumber + "Win") > 0)
         {
-
+            Debug.Log("Use Ability 3");
         }
 
-        if (Input.GetKeyDown(ABILITY_3))
+        if (Input.GetKeyDown("joystick " + PlayerNumber +" button 2"))
         {
+            Debug.Log("Non Complicated way!");
+        }
+#endif
 
+#if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
+
+        if (Input.GetAxisRaw("Ability1Player" + PlayerNumber + "OSX") > 0)
+        {
+            Debug.Log("Use Ability 1");
         }
 
-        if (Input.GetKeyDown(ABILITY_4))
+        if (Input.GetAxisRaw("Ability2Player" + PlayerNumber + "OSX") > 0)
         {
-
+            Debug.Log("Use Ability 2");
         }
+
+        if (Input.GetAxisRaw("Ability3Player" + PlayerNumber + "OSX") > 0)
+        {
+            Debug.Log("Use Ability 3");
+        }
+
 #endif
     }
 }
