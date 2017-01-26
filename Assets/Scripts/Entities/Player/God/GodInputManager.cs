@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GodInputManager : MonoBehaviour 
 {
+    private GodPlayerController godPlayerController;
+
     [Header("Golem Controls")] //Keycodes that relate to use of Special Abilities (KEYBOARD)
     public KeyCode ABILITY_1;
     public KeyCode ABILITY_2;
@@ -11,7 +13,6 @@ public class GodInputManager : MonoBehaviour
 
     [Header("Golem Input Variables")]
     public string PlayerName;
-
     public int PlayerNumber;
 
     public float xAxis;
@@ -29,6 +30,8 @@ public class GodInputManager : MonoBehaviour
 
     void PlayerSetup()
     {
+        godPlayerController = GetComponent<GodPlayerController>();
+
         if (PlayerNumber == 0)
         {
             Debug.LogError("Player " + gameObject.name + " does not have a Player Number!");

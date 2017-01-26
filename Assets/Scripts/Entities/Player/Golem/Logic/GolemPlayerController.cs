@@ -11,11 +11,8 @@ public class GolemPlayerController : GolemStats
     private float xAxis;
     private float zAxis;
 
-    [Header("Player Ability Attributes")]
-    public GolemAbility[] Abilities;
-
-    [Header("Player Turning Attributes")]
-    public float turnSpeed;
+    [Header("Debug")]
+    public bool controlType;
 
 	void Start () 
     {
@@ -51,23 +48,14 @@ public class GolemPlayerController : GolemStats
     {
         if (xAxis != 0 || zAxis != 0)
         {
-            Vector3 moveVec = new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime;
-
-            if (moveVec.magnitude > 1)
+            if (controlType)
             {
-                moveVec.Normalize();
+                playerRigidbody.MovePosition(transform.position + new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime);
             }
-
-            Turn(moveVec);
-
-            playerRigidbody.MovePosition(transform.position + moveVec);
+            else
+            {
+                playerRigidbody.AddForce(new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime, ForceMode.Impulse);
+            }
         }       
     }
-
-    void Turn(Vector3 lookVec)
-    {
-        Quaternion desiredRotation = Quaternion.LookRotation(lookVec);
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * turnSpeed);
-    }       
 }

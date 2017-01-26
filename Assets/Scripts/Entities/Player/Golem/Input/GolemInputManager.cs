@@ -4,6 +4,8 @@ using UnityEngine;
 [System.Serializable]
 public class GolemInputManager : MonoBehaviour 
 {
+    private GolemPlayerController golemPlayerController;
+
     [Header("Golem Controls")] //Keycodes that relate to use of Special Abilities (KEYBOARD)
     public KeyCode ABILITY_1;
     public KeyCode ABILITY_2;
@@ -12,8 +14,7 @@ public class GolemInputManager : MonoBehaviour
 
     [Header("Golem Input Variables")]
     public string PlayerName;
-
-    public int PlayerNumber;
+    public string PlayerNumber;
 
     public float xAxis;
     public float zAxis;
@@ -30,10 +31,7 @@ public class GolemInputManager : MonoBehaviour
 
     void PlayerSetup()
     {
-        if (PlayerNumber == 0)
-        {
-            Debug.LogError("Player " + gameObject.name + " does not have a Player Number!");
-        }
+        golemPlayerController = GetComponent<GolemPlayerController>();
     }
 
     void GetInput()
