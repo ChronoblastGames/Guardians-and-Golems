@@ -39,6 +39,8 @@ public class GolemInputManager : MonoBehaviour
         xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
         zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber);
 
+#if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+
         if (Input.GetKeyDown(ABILITY_1))
         {
 
@@ -58,5 +60,6 @@ public class GolemInputManager : MonoBehaviour
         {
 
         }
+#endif
     }
 }
