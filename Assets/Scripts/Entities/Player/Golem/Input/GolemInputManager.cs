@@ -58,7 +58,7 @@ public class GolemInputManager : MonoBehaviour
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
         {
-            Debug.Log("Use Ability 1!");
+            golemPlayerController.UseAbility();
         }
 
         if (Input.GetAxisRaw("Ability2Player" + PlayerNumber + "Win") > 0) //Abilities

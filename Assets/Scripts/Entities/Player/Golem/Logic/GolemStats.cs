@@ -15,10 +15,10 @@ public abstract class GolemStats : MonoBehaviour
     public float baseMovementSpeed;
 
     [Header("Golem Health Attributes")]
-    public float maxHealth;
+    public float baseHealth;
 
     [Header("Golem Mana/Energy Attributes")]
-    public float maxMana;
+    public float baseMana;
 
     [Header("Golem Abilities")]
     public GolemAbility[] golemAbilities;

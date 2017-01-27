@@ -3,11 +3,16 @@ using UnityEngine;
 
 public class Fireball_Ability : GolemAbility
 {
-    [Header("Ability Visual")]
-    public GameObject fireBallVisual;
-
-    public override void CastAbility()
+    void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Go Fireball");
+        if (other.gameObject.layer == 8)
+        {
+            Debug.Log("Hit Player");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
