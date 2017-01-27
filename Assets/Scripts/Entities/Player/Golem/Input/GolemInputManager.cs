@@ -56,21 +56,21 @@ public class GolemInputManager : MonoBehaviour
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2")) //Abilities
         {
-            golemPlayerController.UseAbility();
+            golemPlayerController.UseAbility(1);
         }
 
-        if (Input.GetAxisRaw("Ability2Player" + PlayerNumber + "Win") > 0) //Abilities
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 0"))
         {
-            Debug.Log("Use Ability 2");
+            golemPlayerController.UseAbility(2);
         }
 
-        if (Input.GetAxisRaw("Ability3Player" + PlayerNumber + "Win") > 0)
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1"))
         {
-            Debug.Log("Use Ability 3");
+            golemPlayerController.UseAbility(3);
         }
-  
+
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5")) //Basic Attack
         {
             Debug.Log("Making a Basic Attack!");

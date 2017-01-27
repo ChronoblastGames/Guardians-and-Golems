@@ -20,10 +20,8 @@ public class GolemPlayerController : GolemStats
 
     public bool isGrounded;
 
-    [Header("Debug")]
-    public GameObject fireBallTest;
-
-    public float fireballSpeed;
+    [Header("Debugging Values")]
+    public float playerCurrentVelocity;
 
 	void Start () 
     {
@@ -33,11 +31,13 @@ public class GolemPlayerController : GolemStats
 	void Update () 
     {
         GroundCheck();
+
+        GetVelocity();
 	}
 
     private void FixedUpdate()
     {
-        GatherPhysicsInput();
+        GatherInput();
     }
 
     void PlayerSetup()
@@ -47,7 +47,12 @@ public class GolemPlayerController : GolemStats
         playerRigidbody = GetComponent<Rigidbody>();
     }
 
-    void GatherPhysicsInput()
+    void GetVelocity()
+    {
+        playerCurrentVelocity = playerRigidbody.velocity.magnitude;
+    }
+
+    void GatherInput()
     {
         xAxis = golemInputManager.xAxis;
         zAxis = golemInputManager.zAxis;
@@ -79,14 +84,9 @@ public class GolemPlayerController : GolemStats
         transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * turnSpeed);
     }
 
-    public void UseAbility()
+    public void UseAbility(int abilityNumber)
     {
-        Vector3 forwardVec = transform.position + new Vector3(0, 0.5f, 0)  + transform.forward * 2;
-
-        Quaternion forwardRot = transform.rotation;
-
-        GameObject newFireball = Instantiate(fireBallTest, forwardVec, forwardRot) as GameObject;
-        newFireball.GetComponent<Rigidbody>().AddForce(newFireball.transform.forward * fireballSpeed * Time.deltaTime, ForceMode.Impulse);
+        Debug.Log("Using Ability " + abilityNumber);
     }
 
     void GroundCheck()

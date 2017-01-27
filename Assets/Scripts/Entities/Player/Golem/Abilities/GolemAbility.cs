@@ -8,12 +8,22 @@ public enum DamageType {
     EARTH
 }
 
+public enum AbilityType
+{
+    PROJECTILE,
+    STATIC,
+    ZONE,
+    BUFF,
+    DEBUFF,
+}
+
 public abstract class GolemAbility : MonoBehaviour
 {
     [Header("Ability Attributes")]
     public DamageType damageType;
 
     [Header("Range Attributes")]
+    public float projectileSpeed;
     public float spawnDistanceFromPlayer;
     public float rangeDistance;
 
@@ -30,11 +40,6 @@ public abstract class GolemAbility : MonoBehaviour
     public bool canDrainHealth;
     public bool canDrainMana;
     public bool canBlind;
-
-    public virtual void CastAbility()
-    {
-        Debug.Log("Base Method Called");
-    }
 
 }
 
