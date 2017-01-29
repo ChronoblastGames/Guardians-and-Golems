@@ -1498,17 +1498,17 @@ Prefab:
         type: 2}
       propertyPath: golemAbilities.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 384124005}
     - target: {fileID: 114687968665612454, guid: ddc4c4f3bd47ea14f9323df050c48035,
         type: 2}
       propertyPath: golemAbilities.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 449899820}
     - target: {fileID: 114687968665612454, guid: ddc4c4f3bd47ea14f9323df050c48035,
         type: 2}
       propertyPath: golemAbilities.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1049364047}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
   m_IsPrefabParent: 0
@@ -1575,6 +1575,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &384124003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 384124004}
+  - component: {fileID: 384124005}
+  m_Layer: 8
+  m_Name: Ability1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &384124004
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384124003}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 780184540}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &384124005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 384124003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 1021993608531872, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+  damageType: 0
+  projectileSpeed: 0
+  spawnDistanceFromPlayer: 2
+  rangeDistance: 0
+  isMelee: 0
+  isRanged: 0
+  healthCost: 0
+  manaCost: 0
+  canStun: 0
+  canSlow: 0
+  canDrainHealth: 0
+  canDrainMana: 0
+  canBlind: 0
 --- !u!43 &443781555
 Mesh:
   m_ObjectHideFlags: 0
@@ -1703,6 +1757,60 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1 &449899818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 449899819}
+  - component: {fileID: 449899820}
+  m_Layer: 8
+  m_Name: Ability2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &449899819
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449899818}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 780184540}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &449899820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 449899818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 1620794945978752, guid: f95bac51cf992e9429aaf91095bed8c6, type: 2}
+  damageType: 0
+  projectileSpeed: 0
+  spawnDistanceFromPlayer: 2
+  rangeDistance: 0
+  isMelee: 0
+  isRanged: 0
+  healthCost: 0
+  manaCost: 0
+  canStun: 0
+  canSlow: 0
+  canDrainHealth: 0
+  canDrainMana: 0
+  canBlind: 0
 --- !u!43 &537501106
 Mesh:
   m_ObjectHideFlags: 0
@@ -5048,6 +5156,37 @@ Projector:
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 0
+--- !u!1 &780184539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 780184540}
+  m_Layer: 8
+  m_Name: Abilities
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &780184540
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 780184539}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 384124004}
+  - {fileID: 449899819}
+  - {fileID: 1049364048}
+  m_Father: {fileID: 1088356425}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &780642185
 GameObject:
   m_ObjectHideFlags: 0
@@ -6599,6 +6738,65 @@ Transform:
   m_Father: {fileID: 154476360}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1049364046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1049364048}
+  - component: {fileID: 1049364047}
+  m_Layer: 8
+  m_Name: Ability3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1049364047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049364046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 1050789723168654, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+  damageType: 0
+  projectileSpeed: 0
+  spawnDistanceFromPlayer: 2
+  rangeDistance: 0
+  isMelee: 0
+  isRanged: 0
+  healthCost: 0
+  manaCost: 0
+  canStun: 0
+  canSlow: 0
+  canDrainHealth: 0
+  canDrainMana: 0
+  canBlind: 0
+--- !u!4 &1049364048
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1049364046}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 780184540}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1088356425 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4146735686368804, guid: ddc4c4f3bd47ea14f9323df050c48035,
+    type: 2}
+  m_PrefabInternal: {fileID: 302298393}
 --- !u!1 &1104370002
 GameObject:
   m_ObjectHideFlags: 0

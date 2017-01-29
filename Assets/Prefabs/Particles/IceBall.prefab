@@ -111,20 +111,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e06d515fbefff449d55c2f3ba303a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageType: 0
-  projectileSpeed: 0
+  ability: {fileID: 0}
+  damageType: 1
+  projectileSpeed: 900
   spawnDistanceFromPlayer: 0
   rangeDistance: 0
   isMelee: 0
-  isRanged: 0
+  isRanged: 1
   healthCost: 0
   manaCost: 0
   canStun: 0
-  canSlow: 0
+  canSlow: 1
   canDrainHealth: 0
   canDrainMana: 0
   canBlind: 0
-  projectileVisual: {fileID: 0}
 --- !u!198 &198939819845774052
 ParticleSystem:
   m_ObjectHideFlags: 1

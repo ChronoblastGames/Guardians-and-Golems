@@ -86,7 +86,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseAbility(int abilityNumber)
     {
-        Debug.Log("Using Ability " + abilityNumber);
+        golemAbilities[abilityNumber].CastAbility();
     }
 
     void GroundCheck()

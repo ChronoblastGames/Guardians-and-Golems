@@ -2,12 +2,9 @@
 using UnityEngine;
 
 [System.Serializable]
-public class Fireball_Ability : GolemAbility
+public class BaseProjectileAbility : GolemAbility
 {
     private Rigidbody myRB;
-
-    [Header("Projectile Attributes")]
-    public GameObject projectileVisual;
 
     private void Start()
     {

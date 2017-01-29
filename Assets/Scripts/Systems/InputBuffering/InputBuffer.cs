@@ -9,7 +9,7 @@ public class Command{
 
     }
 
-    virtual void Execute(){
+    public virtual void Execute(){
 
 
     }
@@ -30,8 +30,8 @@ public class InputBuffer : MonoBehaviour {
 		
 	}
 
-    Command BufferInput(){
+    /*Command BufferInput(){
 
-    }
+    }*/
     
 }

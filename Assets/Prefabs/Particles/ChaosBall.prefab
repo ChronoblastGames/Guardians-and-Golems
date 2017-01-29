@@ -111,20 +111,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e06d515fbefff449d55c2f3ba303a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageType: 0
+  ability: {fileID: 0}
+  damageType: 2
+  projectileSpeed: 750
   spawnDistanceFromPlayer: 0
   rangeDistance: 0
   isMelee: 0
-  isRanged: 0
+  isRanged: 1
   healthCost: 0
   manaCost: 0
-  canStun: 0
+  canStun: 1
   canSlow: 0
   canDrainHealth: 0
   canDrainMana: 0
   canBlind: 0
-  projectileVisual: {fileID: 0}
-  projectileSpeed: 0
 --- !u!198 &198914800997813368
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -180,7 +180,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -860067995
+  randomSeed: 1145318714
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -353,7 +353,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.007843138, a: 1}
+      maxColor: {r: 0.69803923, g: 0, b: 1, a: 1}
       minMaxState: 0
     startSize:
       scalar: 0.7
@@ -924,13 +924,13 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 4278255389
+          rgba: 4294901906
         key1:
           serializedVersion: 2
-          rgba: 4278255548
+          rgba: 4294901990
         key2:
           serializedVersion: 2
-          rgba: 494336
+          rgba: 9118464
         key3:
           serializedVersion: 2
           rgba: 69907
@@ -2556,7 +2556,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0.23921569, a: 1}
+      maxColor: {r: 1, g: 0, b: 0.92941177, a: 1}
       minMaxState: 0
     widthOverTrail:
       scalar: 1
@@ -2688,7 +2688,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.95686275, g: 1, b: 0.23529412, a: 1}
+      maxColor: {r: 0.5137255, g: 0.23529412, b: 1, a: 1}
       minMaxState: 0
 --- !u!199 &199363091758640868
 ParticleSystemRenderer:

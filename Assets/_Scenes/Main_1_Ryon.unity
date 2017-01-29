@@ -1498,7 +1498,7 @@ Prefab:
         type: 2}
       propertyPath: golemAbilities.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1247914743}
     - target: {fileID: 114687968665612454, guid: ddc4c4f3bd47ea14f9323df050c48035,
         type: 2}
       propertyPath: golemAbilities.Array.data[1]
@@ -1508,7 +1508,7 @@ Prefab:
         type: 2}
       propertyPath: golemAbilities.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1673176924}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
   m_IsPrefabParent: 0
@@ -6810,6 +6810,79 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1001 &1247914742
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4727194589111460, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727194589111460, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727194589111460, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727194589111460, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727194589111460, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727194589111460, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727194589111460, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727194589111460, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114623780431938116, guid: 87fa2970f1681774090c9c379b436eae,
+        type: 2}
+      propertyPath: damageType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114623780431938116, guid: 87fa2970f1681774090c9c379b436eae,
+        type: 2}
+      propertyPath: projectileSpeed
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114623780431938116, guid: 87fa2970f1681774090c9c379b436eae,
+        type: 2}
+      propertyPath: isRanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114623780431938116, guid: 87fa2970f1681774090c9c379b436eae,
+        type: 2}
+      propertyPath: manaCost
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114623780431938116, guid: 87fa2970f1681774090c9c379b436eae,
+        type: 2}
+      propertyPath: canDrainHealth
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1247914743 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114623780431938116, guid: 87fa2970f1681774090c9c379b436eae,
+    type: 2}
+  m_PrefabInternal: {fileID: 1247914742}
+  m_Script: {fileID: 11500000, guid: 53e06d515fbefff449d55c2f3ba303a2, type: 3}
 --- !u!1 &1413844178
 GameObject:
   m_ObjectHideFlags: 0
@@ -8696,6 +8769,79 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!1001 &1673176923
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4181442113115766, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181442113115766, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181442113115766, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181442113115766, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181442113115766, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181442113115766, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181442113115766, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181442113115766, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114143112802029514, guid: 11a99c0da55909248ab99725cb7c756d,
+        type: 2}
+      propertyPath: damageType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114143112802029514, guid: 11a99c0da55909248ab99725cb7c756d,
+        type: 2}
+      propertyPath: projectileSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114143112802029514, guid: 11a99c0da55909248ab99725cb7c756d,
+        type: 2}
+      propertyPath: isRanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114143112802029514, guid: 11a99c0da55909248ab99725cb7c756d,
+        type: 2}
+      propertyPath: manaCost
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114143112802029514, guid: 11a99c0da55909248ab99725cb7c756d,
+        type: 2}
+      propertyPath: canStun
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &1673176924 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114143112802029514, guid: 11a99c0da55909248ab99725cb7c756d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1673176923}
+  m_Script: {fileID: 11500000, guid: 53e06d515fbefff449d55c2f3ba303a2, type: 3}
 --- !u!1 &1712851405
 GameObject:
   m_ObjectHideFlags: 0
@@ -11433,7 +11579,7 @@ Prefab:
         type: 2}
       propertyPath: golemAbilities.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1247914743}
     - target: {fileID: 114661167342858524, guid: 61213060ec784814290c81661b6b24ec,
         type: 2}
       propertyPath: golemAbilities.Array.data[1]
@@ -11443,7 +11589,7 @@ Prefab:
         type: 2}
       propertyPath: golemAbilities.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1673176924}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61213060ec784814290c81661b6b24ec, type: 2}
   m_IsPrefabParent: 0

@@ -11,6 +11,7 @@ public class GolemInputManager : MonoBehaviour
     public KeyCode ABILITY_2;
     public KeyCode ABILITY_3;
     public KeyCode ABILITY_4;
+    public KeyCode LIGHT_ATTACK;
 
     [Header("Golem Input Variables")]
     public string PlayerName;
@@ -20,11 +21,6 @@ public class GolemInputManager : MonoBehaviour
     public float zAxis;
 
     public bool isUsingKeyBoard;
-
-    [Header("Input Axis Booleans")]
-    public bool isAbilityButton1Down;
-    public bool isAbilityButton2Down;
-    public bool isAbilityButton3Down;
 
     private void Start()
     {
@@ -56,22 +52,22 @@ public class GolemInputManager : MonoBehaviour
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2")) //Abilities
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2") || Input.GetKeyDown(ABILITY_1)) //Abilities
+        {
+            golemPlayerController.UseAbility(0);
+        }
+
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 0") || Input.GetKeyDown(ABILITY_2))
         {
             golemPlayerController.UseAbility(1);
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 0"))
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1") || Input.GetKeyDown(ABILITY_3))
         {
             golemPlayerController.UseAbility(2);
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1"))
-        {
-            golemPlayerController.UseAbility(3);
-        }
-
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5")) //Basic Attack
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
         {
             Debug.Log("Making a Basic Attack!");
         }
