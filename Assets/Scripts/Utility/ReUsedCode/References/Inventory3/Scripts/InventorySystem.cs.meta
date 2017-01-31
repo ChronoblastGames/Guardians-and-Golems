@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f60e53d58e83c4f05b6c4ed725685c5e
+timeCreated: 1480229196
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - inventorySlot: {fileID: 1000010879434520, guid: 5d53a61fcf318fb4b958a59781b17665,
+      type: 2}
+  - inventoryItem: {fileID: 1000013348708996, guid: 13c221ba6cd5d7d49b8f142a16636655,
+      type: 2}
+  executionOrder: 50
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

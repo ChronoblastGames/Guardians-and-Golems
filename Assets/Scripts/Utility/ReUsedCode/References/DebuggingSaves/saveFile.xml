@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<SceneData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SceneObjectDatas>
+    <SceneObjectData name="GameEngine" posX="0" posY="0" posZ="0" />
+    <SceneObjectData name="Cube (2)" posX="-2.96" posY="3.62" posZ="0" />
+    <SceneObjectData name="Cube (1)" posX="-1.67" posY="0" posZ="2.11" />
+    <SceneObjectData name="Cube" posX="1.17" posY="2.59" posZ="0" />
+    <SceneObjectData name="Directional Light" posX="0.78" posY="1.75" posZ="1.66" />
+    <SceneObjectData name="Main Camera" posX="0" posY="1" posZ="-10" />
+  </SceneObjectDatas>
+</SceneData>
