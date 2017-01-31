@@ -25,14 +25,29 @@ public class BaseProjectileAbility : GolemAbility
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.layer == 8)
+        if (belongsToPlayerRed)
         {
-            Debug.Log("Hit Player");
-            Destroy(gameObject);
+            if (other.gameObject.layer == 9)
+            {
+                Debug.Log("Hit Player");
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
-        else
+        else if (belongsToPlayerBlue)
         {
-            Destroy(gameObject);
-        }
+            if (other.gameObject.layer == 8)
+            {
+                Debug.Log("Hit Player");
+                Destroy(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }    
     }
 }

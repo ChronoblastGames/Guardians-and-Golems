@@ -22,6 +22,10 @@ public abstract class GolemAbility : MonoBehaviour
     [Header("Ability")]
     public GameObject ability;
 
+    [Header("Player Belonging")]
+    public bool belongsToPlayerRed;
+    public bool belongsToPlayerBlue;
+
     [Header("Ability Attributes")]
     public DamageType damageType;
 
@@ -45,7 +49,7 @@ public abstract class GolemAbility : MonoBehaviour
     public bool canBlind;
 
 
-    public virtual void CastAbility()
+    public virtual void CastAbility(Vector3 aimVec)
     {
 
     }

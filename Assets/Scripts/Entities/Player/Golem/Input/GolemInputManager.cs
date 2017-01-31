@@ -20,7 +20,10 @@ public class GolemInputManager : MonoBehaviour
     public float xAxis;
     public float zAxis;
 
-    public bool isUsingKeyboard;
+    public float aimXAxis;
+    public float zAimAxis;
+
+    private Vector3 aimVec;
 
     private void Start()
     {
@@ -30,6 +33,8 @@ public class GolemInputManager : MonoBehaviour
     private void Update()
     {
         GetInput();
+
+        CalculateAimVec();
     }
 
     void PlayerSetup()
@@ -39,57 +44,54 @@ public class GolemInputManager : MonoBehaviour
 
     void GetInput()
     {
-        if (!isUsingKeyboard)
-        {
-            xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
-            zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber);
-        }
-        else
-        {
-            xAxis = Input.GetAxis("Horizontal");
-            zAxis = Input.GetAxis("Vertical");
-        }
+        xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
+        zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber);
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2") || Input.GetKeyDown(ABILITY_1)) //Abilities
+        aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "Win");
+        zAimAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "Win");
+
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 4") || Input.GetKeyDown(ABILITY_1)) //Abilities
         {
-            golemPlayerController.UseAbility(0);
+            golemPlayerController.UseAbility(0, aimVec);
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 0") || Input.GetKeyDown(ABILITY_2))
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5") || Input.GetKeyDown(ABILITY_2))
         {
-            golemPlayerController.UseAbility(1);
+            golemPlayerController.UseAbility(1, aimVec);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1") || Input.GetKeyDown(ABILITY_3))
         {
-            golemPlayerController.UseAbility(2);
+            golemPlayerController.UseAbility(2, aimVec);
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
         {
             golemPlayerController.LightAttack();
         }
-
 
 #endif
 
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
 
-    if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18") || Input.GetKeyDown(ABILITY_1)) //Abilities
+        aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "OSX");
+        zAimAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "OSX");
+
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18") || Input.GetKeyDown(ABILITY_1)) //Abilities
         {
-            golemPlayerController.UseAbility(0);
+            golemPlayerController.UseAbility(0, aimVec);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 16") || Input.GetKeyDown(ABILITY_2))
         {
-            golemPlayerController.UseAbility(1);
+            golemPlayerController.UseAbility(1, aimVec);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 17") || Input.GetKeyDown(ABILITY_3))
         {
-            golemPlayerController.UseAbility(2);
+            golemPlayerController.UseAbility(2, aimVec);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
@@ -98,5 +100,18 @@ public class GolemInputManager : MonoBehaviour
         }
 
 #endif
+    }
+
+    void CalculateAimVec()
+    {
+        if (aimXAxis != 0 && zAimAxis != 0)
+        {
+            aimVec = new Vector3(aimXAxis, 0, zAimAxis);
+            aimVec.Normalize();
+        }
+        else
+        {
+            aimVec = Vector3.zero;
+        }     
     }
 }

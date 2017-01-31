@@ -84,9 +84,12 @@ public class GolemPlayerController : GolemStats
         transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * turnSpeed);
     }
 
-    public void UseAbility(int abilityNumber)
+    public void UseAbility(int abilityNumber, Vector3 aimVec)
     {
-        golemAbilities[abilityNumber].CastAbility();
+        if (aimVec != null && aimVec != Vector3.zero)
+        {
+            golemAbilities[abilityNumber].CastAbility(aimVec);
+        }
     }
 
     public void LightAttack()

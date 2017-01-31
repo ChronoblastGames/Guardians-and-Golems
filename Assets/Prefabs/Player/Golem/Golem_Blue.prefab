@@ -288,10 +288,11 @@ MonoBehaviour:
   ABILITY_4: 0
   LIGHT_ATTACK: 0
   PlayerName: Ryon
-  PlayerNumber: 4
+  PlayerNumber: 2
   xAxis: 0
   zAxis: 0
-  isUsingKeyBoard: 0
+  aimXAxis: 0
+  zAimAxis: 0
 --- !u!114 &114402319662572470
 MonoBehaviour:
   m_ObjectHideFlags: 1
