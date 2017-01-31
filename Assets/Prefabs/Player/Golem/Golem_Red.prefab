@@ -355,7 +355,7 @@ MonoBehaviour:
   ability: {fileID: 1050789723168654, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
   damageType: 0
   projectileSpeed: 0
-  spawnDistanceFromPlayer: 2
+  spawnDistanceFromPlayer: 1.75
   rangeDistance: 0
   isMelee: 0
   isRanged: 0
@@ -380,7 +380,7 @@ MonoBehaviour:
   ability: {fileID: 1620794945978752, guid: f95bac51cf992e9429aaf91095bed8c6, type: 2}
   damageType: 0
   projectileSpeed: 0
-  spawnDistanceFromPlayer: 2
+  spawnDistanceFromPlayer: 1.75
   rangeDistance: 0
   isMelee: 0
   isRanged: 0
@@ -409,9 +409,11 @@ MonoBehaviour:
   LIGHT_ATTACK: 0
   PlayerName: Matt
   PlayerNumber: 1
+  teamColor: Red
   xAxis: 0
   zAxis: 0
-  isUsingKeyBoard: 0
+  aimXAxis: 0
+  zAimAxis: 0
 --- !u!114 &114687968665612454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -428,7 +430,7 @@ MonoBehaviour:
   baseDefense: 0
   baseStability: 0
   baseMovementSpeed: 10
-  baseHealth: 0
+  baseHealth: 100
   baseMana: 0
   golemAbilities:
   - {fileID: 114958149694103686}
@@ -466,7 +468,7 @@ MonoBehaviour:
   ability: {fileID: 1021993608531872, guid: 87fa2970f1681774090c9c379b436eae, type: 2}
   damageType: 0
   projectileSpeed: 0
-  spawnDistanceFromPlayer: 2
+  spawnDistanceFromPlayer: 1.75
   rangeDistance: 0
   isMelee: 0
   isRanged: 0

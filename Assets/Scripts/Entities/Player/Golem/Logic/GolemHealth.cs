@@ -62,6 +62,11 @@ public class GolemHealth : MonoBehaviour
     {
         //Debug I should be stunned
     }
+
+    void Die()
+    {
+        Debug.Log("I died " + gameObject.name);
+    }
 }
 
 public enum HealthStatus

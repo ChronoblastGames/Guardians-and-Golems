@@ -22,12 +22,9 @@ public abstract class GolemAbility : MonoBehaviour
     [Header("Ability")]
     public GameObject ability;
 
-    [Header("Player Belonging")]
-    public bool belongsToPlayerRed;
-    public bool belongsToPlayerBlue;
-
-    [Header("Ability Attributes")]
+    [Header("Damage Attributes")]
     public DamageType damageType;
+    public float damageAmount;
 
     [Header("Range Attributes")]
     public float projectileSpeed;
@@ -49,9 +46,9 @@ public abstract class GolemAbility : MonoBehaviour
     public bool canBlind;
 
 
-    public virtual void CastAbility(Vector3 aimVec)
+    public virtual void CastAbility(Vector3 aimVec, string teamColor)
     {
-
+        Debug.Log("Base Ability Cast, should have been overriden");
     }
 }
 

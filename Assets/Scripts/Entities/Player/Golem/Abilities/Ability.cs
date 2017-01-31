@@ -3,22 +3,19 @@ using UnityEngine;
 
 public class Ability : GolemAbility 
 {
-    public override void CastAbility(Vector3 aimVec)
+    public override void CastAbility(Vector3 aimVec, string teamColor)
     {
         Quaternion newRotation = Quaternion.LookRotation(aimVec);
 
-        GameObject newAbility = Instantiate(ability, transform.position + aimVec * spawnDistanceFromPlayer + new Vector3(0, 1, 0), newRotation) as GameObject;
+        GameObject newAbility = Instantiate(ability, transform.position + new Vector3(0, 1, 0), newRotation) as GameObject;
         
-        if (newAbility.GetComponent<BaseProjectileAbility>())
+        if (teamColor == "Red")
         {
-            if (belongsToPlayerRed)
-            {
-                newAbility.GetComponent<BaseProjectileAbility>().belongsToPlayerRed = true;
-            }
-            else if (belongsToPlayerBlue)
-            {
-                newAbility.GetComponent<BaseProjectileAbility>().belongsToPlayerBlue = true;
-            }
+            newAbility.layer = 11;
+        }
+        else if (teamColor == "Blue")
+        {
+            newAbility.layer = 12;
         }
     }
 }

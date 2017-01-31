@@ -16,6 +16,7 @@ public class GolemInputManager : MonoBehaviour
     [Header("Golem Input Variables")]
     public string PlayerName;
     public string PlayerNumber;
+    public string teamColor;
 
     public float xAxis;
     public float zAxis;
@@ -54,17 +55,17 @@ public class GolemInputManager : MonoBehaviour
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 4") || Input.GetKeyDown(ABILITY_1)) //Abilities
         {
-            golemPlayerController.UseAbility(0, aimVec);
+            golemPlayerController.UseAbility(0, aimVec, teamColor);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5") || Input.GetKeyDown(ABILITY_2))
         {
-            golemPlayerController.UseAbility(1, aimVec);
+            golemPlayerController.UseAbility(1, aimVec, teamColor);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1") || Input.GetKeyDown(ABILITY_3))
         {
-            golemPlayerController.UseAbility(2, aimVec);
+            golemPlayerController.UseAbility(2, aimVec, teamColor);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
@@ -81,17 +82,17 @@ public class GolemInputManager : MonoBehaviour
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18") || Input.GetKeyDown(ABILITY_1)) //Abilities
         {
-            golemPlayerController.UseAbility(0, aimVec);
+            golemPlayerController.UseAbility(0, aimVec, teamColor);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 16") || Input.GetKeyDown(ABILITY_2))
         {
-            golemPlayerController.UseAbility(1, aimVec);
+            golemPlayerController.UseAbility(1, aimVec, teamColor);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 17") || Input.GetKeyDown(ABILITY_3))
         {
-            golemPlayerController.UseAbility(2, aimVec);
+            golemPlayerController.UseAbility(2, aimVec, teamColor);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
@@ -104,7 +105,7 @@ public class GolemInputManager : MonoBehaviour
 
     void CalculateAimVec()
     {
-        if (aimXAxis != 0 && zAimAxis != 0)
+        if (aimXAxis != 0 || zAimAxis != 0)
         {
             aimVec = new Vector3(aimXAxis, 0, zAimAxis);
             aimVec.Normalize();

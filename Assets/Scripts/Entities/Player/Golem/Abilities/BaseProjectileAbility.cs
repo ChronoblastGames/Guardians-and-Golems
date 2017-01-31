@@ -6,6 +6,9 @@ public class BaseProjectileAbility : GolemAbility
 {
     private Rigidbody myRB;
 
+    public bool belongsToRed;
+    public bool belongsToBlue;
+
     private void Start()
     {
         FireballSetup();
@@ -15,7 +18,7 @@ public class BaseProjectileAbility : GolemAbility
 
     void FireballSetup()
     {
-        myRB = GetComponent<Rigidbody>();
+        myRB = GetComponent<Rigidbody>();       
     }
 
     void UseAbility()
@@ -25,29 +28,14 @@ public class BaseProjectileAbility : GolemAbility
 
     void OnCollisionEnter(Collision other)
     {
-        if (belongsToPlayerRed)
+        if (other.gameObject.CompareTag("Player"))
         {
-            if (other.gameObject.layer == 9)
-            {
-                Debug.Log("Hit Player");
-                Destroy(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+            other.gameObject.GetComponent<GolemHealth>().TakeDamage(damageAmount);
+            Destroy(gameObject);
         }
-        else if (belongsToPlayerBlue)
+        else
         {
-            if (other.gameObject.layer == 8)
-            {
-                Debug.Log("Hit Player");
-                Destroy(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }    
+            Destroy(gameObject);
+        }
     }
 }
