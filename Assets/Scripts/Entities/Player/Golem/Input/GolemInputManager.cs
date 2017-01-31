@@ -20,7 +20,7 @@ public class GolemInputManager : MonoBehaviour
     public float xAxis;
     public float zAxis;
 
-    public bool isUsingKeyBoard;
+    public bool isUsingKeyboard;
 
     private void Start()
     {
@@ -39,7 +39,7 @@ public class GolemInputManager : MonoBehaviour
 
     void GetInput()
     {
-        if (!isUsingKeyBoard)
+        if (!isUsingKeyboard)
         {
             xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber);
             zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber);
@@ -69,7 +69,7 @@ public class GolemInputManager : MonoBehaviour
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
         {
-            Debug.Log("Making a Basic Attack!");
+            golemPlayerController.LightAttack();
         }
 
 
@@ -77,19 +77,24 @@ public class GolemInputManager : MonoBehaviour
 
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
 
-        if (Input.GetAxisRaw("Ability1Player" + PlayerNumber + "OSX") > 0)
+    if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18") || Input.GetKeyDown(ABILITY_1)) //Abilities
         {
-            Debug.Log("Use Ability 1");
+            golemPlayerController.UseAbility(0);
         }
 
-        if (Input.GetAxisRaw("Ability2Player" + PlayerNumber + "OSX") > 0)
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 16") || Input.GetKeyDown(ABILITY_2))
         {
-            Debug.Log("Use Ability 2");
+            golemPlayerController.UseAbility(1);
         }
 
-        if (Input.GetAxisRaw("Ability3Player" + PlayerNumber + "OSX") > 0)
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 17") || Input.GetKeyDown(ABILITY_3))
         {
-            Debug.Log("Use Ability 3");
+            golemPlayerController.UseAbility(2);
+        }
+
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
+        {
+            Debug.Log("Making a Basic Attack!");
         }
 
 #endif

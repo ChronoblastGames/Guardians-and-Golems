@@ -257,7 +257,7 @@ Transform:
   - {fileID: 1907117913}
   - {fileID: 984473824}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &156203850
 GameObject:
@@ -1369,87 +1369,6 @@ Transform:
   m_Father: {fileID: 154476360}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
---- !u!1 &228174554
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 228174555}
-  - component: {fileID: 228174556}
-  - component: {fileID: 228174558}
-  - component: {fileID: 228174557}
-  m_Layer: 0
-  m_Name: God
-  m_TagString: God
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &228174555
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 228174554}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13, z: -17}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 709692554}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &228174556
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 228174554}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 4
-  m_CollisionDetection: 0
---- !u!114 &228174557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 228174554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9f4735c0e1e7a041bd176a993b9cf61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  baseMovementSpeed: 15
-  maxHealth: 0
-  maxMana: 0
-  controlType: 1
---- !u!114 &228174558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 228174554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ABILITY_1: 0
-  ABILITY_2: 0
-  ABILITY_3: 0
-  ABILITY_4: 0
-  PlayerName: 
-  PlayerNumber: 2
-  xAxis: 0
-  zAxis: 0
 --- !u!1001 &302298393
 Prefab:
   m_ObjectHideFlags: 0
@@ -1457,11 +1376,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114687968665612454, guid: ddc4c4f3bd47ea14f9323df050c48035,
-        type: 2}
-      propertyPath: golemAbilities.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4146735686368804, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
       propertyPath: m_LocalPosition.x
       value: 32
@@ -1492,22 +1406,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4146735686368804, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
       propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114687968665612454, guid: ddc4c4f3bd47ea14f9323df050c48035,
-        type: 2}
-      propertyPath: golemAbilities.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114687968665612454, guid: ddc4c4f3bd47ea14f9323df050c48035,
-        type: 2}
-      propertyPath: golemAbilities.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114687968665612454, guid: ddc4c4f3bd47ea14f9323df050c48035,
-        type: 2}
-      propertyPath: golemAbilities.Array.data[2]
-      value: 
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
@@ -4966,88 +4865,6 @@ Transform:
   m_Father: {fileID: 154476360}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &709692553
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 709692554}
-  - component: {fileID: 709692555}
-  - component: {fileID: 709692556}
-  m_Layer: 0
-  m_Name: RayOfLight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &709692554
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 709692553}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 6.5, z: 0.86}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 228174555}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!108 &709692555
-Light:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 709692553}
-  m_Enabled: 1
-  serializedVersion: 7
-  m_Type: 0
-  m_Color: {r: 1, g: 0.10344829, b: 0, a: 1}
-  m_Intensity: 8
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 8
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!119 &709692556
-Projector:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 709692553}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_NearClipPlane: 0.1
-  m_FarClipPlane: 100
-  m_FieldOfView: 10
-  m_AspectRatio: 1
-  m_Orthographic: 1
-  m_OrthographicSize: 8
-  m_Material: {fileID: 2100000, guid: c8c80c5b03f5c7e40b07eb2170e667e5, type: 2}
-  m_IgnoreLayers:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &780642185
 GameObject:
   m_ObjectHideFlags: 0
@@ -5643,7 +5460,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &856735501
 MonoBehaviour:
@@ -11368,11 +11185,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114661167342858524, guid: 61213060ec784814290c81661b6b24ec,
-        type: 2}
-      propertyPath: golemAbilities.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4993012182431594, guid: 61213060ec784814290c81661b6b24ec, type: 2}
       propertyPath: m_LocalPosition.x
       value: -13
@@ -11403,46 +11215,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4993012182431594, guid: 61213060ec784814290c81661b6b24ec, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114087576235368158, guid: 61213060ec784814290c81661b6b24ec,
         type: 2}
       propertyPath: PlayerNumber
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 114661167342858524, guid: 61213060ec784814290c81661b6b24ec,
-        type: 2}
-      propertyPath: fireballSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114661167342858524, guid: 61213060ec784814290c81661b6b24ec,
-        type: 2}
-      propertyPath: turnSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1753350724339058, guid: 61213060ec784814290c81661b6b24ec, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114661167342858524, guid: 61213060ec784814290c81661b6b24ec,
-        type: 2}
-      propertyPath: baseMovementSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114661167342858524, guid: 61213060ec784814290c81661b6b24ec,
-        type: 2}
-      propertyPath: golemAbilities.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114661167342858524, guid: 61213060ec784814290c81661b6b24ec,
-        type: 2}
-      propertyPath: golemAbilities.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114661167342858524, guid: 61213060ec784814290c81661b6b24ec,
-        type: 2}
-      propertyPath: golemAbilities.Array.data[2]
-      value: 
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61213060ec784814290c81661b6b24ec, type: 2}

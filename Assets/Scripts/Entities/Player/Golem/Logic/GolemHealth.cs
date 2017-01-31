@@ -57,6 +57,11 @@ public class GolemHealth : MonoBehaviour
     {
         //Logic 
     }
+
+    public void GetStunned()
+    {
+        //Debug I should be stunned
+    }
 }
 
 public enum HealthStatus

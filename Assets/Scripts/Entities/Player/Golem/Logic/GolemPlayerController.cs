@@ -89,6 +89,11 @@ public class GolemPlayerController : GolemStats
         golemAbilities[abilityNumber].CastAbility();
     }
 
+    public void LightAttack()
+    {
+        Debug.Log("Making a Light Attack");
+    }
+
     void GroundCheck()
     {
         if (Physics.Raycast(transform.position, Vector3.down, groundCheckLength))
