@@ -41,7 +41,7 @@ public class GolemInputManager : MonoBehaviour
 
     void PlayerSetup()
     {
-        golemPlayerController = GetComponent<GolemPlayerController>();
+        golemPlayerController = GetComponent<GolemPlayerController>();    
     }
 
     void GetInput()
@@ -69,9 +69,9 @@ public class GolemInputManager : MonoBehaviour
             golemPlayerController.Dodge();
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
         {
-            golemPlayerController.LightAttack();
+            golemPlayerController.UseQuickAttack();
         }
 
 #endif
@@ -81,12 +81,12 @@ public class GolemInputManager : MonoBehaviour
         aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "OSX");
         zAimAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "OSX");
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18") || Input.GetKeyDown(ABILITY_1)) //Abilities
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(ABILITY_1)) //Abilities
         {
             golemPlayerController.UseAbility(0, aimVec, teamColor);
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 16") || Input.GetKeyDown(ABILITY_2))
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(ABILITY_2))
         {
             golemPlayerController.UseAbility(1, aimVec, teamColor);
         }
@@ -96,9 +96,9 @@ public class GolemInputManager : MonoBehaviour
             golemPlayerController.UseAbility(2, aimVec, teamColor);
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
         {
-            Debug.Log("Making a Basic Attack!");
+            golemPlayerController.UseQuickAttack();
         }
 
 #endif

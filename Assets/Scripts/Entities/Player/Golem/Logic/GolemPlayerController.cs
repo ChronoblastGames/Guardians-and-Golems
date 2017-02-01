@@ -6,6 +6,7 @@ using UnityEngine;
 public class GolemPlayerController : GolemStats 
 {
     private GolemInputManager golemInputManager;
+    private GolemBaseWeapon golemBaseWeapon;
 
     private Rigidbody playerRigidbody;
 
@@ -43,6 +44,8 @@ public class GolemPlayerController : GolemStats
     void PlayerSetup()
     {
         golemInputManager = GetComponent<GolemInputManager>();
+
+        golemBaseWeapon = GetComponent<GolemBaseWeapon>();
 
         playerRigidbody = GetComponent<Rigidbody>();
     }
@@ -99,9 +102,9 @@ public class GolemPlayerController : GolemStats
         }
     }
 
-    public void LightAttack()
+    public void UseQuickAttack()
     {
-        Debug.Log("Making a Light Attack");
+        golemBaseWeapon.QuickAttack();
     }
 
     public void Dodge()

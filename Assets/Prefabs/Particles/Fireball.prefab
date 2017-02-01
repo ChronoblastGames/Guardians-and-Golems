@@ -113,7 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 0}
   damageType: 0
-  projectileSpeed: 800
+  damageAmount: 0
+  projectileSpeed: 1000
   spawnDistanceFromPlayer: 0
   rangeDistance: 0
   isMelee: 0
@@ -125,6 +126,8 @@ MonoBehaviour:
   canDrainHealth: 1
   canDrainMana: 0
   canBlind: 0
+  belongsToRed: 0
+  belongsToBlue: 0
 --- !u!198 &198993091849021608
 ParticleSystem:
   m_ObjectHideFlags: 1
