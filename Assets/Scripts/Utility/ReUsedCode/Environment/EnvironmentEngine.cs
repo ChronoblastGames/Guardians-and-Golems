@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Environment : MonoBehaviour {
 
-    public State n_EngineState;
+    public BasicState n_EngineState;
     public BasicStateEngine narrativeStateEngine = new BasicStateEngine();
 
     // Use this for initialization

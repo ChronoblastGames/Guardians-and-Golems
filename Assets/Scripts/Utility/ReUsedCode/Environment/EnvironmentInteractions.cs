@@ -9,7 +9,7 @@ public class EnvironmentInteractions : MonoBehaviour {
 	public GameObject[] mastersList;
 	public GameObject masterToUse;
 	public GameObject uiMaster;
-	public State stateToSet;
+	public BasicState stateToSet;
 	public Objective objectiveToSet;
 	public int narrativeLayer;
 	public string narrativeKey;

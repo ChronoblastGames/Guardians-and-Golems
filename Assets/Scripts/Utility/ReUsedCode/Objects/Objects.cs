@@ -5,7 +5,7 @@ public class Objects : MonoBehaviour
 {
     //made these public so that the inventorySystem can use them
     public BasicItem objectVal = new BasicItem();
-    public State objectState = new State();
+    public BasicState objectState = new BasicState(0, "");
     private Spawner spawn = new Spawner();
 
     public void DestroyGameObject(GameObject p_GameObjectInstance)

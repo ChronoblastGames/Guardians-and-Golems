@@ -5825,7 +5825,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh10808
+  m_Name: pb_Mesh10810
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -9106,7 +9106,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh10888
+  m_Name: pb_Mesh10914
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -9313,7 +9313,7 @@ GameObject:
   - component: {fileID: 1691123172}
   m_Layer: 0
   m_Name: GlobalVariables
-  m_TagString: Untagged
+  m_TagString: Variable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9329,7 +9329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4d99a915c503472d8c7f5f09395fe89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellOrbCoolDown: 2
+  spellOrbCoolDown: 10
   abilityCoolDown: 2
   spawnDelayTimer: 2
 --- !u!4 &1691123173
@@ -12152,6 +12152,26 @@ Transform:
   m_PrefabParentObject: {fileID: 4732066362584348, guid: cdcf5413a134942f983e38aaed0d7eb4,
     type: 2}
   m_PrefabInternal: {fileID: 1225418482}
+--- !u!1 &2103899921 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1594725580111582, guid: cdcf5413a134942f983e38aaed0d7eb4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1225418482}
+--- !u!114 &2103899922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2103899921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9da561f42caaf44b7a0d312a697d69f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellSpawn: {fileID: 0}
+  user: 1
+  cdGlobal: 3
+  canAbility: 1
 --- !u!43 &2139404834
 Mesh:
   m_ObjectHideFlags: 0
@@ -12285,7 +12305,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh10750
+  m_Name: pb_Mesh10744
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2

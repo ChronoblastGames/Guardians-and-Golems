@@ -8,7 +8,11 @@ public class BasicState {
 	public float timeMarker;
 	public float timeOfOnset;
     //public 
-    public BasicState() { }
+	public BasicState(int id, string p_stateName) {
+		stateID = id;
+		stateName = p_stateName;
+		MarkTime ();
+	}
 
         //Will use for future implementation, for editor use, it will be emptied
 	//public BasicState(int p_stateID , string p_stateName, float timeStart = 0){
