@@ -104,6 +104,11 @@ public class GolemPlayerController : GolemStats
         Debug.Log("Making a Light Attack");
     }
 
+    public void Dodge()
+    {
+        playerRigidbody.AddForce(transform.forward * dodgeStrength, ForceMode.Impulse);
+    }
+
     void GroundCheck()
     {
         if (Physics.Raycast(transform.position, Vector3.down, groundCheckLength))

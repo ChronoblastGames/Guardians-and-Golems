@@ -9,11 +9,15 @@ public class BaseProjectileAbility : GolemAbility
     public bool belongsToRed;
     public bool belongsToBlue;
 
+    GameObject trail;
+
     private void Start()
     {
         FireballSetup();
 
         UseAbility();
+
+        trail = transform.GetChild(0).gameObject;
     }
 
     void FireballSetup()
@@ -31,11 +35,24 @@ public class BaseProjectileAbility : GolemAbility
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<GolemHealth>().TakeDamage(damageAmount);
-            Destroy(gameObject);
+            HideSelf();
         }
         else
         {
-            Destroy(gameObject);
+            HideSelf();       
         }
+    }
+
+    public void HideSelf ()
+    {
+       trail.transform.parent = null;
+       gameObject.SetActive(false);
+       Invoke("DestroyTrail", 1);
+    }
+
+    public void DestroyTrail ()
+    {
+        Destroy(trail);
+        Destroy(gameObject);
     }
 }

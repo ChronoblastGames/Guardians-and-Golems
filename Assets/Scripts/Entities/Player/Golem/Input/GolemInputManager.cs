@@ -12,6 +12,7 @@ public class GolemInputManager : MonoBehaviour
     public KeyCode ABILITY_3;
     public KeyCode ABILITY_4;
     public KeyCode LIGHT_ATTACK;
+    public KeyCode DODGE;
 
     [Header("Golem Input Variables")]
     public string PlayerName;
@@ -22,7 +23,7 @@ public class GolemInputManager : MonoBehaviour
     public float zAxis;
 
     public float aimXAxis;
-    public float zAimAxis;
+    public float aimZAxis;
 
     private Vector3 aimVec;
 
@@ -51,7 +52,7 @@ public class GolemInputManager : MonoBehaviour
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 
         aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "Win");
-        zAimAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "Win");
+        aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "Win");
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 4") || Input.GetKeyDown(ABILITY_1)) //Abilities
         {
@@ -65,7 +66,7 @@ public class GolemInputManager : MonoBehaviour
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1") || Input.GetKeyDown(ABILITY_3))
         {
-            golemPlayerController.UseAbility(2, aimVec, teamColor);
+            golemPlayerController.Dodge();
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
@@ -105,9 +106,9 @@ public class GolemInputManager : MonoBehaviour
 
     void CalculateAimVec()
     {
-        if (aimXAxis != 0 || zAimAxis != 0)
+        if (aimXAxis != 0 || aimZAxis != 0)
         {
-            aimVec = new Vector3(aimXAxis, 0, zAimAxis);
+            aimVec = new Vector3(aimXAxis, 0, aimZAxis);
             aimVec.Normalize();
         }
         else
