@@ -1447,7 +1447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &228174555
 Transform:
   m_ObjectHideFlags: 0
@@ -1901,7 +1901,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4732066362584348, guid: cdcf5413a134942f983e38aaed0d7eb4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.408106
+      value: 9.8
       objectReference: {fileID: 0}
     - target: {fileID: 4732066362584348, guid: cdcf5413a134942f983e38aaed0d7eb4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -7084,7 +7084,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4732066362584348, guid: cdcf5413a134942f983e38aaed0d7eb4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 11.408106
+      value: 10.1
       objectReference: {fileID: 0}
     - target: {fileID: 4732066362584348, guid: cdcf5413a134942f983e38aaed0d7eb4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -11292,7 +11292,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4732066362584348, guid: cdcf5413a134942f983e38aaed0d7eb4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.9
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 4732066362584348, guid: cdcf5413a134942f983e38aaed0d7eb4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -12285,7 +12285,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh10548
+  m_Name: pb_Mesh10750
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
