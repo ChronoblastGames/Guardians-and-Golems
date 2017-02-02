@@ -30,6 +30,15 @@ public class BaseProjectileAbility : GolemAbility
         myRB.AddForce(transform.forward * projectileSpeed * Time.deltaTime, ForceMode.Impulse);
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<GolemHealth>().TakeDamage(damageAmount);
+            HideSelf();
+        }
+    }
+
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
