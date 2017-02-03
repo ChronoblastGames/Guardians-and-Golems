@@ -79,7 +79,7 @@ public class GolemInputManager : MonoBehaviour
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
 
         aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "OSX");
-        zAimAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "OSX");
+        aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "OSX");
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(ABILITY_1)) //Abilities
         {

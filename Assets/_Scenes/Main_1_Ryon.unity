@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5078,6 +5078,48 @@ Transform:
   m_Father: {fileID: 154476360}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &708863721
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4821145201164222, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.1171875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821145201164222, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 11.408203
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821145201164222, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -11.676025
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821145201164222, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821145201164222, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821145201164222, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821145201164222, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4821145201164222, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &709692553
 GameObject:
   m_ObjectHideFlags: 0
@@ -9302,49 +9344,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1673176923}
   m_Script: {fileID: 11500000, guid: 53e06d515fbefff449d55c2f3ba303a2, type: 3}
---- !u!1 &1691123171
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1691123173}
-  - component: {fileID: 1691123172}
-  m_Layer: 0
-  m_Name: GlobalVariables
-  m_TagString: Variable
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1691123172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1691123171}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4d99a915c503472d8c7f5f09395fe89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellOrbCoolDown: 10
-  abilityCoolDown: 2
-  spawnDelayTimer: 2
---- !u!4 &1691123173
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1691123171}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.1171875, y: 11.408203, z: -11.676025}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1712851405
 GameObject:
   m_ObjectHideFlags: 0

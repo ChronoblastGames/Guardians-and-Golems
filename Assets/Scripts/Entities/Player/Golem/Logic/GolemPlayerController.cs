@@ -24,6 +24,15 @@ public class GolemPlayerController : GolemStats
     [Header("Debugging Values")]
     public float playerCurrentVelocity;
 
+	private BasicCooldown cdAbility;
+
+	[Header("CoolDowns")]
+	//[SerializeField]
+	private float cdGlobal;
+	//[SerializeField]
+	private float cdEXT;
+
+
 	void Start () 
     {
         PlayerSetup();
@@ -43,6 +52,10 @@ public class GolemPlayerController : GolemStats
 
     void PlayerSetup()
     {
+		cdAbility = new BasicCooldown ();
+		cdGlobal = GameObject.FindGameObjectWithTag ("Variable").GetComponent<GeneralVariables> ().abilityCoolDown;
+		cdAbility.cdTime = cdGlobal;
+		Debug.Log (cdAbility.cdStateEngine.currentState.stateName);
         golemInputManager = GetComponent<GolemInputManager>();
 
         golemBaseWeapon = GetComponent<GolemBaseWeapon>();
@@ -89,7 +102,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, string teamColor)
     {
-        if (aimVec != null)
+		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
         {
             if (aimVec != Vector3.zero)
             {

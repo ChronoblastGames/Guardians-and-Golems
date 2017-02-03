@@ -30,9 +30,10 @@ public class BasicCooldown{
 		possibleStates = new BasicState[4];
 		SetUpStateArray (possibleStates);
 		cdTimer = new BasicTimer (0);
-		Debug.Log (possibleStates[2].stateName);
-		Debug.Log(cdStateEngine.currentState);
+		//Debug.Log (possibleStates[2].stateName);
+
 		cdStateEngine.SetState(possibleStates[2]);
+		//Debug.Log(cdStateEngine.currentState.stateName);
 	}
 	//lolrofldoofus fix to call coroutines that can stop remotely
 	public void ResetCD(){
@@ -43,10 +44,10 @@ public class BasicCooldown{
 	{
 //		cdTimer.ResetTimer (cdTime);
 		cdStateEngine.SetState (possibleStates [1]);
-		Debug.Log(cdTime + " is the time in seconds to wait: Waiting for TimerIsDoneToBeTrue... the time is " +Time.time );
+		//Debug.Log(cdTime + " is the time in seconds to wait: Waiting for TimerIsDoneToBeTrue... the time is " +Time.time );
 		yield return new WaitForSeconds (cdTime);
 //		yield return new WaitUntil(() => cdTimer.TimerIsDone());
-		Debug.Log("TimerIsDone state set to ready " + Time.time);
+		//Debug.Log("TimerIsDone state set to ready " + Time.time);
 		cdStateEngine.SetState (possibleStates [2]);
 	}
 
