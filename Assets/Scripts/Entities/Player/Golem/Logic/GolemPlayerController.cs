@@ -55,7 +55,7 @@ public class GolemPlayerController : GolemStats
 		cdAbility = new BasicCooldown ();
 		cdGlobal = GameObject.FindGameObjectWithTag ("Variable").GetComponent<GeneralVariables> ().abilityCoolDown;
 		cdAbility.cdTime = cdGlobal;
-		Debug.Log (cdAbility.cdStateEngine.currentState.stateName);
+		//Debug.Log (cdAbility.cdStateEngine.currentState.stateName);
         golemInputManager = GetComponent<GolemInputManager>();
 
         golemBaseWeapon = GetComponent<GolemBaseWeapon>();

@@ -178,7 +178,7 @@ MonoBehaviour:
   ability: {fileID: 0}
   damageType: 1
   damageAmount: 0
-  projectileSpeed: 1250
+  projectileSpeed: 2500
   spawnDistanceFromPlayer: 0
   rangeDistance: 0
   isMelee: 0

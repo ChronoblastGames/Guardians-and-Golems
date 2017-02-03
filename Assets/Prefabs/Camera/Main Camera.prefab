@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 92315453033161182}
   - component: {fileID: 124968744017458806}
   - component: {fileID: 81925376453290116}
-  - component: {fileID: 114956419835115752}
+  - component: {fileID: 114319148017339224}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -37,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377356808292948}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10, y: 50, z: -16}
+  m_LocalRotation: {x: 0.4999999, y: -0, z: -0, w: 0.8660255}
+  m_LocalPosition: {x: 10, y: 48, z: -42.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60.000004, y: 0, z: 0}
 --- !u!20 &20323717071377634
 Camera:
   m_ObjectHideFlags: 1
@@ -92,7 +92,7 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1377356808292948}
   m_Enabled: 1
---- !u!114 &114956419835115752
+--- !u!114 &114319148017339224
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -103,28 +103,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50e925fb93c78246bf995d9dc3a2330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 5
+  type: 3
   adaptiveTextureSize: 256
   remapCurve:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 2
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - serializedVersion: 2
-      time: 2
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
+    m_Curve: []
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   exposureAdjustment: 1.5
-  middleGrey: 1.15
+  middleGrey: 1
   white: 2
   adaptionSpeed: 1.5
   tonemapper: {fileID: 4800000, guid: 003377fc2620a44939dadde6fe3f8190, type: 3}

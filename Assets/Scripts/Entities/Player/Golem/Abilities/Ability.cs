@@ -7,7 +7,7 @@ public class Ability : GolemAbility
     {
         Quaternion newRotation = Quaternion.LookRotation(aimVec);
 
-        GameObject newAbility = Instantiate(ability, transform.position + new Vector3(0, 1, 0), newRotation) as GameObject;
+        GameObject newAbility = Instantiate(ability, transform.position, newRotation) as GameObject;
         
         if (teamColor == "Red")
         {
