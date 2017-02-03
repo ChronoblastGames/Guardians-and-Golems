@@ -148,7 +148,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh10838
+  m_Name: pb_Mesh13590
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -1598,7 +1598,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 1
-  m_Color: {r: 0.61294883, g: 0.40268162, b: 0.97794116, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.81
   m_Range: 10
   m_SpotAngle: 30
@@ -1641,7 +1641,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh10852
+  m_Name: pb_Mesh13604
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -9148,7 +9148,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh10914
+  m_Name: pb_Mesh13644
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -12304,7 +12304,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh10744
+  m_Name: pb_Mesh13478
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
