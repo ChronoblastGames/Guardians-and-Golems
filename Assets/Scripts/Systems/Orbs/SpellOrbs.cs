@@ -13,14 +13,11 @@ public class SpellOrbs : MonoBehaviour {
 	public bool canAbility;
 	private BasicCooldown cd;
 
-
-
-
 	// Use this for initialization
 	void Awake () {
 		cd = new BasicCooldown ();
 		spellSpawn = this.transform;
-		cdGlobal = GameObject.FindGameObjectWithTag ("Variable").GetComponent<GeneralVariables> ().spellOrbCoolDown;
+        cdGlobal = GameObject.FindObjectOfType<GeneralVariables>().spellOrbCoolDown;
 		//IEnumerator cdOrbReset = cd.RestartCoolDownCoroutine();
 		cd.cdTime = cdGlobal;
 		//TriggerCoolDown ("globalCD");

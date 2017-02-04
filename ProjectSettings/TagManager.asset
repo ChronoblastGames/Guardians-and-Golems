@@ -18,10 +18,10 @@ TagManager:
   - GolemRed
   - GolemBlue
   - Walls
-  - AbilitiesPlayerRed
-  - AbilitiesPlayerBlue
-  - MeleeGolemRed
-  - MeleeGolemBlue
+  - AbilitiesRed
+  - AbilitiesBlue
+  - MeleeRed
+  - MeleeBlue
   - 
   - 
   - 

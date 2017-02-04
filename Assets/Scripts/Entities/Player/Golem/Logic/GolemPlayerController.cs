@@ -7,6 +7,7 @@ public class GolemPlayerController : GolemStats
 {
     private GolemInputManager golemInputManager;
     private GolemBaseWeapon golemBaseWeapon;
+    private GolemCombatStateMachine golemCombatStateMachine;
 
     private Rigidbody playerRigidbody;
 
@@ -53,9 +54,13 @@ public class GolemPlayerController : GolemStats
     void PlayerSetup()
     {
 		cdAbility = new BasicCooldown ();
-		cdGlobal = GameObject.FindGameObjectWithTag ("Variable").GetComponent<GeneralVariables> ().abilityCoolDown;
+
+        cdGlobal = GameObject.FindObjectOfType<GeneralVariables>().abilityCoolDown;
+
 		cdAbility.cdTime = cdGlobal;
-		//Debug.Log (cdAbility.cdStateEngine.currentState.stateName);
+
+        golemCombatStateMachine = GetComponent<GolemCombatStateMachine>();
+
         golemInputManager = GetComponent<GolemInputManager>();
 
         golemBaseWeapon = GetComponent<GolemBaseWeapon>();
@@ -102,7 +107,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, string teamColor)
     {
-		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
+		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]) && golemCombatStateMachine.combatStates == GolemCombatStateMachine.CombatStates.IDLE)
         {
             if (aimVec != Vector3.zero)
             {
@@ -117,12 +122,18 @@ public class GolemPlayerController : GolemStats
 
     public void UseQuickAttack()
     {
-        golemBaseWeapon.QuickAttack();
+        if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2] && golemCombatStateMachine.combatStates == GolemCombatStateMachine.CombatStates.IDLE)
+        {
+            golemBaseWeapon.QuickAttack();
+        }
     }
 
     public void Dodge()
     {
-        playerRigidbody.AddForce(transform.forward * dodgeStrength, ForceMode.Impulse);
+        if (golemCombatStateMachine.combatStates == GolemCombatStateMachine.CombatStates.IDLE)
+        {
+            playerRigidbody.AddForce(transform.forward * dodgeStrength, ForceMode.Impulse);
+        }
     }
 
     void GroundCheck()
