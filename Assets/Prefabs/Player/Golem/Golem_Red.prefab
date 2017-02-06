@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4702687617580406}
   - component: {fileID: 114958149694103686}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ability1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114285303490142884}
   - component: {fileID: 114527670846787950}
   - component: {fileID: 114578641738896702}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: GolemUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4293492784245006}
   - component: {fileID: 114406737074975942}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ability2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4449874839952212}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Abilities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4282393951209316}
   - component: {fileID: 96530752637866548}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: WeaponTrail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4066270973102604}
   - component: {fileID: 65894496018977734}
-  m_Layer: 13
+  - component: {fileID: 114348336240800794}
+  m_Layer: 0
   m_Name: GolemMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +120,7 @@ GameObject:
   - component: {fileID: 4326139566117770}
   - component: {fileID: 33215706152923202}
   - component: {fileID: 23992428582223608}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ForwardCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,9 +136,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4549424383657866}
   - component: {fileID: 33421591630534600}
-  - component: {fileID: 65257174396038900}
   - component: {fileID: 23067819766874630}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Golem_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4988445792430296}
   - component: {fileID: 114185857936002810}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ability3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,6 +174,7 @@ GameObject:
   - component: {fileID: 114687968665612454}
   - component: {fileID: 114856486943587184}
   - component: {fileID: 114130078213029746}
+  - component: {fileID: 114895763274516146}
   m_Layer: 8
   m_Name: Golem_Red
   m_TagString: Player
@@ -201,9 +202,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1761578085408002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32, y: 7.75, z: -39}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -40, y: 1, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4549424383657866}
   - {fileID: 4449874839952212}
@@ -211,7 +212,7 @@ Transform:
   - {fileID: 224612541692398264}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4282393951209316
 Transform:
   m_ObjectHideFlags: 1
@@ -398,18 +399,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &65257174396038900
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1605713414035068}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65285393370626322
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -429,7 +418,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1258805592741688}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 1}
@@ -604,6 +593,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114348336240800794
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258805592741688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b5347fe3f99ba4fa94fbe43bb5aa50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  belongsToPlayerRed: 1
+  belongsToPlayerBlue: 0
 --- !u!114 &114406737074975942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -699,7 +701,7 @@ MonoBehaviour:
   baseDexterity: 0
   baseDefense: 0
   baseStability: 0
-  baseMovementSpeed: 10
+  baseMovementSpeed: 15
   dodgeStrength: 10
   baseHealth: 100
   baseMana: 0
@@ -708,7 +710,7 @@ MonoBehaviour:
   - {fileID: 114406737074975942}
   - {fileID: 114185857936002810}
   turnSpeed: 30
-  groundCheckLength: 0
+  groundCheckLength: 0.5
   isGrounded: 0
   playerCurrentVelocity: 0
 --- !u!114 &114856486943587184
@@ -725,6 +727,19 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 0
   healthRegenerationSpeed: 1.25
+--- !u!114 &114895763274516146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1761578085408002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32f42fbe032ace146be9def1bf65143e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatStates: 0
+  golemState: 0
 --- !u!114 &114958149694103686
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -7,7 +7,7 @@ public class GolemPlayerController : GolemStats
 {
     private GolemInputManager golemInputManager;
     private GolemBaseWeapon golemBaseWeapon;
-    private GolemCombatStateMachine golemCombatStateMachine;
+    private GolemStates golemStateMachine;
 
     private Rigidbody playerRigidbody;
 
@@ -21,6 +21,8 @@ public class GolemPlayerController : GolemStats
     public float groundCheckLength;
 
     public bool isGrounded;
+
+    public LayerMask GroundMask;
 
     [Header("Debugging Values")]
     public float playerCurrentVelocity;
@@ -59,7 +61,7 @@ public class GolemPlayerController : GolemStats
 
 		cdAbility.cdTime = cdGlobal;
 
-        golemCombatStateMachine = GetComponent<GolemCombatStateMachine>();
+        golemStateMachine = GetComponent<GolemStates>();
 
         golemInputManager = GetComponent<GolemInputManager>();
 
@@ -107,7 +109,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, string teamColor)
     {
-		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]) && golemCombatStateMachine.combatStates == GolemCombatStateMachine.CombatStates.IDLE)
+		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]) && golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
         {
             if (aimVec != Vector3.zero)
             {
@@ -122,7 +124,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseQuickAttack()
     {
-        if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2] && golemCombatStateMachine.combatStates == GolemCombatStateMachine.CombatStates.IDLE)
+        if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2] && golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
         {
             golemBaseWeapon.QuickAttack();
         }
@@ -130,7 +132,7 @@ public class GolemPlayerController : GolemStats
 
     public void Dodge()
     {
-        if (golemCombatStateMachine.combatStates == GolemCombatStateMachine.CombatStates.IDLE)
+        if (golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
         {
             playerRigidbody.AddForce(transform.forward * dodgeStrength, ForceMode.Impulse);
         }
@@ -138,7 +140,7 @@ public class GolemPlayerController : GolemStats
 
     void GroundCheck()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, groundCheckLength))
+        if (Physics.Raycast(transform.position, Vector3.down, groundCheckLength, GroundMask))
         {
             isGrounded = true;
         }

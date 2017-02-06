@@ -37,8 +37,9 @@ GameObject:
   - component: {fileID: 4075331957229450}
   - component: {fileID: 54798235264023446}
   - component: {fileID: 65649885045411720}
+  - component: {fileID: 65018361479952984}
   - component: {fileID: 114798060353039666}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: IceBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,6 +119,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65018361479952984
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1620794945978752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65649885045411720
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -190,8 +203,7 @@ MonoBehaviour:
   canDrainHealth: 0
   canDrainMana: 0
   canBlind: 0
-  belongsToRed: 0
-  belongsToBlue: 0
+  canDealDamage: 0
 --- !u!198 &198939819845774052
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -247,7 +259,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -860067995
+  randomSeed: -519977056
   InitialModule:
     serializedVersion: 3
     enabled: 1

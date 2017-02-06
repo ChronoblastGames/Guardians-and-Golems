@@ -6,8 +6,7 @@ public class BaseProjectileAbility : GolemAbility
 {
     private Rigidbody myRB;
 
-    public bool belongsToRed;
-    public bool belongsToBlue;
+    public bool canDealDamage;
 
     GameObject trail;
 
@@ -41,15 +40,7 @@ public class BaseProjectileAbility : GolemAbility
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.gameObject.GetComponent<GolemHealth>().TakeDamage(damageAmount);
-            HideSelf();
-        }
-        else
-        {
-            HideSelf();       
-        }
+        HideSelf();
     }
 
     public void HideSelf ()

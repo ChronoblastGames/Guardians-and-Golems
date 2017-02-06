@@ -44,18 +44,21 @@ public class GolemHealth : MonoBehaviour
             if (currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
-            }
+            }         
         }
     }
 
     void DetermineHealthStatus()
     {
-        
+        if (currentHealth < 0)
+        {
+            Die();
+        }
     }
 
     public void TakeDamage(float damageValue)
     {
-        //Logic 
+        Debug.Log("" + gameObject.name + "took " + damageValue);
     }
 
     public void GetStunned()
@@ -71,8 +74,9 @@ public class GolemHealth : MonoBehaviour
 
 public enum HealthStatus
 {
-    FULL_HEALTH,
+    FULL,
     HEALTHY,
     INJURED,
-    CRITICAL
+    CRITICAL,
+    DEAD
 }

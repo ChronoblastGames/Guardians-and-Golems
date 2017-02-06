@@ -26,7 +26,7 @@ public class WeaponCollider : MonoBehaviour
         {
             if (other.gameObject.layer == 9)
             {
-                Debug.Log("Hit Player Blue");
+                other.gameObject.GetComponent<GolemHealth>().TakeDamage(0);
                 weaponCol.enabled = false;
             }
         }
@@ -34,7 +34,7 @@ public class WeaponCollider : MonoBehaviour
         {
             if (other.gameObject.layer == 8)
             {
-                Debug.Log("Hit Player Red");
+                other.gameObject.GetComponent<GolemHealth>().TakeDamage(0);
                 weaponCol.enabled = false;
             }
         }

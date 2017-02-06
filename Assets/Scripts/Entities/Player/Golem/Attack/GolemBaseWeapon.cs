@@ -4,7 +4,7 @@ using UnityEngine;
 public class GolemBaseWeapon : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
-    private GolemCombatStateMachine golemCombatStateMachine;
+    private GolemStates golemStateMachine;
 
     [Header("Weapon Collider Attributes")]
     public Collider weaponCollider;
@@ -40,7 +40,7 @@ public class GolemBaseWeapon : MonoBehaviour
     {
         golemPlayerController = GetComponent<GolemPlayerController>();
 
-        golemCombatStateMachine = GetComponent<GolemCombatStateMachine>();
+        golemStateMachine = GetComponent<GolemStates>();
     }
 
     void ManageSwinging()
@@ -56,7 +56,7 @@ public class GolemBaseWeapon : MonoBehaviour
                 weaponCollider.transform.rotation = Quaternion.identity;
                 weaponTrail.Clear();
                 weaponTrail.enabled = false;
-                golemCombatStateMachine.combatStates = GolemCombatStateMachine.CombatStates.IDLE;
+                golemStateMachine.combatStates = GolemStates.CombatStates.IDLE;
             }
         }
     }
@@ -73,7 +73,7 @@ public class GolemBaseWeapon : MonoBehaviour
         weaponCollider.enabled = true;
         weaponTrail.enabled = true;
         isSwinging = true;
-        golemCombatStateMachine.combatStates = GolemCombatStateMachine.CombatStates.LIGHTATTACK;
+        golemStateMachine.combatStates = GolemStates.CombatStates.LIGHTATTACK;
     }
 
     public void HeavyAttack()
@@ -88,6 +88,4 @@ public class GolemBaseWeapon : MonoBehaviour
         SMASH,
         NONE,
     }
-
-
 }
