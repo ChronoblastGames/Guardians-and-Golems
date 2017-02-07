@@ -31,14 +31,18 @@ public struct AbilityValues
     [Header("Range Attributes")]
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
-    public float rangeDistance;
 
-    public bool isMelee;
-    public bool isRanged;
+    [Header("Wall Attributes")]
+    public float activeTime;
+    public float raiseAmount;
+    public float raiseSpeed;
 
     [Header("Use Attributes")]
     public float healthCost;
     public float manaCost;
+
+    public bool isMelee;
+    public bool isRanged;
 
     [Header("Has Effect")]
     public bool canStun;
@@ -60,14 +64,18 @@ public abstract class GolemAbility : MonoBehaviour
     [Header("Range Attributes")]
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
-    public float rangeDistance;
 
-    public bool isMelee;
-    public bool isRanged;
+    [Header("Wall Attributes")]
+    public float activeTime;
+    public float raiseAmount;
+    public float raiseSpeed;
 
     [Header("Use Attributes")]
     public float healthCost;
     public float manaCost;
+
+    public bool isMelee;
+    public bool isRanged;
 
     [Header("Has Effect")]
     public bool canStun;

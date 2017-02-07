@@ -22,12 +22,12 @@ public class Ability : GolemAbility
 
             case AbilityType.PROJECTILE:
 
-                AbilityValues newAbilityValues = CreateAbilityStruct();
+                AbilityValues newProjectileAbilityValues = CreateAbilityStruct();
 
                 Quaternion newProjectileRotation = Quaternion.LookRotation(aimVec);
 
-                GameObject newProjectile = Instantiate(ability, transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, newAbilityValues.spawnDistanceFromPlayer), newProjectileRotation) as GameObject;
-                newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = newAbilityValues;
+                GameObject newProjectile = Instantiate(ability, transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, newProjectileAbilityValues.spawnDistanceFromPlayer), newProjectileRotation) as GameObject;
+                newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = newProjectileAbilityValues;
                 
                 if (teamColor == "Red")
                 {
@@ -41,6 +41,17 @@ public class Ability : GolemAbility
                 break;
 
             case AbilityType.STATIC:
+
+                AbilityValues newStaticAbilityValues = CreateAbilityStruct();
+
+                Quaternion newStaticRotation = Quaternion.LookRotation(aimVec);
+
+                Vector3 spawnLocation = transform.position + transform.forward * newStaticAbilityValues.spawnDistanceFromPlayer;
+                spawnLocation.y = -5f;
+
+                GameObject newStaticAbility = Instantiate(ability, transform.position + spawnLocation, newStaticRotation) as GameObject;
+                newStaticAbility.GetComponent<BaseStaticAbility>().abilityValues = newStaticAbilityValues;
+                newStaticAbility.GetComponent<BaseStaticAbility>().InitializeWall();
                 break;
 
             case AbilityType.ZONE:
@@ -56,7 +67,9 @@ public class Ability : GolemAbility
         abilityInfo.damageAmount = damageAmount;
         abilityInfo.projectileSpeed = projectileSpeed;
         abilityInfo.spawnDistanceFromPlayer = spawnDistanceFromPlayer;
-        abilityInfo.rangeDistance = rangeDistance;
+        abilityInfo.activeTime = activeTime;
+        abilityInfo.raiseAmount = raiseAmount;
+        abilityInfo.raiseSpeed = raiseSpeed;
         abilityInfo.isMelee = isMelee;
         abilityInfo.isRanged = isRanged;
         abilityInfo.healthCost = healthCost;
