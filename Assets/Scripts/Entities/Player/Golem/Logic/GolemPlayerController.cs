@@ -30,11 +30,8 @@ public class GolemPlayerController : GolemStats
 	private BasicCooldown cdAbility;
 
 	[Header("CoolDowns")]
-	//[SerializeField]
 	private float cdGlobal;
-	//[SerializeField]
 	private float cdEXT;
-
 
 	void Start () 
     {

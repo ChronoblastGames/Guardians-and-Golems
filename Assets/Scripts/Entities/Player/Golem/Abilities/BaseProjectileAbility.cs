@@ -2,38 +2,38 @@
 using UnityEngine;
 
 [System.Serializable]
-public class BaseProjectileAbility : GolemAbility
+public class BaseProjectileAbility : MonoBehaviour
 {
     private Rigidbody myRB;
+    private GameObject trailRenderer;
 
-    public bool canDealDamage;
-
-    GameObject trail;
+    [Header("Ability Values")]
+    public AbilityValues abilityValues;
 
     private void Start()
     {
-        FireballSetup();
-
-        UseAbility();
-
-        trail = transform.GetChild(0).gameObject;
+        AbilitySetup();
     }
 
-    void FireballSetup()
+    void AbilitySetup()
     {
-        myRB = GetComponent<Rigidbody>();       
+        myRB = GetComponent<Rigidbody>();
+
+        trailRenderer = transform.GetChild(0).gameObject;
+
+        UseAbility();
     }
 
     void UseAbility()
     {
-        myRB.AddForce(transform.forward * projectileSpeed * Time.deltaTime, ForceMode.Impulse);
+        myRB.AddForce(transform.forward * abilityValues.projectileSpeed, ForceMode.Impulse);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<GolemHealth>().TakeDamage(damageAmount);
+            other.gameObject.GetComponent<GolemHealth>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType);
             HideSelf();
         }
     }
@@ -45,14 +45,14 @@ public class BaseProjectileAbility : GolemAbility
 
     public void HideSelf ()
     {
-       trail.transform.parent = null;
+       trailRenderer.transform.parent = null;
        gameObject.SetActive(false);
        Invoke("DestroyTrail", 1);
     }
 
-    public void DestroyTrail ()
+    void DestroyTrail ()
     {
-        Destroy(trail);
+        Destroy(trailRenderer.gameObject);
         Destroy(gameObject);
     }
 }

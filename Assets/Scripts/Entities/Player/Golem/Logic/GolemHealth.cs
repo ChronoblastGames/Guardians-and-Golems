@@ -1,6 +1,15 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+public enum HealthStatus
+{
+    FULL,
+    HEALTHY,
+    INJURED,
+    CRITICAL,
+    DEAD
+}
+
 public class GolemHealth : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
@@ -56,9 +65,32 @@ public class GolemHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageValue)
+    public void TakeDamage(float damageValue, DamageType damageType)
     {
-        Debug.Log("" + gameObject.name + "took " + damageValue);
+        //Compare Damage Type with Defenses, applies calculated damage.
+        switch(damageType)
+        {
+            case DamageType.EARTH:
+                break;
+
+            case DamageType.FIRE:
+                break;
+
+            case DamageType.ICE:
+                break;
+
+            case DamageType.PIERCE:
+                break;
+
+            case DamageType.SLASH:
+                break;
+
+            case DamageType.SMASH:
+                break;
+
+            case DamageType.NONE:
+                break;
+        }
     }
 
     public void GetStunned()
@@ -72,11 +104,4 @@ public class GolemHealth : MonoBehaviour
     }
 }
 
-public enum HealthStatus
-{
-    FULL,
-    HEALTHY,
-    INJURED,
-    CRITICAL,
-    DEAD
-}
+

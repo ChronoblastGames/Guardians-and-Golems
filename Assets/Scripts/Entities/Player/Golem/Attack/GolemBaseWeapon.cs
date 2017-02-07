@@ -5,6 +5,7 @@ public class GolemBaseWeapon : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
     private GolemStates golemStateMachine;
+    private WeaponCollider weapon;
 
     [Header("Weapon Collider Attributes")]
     public Collider weaponCollider;
@@ -14,7 +15,7 @@ public class GolemBaseWeapon : MonoBehaviour
     private float swingSpeed;
 
     [Header("Weapon Quick Attack Attributes")]
-    public MeleeDamageType meleeDamageType;
+    public DamageType meleeDamageType;
     public float quickAttackDamage;
     public float quickAttackSpeed;
     public float swingArc;
@@ -41,6 +42,8 @@ public class GolemBaseWeapon : MonoBehaviour
         golemPlayerController = GetComponent<GolemPlayerController>();
 
         golemStateMachine = GetComponent<GolemStates>();
+
+        weapon = weaponCollider.GetComponent<WeaponCollider>();
     }
 
     void ManageSwinging()
@@ -74,18 +77,6 @@ public class GolemBaseWeapon : MonoBehaviour
         weaponTrail.enabled = true;
         isSwinging = true;
         golemStateMachine.combatStates = GolemStates.CombatStates.LIGHTATTACK;
-    }
-
-    public void HeavyAttack()
-    {
-
-    }
-
-    public enum MeleeDamageType
-    {
-        SLASH,
-        STAB,
-        SMASH,
-        NONE,
+        weapon.damageType = meleeDamageType;
     }
 }

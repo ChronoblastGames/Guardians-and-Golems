@@ -4,9 +4,7 @@ using UnityEngine;
 public class WeaponCollider : MonoBehaviour
 {
     [Header("Collider Attributes")]
-
-    public bool belongsToPlayerRed;
-    public bool belongsToPlayerBlue;
+    public DamageType damageType;
 
     private Collider weaponCol;
 
@@ -22,21 +20,10 @@ public class WeaponCollider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (belongsToPlayerRed)
+        if (other.gameObject.layer != gameObject.layer)
         {
-            if (other.gameObject.layer == 9)
-            {
-                other.gameObject.GetComponent<GolemHealth>().TakeDamage(0);
-                weaponCol.enabled = false;
-            }
-        }
-        else if (belongsToPlayerBlue)
-        {
-            if (other.gameObject.layer == 8)
-            {
-                other.gameObject.GetComponent<GolemHealth>().TakeDamage(0);
-                weaponCol.enabled = false;
-            }
+            other.gameObject.GetComponent<GolemHealth>().TakeDamage(0, damageType);
+            weaponCol.enabled = false;
         }
     }
 }
