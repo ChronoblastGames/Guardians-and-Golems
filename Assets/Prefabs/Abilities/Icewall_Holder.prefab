@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4981859529727796}
   - component: {fileID: 114527424593764270}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Icewall_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 33788612606779330}
   - component: {fileID: 65421404476537566}
   - component: {fileID: 23142257290646876}
-  m_Layer: 10
+  m_Layer: 17
   m_Name: Icewall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

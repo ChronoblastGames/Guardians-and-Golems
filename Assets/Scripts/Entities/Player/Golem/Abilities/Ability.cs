@@ -46,7 +46,9 @@ public class Ability : GolemAbility
 
                 Quaternion newStaticRotation = Quaternion.LookRotation(aimVec);
 
-                Vector3 spawnLocation = transform.position + transform.forward * newStaticAbilityValues.spawnDistanceFromPlayer;
+                Vector3 spawnLocation = aimVec;
+                spawnLocation.Normalize();
+                spawnLocation = spawnLocation * newStaticAbilityValues.spawnDistanceFromPlayer;
                 spawnLocation.y = -5f;
 
                 GameObject newStaticAbility = Instantiate(ability, transform.position + spawnLocation, newStaticRotation) as GameObject;
@@ -70,6 +72,10 @@ public class Ability : GolemAbility
         abilityInfo.activeTime = activeTime;
         abilityInfo.raiseAmount = raiseAmount;
         abilityInfo.raiseSpeed = raiseSpeed;
+        abilityInfo.zoneRadius = zoneRadius;
+        abilityInfo.zoneHeight = zoneHeight;
+        abilityInfo.zoneStrength = zoneStrength;
+        abilityInfo.zoneTime = zoneTime;
         abilityInfo.isMelee = isMelee;
         abilityInfo.isRanged = isRanged;
         abilityInfo.healthCost = healthCost;

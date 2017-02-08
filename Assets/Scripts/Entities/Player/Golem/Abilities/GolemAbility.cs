@@ -32,10 +32,16 @@ public struct AbilityValues
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
 
-    [Header("Wall Attributes")]
+    [Header("Static Attributes")]
     public float activeTime;
     public float raiseAmount;
     public float raiseSpeed;
+
+    [Header("Zone Attributes")]
+    public float zoneRadius;
+    public float zoneHeight;
+    public float zoneStrength;
+    public float zoneTime;
 
     [Header("Use Attributes")]
     public float healthCost;
@@ -65,10 +71,16 @@ public abstract class GolemAbility : MonoBehaviour
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
 
-    [Header("Wall Attributes")]
+    [Header("Static Attributes")]
     public float activeTime;
     public float raiseAmount;
     public float raiseSpeed;
+
+    [Header("Zone Attributes")]
+    public float zoneRadius;
+    public float zoneHeight;
+    public float zoneStrength;
+    public float zoneTime;
 
     [Header("Use Attributes")]
     public float healthCost;
