@@ -265,6 +265,11 @@ Prefab:
       propertyPath: aimIndicatorSprite
       value: 
       objectReference: {fileID: 465125818}
+    - target: {fileID: 114425072913668500, guid: ddc4c4f3bd47ea14f9323df050c48035,
+        type: 2}
+      propertyPath: PlayerNumber
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
   m_IsPrefabParent: 0
@@ -810,6 +815,16 @@ Prefab:
       propertyPath: aimIndicatorSprite
       value: 
       objectReference: {fileID: 713240204}
+    - target: {fileID: 114656344468345664, guid: 61213060ec784814290c81661b6b24ec,
+        type: 2}
+      propertyPath: projectileSpeed
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114656344468345664, guid: 61213060ec784814290c81661b6b24ec,
+        type: 2}
+      propertyPath: damageAmount
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61213060ec784814290c81661b6b24ec, type: 2}
   m_IsPrefabParent: 0

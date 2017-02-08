@@ -1526,18 +1526,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1050789723168654, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
+  ability: {fileID: 1241724427522402, guid: a94eb8ff22e848d4bbeaaa9e51268c72, type: 2}
   damageType: 0
   damageAmount: 0
   projectileSpeed: 0
-  spawnDistanceFromPlayer: 2
+  spawnDistanceFromPlayer: 20
   activeTime: 0
   raiseAmount: 0
   raiseSpeed: 0
-  zoneRadius: 0
-  zoneHeight: 0
-  zoneStrength: 0
-  zoneTime: 0
+  zoneRadius: 10
+  zoneHeight: 5
+  zoneStrength: 2.5
+  zoneTime: 2.5
   healthCost: 0
   manaCost: 0
   isMelee: 0
@@ -1547,7 +1547,7 @@ MonoBehaviour:
   canDrainHealth: 0
   canDrainMana: 0
   canBlind: 0
-  abilityType: 0
+  abilityType: 2
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -1573,7 +1573,7 @@ MonoBehaviour:
   LIGHT_ATTACK: 0
   DODGE: 0
   PlayerName: Ryon
-  PlayerNumber: 2
+  PlayerNumber: 1
   teamColor: Blue
   xAxis: 0
   zAxis: 0
@@ -1790,7 +1790,7 @@ MonoBehaviour:
   - {fileID: 114663671428991926}
   - {fileID: 114402319662572470}
   - {fileID: 114032926144289352}
-  - {fileID: 114032926144289352}
+  - {fileID: 114656344468345664}
   turnSpeed: 30
   groundCheckLength: 0.5
   isGrounded: 0

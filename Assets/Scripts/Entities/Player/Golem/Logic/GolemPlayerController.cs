@@ -30,8 +30,8 @@ public class GolemPlayerController : GolemStats
 	private BasicCooldown cdAbility;
 
 	[Header("CoolDowns")]
-	private float cdGlobal;
-	private float cdEXT;
+	private float globalCooldownTime;
+	private float cdEXT; //?
 
 	void Start () 
     {
@@ -47,7 +47,6 @@ public class GolemPlayerController : GolemStats
 
     private void FixedUpdate()
     {
-		
         GatherInput();
     }
 
@@ -55,9 +54,9 @@ public class GolemPlayerController : GolemStats
     {
 		cdAbility = new BasicCooldown ();
 
-        cdGlobal = GameObject.FindObjectOfType<GeneralVariables>().abilityCoolDown;
+        globalCooldownTime = GameObject.FindObjectOfType<GeneralVariables>().abilityCoolDown;
 
-		cdAbility.cdTime = cdGlobal;
+		cdAbility.cdTime = globalCooldownTime;
 
         golemStateMachine = GetComponent<GolemStates>();
 
@@ -113,12 +112,14 @@ public class GolemPlayerController : GolemStats
             if (aimVec != Vector3.zero)
             {
                 golemAbilities[abilityNumber].CastAbility(aimVec, teamColor);
+                StartCoroutine(cdAbility.RestartCoolDownCoroutine());
             }
             else
             {
                 golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor);
+                StartCoroutine(cdAbility.RestartCoolDownCoroutine());
             }
-			StartCoroutine (cdAbility.RestartCoolDownCoroutine());
+
         }
     }
 
@@ -127,6 +128,7 @@ public class GolemPlayerController : GolemStats
         if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2] && golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
         {
             golemBaseWeapon.QuickAttack();
+            StartCoroutine(cdAbility.RestartCoolDownCoroutine());
         }
     }
 

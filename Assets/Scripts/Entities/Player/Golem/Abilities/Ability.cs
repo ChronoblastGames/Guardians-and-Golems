@@ -46,17 +46,30 @@ public class Ability : GolemAbility
 
                 Quaternion newStaticRotation = Quaternion.LookRotation(aimVec);
 
-                Vector3 spawnLocation = aimVec;
-                spawnLocation.Normalize();
-                spawnLocation = spawnLocation * newStaticAbilityValues.spawnDistanceFromPlayer;
-                spawnLocation.y = -5f;
+                Vector3 staticSpawnVec = aimVec;
+                staticSpawnVec.Normalize();
+                staticSpawnVec = staticSpawnVec * newStaticAbilityValues.spawnDistanceFromPlayer;
+                staticSpawnVec.y = -5f;
 
-                GameObject newStaticAbility = Instantiate(ability, transform.position + spawnLocation, newStaticRotation) as GameObject;
+                GameObject newStaticAbility = Instantiate(ability, transform.position + staticSpawnVec, newStaticRotation) as GameObject;
                 newStaticAbility.GetComponent<BaseStaticAbility>().abilityValues = newStaticAbilityValues;
                 newStaticAbility.GetComponent<BaseStaticAbility>().InitializeWall();
                 break;
 
             case AbilityType.ZONE:
+
+                AbilityValues newZoneAbilityValues = CreateAbilityStruct();
+
+                Quaternion newZoneRotation = Quaternion.LookRotation(aimVec);
+
+                Vector3 zoneSpawnVec = aimVec;
+                zoneSpawnVec.Normalize();
+                zoneSpawnVec = zoneSpawnVec * newZoneAbilityValues.spawnDistanceFromPlayer;
+                zoneSpawnVec.y = 0f;
+
+                GameObject newZoneAbility = Instantiate(ability, transform.position + zoneSpawnVec, newZoneRotation) as GameObject;
+                newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = newZoneAbilityValues;
+                newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
                 break;
         }       
     }

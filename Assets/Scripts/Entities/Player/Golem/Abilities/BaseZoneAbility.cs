@@ -21,13 +21,19 @@ public class BaseZoneAbility : MonoBehaviour
     void Update()
     {
         ZoneCheck();
+
+        ManageZoneTime();
     }
 
     public void InitializeAbility()
     {
+        zoneTimer = new TimerClass();
+
         zoneVisual = transform.GetChild(0).gameObject;
 
         zoneVisual.transform.localScale = new Vector3(abilityValues.zoneRadius, abilityValues.zoneRadius, abilityValues.zoneRadius);
+
+        zoneTimer.ResetTimer(abilityValues.zoneTime);
 
         isInitialized = true;
     }
@@ -58,6 +64,6 @@ public class BaseZoneAbility : MonoBehaviour
 
     void DoEffectToTarget(GameObject target)
     {
-        Debug.Log(target + " is inside the Zone!");
+        Debug.Log(target.name + " is inside the Zone!");
     }
 }
