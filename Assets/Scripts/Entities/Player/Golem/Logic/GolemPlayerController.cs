@@ -47,6 +47,7 @@ public class GolemPlayerController : GolemStats
 
     private void FixedUpdate()
     {
+		
         GatherInput();
     }
 
@@ -106,6 +107,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, string teamColor)
     {
+		//Debug.Log (cdAbility.cdStateEngine.currentState.stateName + " with an ID of "+ cdAbility.cdStateEngine.currentState.stateID + " And you want " + cdAbility.possibleStates [2].stateName + " with an ID of " + cdAbility.possibleStates [2].stateID);
 		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]) && golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
         {
             if (aimVec != Vector3.zero)
@@ -116,6 +118,7 @@ public class GolemPlayerController : GolemStats
             {
                 golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor);
             }
+			StartCoroutine (cdAbility.RestartCoolDownCoroutine());
         }
     }
 
