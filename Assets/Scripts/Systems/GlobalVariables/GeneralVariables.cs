@@ -7,7 +7,7 @@ public class GeneralVariables : MonoBehaviour
 	public float spellOrbCoolDown;
 
     [Header("Golem Global Cooldown")]
-	public float abilityCoolDown;
+	public float globalCooldown;
 
     [Header("Spawn Delay")]
 	public float spawnDelayTimer;

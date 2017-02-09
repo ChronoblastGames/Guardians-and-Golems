@@ -26,7 +26,7 @@ public class GolemInputManager : MonoBehaviour
     public float aimXAxis;
     public float aimZAxis;
 
-    public float modifierAxis;
+    private float modifierAxis;
 
     private Vector3 aimVec;
 

@@ -18,6 +18,7 @@ public enum AbilityType
     PROJECTILE,
     STATIC,
     ZONE,
+    BEAM,
     BUFF,
     DEBUFF,
 }

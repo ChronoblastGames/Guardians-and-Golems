@@ -8,47 +8,22 @@ public class BaseZoneAbility : MonoBehaviour
     [Header("Ability Attributes")]
     public AbilityValues abilityValues;
 
-    [Header("Zone Visual")]
-    private GameObject zoneVisual;
-
-    [Header("Collision Attributes")]
-    private Collider[] hitColliders;
-
     private bool isInitialized = false;
 
-    public LayerMask targetMask;
-
     void Update()
-    {
-        ZoneCheck();
-
+    {     
         ManageZoneTime();
     }
 
     public void InitializeAbility()
     {
         zoneTimer = new TimerClass();
-
-        zoneVisual = transform.GetChild(0).gameObject;
-
-        zoneVisual.transform.localScale = new Vector3(abilityValues.zoneRadius, abilityValues.zoneRadius, abilityValues.zoneRadius);
+      
+        transform.localScale = new Vector3(abilityValues.zoneRadius, abilityValues.zoneRadius, abilityValues.zoneRadius);
 
         zoneTimer.ResetTimer(abilityValues.zoneTime);
 
         isInitialized = true;
-    }
-
-    void ZoneCheck()
-    {
-        if (isInitialized)
-        {
-            hitColliders = Physics.OverlapSphere(transform.position, abilityValues.zoneRadius, targetMask);
-
-            for (int i = 0; i < hitColliders.Length; i++)
-            {
-                DoEffectToTarget(hitColliders[i].gameObject);
-            }
-        }   
     }
 
     void ManageZoneTime()
@@ -65,5 +40,17 @@ public class BaseZoneAbility : MonoBehaviour
     void DoEffectToTarget(GameObject target)
     {
         Debug.Log(target.name + " is inside the Zone!");
+    }
+
+
+    void OnTriggerStay(Collider other)
+    {
+        if (isInitialized)
+        {
+            if (other.gameObject.CompareTag("GolemRed") || other.gameObject.CompareTag("GolemBlue"))
+            {
+                DoEffectToTarget(other.gameObject);
+            }      
+        }
     }
 }

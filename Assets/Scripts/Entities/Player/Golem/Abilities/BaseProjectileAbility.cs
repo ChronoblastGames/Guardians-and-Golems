@@ -31,7 +31,7 @@ public class BaseProjectileAbility : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("GolemRed") || other.gameObject.CompareTag("GolemBlue"))
         {
             other.gameObject.GetComponent<GolemHealth>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType);
             HideSelf();

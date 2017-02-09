@@ -54,7 +54,7 @@ public class GolemPlayerController : GolemStats
     {
 		cdAbility = new BasicCooldown ();
 
-        globalCooldownTime = GameObject.FindObjectOfType<GeneralVariables>().abilityCoolDown;
+        globalCooldownTime = GameObject.FindObjectOfType<GeneralVariables>().globalCooldown;
 
 		cdAbility.cdTime = globalCooldownTime;
 

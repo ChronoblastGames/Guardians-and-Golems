@@ -60,16 +60,26 @@ public class Ability : GolemAbility
 
                 AbilityValues newZoneAbilityValues = CreateAbilityStruct();
 
-                Quaternion newZoneRotation = Quaternion.LookRotation(aimVec);
+                if (aimVec != Vector3.zero)
+                {
+                    Quaternion newZoneRotation = Quaternion.LookRotation(aimVec);
 
-                Vector3 zoneSpawnVec = aimVec;
-                zoneSpawnVec.Normalize();
-                zoneSpawnVec = zoneSpawnVec * newZoneAbilityValues.spawnDistanceFromPlayer;
-                zoneSpawnVec.y = 0f;
+                    Vector3 zoneSpawnVec = aimVec;
+                    zoneSpawnVec.Normalize();
+                    zoneSpawnVec = zoneSpawnVec * newZoneAbilityValues.spawnDistanceFromPlayer;
+                    zoneSpawnVec.y = 0f;
 
-                GameObject newZoneAbility = Instantiate(ability, transform.position + zoneSpawnVec, newZoneRotation) as GameObject;
-                newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = newZoneAbilityValues;
-                newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
+                    GameObject newZoneAbility = Instantiate(ability, transform.position + zoneSpawnVec, newZoneRotation) as GameObject;
+                    newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = newZoneAbilityValues;
+                    newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
+                }
+                else
+                {
+                    Debug.Log("Should cast on myself");
+                    GameObject newZoneAbility = Instantiate(ability, transform.position, Quaternion.identity) as GameObject;
+                    newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = newZoneAbilityValues;
+                    newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
+                }         
                 break;
         }       
     }

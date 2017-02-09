@@ -384,7 +384,7 @@ GameObject:
   - component: {fileID: 114092539236429598}
   m_Layer: 9
   m_Name: Golem_Blue
-  m_TagString: Player
+  m_TagString: GolemBlue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1739,10 +1739,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1050789723168654, guid: 11a99c0da55909248ab99725cb7c756d, type: 2}
-  damageType: 0
-  damageAmount: 0
-  projectileSpeed: 0
+  ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
+  damageType: 2
+  damageAmount: 15
+  projectileSpeed: 35
   spawnDistanceFromPlayer: 2
   activeTime: 0
   raiseAmount: 0

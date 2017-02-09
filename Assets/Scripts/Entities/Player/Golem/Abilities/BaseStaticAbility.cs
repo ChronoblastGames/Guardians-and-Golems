@@ -10,7 +10,8 @@ public class BaseStaticAbility : MonoBehaviour
 
     private float t;
 
-    public bool isRaising;
+    public bool isRaising = false;
+    public bool isLowering = false;
     public bool startCounting;
 
     private Vector3 activeVec;
@@ -44,6 +45,20 @@ public class BaseStaticAbility : MonoBehaviour
                 isRaising = false;
                 startCounting = true;
                 activeTimer.ResetTimer(abilityValues.activeTime);
+                t = 0;
+                activeVec = transform.position - new Vector3(0, abilityValues.raiseAmount, 0);
+            }
+        }
+
+        if (isLowering)
+        {
+            transform.position = Vector3.Lerp(transform.position, activeVec, t);
+
+            t += Time.deltaTime * abilityValues.raiseSpeed;
+
+            if (transform.position == activeVec)
+            {
+                Destroy(gameObject);
             }
         }
     }
@@ -54,7 +69,7 @@ public class BaseStaticAbility : MonoBehaviour
         {
             if (activeTimer.TimerIsDone())
             {
-                Destroy(gameObject);
+                isLowering = true;
             }
         }    
     }

@@ -7,7 +7,7 @@ public class OutOfBounds : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("GolemRed") || other.CompareTag("GolemBlue"))
         {
             other.transform.position = resetPos;
         }
