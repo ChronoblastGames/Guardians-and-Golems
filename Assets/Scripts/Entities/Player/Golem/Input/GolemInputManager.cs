@@ -28,6 +28,8 @@ public class GolemInputManager : MonoBehaviour
 
     private float modifierAxis;
 
+    private float blockAxis;
+
     private Vector3 aimVec;
 
     private void Start()
@@ -58,6 +60,7 @@ public class GolemInputManager : MonoBehaviour
         aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "Win");
         aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "Win");
         modifierAxis = Input.GetAxis("ModifierAxisPlayer" + PlayerNumber + "Win");
+        blockAxis = Input.GetAxis("BlockAxisPlayer" + PlayerNumber + "Win");
 
         if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4") || Input.GetKeyDown(ABILITY_1))
         {
@@ -87,13 +90,22 @@ public class GolemInputManager : MonoBehaviour
             golemPlayerController.UseQuickAttack();
         }
 
+        if (blockAxis != 0)
+        {
+            golemPlayerController.Block();
+        }
+
 #endif
 
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
 
+        xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber + "OSX");
+        zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber + "OSX");
+
         aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "OSX");
         aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "OSX");
         modifierAxis = Input.GetAxis("ModifierAxis" + PlayerNumber + "OSX");
+        blockAxis = Input.GetAxis("BlockAxisPlayer" + PlayerNumber + "OSX");
 
         if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(ABILITY_1))
         {
@@ -116,6 +128,11 @@ public class GolemInputManager : MonoBehaviour
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
         {
             golemPlayerController.UseQuickAttack();
+        }
+
+        if (blockAxis != 0)
+        {
+            golemPlayerController.Block();
         }
 
 #endif

@@ -1526,7 +1526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1241724427522402, guid: a94eb8ff22e848d4bbeaaa9e51268c72, type: 2}
+  ability: {fileID: 1333647240451610, guid: 82a8d1bc7a1470b4c9d0254897f082ac, type: 2}
   damageType: 0
   damageAmount: 0
   projectileSpeed: 0
@@ -1534,7 +1534,7 @@ MonoBehaviour:
   activeTime: 0
   raiseAmount: 0
   raiseSpeed: 0
-  zoneRadius: 10
+  zoneRadius: 25
   zoneHeight: 5
   zoneStrength: 2.5
   zoneTime: 2.5
@@ -1579,7 +1579,6 @@ MonoBehaviour:
   zAxis: 0
   aimXAxis: 0
   aimZAxis: 0
-  modifierAxis: 0
 --- !u!114 &114092539236429598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1778,14 +1777,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915aa1d54be46e04cae9a4973b14fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStrength: 0
-  baseDexterity: 0
-  baseDefense: 0
-  baseStability: 0
   baseMovementSpeed: 15
   dodgeStrength: 0
   baseHealth: 0
   baseMana: 0
+  golemDefenseValues:
+    baseDefense: 0
+    slashDefense: 0
+    smashDefense: 0
+    pierceDefense: 0
+    fireDefense: 0
+    waterDefense: 0
+    earthDefense: 0
+    windDefense: 0
+    golemStability: 0
   golemAbilities:
   - {fileID: 114663671428991926}
   - {fileID: 114402319662572470}

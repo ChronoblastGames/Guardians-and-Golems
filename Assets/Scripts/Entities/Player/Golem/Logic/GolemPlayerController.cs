@@ -140,6 +140,14 @@ public class GolemPlayerController : GolemStats
         }
     }
 
+    public void Block()
+    {
+        if (golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
+        {
+            Debug.Log("Is blocking");
+        }
+    }
+
     void GroundCheck()
     {
         if (Physics.Raycast(transform.position, Vector3.down, groundCheckLength, GroundMask))

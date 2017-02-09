@@ -233,15 +233,6 @@ Prefab:
       propertyPath: aimIndicatorSprite
       value: 
       objectReference: {fileID: 465125818}
-    - target: {fileID: 114425072913668500, guid: ddc4c4f3bd47ea14f9323df050c48035,
-        type: 2}
-      propertyPath: PlayerNumber
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1761578085408002, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
-      propertyPath: m_TagString
-      value: GolemRed
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
   m_IsPrefabParent: 0
@@ -404,64 +395,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4389341405524248, guid: 4de99831e42656647a6d3415b6d9354a,
     type: 2}
   m_PrefabInternal: {fileID: 207574612}
---- !u!1 &257152994
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 257152996}
-  - component: {fileID: 257152995}
-  - component: {fileID: 257152997}
-  m_Layer: 0
-  m_Name: Empty_Animator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!95 &257152995
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 257152994}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8ab372d914f4529459e3054cebce12a8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
---- !u!4 &257152996
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 257152994}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &257152997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 257152994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b296b73738ca6646882e34210b18379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &273996672
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,16 +762,10 @@ Prefab:
       propertyPath: aimIndicatorSprite
       value: 
       objectReference: {fileID: 713240204}
-    - target: {fileID: 114032926144289352, guid: 61213060ec784814290c81661b6b24ec,
+    - target: {fileID: 114548755469423820, guid: 61213060ec784814290c81661b6b24ec,
         type: 2}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 1333647240451610, guid: 82a8d1bc7a1470b4c9d0254897f082ac,
-        type: 2}
-    - target: {fileID: 114032926144289352, guid: 61213060ec784814290c81661b6b24ec,
-        type: 2}
-      propertyPath: zoneRadius
-      value: 25
+      propertyPath: meleeDamageType
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61213060ec784814290c81661b6b24ec, type: 2}

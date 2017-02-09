@@ -21,10 +21,11 @@ public class GolemHealth : MonoBehaviour
     [Header("Player Health Regeneration Attributes")]
     public float healthRegenerationSpeed;
 
-    void Awake()
-    {
-        golemPlayerController = GetComponent<GolemPlayerController>();
+    [Header("Player Defensive Attributes")]
+    public GolemDefense golemDefense;
 
+    void Awake()
+    {     
         InitializeValues();
     }
 
@@ -40,8 +41,10 @@ public class GolemHealth : MonoBehaviour
 
     void InitializeValues()
     {
+        golemPlayerController = GetComponent<GolemPlayerController>();
         maxHealth = golemPlayerController.baseHealth;
         currentHealth = maxHealth;
+        golemDefense = golemPlayerController.golemDefenseValues;
     }
 
     void RegenerateHealth()
@@ -67,30 +70,59 @@ public class GolemHealth : MonoBehaviour
 
     public void TakeDamage(float damageValue, DamageType damageType)
     {
+        float calculatedResistance;
+        float calculatedDamage;
+
         //Compare Damage Type with Defenses, applies calculated damage.
         switch(damageType)
         {
             case DamageType.EARTH:
+                calculatedResistance = golemDefense.baseDefense * golemDefense.earthDefense;
+                calculatedDamage = damageValue / calculatedResistance;
+                DealDamage(calculatedDamage);
                 break;
 
             case DamageType.FIRE:
+                calculatedResistance = golemDefense.baseDefense * golemDefense.fireDefense;
+                calculatedDamage = damageValue / calculatedResistance;
+                DealDamage(calculatedDamage);
                 break;
 
             case DamageType.ICE:
+                calculatedResistance = golemDefense.baseDefense * golemDefense.waterDefense;
+                calculatedDamage = damageValue / calculatedResistance;
+                DealDamage(calculatedDamage);
                 break;
 
             case DamageType.PIERCE:
+                calculatedResistance = golemDefense.baseDefense * golemDefense.pierceDefense;
+                calculatedDamage = damageValue / calculatedResistance;
+                DealDamage(calculatedDamage);
                 break;
 
             case DamageType.SLASH:
+                calculatedResistance = golemDefense.baseDefense * golemDefense.slashDefense;
+                calculatedDamage = damageValue / calculatedResistance;
+                DealDamage(calculatedDamage);
                 break;
 
             case DamageType.SMASH:
+                calculatedResistance = golemDefense.baseDefense * golemDefense.smashDefense;
+                calculatedDamage = damageValue / calculatedResistance;
+                DealDamage(calculatedDamage);
                 break;
 
             case DamageType.NONE:
+                calculatedResistance = golemDefense.baseDefense;
+                calculatedDamage = damageValue / calculatedResistance;
+                DealDamage(calculatedDamage);
                 break;
         }
+    }
+
+    public void DealDamage(float damageValue)
+    {
+        Debug.Log(damageValue);
     }
 
     public void GetStunned()

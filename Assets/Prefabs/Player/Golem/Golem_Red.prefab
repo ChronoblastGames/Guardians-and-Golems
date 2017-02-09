@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 114895763274516146}
   m_Layer: 8
   m_Name: Golem_Red
-  m_TagString: Player
+  m_TagString: GolemRed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2513,13 +2513,12 @@ MonoBehaviour:
   LIGHT_ATTACK: 0
   DODGE: 0
   PlayerName: Matt
-  PlayerNumber: 1
+  PlayerNumber: 3
   teamColor: Red
   xAxis: 0
   zAxis: 0
   aimXAxis: 0
   aimZAxis: 0
-  modifierAxis: 0
 --- !u!114 &114527670846787950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2561,14 +2560,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915aa1d54be46e04cae9a4973b14fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseStrength: 0
-  baseDexterity: 0
-  baseDefense: 0
-  baseStability: 0
   baseMovementSpeed: 15
   dodgeStrength: 10
   baseHealth: 100
   baseMana: 0
+  golemDefenseValues:
+    baseDefense: 1
+    slashDefense: 1.25
+    smashDefense: 0.75
+    pierceDefense: 1
+    fireDefense: 2
+    waterDefense: 0.75
+    earthDefense: 1
+    windDefense: 2
+    golemStability: 25
   golemAbilities:
   - {fileID: 114958149694103686}
   - {fileID: 114406737074975942}
@@ -2595,6 +2600,16 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 0
   healthRegenerationSpeed: 1.25
+  golemDefense:
+    baseDefense: 0
+    slashDefense: 0
+    smashDefense: 0
+    pierceDefense: 0
+    fireDefense: 0
+    waterDefense: 0
+    earthDefense: 0
+    windDefense: 0
+    golemStability: 0
 --- !u!114 &114895763274516146
 MonoBehaviour:
   m_ObjectHideFlags: 1
