@@ -1608,7 +1608,7 @@ MonoBehaviour:
   zoneStrength: 2.5
   zoneTime: 2.5
   healthCost: 0
-  manaCost: 0
+  manaCost: 25
   isMelee: 0
   isRanged: 0
   canStun: 0
@@ -1649,7 +1649,6 @@ MonoBehaviour:
   aimXAxis: 0
   aimZAxis: 0
   blockAxis: 0
-  isBlockAxisActive: 0
 --- !u!114 &114092539236429598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1676,7 +1675,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 0
+  currentMana: 0
+  maxMana: 0
   healthRegenerationSpeed: 1.25
+  manaRegenerationSpeed: 0
   golemDefense:
     baseDefense: 0
     slashDefense: 0
@@ -1737,7 +1739,7 @@ MonoBehaviour:
   zoneStrength: 0
   zoneTime: 0
   healthCost: 0
-  manaCost: 0
+  manaCost: 25
   isMelee: 0
   isRanged: 1
   canStun: 0
@@ -1832,7 +1834,7 @@ MonoBehaviour:
   zoneStrength: 0
   zoneTime: 0
   healthCost: 0
-  manaCost: 0
+  manaCost: 25
   isMelee: 0
   isRanged: 0
   canStun: 0
@@ -1909,7 +1911,7 @@ MonoBehaviour:
   zoneStrength: 0
   zoneTime: 0
   healthCost: 0
-  manaCost: 0
+  manaCost: 25
   isMelee: 0
   isRanged: 0
   canStun: 0

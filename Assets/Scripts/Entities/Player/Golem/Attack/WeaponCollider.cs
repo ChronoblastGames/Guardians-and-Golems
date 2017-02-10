@@ -22,7 +22,7 @@ public class WeaponCollider : MonoBehaviour
     {
         if (other.gameObject.layer != gameObject.layer)
         {
-            other.gameObject.GetComponent<GolemHealth>().TakeDamage(0, damageType);
+            other.gameObject.GetComponent<GolemResources>().TakeDamage(0, damageType);
             weaponCol.enabled = false;
         }
     }

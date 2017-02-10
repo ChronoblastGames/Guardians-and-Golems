@@ -33,7 +33,7 @@ public class BaseProjectileAbility : MonoBehaviour
     {
         if (other.gameObject.CompareTag("GolemRed") || other.gameObject.CompareTag("GolemBlue"))
         {
-            other.gameObject.GetComponent<GolemHealth>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType);
+            other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType);
             HideSelf();
         }
     }

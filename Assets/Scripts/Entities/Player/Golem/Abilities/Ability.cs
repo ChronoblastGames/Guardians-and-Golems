@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Ability : GolemAbility 
 {
+    private GolemResources golemResources;
+
     [Header("Ability Type")]
     public AbilityType abilityType;
 
@@ -10,8 +12,22 @@ public class Ability : GolemAbility
     public LayerMask redMask;
     public LayerMask blueMask;
 
+    private void Start()
+    {
+        Initialize();
+    }
+
+    void Initialize()
+    {
+        golemResources = transform.parent.parent.GetComponent<GolemResources>();
+    }
+
     public override void CastAbility(Vector3 aimVec, string teamColor)
     {
+        AbilityValues abilityValues;
+        Vector3 spawnVec;
+        Quaternion spawnRot;
+
         switch(abilityType)
         {
             case AbilityType.BUFF:
@@ -22,63 +38,73 @@ public class Ability : GolemAbility
 
             case AbilityType.PROJECTILE:
 
-                AbilityValues newProjectileAbilityValues = CreateAbilityStruct();
+                abilityValues = CreateAbilityStruct();
 
-                Quaternion newProjectileRotation = Quaternion.LookRotation(aimVec);
-
-                GameObject newProjectile = Instantiate(ability, transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, newProjectileAbilityValues.spawnDistanceFromPlayer), newProjectileRotation) as GameObject;
-                newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = newProjectileAbilityValues;
-                
-                if (teamColor == "Red")
+                if (golemResources.CanCast(abilityValues.manaCost))
                 {
-                    newProjectile.layer = 8;
-                }
-                else if (teamColor == "Blue")
-                {
-                    newProjectile.layer = 9;
-                }
+                    spawnRot = Quaternion.LookRotation(aimVec);
 
+                    spawnVec = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
+
+                    GameObject newProjectile = Instantiate(ability, spawnVec, spawnRot) as GameObject;
+                    newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = abilityValues;
+
+                    if (teamColor == "Red")
+                    {
+                        newProjectile.layer = 8;
+                    }
+                    else if (teamColor == "Blue")
+                    {
+                        newProjectile.layer = 9;
+                    }
+                }              
                 break;
 
             case AbilityType.STATIC:
 
-                AbilityValues newStaticAbilityValues = CreateAbilityStruct();
+                abilityValues = CreateAbilityStruct();
 
-                Quaternion newStaticRotation = Quaternion.LookRotation(aimVec);
+                if (golemResources.CanCast(abilityValues.manaCost))
+                {
+                    spawnRot = Quaternion.LookRotation(aimVec);
 
-                Vector3 staticSpawnVec = aimVec;
-                staticSpawnVec.Normalize();
-                staticSpawnVec = staticSpawnVec * newStaticAbilityValues.spawnDistanceFromPlayer;
-                staticSpawnVec.y = -5f;
+                    spawnVec = aimVec;
+                    spawnVec.Normalize();
+                    spawnVec = spawnVec * abilityValues.spawnDistanceFromPlayer;
+                    spawnVec.y = -5f;
 
-                GameObject newStaticAbility = Instantiate(ability, transform.position + staticSpawnVec, newStaticRotation) as GameObject;
-                newStaticAbility.GetComponent<BaseStaticAbility>().abilityValues = newStaticAbilityValues;
-                newStaticAbility.GetComponent<BaseStaticAbility>().InitializeWall();
+                    GameObject newStaticAbility = Instantiate(ability, transform.position + spawnVec, spawnRot) as GameObject;
+                    newStaticAbility.GetComponent<BaseStaticAbility>().abilityValues = abilityValues;
+                    newStaticAbility.GetComponent<BaseStaticAbility>().InitializeWall();            
+                }
                 break;
 
             case AbilityType.ZONE:
 
-                AbilityValues newZoneAbilityValues = CreateAbilityStruct();
+                abilityValues = CreateAbilityStruct();
 
-                if (aimVec != Vector3.zero)
+                if (golemResources.CanCast(abilityValues.manaCost))
                 {
-                    Quaternion newZoneRotation = Quaternion.LookRotation(aimVec);
+                    if (aimVec != Vector3.zero)
+                    {
+                        spawnRot = Quaternion.LookRotation(aimVec);
 
-                    Vector3 zoneSpawnVec = aimVec;
-                    zoneSpawnVec.Normalize();
-                    zoneSpawnVec = zoneSpawnVec * newZoneAbilityValues.spawnDistanceFromPlayer;
-                    zoneSpawnVec.y = 0f;
+                        Vector3 zoneSpawnVec = aimVec;
+                        zoneSpawnVec.Normalize();
+                        zoneSpawnVec = zoneSpawnVec * abilityValues.spawnDistanceFromPlayer;
+                        zoneSpawnVec.y = 0f;
 
-                    GameObject newZoneAbility = Instantiate(ability, transform.position + zoneSpawnVec, newZoneRotation) as GameObject;
-                    newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = newZoneAbilityValues;
-                    newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
-                }
-                else
-                {
-                    Debug.Log("Should cast on myself");
-                    GameObject newZoneAbility = Instantiate(ability, transform.position, Quaternion.identity) as GameObject;
-                    newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = newZoneAbilityValues;
-                    newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
+                        GameObject newZoneAbility = Instantiate(ability, transform.position + zoneSpawnVec, spawnRot) as GameObject;
+                        newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = abilityValues;
+                        newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
+                    }
+                    else
+                    {
+                        Debug.Log("Should cast on myself");
+                        GameObject newZoneAbility = Instantiate(ability, transform.position, Quaternion.identity) as GameObject;
+                        newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = abilityValues;
+                        newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
+                    }
                 }         
                 break;
         }       

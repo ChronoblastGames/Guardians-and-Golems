@@ -2589,7 +2589,6 @@ MonoBehaviour:
   aimXAxis: 0
   aimZAxis: 0
   blockAxis: 0
-  isBlockAxisActive: 0
 --- !u!114 &114527670846787950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2669,9 +2668,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c157339caf9599d4a8c53a48fe1f94df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
+  currentHealth: 1000
   maxHealth: 0
+  currentMana: 1000
+  maxMana: 0
   healthRegenerationSpeed: 1.25
+  manaRegenerationSpeed: 1.25
   golemDefense:
     baseDefense: 0
     slashDefense: 0

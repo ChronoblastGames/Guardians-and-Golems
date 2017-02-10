@@ -10,7 +10,25 @@ public enum HealthStatus
     DEAD
 }
 
-public class GolemHealth : MonoBehaviour
+public enum ManaStatus
+{
+    FULL,
+    HIGH,
+    MEDIUM,
+    LOW,
+    NO_MANA
+}
+
+public enum StatusEffect
+{
+    STUN,
+    BLEED,
+    MANA_DRAIN,
+    SILENCE
+}
+
+
+public class GolemResources : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
 
@@ -18,13 +36,18 @@ public class GolemHealth : MonoBehaviour
     public float currentHealth;
     public float maxHealth;
 
+    [Header("Player Mana Attributes")]
+    public float currentMana;
+    public float maxMana;
+
     [Header("Player Health Regeneration Attributes")]
     public float healthRegenerationSpeed;
 
+    [Header("Player Mana Regeneration Attributes")]
+    public float manaRegenerationSpeed;
+
     [Header("Player Defensive Attributes")]
     public GolemDefense golemDefense;
-
-    public float baseDefense {get {return golemDefense.baseDefense;}}
 
     void Awake()
     {     
@@ -34,18 +57,23 @@ public class GolemHealth : MonoBehaviour
     void Update()
     {
         DetermineHealthStatus();
+        DetermineManaStatus();
     }
 
     private void FixedUpdate()
     {
         RegenerateHealth();
+        RegenerateMana();
     }
 
     void InitializeValues()
     {
         golemPlayerController = GetComponent<GolemPlayerController>();
-        maxHealth = golemPlayerController.baseHealth;
+
         currentHealth = maxHealth;
+
+        currentMana = maxMana;
+
         golemDefense = golemPlayerController.golemDefenseValues;
     }
 
@@ -58,7 +86,28 @@ public class GolemHealth : MonoBehaviour
             if (currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
-            }         
+            }     
+            else if (currentHealth < 0)
+            {
+                currentHealth = 0;
+            }    
+        }
+    }
+
+    void RegenerateMana()
+    {
+        if (currentMana < maxMana)
+        {
+            currentMana += manaRegenerationSpeed * Time.deltaTime;
+
+            if (currentMana > maxMana)
+            {
+                currentMana = maxMana;
+            }
+            else if (currentMana < 0)
+            {
+                currentMana = 0;
+            }
         }
     }
 
@@ -67,6 +116,25 @@ public class GolemHealth : MonoBehaviour
         if (currentHealth < 0)
         {
             Die();
+        }
+    }
+
+    void DetermineManaStatus()
+    {
+
+    }
+
+    public bool CanCast(float spellManaCost)
+    {
+        if (currentMana > spellManaCost)
+        {
+            currentMana -= spellManaCost;
+            return true;
+        }
+        else
+        {
+            Debug.Log(spellManaCost);
+            return false;
         }
     }
 
@@ -127,7 +195,7 @@ public class GolemHealth : MonoBehaviour
         Debug.Log(damageValue);
     }
 
-    public void GetStunned()
+    public void InflictStatusEffect(StatusEffect statusEffect)
     {
         //Debug I should be stunned
     }

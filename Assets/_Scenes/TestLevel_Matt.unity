@@ -233,6 +233,26 @@ Prefab:
       propertyPath: aimIndicatorSprite
       value: 
       objectReference: {fileID: 465125818}
+    - target: {fileID: 114958149694103686, guid: ddc4c4f3bd47ea14f9323df050c48035,
+        type: 2}
+      propertyPath: manaCost
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114406737074975942, guid: ddc4c4f3bd47ea14f9323df050c48035,
+        type: 2}
+      propertyPath: manaCost
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114154041653174816, guid: ddc4c4f3bd47ea14f9323df050c48035,
+        type: 2}
+      propertyPath: manaCost
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114185857936002810, guid: ddc4c4f3bd47ea14f9323df050c48035,
+        type: 2}
+      propertyPath: manaCost
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
   m_IsPrefabParent: 0
@@ -762,17 +782,20 @@ Prefab:
       propertyPath: aimIndicatorSprite
       value: 
       objectReference: {fileID: 713240204}
-    - target: {fileID: 4993012182431594, guid: 61213060ec784814290c81661b6b24ec, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
+    - target: {fileID: 114122569115228670, guid: 61213060ec784814290c81661b6b24ec,
+        type: 2}
+      propertyPath: maxMana
+      value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 4993012182431594, guid: 61213060ec784814290c81661b6b24ec, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
+    - target: {fileID: 114122569115228670, guid: 61213060ec784814290c81661b6b24ec,
+        type: 2}
+      propertyPath: maxHealth
+      value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 4993012182431594, guid: 61213060ec784814290c81661b6b24ec, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2
+    - target: {fileID: 114122569115228670, guid: 61213060ec784814290c81661b6b24ec,
+        type: 2}
+      propertyPath: manaRegenerationSpeed
+      value: 1.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 61213060ec784814290c81661b6b24ec, type: 2}
