@@ -233,6 +233,11 @@ Prefab:
       propertyPath: aimIndicatorSprite
       value: 
       objectReference: {fileID: 465125818}
+    - target: {fileID: 114130078213029746, guid: ddc4c4f3bd47ea14f9323df050c48035,
+        type: 2}
+      propertyPath: meleeDamageType
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ddc4c4f3bd47ea14f9323df050c48035, type: 2}
   m_IsPrefabParent: 0

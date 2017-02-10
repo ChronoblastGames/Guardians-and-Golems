@@ -24,6 +24,8 @@ public class GolemHealth : MonoBehaviour
     [Header("Player Defensive Attributes")]
     public GolemDefense golemDefense;
 
+    public float baseDefense {get {return golemDefense.baseDefense;}}
+
     void Awake()
     {     
         InitializeValues();

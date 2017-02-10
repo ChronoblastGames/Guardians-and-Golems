@@ -2519,6 +2519,7 @@ MonoBehaviour:
   zAxis: 0
   aimXAxis: 0
   aimZAxis: 0
+  blockAxis: 0
 --- !u!114 &114527670846787950
 MonoBehaviour:
   m_ObjectHideFlags: 1
