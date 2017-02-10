@@ -27,6 +27,8 @@ public class GolemPlayerController : GolemStats
     [Header("Debugging Values")]
     public float playerCurrentVelocity;
 
+    public GameObject blockIndicator;
+
 	private BasicCooldown cdAbility;
 
 	[Header("CoolDowns")]
@@ -144,8 +146,13 @@ public class GolemPlayerController : GolemStats
     {
         if (golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
         {
-            Debug.Log("Is blocking");
+            blockIndicator.SetActive(true);
         }
+    }
+
+    public void Unblock()
+    {
+        blockIndicator.SetActive(false);
     }
 
     void GroundCheck()

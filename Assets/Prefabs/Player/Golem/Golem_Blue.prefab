@@ -436,6 +436,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1814183349250684
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4904450930666106}
+  - component: {fileID: 33907208168183592}
+  - component: {fileID: 23224008784202466}
+  m_Layer: 8
+  m_Name: BlockIndicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1839390068961354
 GameObject:
   m_ObjectHideFlags: 1
@@ -867,6 +884,19 @@ Transform:
   m_Father: {fileID: 4470660818503534}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4904450930666106
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814183349250684}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0.5}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_Children: []
+  m_Father: {fileID: 4993012182431594}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4937175236732708
 Transform:
   m_ObjectHideFlags: 1
@@ -934,6 +964,7 @@ Transform:
   - {fileID: 4305803357041354}
   - {fileID: 4950429543879316}
   - {fileID: 224758734661029552}
+  - {fileID: 4904450930666106}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -959,6 +990,37 @@ MeshRenderer:
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!23 &23224008784202466
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814183349250684}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_SelectedEditorRenderState: 3
@@ -1348,6 +1410,13 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738703633175718}
   m_Mesh: {fileID: 4300014, guid: 47444517930ab1242ab55e620c496e83, type: 3}
+--- !u!33 &33907208168183592
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814183349250684}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &33993775815287732
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1380,8 +1449,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!65 &65300129892945304
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1579,6 +1648,8 @@ MonoBehaviour:
   zAxis: 0
   aimXAxis: 0
   aimZAxis: 0
+  blockAxis: 0
+  isBlockAxisActive: 0
 --- !u!114 &114092539236429598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1606,6 +1677,16 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 0
   healthRegenerationSpeed: 1.25
+  golemDefense:
+    baseDefense: 0
+    slashDefense: 0
+    smashDefense: 0
+    pierceDefense: 0
+    fireDefense: 0
+    waterDefense: 0
+    earthDefense: 0
+    windDefense: 0
+    golemStability: 0
 --- !u!114 &114352919670105002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1699,7 +1780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponCollider: {fileID: 65300129892945304}
-  meleeDamageType: 0
+  meleeDamageType: 4
   quickAttackDamage: 0
   quickAttackSpeed: 7
   swingArc: 180
@@ -1796,13 +1877,14 @@ MonoBehaviour:
   - {fileID: 114402319662572470}
   - {fileID: 114032926144289352}
   - {fileID: 114656344468345664}
-  turnSpeed: 30
+  turnSpeed: 10
   groundCheckLength: 0.5
   isGrounded: 0
   GroundMask:
     serializedVersion: 2
     m_Bits: 65536
   playerCurrentVelocity: 0
+  blockIndicator: {fileID: 1814183349250684}
 --- !u!114 &114663671428991926
 MonoBehaviour:
   m_ObjectHideFlags: 1

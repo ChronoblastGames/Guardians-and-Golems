@@ -15,11 +15,12 @@ public class GolemInputManager : MonoBehaviour
     public KeyCode LIGHT_ATTACK;
     public KeyCode DODGE;
 
-    [Header("Golem Input Variables")]
+    [Header("Golem Player Values")]
     public string PlayerName;
     public string PlayerNumber;
     public string teamColor;
 
+    [Header("Golem Input Values")]
     public float xAxis;
     public float zAxis;
 
@@ -29,6 +30,9 @@ public class GolemInputManager : MonoBehaviour
     private float modifierAxis;
 
     public float blockAxis;
+
+    [Header("Debug Values")]
+    private bool isBlockAxisActive = false;
 
     private Vector3 aimVec;
 
@@ -92,7 +96,22 @@ public class GolemInputManager : MonoBehaviour
 
         if (blockAxis != 0)
         {
-            golemPlayerController.Block();
+            if (isBlockAxisActive == false)
+            {
+                isBlockAxisActive = true;
+            }
+            else if (isBlockAxisActive)
+            {
+                golemPlayerController.Block();
+            }           
+        }
+        else if (blockAxis == 0)
+        {
+            if (isBlockAxisActive)
+            {
+                golemPlayerController.Unblock();
+                isBlockAxisActive = false;
+            } 
         }
 
 #endif
