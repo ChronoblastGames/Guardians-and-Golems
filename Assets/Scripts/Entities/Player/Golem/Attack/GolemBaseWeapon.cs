@@ -20,12 +20,12 @@ public class GolemBaseWeapon : MonoBehaviour
     public float quickAttackSpeed;
     public float swingArc;
 
-    [Header("Weapon Trail Attributes")]
-    public TrailRenderer weaponTrail;
-
     [Header("Weapon State Attributes")]
     public bool isAttacking;
     public bool isSwinging;
+
+    [Header("Weapon Debug")]
+    public GameObject weaponIndicator;
 
     private void Start()
     {
@@ -57,8 +57,7 @@ public class GolemBaseWeapon : MonoBehaviour
                 isSwinging = false;
                 weaponCollider.enabled = false;
                 weaponCollider.transform.rotation = Quaternion.identity;
-                weaponTrail.Clear();
-                weaponTrail.enabled = false;
+                weaponIndicator.SetActive(false);
                 golemStateMachine.combatStates = GolemStates.CombatStates.IDLE;
             }
         }
@@ -74,7 +73,7 @@ public class GolemBaseWeapon : MonoBehaviour
         weaponCollider.transform.localRotation = weaponSwingStart;
         swingSpeed = quickAttackSpeed;
         weaponCollider.enabled = true;
-        weaponTrail.enabled = true;
+        weaponIndicator.SetActive(true);
         isSwinging = true;
         golemStateMachine.combatStates = GolemStates.CombatStates.LIGHTATTACK;
         weapon.damageType = meleeDamageType;

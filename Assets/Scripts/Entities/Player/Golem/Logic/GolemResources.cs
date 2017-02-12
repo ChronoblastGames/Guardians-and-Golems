@@ -46,7 +46,7 @@ public class GolemResources : MonoBehaviour
     [Header("Player Mana Regeneration Attributes")]
     public float manaRegenerationSpeed;
 
-    [Header("Player Defensive Attributes")]
+    [HideInInspector]
     public GolemDefense golemDefense;
 
     void Awake()
@@ -143,7 +143,6 @@ public class GolemResources : MonoBehaviour
         float calculatedResistance;
         float calculatedDamage;
 
-        //Compare Damage Type with Defenses, applies calculated damage.
         switch(damageType)
         {
             case DamageType.EARTH:
@@ -187,22 +186,38 @@ public class GolemResources : MonoBehaviour
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
                 break;
+
+            default:
+                Debug.Log("Something went wrong in TakeDamage, wrong argument passed, was: " + damageType);
+                break;
         }
     }
 
     public void DealDamage(float damageValue)
     {
-        Debug.Log(damageValue);
+        if (currentHealth > damageValue)
+        {
+            currentHealth -= damageValue;
+        }
+        else
+        {
+            Die();
+        }
     }
 
     public void InflictStatusEffect(StatusEffect statusEffect)
     {
-        //Debug I should be stunned
+        switch(statusEffect)
+        {
+            default:
+                Debug.Log("Something went wrong in InflictStatusEffect, wrong argument passed, was: " + statusEffect);
+                break;
+        }
     }
 
     void Die()
     {
-        Debug.Log("I died " + gameObject.name);
+        Debug.Log(gameObject.name + " is Dead!");
     }
 }
 

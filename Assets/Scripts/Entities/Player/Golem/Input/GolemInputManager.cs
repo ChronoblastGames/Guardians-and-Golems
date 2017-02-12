@@ -6,29 +6,25 @@ public class GolemInputManager : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
 
-    [Header("Golem Controls")] //Keycodes that relate to use of Special Abilities (KEYBOARD)
-    public KeyCode ABILITY_1;
-    public KeyCode ABILITY_2;
-    public KeyCode ABILITY_3;
-    public KeyCode ABILITY_4;
-    public KeyCode MODIFIER;
-    public KeyCode LIGHT_ATTACK;
-    public KeyCode DODGE;
-
     [Header("Golem Player Values")]
     public string PlayerName;
     public string PlayerNumber;
     public string teamColor;
 
     [Header("Golem Input Values")]
+    [HideInInspector]
     public float xAxis;
+    [HideInInspector]
     public float zAxis;
 
+    [HideInInspector]
     public float aimXAxis;
+    [HideInInspector]
     public float aimZAxis;
 
     private float modifierAxis;
 
+    [HideInInspector]
     public float blockAxis;
 
     [Header("Debug Values")]
@@ -66,30 +62,30 @@ public class GolemInputManager : MonoBehaviour
         modifierAxis = Input.GetAxis("ModifierAxisPlayer" + PlayerNumber + "Win");
         blockAxis = Input.GetAxis("BlockAxisPlayer" + PlayerNumber + "Win");
 
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4") || Input.GetKeyDown(ABILITY_1))
+        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
         {
             golemPlayerController.UseAbility(2, aimVec, teamColor);
         }
-        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 4") || Input.GetKeyDown(ABILITY_1))
+        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
         {
             golemPlayerController.UseAbility(0, aimVec, teamColor);
         }
 
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 5") || Input.GetKeyDown(ABILITY_1))
+        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
         {
             golemPlayerController.UseAbility(3, aimVec, teamColor);
         }
-        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5") || Input.GetKeyDown(ABILITY_2))
+        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
         {
             golemPlayerController.UseAbility(1, aimVec, teamColor);
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1") || Input.GetKeyDown(ABILITY_3))
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1"))
         {
             golemPlayerController.Dodge();
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
         {
             golemPlayerController.UseQuickAttack();
         }

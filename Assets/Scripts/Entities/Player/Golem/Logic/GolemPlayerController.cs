@@ -14,16 +14,6 @@ public class GolemPlayerController : GolemStats
     private float xAxis;
     private float zAxis;
 
-    [Header("Player Turning Attributes")]
-    public float turnSpeed;
-
-    [Header("Ground Check Attributes")]
-    public float groundCheckLength;
-
-    public bool isGrounded;
-
-    public LayerMask GroundMask;
-
     [Header("Debugging Values")]
     public float playerCurrentVelocity;
 
@@ -33,7 +23,6 @@ public class GolemPlayerController : GolemStats
 
 	[Header("CoolDowns")]
 	private float globalCooldownTime;
-	private float cdEXT; //?
 
 	void Start () 
     {
@@ -42,8 +31,6 @@ public class GolemPlayerController : GolemStats
 	
 	void Update () 
     {
-        GroundCheck();
-
         GetVelocity();
 	}
 
@@ -136,9 +123,10 @@ public class GolemPlayerController : GolemStats
 
     public void Dodge()
     {
-        if (golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
+        if (golemStateMachine.combatStates == GolemStates.CombatStates.IDLE && cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2])
         {
             playerRigidbody.AddForce(transform.forward * dodgeStrength, ForceMode.Impulse);
+            StartCoroutine(cdAbility.RestartCoolDownCoroutine());
         }
     }
 
@@ -146,24 +134,14 @@ public class GolemPlayerController : GolemStats
     {
         if (golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
         {
+            golemStateMachine.combatStates = GolemStates.CombatStates.BLOCK;
             blockIndicator.SetActive(true);
         }
     }
 
     public void Unblock()
     {
+        golemStateMachine.combatStates = GolemStates.CombatStates.IDLE;
         blockIndicator.SetActive(false);
-    }
-
-    void GroundCheck()
-    {
-        if (Physics.Raycast(transform.position, Vector3.down, groundCheckLength, GroundMask))
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
     }
 }

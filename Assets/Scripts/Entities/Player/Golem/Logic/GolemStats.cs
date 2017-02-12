@@ -5,15 +5,10 @@ public abstract class GolemStats : MonoBehaviour
 {
     [Header("Golem Movement Attributes")]
     public float baseMovementSpeed;
-
-    [Header("Golem Dodge Attributes")]
     public float dodgeStrength;
 
-    [Header("Golem Health Attributes")]
-    public float baseHealth;
-
-    [Header("Golem Mana/Energy Attributes")]
-    public float baseMana;
+    [Header("Player Turning Attributes")]
+    public float turnSpeed;
 
     [Header("Golem Defenses")]
     public GolemDefense golemDefenseValues;
