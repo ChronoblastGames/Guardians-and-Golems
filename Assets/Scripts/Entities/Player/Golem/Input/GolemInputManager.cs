@@ -1,15 +1,27 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+public enum PlayerNum
+{
+    PLAYER_1,
+    PLAYER_2,
+    PLAYER_3,
+    PLAYER_4
+}
+
+
 [System.Serializable]
 public class GolemInputManager : MonoBehaviour 
 {
     private GolemPlayerController golemPlayerController;
 
     [Header("Golem Player Values")]
+    public PlayerNum playerNum;
+
     public string PlayerName;
-    public string PlayerNumber;
     public string teamColor;
+
+    private int PlayerNumber;
 
     [Header("Golem Input Values")]
     [HideInInspector]
@@ -47,6 +59,22 @@ public class GolemInputManager : MonoBehaviour
     void PlayerSetup()
     {
         golemPlayerController = GetComponent<GolemPlayerController>();    
+
+        switch(playerNum)
+        {
+            case PlayerNum.PLAYER_1:
+                PlayerNumber = 1;
+                break;
+            case PlayerNum.PLAYER_2:
+                PlayerNumber = 2;
+                break;
+            case PlayerNum.PLAYER_3:
+                PlayerNumber = 3;
+                break;
+            case PlayerNum.PLAYER_4:
+                PlayerNumber = 4;
+                break;
+        }
     }
 
     void GetInput()
