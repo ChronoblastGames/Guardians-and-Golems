@@ -198,6 +198,7 @@ public class GolemResources : MonoBehaviour
         if (currentHealth > damageValue)
         {
             currentHealth -= damageValue;
+            Debug.Log(gameObject.name + " took " + damageValue + " of damage");
         }
         else
         {

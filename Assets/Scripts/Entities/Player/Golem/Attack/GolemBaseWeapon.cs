@@ -77,5 +77,6 @@ public class GolemBaseWeapon : MonoBehaviour
         isSwinging = true;
         golemStateMachine.combatStates = GolemStates.CombatStates.LIGHTATTACK;
         weapon.damageType = meleeDamageType;
+        weapon.damageValue = quickAttackDamage;
     }
 }

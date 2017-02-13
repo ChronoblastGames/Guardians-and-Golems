@@ -6,6 +6,8 @@ public class WeaponCollider : MonoBehaviour
     [Header("Collider Attributes")]
     public DamageType damageType;
 
+    public float damageValue;
+
     private Collider weaponCol;
 
     void Start()
@@ -22,7 +24,7 @@ public class WeaponCollider : MonoBehaviour
     {
         if (other.gameObject.layer != gameObject.layer)
         {
-            other.gameObject.GetComponent<GolemResources>().TakeDamage(0, damageType);
+            other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType);
             weaponCol.enabled = false;
         }
     }
