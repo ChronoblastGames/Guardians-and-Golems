@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(GuardianInputManager))]
@@ -7,13 +8,24 @@ public class GuardianPlayerController : GuardianStats
 {
     private GuardianInputManager guardianInputManager;
 
-    private Rigidbody playerRigidbody;
-
     private float xAxis;
     private float zAxis;
 
+    [Header("Guardian Orb Attributes")]
+    public List<GameObject> orbList;
+
+    public bool isCapturingOrb = false;
+
+    [Header("Selection Values")]
+    public GameObject selectedOrb;
+
+    public float selectionDistance;
+
+    private RaycastHit rayHit;
+
+    public LayerMask orbMask;
+
     [Header("Debugging Values")]
-    public float playerCurrentVelocity;
     private BasicCooldown cdAbility;
 
     [Header("CoolDowns")]
@@ -24,12 +36,7 @@ public class GuardianPlayerController : GuardianStats
         PlayerSetup();
     }
 
-    void Update()
-    {
-        GetVelocity();
-    }
-
-    private void FixedUpdate()
+    private void Update()
     {
         GatherInput();
     }
@@ -43,13 +50,6 @@ public class GuardianPlayerController : GuardianStats
         cdAbility.cdTime = globalCooldownTime;
 
         guardianInputManager = GetComponent<GuardianInputManager>();
-
-        playerRigidbody = GetComponent<Rigidbody>();
-    }
-
-    void GetVelocity()
-    {
-        playerCurrentVelocity = playerRigidbody.velocity.magnitude;
     }
 
     void GatherInput()
@@ -57,34 +57,32 @@ public class GuardianPlayerController : GuardianStats
         xAxis = guardianInputManager.xAxis;
         zAxis = guardianInputManager.zAxis;
 
-        Move(xAxis, zAxis);
+        LookForOrb(xAxis, zAxis);
     }
 
-    void Move(float xAxis, float zAxis)
+    void LookForOrb(float xAxis, float zAxis)
     {
         if (xAxis != 0 || zAxis != 0)
         {
-            Vector3 moveVec = new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime;
+            Vector3 lookVec = new Vector3(xAxis, 0, zAxis);
 
-            if (moveVec.magnitude > 1)
+            if (Physics.Raycast(transform.position, lookVec, out rayHit, selectionDistance, orbMask))
             {
-                moveVec.Normalize();
+                GameObject hitOrb = rayHit.collider.gameObject;
+                selectedOrb = hitOrb;
             }
-
-            Turn(moveVec);
-
-            playerRigidbody.MovePosition(transform.position + new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime);
+            else
+            {
+                selectedOrb = null;
+            }
+        }
+        else
+        {
+            selectedOrb = null;
         }
     }
 
-    void Turn(Vector3 lookVec)
-    {
-        Quaternion desiredRotation = Quaternion.LookRotation(lookVec);
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * turnSpeed);
-    }
-
-    public void UseAbility(int abilityNumber, Vector3 aimVec, string teamColor)
+    public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
     {
         if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
         {
@@ -98,6 +96,14 @@ public class GuardianPlayerController : GuardianStats
                 guardianAbilites[abilityNumber].CastAbility(transform.forward, teamColor);
                 StartCoroutine(cdAbility.RestartCoolDownCoroutine());
             }
+        }
+    }
+
+    public void CaptureOrb(PlayerTeam teamColor)
+    {
+        if (selectedOrb != null && !isCapturingOrb)
+        {
+            selectedOrb.GetComponent<OrbController>().StartOrbCapture(teamColor, gameObject);
         }
     }
 }

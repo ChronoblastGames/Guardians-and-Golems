@@ -93,7 +93,7 @@ public class GolemPlayerController : GolemStats
         transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * turnSpeed);
     }
 
-    public void UseAbility(int abilityNumber, Vector3 aimVec, string teamColor)
+    public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
     {
 		//Debug.Log (cdAbility.cdStateEngine.currentState.stateName + " with an ID of "+ cdAbility.cdStateEngine.currentState.stateID + " And you want " + cdAbility.possibleStates [2].stateName + " with an ID of " + cdAbility.possibleStates [2].stateID);
 		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]) && golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)

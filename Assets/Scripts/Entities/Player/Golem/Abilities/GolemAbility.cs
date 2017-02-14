@@ -100,7 +100,7 @@ public abstract class GolemAbility : MonoBehaviour
     [Header("Ability Info")]
     public AbilityValues abilityValues;
 
-    public virtual void CastAbility(Vector3 aimVec, string teamColor)
+    public virtual void CastAbility(Vector3 aimVec, PlayerTeam teamColor)
     {
         Debug.LogError("Base Ability Cast, should have been overriden");
     }

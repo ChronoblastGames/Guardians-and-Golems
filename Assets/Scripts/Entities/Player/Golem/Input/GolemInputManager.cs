@@ -9,6 +9,13 @@ public enum PlayerNum
     PLAYER_4
 }
 
+public enum PlayerTeam
+{
+    RED,
+    BLUE,
+    NONE
+}
+
 
 [System.Serializable]
 public class GolemInputManager : MonoBehaviour 
@@ -17,9 +24,9 @@ public class GolemInputManager : MonoBehaviour
 
     [Header("Golem Player Values")]
     public PlayerNum playerNum;
+    public PlayerTeam playerTeam;
 
     public string PlayerName;
-    public string teamColor;
 
     private int PlayerNumber;
 
@@ -92,20 +99,20 @@ public class GolemInputManager : MonoBehaviour
 
         if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
         {
-            golemPlayerController.UseAbility(2, aimVec, teamColor);
+            golemPlayerController.UseAbility(2, aimVec, playerTeam);
         }
         else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
         {
-            golemPlayerController.UseAbility(0, aimVec, teamColor);
+            golemPlayerController.UseAbility(0, aimVec, playerTeam);
         }
 
         if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
         {
-            golemPlayerController.UseAbility(3, aimVec, teamColor);
+            golemPlayerController.UseAbility(3, aimVec, playerTeam);
         }
         else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
         {
-            golemPlayerController.UseAbility(1, aimVec, teamColor);
+            golemPlayerController.UseAbility(1, aimVec, playerTeam);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1"))
@@ -152,20 +159,20 @@ public class GolemInputManager : MonoBehaviour
 
         if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(ABILITY_1))
         {
-            golemPlayerController.UseAbility(2, aimVec, teamColor);
+            golemPlayerController.UseAbility(2, aimVec, playerTeam);
         }
         else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(ABILITY_1))
         {
-            golemPlayerController.UseAbility(0, aimVec, teamColor);
+            golemPlayerController.UseAbility(0, aimVec, playerTeam);
         }
 
         if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(ABILITY_1))
         {
-            golemPlayerController.UseAbility(3, aimVec, teamColor);
+            golemPlayerController.UseAbility(3, aimVec, playerTeam);
         }
         else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(ABILITY_2))
         {
-            golemPlayerController.UseAbility(1, aimVec, teamColor);
+            golemPlayerController.UseAbility(1, aimVec, playerTeam);
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack

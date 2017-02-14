@@ -22,7 +22,7 @@ public class Ability : GolemAbility
         golemResources = transform.parent.parent.GetComponent<GolemResources>();
     }
 
-    public override void CastAbility(Vector3 aimVec, string teamColor)
+    public override void CastAbility(Vector3 aimVec, PlayerTeam teamColor)
     {
         AbilityValues abilityValues;
         Vector3 spawnVec;
@@ -49,11 +49,11 @@ public class Ability : GolemAbility
                     GameObject newProjectile = Instantiate(ability, spawnVec, spawnRot) as GameObject;
                     newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = abilityValues;
 
-                    if (teamColor == "Red")
+                    if (teamColor == PlayerTeam.RED)
                     {
                         newProjectile.layer = 8;
                     }
-                    else if (teamColor == "Blue")
+                    else if (teamColor == PlayerTeam.BLUE)
                     {
                         newProjectile.layer = 9;
                     }
