@@ -98,7 +98,7 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -131,8 +131,142 @@ ModelImporter:
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
-    human: []
-    skeleton: []
+    human:
+    - boneName: Camera_Root
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Camera
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Camera_Interest
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: WaterGolem v2(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bracers
+      parentName: WaterGolem v2(Clone)
+      position: {x: 0.9950464, y: 0.9851464, z: 0.26486278}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Bracers1
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0.9950464, y: 0.9851464, z: 0.26486278}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -8.450358e-11}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Camera_Root
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0, y: 0.03, z: 0.29999998}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Camera
+      parentName: Camera_Root
+      position: {x: -1.9133197, y: 2.3043482, z: 7.9355564}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Camera_Interest
+      parentName: Camera_Root
+      position: {x: 0.009135901, y: 1.5430211, z: 0.03734689}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Chest
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0.000025366964, y: 1.8431637, z: -0.122794986}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Eye
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0.054764275, y: 2.1515853, z: 0.3532658}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -8.450358e-11}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Eye1
+      parentName: WaterGolem v2(Clone)
+      position: {x: 0.054764275, y: 2.1515853, z: 0.3532658}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hands
+      parentName: WaterGolem v2(Clone)
+      position: {x: 0.92004454, y: 0.8197681, z: 0.40033987}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Hands1
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -8.450358e-11}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: WaterGolem v2(Clone)
+      position: {x: -6.2019355e-18, y: 2.157422, z: 0.23765208}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: light
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0.015, y: 0.015, z: 0.015}
+      rotation: {x: 0.3981126, y: -0.22985043, z: 0.22985043, w: 0.8578135}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Ortho_Root
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Ortho
+      parentName: Ortho_Root
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Ortho_Interest
+      parentName: Ortho_Root
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Point
+      parentName: WaterGolem v2(Clone)
+      position: {x: 2.8519793, y: 0, z: 2.409314}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Point1
+      parentName: WaterGolem v2(Clone)
+      position: {x: -2.3205414, y: 2.2838013, z: 2.409314}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Point2
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Shoulder
+      parentName: WaterGolem v2(Clone)
+      position: {x: 0.6644779, y: 1.8661106, z: -0.010295121}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Shoulder1
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0.6644779, y: 1.8661106, z: -0.010295121}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -8.450358e-11}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Tornado
+      parentName: WaterGolem v2(Clone)
+      position: {x: -0.0036156243, y: 0.5744603, z: 0.0030213166}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -143,10 +277,10 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

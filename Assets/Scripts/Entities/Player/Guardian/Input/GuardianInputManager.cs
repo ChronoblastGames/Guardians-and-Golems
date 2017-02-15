@@ -72,11 +72,6 @@ public class GuardianInputManager : MonoBehaviour
         aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "Win");
         modifierAxis = Input.GetAxis("ModifierAxisPlayer" + PlayerNumber + "Win");
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 0"))
-        {
-            guardianController.CaptureOrb(playerTeam);
-        }
-
         if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
         {
             guardianController.UseAbility(2, aimVec, playerTeam);
