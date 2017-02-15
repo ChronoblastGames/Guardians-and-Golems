@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Ability : GolemAbility 
+public class Ability : BaseGolemAbilities 
 {
     private GolemResources golemResources;
 

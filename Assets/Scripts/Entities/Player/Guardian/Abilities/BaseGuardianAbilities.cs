@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public abstract class GuardianAbilities : MonoBehaviour 
+public abstract class BaseGuardianAbilities : MonoBehaviour 
 {
     [Header("Ability")]
     public GameObject ability;

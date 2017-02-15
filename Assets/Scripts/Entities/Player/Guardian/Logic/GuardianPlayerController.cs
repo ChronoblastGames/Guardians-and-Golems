@@ -7,7 +7,8 @@ using UnityEngine;
 public class GuardianPlayerController : GuardianStats 
 {
     private GuardianInputManager guardianInputManager;
-    private TimerClass switchTimer;
+    private OrbController orbController;
+    private TimerClass selectionTimer;
 
     private float xAxis;
     private float zAxis;
@@ -20,11 +21,12 @@ public class GuardianPlayerController : GuardianStats
     public bool isCapturingOrb = false;
 
     [Header("Selection Values")]
-    private OrbController orbController;
-    public GameObject selectedOrb;
     public GameObject attachedOrb;
+    private GameObject selectedOrb;
 
     public float selectionDistance;
+
+    public float selectionDelay;
 
     private RaycastHit rayHit;
 
@@ -44,6 +46,7 @@ public class GuardianPlayerController : GuardianStats
     private void Update()
     {
         GatherInput();
+        ManageAttack();
     }
 
     void PlayerSetup()
@@ -56,7 +59,9 @@ public class GuardianPlayerController : GuardianStats
 
         guardianInputManager = GetComponent<GuardianInputManager>();
 
-        switchTimer = new TimerClass();
+        selectionTimer = new TimerClass();
+
+        selectionTimer.ResetTimer(selectionDelay);
 
         playerTeam = guardianInputManager.playerTeam;
     }
@@ -66,10 +71,22 @@ public class GuardianPlayerController : GuardianStats
         xAxis = guardianInputManager.xAxis;
         zAxis = guardianInputManager.zAxis;
 
-        LookForOrb(xAxis, zAxis);
+        SearchForOrb(xAxis, zAxis);
     }
 
-    void LookForOrb(float xAxis, float zAxis)
+    void ManageAttack()
+    {
+        if (orbList.Contains(attachedOrb))
+        {
+            canAttack = true;
+        }
+        else
+        {
+            canAttack = false;
+        }
+    }
+
+    void SearchForOrb(float xAxis, float zAxis)
     {
         if (xAxis != 0 || zAxis != 0)
         {
@@ -77,69 +94,60 @@ public class GuardianPlayerController : GuardianStats
 
             if (Physics.Raycast(transform.position, lookVec, out rayHit, selectionDistance, orbMask))
             {
-                if (switchTimer.TimerIsDone())
+                selectedOrb = rayHit.collider.gameObject;
+
+                if (selectionTimer.TimerIsDone())
                 {
-                    GameObject hitOrb = rayHit.collider.gameObject;
-                    selectedOrb = hitOrb;
-                    MoveToOrb(playerTeam);
-                }     
-            }
-            else
-            {
-                selectedOrb = null;
+                    if (selectedOrb != attachedOrb)
+                    {
+                        DeattachFromOrb();
+                    }
+
+                    AttachToOrb(selectedOrb);
+                }
             }
         }
-        else
+    }
+
+    void AttachToOrb(GameObject orb)
+    {
+        transform.position = orb.transform.position;
+        attachedOrb = orb;
+        orbController = attachedOrb.GetComponent<OrbController>();
+        selectionTimer.ResetTimer(selectionDelay);      
+    }
+
+    void DeattachFromOrb()
+    {
+        orbController = null;
+        attachedOrb = null;
+    }
+
+    public void CaptureOrb()
+    {
+        if (attachedOrb != null && !isCapturingOrb)
         {
-            selectedOrb = null;
+            orbController.StartOrbCapture(playerTeam, gameObject);
         }
     }
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
     {
-        if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
+        if (canAttack && attachedOrb != null)
         {
-            if (aimVec != Vector3.zero)
+            if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
             {
-                guardianAbilites[abilityNumber].CastAbility(aimVec, transform.position, teamColor);
-                StartCoroutine(cdAbility.RestartCoolDownCoroutine());
+                if (aimVec != Vector3.zero)
+                {
+                    guardianAbilites[abilityNumber].CastAbility(aimVec, transform.position, teamColor);
+                    StartCoroutine(cdAbility.RestartCoolDownCoroutine());
+                }
+                else
+                {
+                    guardianAbilites[abilityNumber].CastAbility(transform.forward, transform.position, teamColor);
+                    StartCoroutine(cdAbility.RestartCoolDownCoroutine());
+                }
             }
-            else
-            {
-                guardianAbilites[abilityNumber].CastAbility(transform.forward, transform.position, teamColor);
-                StartCoroutine(cdAbility.RestartCoolDownCoroutine());
-            }
-        }
-    }
-
-    public void MoveToOrb(PlayerTeam teamColor)
-    {
-        if (selectedOrb != null && !isCapturingOrb && selectedOrb != attachedOrb)
-        {
-            if (attachedOrb != null)
-            {
-                orbController.ResetOrb();             
-            }
-
-            orbController = selectedOrb.GetComponent<OrbController>();
-
-            if (orbController.MoveToOrb(teamColor))
-            {
-                transform.position = selectedOrb.transform.position;
-                attachedOrb = selectedOrb;
-                orbController.orbState = OrbState.CONTROLLED;
-                selectedOrb = null;
-            }
-
-            switchTimer.ResetTimer(0.5f);
-        }
-    }
-
-    public void TakeOrbControl(PlayerTeam teamColor)
-    {
-        if (attachedOrb != null)
-        {
-
-        }
+        }     
     }
 }

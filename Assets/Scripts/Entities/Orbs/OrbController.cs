@@ -7,12 +7,13 @@ public enum OrbState
     EMPTY,
     IN_PROGRESS,
     CONTROLLED,
-    CONTESTED
+    CONTESTED,
+    HOMEBASE
 }
 
 public class OrbController : MonoBehaviour 
 {
-    private GuardianPlayerController orbGuardianPlayerController;
+    private GuardianPlayerController guardianPlayerController;
 
     [Header("Orb Attributes")]
     public OrbState orbState;
@@ -24,6 +25,12 @@ public class OrbController : MonoBehaviour
     public float blueTeamCaptureAmount;
 
     public bool isBeingCaptured;
+
+    public bool isBeingAssistedByRedGolem;
+    public bool isBeingAssistedByBlueGolem;
+
+    [Header("Orb Collider")]
+    public GameObject orbCollider;
 
     [Header("Orb UI Attributes")]
     public Image orbCaptureIndicator;
@@ -63,55 +70,19 @@ public class OrbController : MonoBehaviour
         }
     }
 
-    public bool MoveToOrb(PlayerTeam teamColor)
-    {
-        if (orbState == OrbState.EMPTY || orbColor == teamColor)
-        {
-            orbState = OrbState.CONTROLLED;
-            orbRenderer.material.SetFloat("_Outline", 30f);
-
-            switch (teamColor)
-            {
-                case PlayerTeam.RED:
-                    orbRenderer.material.SetColor("_OutlineColor", Color.red);
-                    break;
-                case PlayerTeam.BLUE:
-                    orbRenderer.material.SetColor("_OutlineColor", Color.blue);
-                    break;
-            }
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     public void StartOrbCapture(PlayerTeam teamColor, GameObject Guardian)
     {
-        if (orbState == OrbState.EMPTY)
+        if (orbState == OrbState.EMPTY && !isBeingCaptured)
         {
+            guardianPlayerController = Guardian.GetComponent<GuardianPlayerController>();
+            guardianPlayerController.isCapturingOrb = true;
+
+            captureSpeed = guardianPlayerController.captureSpeed;
+
             orbColor = teamColor;
-            orbGuardianPlayerController = Guardian.GetComponent<GuardianPlayerController>();
-            captureSpeed = orbGuardianPlayerController.captureSpeed;
-            orbGuardianPlayerController.isCapturingOrb = true;
+
             isBeingCaptured = true;
-            orbCaptureIndicator.enabled = true;
-            orbState = OrbState.IN_PROGRESS;
-            Guardian.transform.position = transform.position;
-        }
-        else if (orbState == OrbState.IN_PROGRESS)
-        {
-            if (orbColor != teamColor)
-            {
-                orbGuardianPlayerController.isCapturingOrb = false;
-                orbGuardianPlayerController = Guardian.GetComponent<GuardianPlayerController>();
-                captureSpeed = orbGuardianPlayerController.captureSpeed;
-                orbGuardianPlayerController.isCapturingOrb = true;
-                orbColor = teamColor;
-                Guardian.transform.position = transform.position;
-            }         
-        }
+        }    
     }
 
     public void CaptureOrb()
@@ -179,8 +150,8 @@ public class OrbController : MonoBehaviour
 
         orbCaptureIndicator.enabled = false;
         captureSpeed = 0;
-        orbGuardianPlayerController.isCapturingOrb = false;
-        orbGuardianPlayerController.orbList.Add(gameObject);
+        guardianPlayerController.isCapturingOrb = false;
+        guardianPlayerController.orbList.Add(gameObject);
         orbState = OrbState.CONTROLLED;
     }
 

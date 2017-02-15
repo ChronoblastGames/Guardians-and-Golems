@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GuardianAbility : GuardianAbilities
+public class GuardianAbility : BaseGuardianAbilities
 {
     private GuardianResources guardianResources;
 
