@@ -119,7 +119,8 @@ public class GuardianAbility : BaseGuardianAbilities
         abilityInfo.damageAmount = damageAmount;
         abilityInfo.projectileSpeed = projectileSpeed;
         abilityInfo.spawnDistanceFromPlayer = spawnDistanceFromPlayer;
-        abilityInfo.activeTime = activeTime;
+        abilityInfo.projectileActiveTime = projectileActiveTime;
+        abilityInfo.wallActiveTime = wallActiveTime;
         abilityInfo.raiseAmount = raiseAmount;
         abilityInfo.raiseSpeed = raiseSpeed;
         abilityInfo.zoneRadius = zoneRadius;

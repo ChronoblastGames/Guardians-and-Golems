@@ -4,15 +4,35 @@ using UnityEngine;
 [System.Serializable]
 public class BaseProjectileAbility : MonoBehaviour
 {
+    private TimerClass projectileTimer;
+
     private Rigidbody myRB;
     private GameObject trailRenderer;
 
     [Header("Ability Values")]
     public AbilityValues abilityValues;
 
+    public bool hasTime;
+
     private void Start()
     {
         AbilitySetup();
+    }
+
+    private void Update()
+    {
+        CheckTimer();
+    }
+
+    void CheckTimer()
+    {
+        if (hasTime)
+        {
+            if (projectileTimer.TimerIsDone())
+            {
+                HideSelf();
+            }
+        }
     }
 
     void AbilitySetup()
@@ -20,6 +40,15 @@ public class BaseProjectileAbility : MonoBehaviour
         myRB = GetComponent<Rigidbody>();
 
         trailRenderer = transform.GetChild(0).gameObject;
+
+        if (abilityValues.projectileActiveTime > 0)
+        {
+            projectileTimer = new TimerClass();
+
+            projectileTimer.ResetTimer(abilityValues.projectileActiveTime);
+
+            hasTime = true;
+        }
 
         UseAbility();
     }

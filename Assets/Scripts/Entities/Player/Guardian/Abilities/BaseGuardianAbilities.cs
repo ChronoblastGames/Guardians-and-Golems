@@ -14,8 +14,11 @@ public abstract class BaseGuardianAbilities : MonoBehaviour
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
 
-    [Header("Static Attributes")]
-    public float activeTime;
+    [Header("Projectile Attributes")]
+    public float projectileActiveTime;
+
+    [Header("Wall Attributes")]
+    public float wallActiveTime;
     public float raiseAmount;
     public float raiseSpeed;
 

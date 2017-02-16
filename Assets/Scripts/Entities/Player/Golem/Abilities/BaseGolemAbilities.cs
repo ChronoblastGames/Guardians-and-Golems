@@ -34,8 +34,11 @@ public struct AbilityValues
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
 
-    [Header("Static Attributes")]
-    public float activeTime;
+    [Header("Projectile Attributes")]
+    public float projectileActiveTime;
+
+    [Header("Wall Attributes")]
+    public float wallActiveTime;
     public float raiseAmount;
     public float raiseSpeed;
 
@@ -73,8 +76,11 @@ public abstract class BaseGolemAbilities : MonoBehaviour
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
 
-    [Header("Static Attributes")]
-    public float activeTime;
+    [Header("Projectile Attributes")]
+    public float projectileActiveTime;
+
+    [Header("Wall Attributes")]
+    public float wallActiveTime;
     public float raiseAmount;
     public float raiseSpeed;
 

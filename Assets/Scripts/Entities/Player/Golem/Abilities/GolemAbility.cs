@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class Ability : BaseGolemAbilities 
+public class GolemAbility : BaseGolemAbilities 
 {
     private GolemResources golemResources;
 
@@ -40,7 +40,7 @@ public class Ability : BaseGolemAbilities
 
                 abilityValues = CreateAbilityStruct();
 
-                if (golemResources.CanCast(abilityValues.manaCost))
+                if (golemResources.CanCast(abilityValues.manaCost) && golemResources)
                 {
                     spawnRot = Quaternion.LookRotation(aimVec);
 
@@ -118,7 +118,8 @@ public class Ability : BaseGolemAbilities
         abilityInfo.damageAmount = damageAmount;
         abilityInfo.projectileSpeed = projectileSpeed;
         abilityInfo.spawnDistanceFromPlayer = spawnDistanceFromPlayer;
-        abilityInfo.activeTime = activeTime;
+        abilityInfo.projectileActiveTime = projectileActiveTime;
+        abilityInfo.wallActiveTime = wallActiveTime;
         abilityInfo.raiseAmount = raiseAmount;
         abilityInfo.raiseSpeed = raiseSpeed;
         abilityInfo.zoneRadius = zoneRadius;
