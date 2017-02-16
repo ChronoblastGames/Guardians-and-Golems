@@ -98,7 +98,7 @@ public class GuardianPlayerController : GuardianStats
 
                 if (selectionTimer.TimerIsDone())
                 {
-                    if (selectedOrb != attachedOrb)
+                    if (selectedOrb != attachedOrb && attachedOrb != null)
                     {
                         DeattachFromOrb();
                     }
@@ -114,11 +114,13 @@ public class GuardianPlayerController : GuardianStats
         transform.position = orb.transform.position;
         attachedOrb = orb;
         orbController = attachedOrb.GetComponent<OrbController>();
-        selectionTimer.ResetTimer(selectionDelay);      
+        selectionTimer.ResetTimer(selectionDelay);
+        orbController.ManageOrbOutline(playerTeam);  
     }
 
     void DeattachFromOrb()
     {
+        orbController.ResetOrb();
         orbController = null;
         attachedOrb = null;
     }
@@ -137,14 +139,16 @@ public class GuardianPlayerController : GuardianStats
         {
             if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
             {
+                GameObject spawnObj = orbController.orbObjectBase;
+
                 if (aimVec != Vector3.zero)
-                {
-                    guardianAbilites[abilityNumber].CastAbility(aimVec, transform.position, teamColor);
+                {           
+                    guardianAbilites[abilityNumber].CastAbility(aimVec, spawnObj, teamColor);
                     StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                 }
                 else
                 {
-                    guardianAbilites[abilityNumber].CastAbility(transform.forward, transform.position, teamColor);
+                    guardianAbilites[abilityNumber].CastAbility(transform.forward, spawnObj, teamColor);
                     StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                 }
             }

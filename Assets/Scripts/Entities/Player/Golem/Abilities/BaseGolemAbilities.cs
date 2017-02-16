@@ -10,6 +10,7 @@ public enum DamageType
     SLASH,
     SMASH,
     PIERCE,
+    PURE,
     NONE
 }
 

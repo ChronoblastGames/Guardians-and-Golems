@@ -22,7 +22,7 @@ public class GuardianAbility : BaseGuardianAbilities
         guardianResources = transform.parent.parent.GetComponent<GuardianResources>();
     }
 
-    public override void CastAbility(Vector3 aimVec, Vector3 spawnPos, PlayerTeam teamColor)
+    public override void CastAbility(Vector3 aimVec, GameObject spawnPos, PlayerTeam teamColor)
     {
         AbilityValues abilityValues;
         Vector3 spawnVec;
@@ -47,6 +47,7 @@ public class GuardianAbility : BaseGuardianAbilities
                     spawnVec = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
 
                     GameObject newProjectile = Instantiate(ability, spawnVec, spawnRot) as GameObject;
+                    Physics.IgnoreCollision(newProjectile.GetComponent<Collider>(), spawnPos.GetComponent<Collider>());
                     newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = abilityValues;
 
                     if (teamColor == PlayerTeam.RED)

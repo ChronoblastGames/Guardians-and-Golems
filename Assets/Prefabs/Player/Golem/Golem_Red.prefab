@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: 114130078213029746}
   - component: {fileID: 114895763274516146}
   - component: {fileID: 114864118642147262}
+  - component: {fileID: 108198044678278564}
   m_Layer: 8
   m_Name: Golem_Red
   m_TagString: GolemRed
@@ -782,7 +783,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1761578085408002}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -40, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -2310,6 +2311,40 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!108 &108198044678278564
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1761578085408002}
+  m_Enabled: 1
+  serializedVersion: 7
+  m_Type: 2
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!114 &114130078213029746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2323,7 +2358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponCollider: {fileID: 65894496018977734}
   meleeDamageType: 5
-  quickAttackDamage: 0
+  quickAttackDamage: 25
   quickAttackSpeed: 7
   swingArc: 180
   isAttacking: 0
@@ -2419,6 +2454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageType: 0
+  damageValue: 0
 --- !u!114 &114406737074975942
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2431,7 +2467,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1620794945978752, guid: f95bac51cf992e9429aaf91095bed8c6, type: 2}
-  damageType: 0
+  damageType: 1
   damageAmount: 15
   projectileSpeed: 30
   spawnDistanceFromPlayer: 0
@@ -2469,9 +2505,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNum: 2
+  playerTeam: 0
   PlayerName: Matt
-  PlayerNumber: 1
-  teamColor: Red
   xAxis: 0
   zAxis: 0
   aimXAxis: 0

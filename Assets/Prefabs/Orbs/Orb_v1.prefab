@@ -121,7 +121,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1977623815689276}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: -11}
+  m_LocalPosition: {x: -35, y: 3, z: 18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224363006822488030}
@@ -310,9 +310,11 @@ MonoBehaviour:
   isBeingCaptured: 0
   isBeingAssistedByRedGolem: 0
   isBeingAssistedByBlueGolem: 0
-  orbCollider: {fileID: 1429179078685972}
+  orbObjectBase: {fileID: 1429179078685972}
   orbCaptureIndicator: {fileID: 114645695145801482}
   orbRenderer: {fileID: 23269482281270426}
+  redOrbMaterial: {fileID: 2100000, guid: 1e433d8af46bf6948a5d43a947266ecd, type: 2}
+  blueOrbMaterial: {fileID: 2100000, guid: 3556447aae5fdb642a208438b5bacaba, type: 2}
 --- !u!114 &114547059415145364
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -133,7 +133,7 @@ public class GolemResources : MonoBehaviour
         }
         else
         {
-            Debug.Log(spellManaCost);
+            Debug.Log(gameObject.name + "is out of Mana");
             return false;
         }
     }
@@ -163,6 +163,12 @@ public class GolemResources : MonoBehaviour
                 DealDamage(calculatedDamage);
                 break;
 
+            case DamageType.WIND:
+                calculatedResistance = golemDefense.baseDefense * golemDefense.windDefense;
+                calculatedDamage = damageValue / calculatedResistance;
+                DealDamage(calculatedDamage);
+                break;
+
             case DamageType.PIERCE:
                 calculatedResistance = golemDefense.baseDefense * golemDefense.pierceDefense;
                 calculatedDamage = damageValue / calculatedResistance;
@@ -181,7 +187,7 @@ public class GolemResources : MonoBehaviour
                 DealDamage(calculatedDamage);
                 break;
 
-            case DamageType.NONE:
+            case DamageType.PURE:
                 calculatedResistance = golemDefense.baseDefense;
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
@@ -219,6 +225,7 @@ public class GolemResources : MonoBehaviour
     void Die()
     {
         Debug.Log(gameObject.name + " is Dead!");
+        gameObject.SetActive(false);
     }
 }
 

@@ -42,7 +42,7 @@ public abstract class BaseGuardianAbilities : MonoBehaviour
     [Header("Ability Info")]
     public AbilityValues abilityValues;
 
-    public virtual void CastAbility(Vector3 aimVec, Vector3 spawnPos, PlayerTeam teamColor)
+    public virtual void CastAbility(Vector3 aimVec, GameObject spawnPos, PlayerTeam teamColor)
     {
         Debug.LogError("Base Ability Cast, should have been overriden");
     }

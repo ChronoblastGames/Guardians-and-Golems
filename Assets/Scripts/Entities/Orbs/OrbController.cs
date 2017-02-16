@@ -29,14 +29,16 @@ public class OrbController : MonoBehaviour
     public bool isBeingAssistedByRedGolem;
     public bool isBeingAssistedByBlueGolem;
 
-    [Header("Orb Collider")]
-    public GameObject orbCollider;
+    [Header("Orb ObjectBase")]
+    public GameObject orbObjectBase;
 
     [Header("Orb UI Attributes")]
     public Image orbCaptureIndicator;
 
     [Header("Orb Renderer Attributes")]
     public Renderer orbRenderer;
+    public Material redOrbMaterial;
+    public Material blueOrbMaterial;
 
     private void Start()
     {
@@ -45,7 +47,7 @@ public class OrbController : MonoBehaviour
 
     private void Update()
     {
-        CaptureOrb();
+        CheckForOrbCapture();
         ManageOrbUI();
     }
 
@@ -70,6 +72,24 @@ public class OrbController : MonoBehaviour
         }
     }
 
+    public void ManageOrbOutline(PlayerTeam teamColor)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                orbRenderer.material.SetColor("_OutlineColor", Color.black);
+                orbRenderer.material.SetFloat("_Outline", 30);
+                break;
+            case PlayerTeam.BLUE:
+                orbRenderer.material.SetColor("_OutlineColor", Color.white);
+                orbRenderer.material.SetFloat("_Outline", 30);
+                break;
+            default:
+                Debug.Log("Wrong argument passed through ManageOrbOutline, was " + teamColor);
+                break;
+        }
+    }
+
     public void StartOrbCapture(PlayerTeam teamColor, GameObject Guardian)
     {
         if (orbState == OrbState.EMPTY && !isBeingCaptured)
@@ -81,11 +101,13 @@ public class OrbController : MonoBehaviour
 
             orbColor = teamColor;
 
+            orbState = OrbState.IN_PROGRESS;
+
             isBeingCaptured = true;
         }    
     }
 
-    public void CaptureOrb()
+    public void CheckForOrbCapture()
     {
         if (isBeingCaptured)
         {
@@ -139,12 +161,10 @@ public class OrbController : MonoBehaviour
         switch(teamColor)
         {
             case PlayerTeam.RED:
-                orbRenderer.material.SetColor("_BaseColor", Color.red);
-                orbRenderer.material.SetFloat("_Outline", 30);
+                orbRenderer.material = redOrbMaterial; 
                 break;
             case PlayerTeam.BLUE:
-                orbRenderer.material.SetColor("_BaseColor", Color.blue);
-                orbRenderer.material.SetFloat("_Outline", 30);
+                orbRenderer.material = blueOrbMaterial;
                 break;
         }
 
@@ -158,11 +178,5 @@ public class OrbController : MonoBehaviour
     public void ResetOrb()
     {    
         orbRenderer.material.SetFloat("_Outline", 0);
-        redTeamCaptureAmount = 0;
-        blueTeamCaptureAmount = 0;
-        captureSpeed = 0;
-
-        orbState = OrbState.EMPTY;
-        isBeingCaptured = false;
     }
 }

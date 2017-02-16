@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4298675276602180}
   - component: {fileID: 33243015965129498}
-  - component: {fileID: 135353519653798154}
   - component: {fileID: 23987365146188052}
   m_Layer: 19
   m_Name: RedGuardian_Model
@@ -135,7 +134,7 @@ Transform:
   m_GameObject: {fileID: 1059267580563302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 4706796648483996}
   m_RootOrder: 0
@@ -274,9 +273,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
-  damageType: 0
-  damageAmount: 0
-  projectileSpeed: 0
+  damageType: 3
+  damageAmount: 20
+  projectileSpeed: 35
   spawnDistanceFromPlayer: 0
   activeTime: 0
   raiseAmount: 0
@@ -286,9 +285,9 @@ MonoBehaviour:
   zoneStrength: 0
   zoneTime: 0
   healthCost: 0
-  manaCost: 0
+  manaCost: 25
   isMelee: 0
-  isRanged: 0
+  isRanged: 1
   canStun: 0
   canSlow: 0
   canDrainHealth: 0
@@ -313,9 +312,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
-  damageType: 0
-  damageAmount: 0
-  projectileSpeed: 0
+  damageType: 2
+  damageAmount: 25
+  projectileSpeed: 40
   spawnDistanceFromPlayer: 0
   activeTime: 0
   raiseAmount: 0
@@ -325,9 +324,9 @@ MonoBehaviour:
   zoneStrength: 0
   zoneTime: 0
   healthCost: 0
-  manaCost: 0
+  manaCost: 25
   isMelee: 0
-  isRanged: 0
+  isRanged: 1
   canStun: 0
   canSlow: 0
   canDrainHealth: 0
@@ -365,8 +364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
   damageType: 0
-  damageAmount: 0
-  projectileSpeed: 0
+  damageAmount: 10
+  projectileSpeed: 25
   spawnDistanceFromPlayer: 0
   activeTime: 0
   raiseAmount: 0
@@ -376,9 +375,9 @@ MonoBehaviour:
   zoneStrength: 0
   zoneTime: 0
   healthCost: 0
-  manaCost: 0
+  manaCost: 25
   isMelee: 0
-  isRanged: 0
+  isRanged: 1
   canStun: 0
   canSlow: 0
   canDrainHealth: 0
@@ -418,8 +417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962, type: 2}
   damageType: 0
-  damageAmount: 0
-  projectileSpeed: 0
+  damageAmount: 15
+  projectileSpeed: 30
   spawnDistanceFromPlayer: 0
   activeTime: 0
   raiseAmount: 0
@@ -429,9 +428,9 @@ MonoBehaviour:
   zoneStrength: 0
   zoneTime: 0
   healthCost: 0
-  manaCost: 0
+  manaCost: 25
   isMelee: 0
-  isRanged: 0
+  isRanged: 1
   canStun: 0
   canSlow: 0
   canDrainHealth: 0
@@ -479,24 +478,13 @@ MonoBehaviour:
   - {fileID: 114324692451499520}
   - {fileID: 114007815906623248}
   - {fileID: 114130812135643850}
+  canAttack: 0
   orbList: []
   playerTeam: 0
   isCapturingOrb: 0
-  selectedOrb: {fileID: 0}
   attachedOrb: {fileID: 0}
   selectionDistance: 100
+  selectionDelay: 0.3
   orbMask:
     serializedVersion: 2
     m_Bits: 1048576
---- !u!135 &135353519653798154
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1059267580563302}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
