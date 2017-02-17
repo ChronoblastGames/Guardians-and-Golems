@@ -115,7 +115,8 @@ public class GuardianPlayerController : GuardianStats
         attachedOrb = orb;
         orbController = attachedOrb.GetComponent<OrbController>();
         selectionTimer.ResetTimer(selectionDelay);
-        orbController.ManageOrbOutline(playerTeam);  
+        orbController.ManageOrbOutline(playerTeam);
+        orbController.isAttachedTo = true;
     }
 
     void DeattachFromOrb()

@@ -14,6 +14,9 @@ public class GolemPlayerController : GolemStats
     private float xAxis;
     private float zAxis;
 
+    [Header("Player Attributes")]
+    public bool canMove = true;
+
     [Header("Debugging Values")]
     public float playerCurrentVelocity;
 
@@ -73,16 +76,19 @@ public class GolemPlayerController : GolemStats
     {
         if (xAxis != 0 || zAxis != 0)
         {
-            Vector3 moveVec = new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime;
-
-            if (moveVec.magnitude > 1)
+            if (canMove)
             {
-                moveVec.Normalize();
-            }
+                Vector3 moveVec = new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime;
 
-            Turn(moveVec);
+                if (moveVec.magnitude > 1)
+                {
+                    moveVec.Normalize();
+                }
 
-            playerRigidbody.MovePosition(transform.position + new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime);
+                Turn(moveVec);
+
+                playerRigidbody.MovePosition(transform.position + new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime);
+            }  
         }       
     }
 

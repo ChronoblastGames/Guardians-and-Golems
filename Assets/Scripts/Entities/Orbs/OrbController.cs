@@ -24,6 +24,8 @@ public class OrbController : MonoBehaviour
     public float redTeamCaptureAmount;
     public float blueTeamCaptureAmount;
 
+    public bool isAttachedTo;
+
     public bool isBeingCaptured;
 
     public bool isBeingAssistedByRedGolem;
@@ -109,7 +111,7 @@ public class OrbController : MonoBehaviour
 
     public void CheckForOrbCapture()
     {
-        if (isBeingCaptured)
+        if (isBeingCaptured && isAttachedTo)
         {
             switch (orbColor)
             {
@@ -178,5 +180,6 @@ public class OrbController : MonoBehaviour
     public void ResetOrb()
     {    
         orbRenderer.material.SetFloat("_Outline", 0);
+        isAttachedTo = false;
     }
 }
