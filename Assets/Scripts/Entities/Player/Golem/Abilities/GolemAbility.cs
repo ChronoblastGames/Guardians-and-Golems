@@ -48,6 +48,7 @@ public class GolemAbility : BaseGolemAbilities
 
                     GameObject newProjectile = Instantiate(ability, spawnVec, spawnRot) as GameObject;
                     newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = abilityValues;
+                    newProjectile.GetComponent<BaseProjectileAbility>().InitializeAbility();
 
                     if (teamColor == PlayerTeam.RED)
                     {

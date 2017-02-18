@@ -121,7 +121,7 @@ public class GuardianPlayerController : GuardianStats
 
     void DeattachFromOrb()
     {
-        orbController.ResetOrb();
+        orbController.DeselectOrb();
         orbController = null;
         attachedOrb = null;
     }

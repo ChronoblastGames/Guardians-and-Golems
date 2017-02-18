@@ -14,11 +14,6 @@ public class BaseProjectileAbility : MonoBehaviour
 
     public bool hasTime;
 
-    private void Start()
-    {
-        AbilitySetup();
-    }
-
     private void Update()
     {
         CheckTimer();
@@ -35,7 +30,7 @@ public class BaseProjectileAbility : MonoBehaviour
         }
     }
 
-    void AbilitySetup()
+    public void InitializeAbility()
     {
         myRB = GetComponent<Rigidbody>();
 
