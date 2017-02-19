@@ -24,6 +24,7 @@ public class GuardianInputManager : MonoBehaviour
     public float aimZAxis;
 
     private float modifierAxis;
+    public float multicastAxis;
 
     private Vector3 aimVec;
 
@@ -71,24 +72,41 @@ public class GuardianInputManager : MonoBehaviour
         aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "Win");
         aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "Win");
         modifierAxis = Input.GetAxis("ModifierAxisPlayer" + PlayerNumber + "Win");
+        multicastAxis = Input.GetAxis("BlockAxisPlayer" + PlayerNumber + "Win");
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
         {
             guardianController.CaptureOrb();
         }
 
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
+        if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
+        {
+            guardianController.UseAbilityFromAllOrbs(2, aimVec, playerTeam);
+        }
+        else if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
         {
             guardianController.UseAbility(2, aimVec, playerTeam);
+        }
+        else if (multicastAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
+        {
+            guardianController.UseAbilityFromAllOrbs(0, aimVec, playerTeam);
         }
         else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
         {
             guardianController.UseAbility(0, aimVec, playerTeam);
         }
 
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
+        if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
+        {
+            guardianController.UseAbilityFromAllOrbs(3, aimVec, playerTeam);
+        }
+        else if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
         {
             guardianController.UseAbility(3, aimVec, playerTeam);
+        }
+        else if (multicastAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
+        {
+            guardianController.UseAbilityFromAllOrbs(1, aimVec, playerTeam);
         }
         else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
         {

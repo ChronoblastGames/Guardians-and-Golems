@@ -115,13 +115,12 @@ public class GuardianPlayerController : GuardianStats
         attachedOrb = orb;
         orbController = attachedOrb.GetComponent<OrbController>();
         selectionTimer.ResetTimer(selectionDelay);
-        orbController.ManageOrbOutline(playerTeam);
-        orbController.isAttachedTo = true;
+        orbController.attachedGuardianColor.Add(playerTeam);
     }
 
     void DeattachFromOrb()
     {
-        orbController.DeselectOrb();
+        orbController.DeselectOrb(playerTeam);
         orbController = null;
         attachedOrb = null;
     }
@@ -154,5 +153,30 @@ public class GuardianPlayerController : GuardianStats
                 }
             }
         }     
+    }
+
+    public void UseAbilityFromAllOrbs(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
+    {
+        if (canAttack && attachedOrb != null)
+        {
+            if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
+            {
+                for (int i = 0; i < orbList.Count; i++)
+                {
+                    GameObject spawnObj = orbList[i].GetComponent<OrbController>().orbObjectBase;
+
+                    if (aimVec != Vector3.zero)
+                    {
+                        guardianAbilites[abilityNumber].CastAbility(aimVec, spawnObj, teamColor);
+                        StartCoroutine(cdAbility.RestartCoolDownCoroutine());
+                    }
+                    else
+                    {
+                        guardianAbilites[abilityNumber].CastAbility(transform.forward, spawnObj, teamColor);
+                        StartCoroutine(cdAbility.RestartCoolDownCoroutine());
+                    }
+                }            
+            }
+        }
     }
 }

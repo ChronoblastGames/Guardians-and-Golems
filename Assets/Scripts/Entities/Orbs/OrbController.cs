@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,14 +20,14 @@ public class OrbController : MonoBehaviour
     public OrbState orbState;
     public PlayerTeam orbColor;
 
+    public List<PlayerTeam> attachedGuardianColor;
+
     private float captureSpeed;
+    [Space(10)]
     public float decaySpeed;
     public float totalCaptureAmount;
     public float redTeamCaptureAmount;
     public float blueTeamCaptureAmount;
-
-    public bool isAttachedTo;
-    public bool isBeingCaptured;
 
     public bool isBeingAssistedByRedGolem;
     public bool isBeingAssistedByBlueGolem;
@@ -51,6 +52,7 @@ public class OrbController : MonoBehaviour
     private void Update()
     {
         CheckForOrbCapture();
+        ManageOrbOutline();
         ManageOrbUI();
     }
 
@@ -62,7 +64,7 @@ public class OrbController : MonoBehaviour
 
     void ManageOrbUI()
     {
-        if (isBeingCaptured)
+        if (orbState == OrbState.IN_PROGRESS)
         {
            if (redTeamCaptureAmount > 0)
             {
@@ -75,128 +77,139 @@ public class OrbController : MonoBehaviour
         }
     }
 
-    public void ManageOrbOutline(PlayerTeam teamColor)
+    public void ManageOrbOutline()
     {
-        switch (teamColor)
+       if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
         {
-            case PlayerTeam.RED:
-                orbRenderer.material.SetColor("_OutlineColor", Color.black);
-                orbRenderer.material.SetFloat("_Outline", 30);
-                break;
-            case PlayerTeam.BLUE:
-                orbRenderer.material.SetColor("_OutlineColor", Color.white);
-                orbRenderer.material.SetFloat("_Outline", 30);
-                break;
-            default:
-                Debug.Log("Wrong argument passed through ManageOrbOutline, was " + teamColor);
-                break;
+            Debug.Log("Both are attached");
+        }
+       else if (attachedGuardianColor.Contains(PlayerTeam.RED))
+        {
+            orbRenderer.material.SetColor("_BaseColor", Color.red);
+            orbRenderer.material.SetFloat("_Outline", 30);
+        }
+       else if (attachedGuardianColor.Contains(PlayerTeam.BLUE))
+        {
+            orbRenderer.material.SetColor("_BaseColor", Color.blue);
+            orbRenderer.material.SetFloat("_Outline", 30);
         }
     }
 
     public void StartOrbCapture(PlayerTeam teamColor, GameObject Guardian)
     {
-        if (orbState == OrbState.EMPTY || orbState == OrbState.IN_PROGRESS && orbColor != teamColor)
+        if (orbState == OrbState.EMPTY)
         {
             guardianPlayerController = Guardian.GetComponent<GuardianPlayerController>();
             guardianPlayerController.isCapturingOrb = true;
-
             captureSpeed = guardianPlayerController.captureSpeed;
 
-            orbColor = teamColor;
+            orbCaptureIndicator.enabled = true;
 
             orbState = OrbState.IN_PROGRESS;
+            orbColor = teamColor;
+        }
+        else if (orbState == OrbState.IN_PROGRESS)
+        {
+            if (teamColor != orbColor)
+            {
+                if (!attachedGuardianColor.Contains(orbColor))
+                {
+                    guardianPlayerController.isCapturingOrb = false;
 
-            isBeingCaptured = true;
+                    guardianPlayerController = Guardian.GetComponent<GuardianPlayerController>();
+                    guardianPlayerController.isCapturingOrb = true;
+                    captureSpeed = guardianPlayerController.captureSpeed;
 
-            Debug.Log("Orb Capture Initiated by " + teamColor);
-        }    
+                    orbCaptureIndicator.enabled = true;
+
+                    orbColor = teamColor;
+                }
+            }
+        }
     }
 
     public void CheckForOrbCapture()
     {
-        if (isBeingCaptured)
+        if (orbState == OrbState.IN_PROGRESS)
         {
-            if (isAttachedTo)
+            switch(orbColor)
             {
-                switch (orbColor)
-                {
-                    case PlayerTeam.RED:
-                        if (guardianPlayerController.playerTeam == PlayerTeam.RED)
-                        {
-                            if (blueTeamCaptureAmount > 0)
-                            {
-                                orbCaptureIndicator.color = Color.blue;
-                                blueTeamCaptureAmount -= captureSpeed * Time.deltaTime;
-                            }
-                            else
-                            {
-                                blueTeamCaptureAmount = 0;
-                                orbCaptureIndicator.color = Color.red;
-                                redTeamCaptureAmount += captureSpeed * Time.deltaTime;
-
-                                if (redTeamCaptureAmount >= totalCaptureAmount)
-                                {
-                                    redTeamCaptureAmount = totalCaptureAmount;
-                                    CompleteCapture(PlayerTeam.RED);
-                                    isBeingCaptured = false;
-                                }
-                            }                           
-                        }
-                        break;
-
-                    case PlayerTeam.BLUE:
-                        if (guardianPlayerController.playerTeam == PlayerTeam.BLUE)
-                        {
-                            if (redTeamCaptureAmount > 0)
-                            {
-                                orbCaptureIndicator.color = Color.red;
-                                redTeamCaptureAmount -= captureSpeed * Time.deltaTime;
-                            }
-                            else
-                            {
-                                redTeamCaptureAmount = 0;
-                                orbCaptureIndicator.color = Color.blue;
-                                blueTeamCaptureAmount += captureSpeed * Time.deltaTime;
-
-                                if (blueTeamCaptureAmount >= totalCaptureAmount)
-                                {
-                                    blueTeamCaptureAmount = totalCaptureAmount;
-                                    CompleteCapture(PlayerTeam.BLUE);
-                                    isBeingCaptured = false;
-                                }
-                            }
-                        }          
-                        break;
-                }
-            }
-            else
-            {
-                switch(orbColor)
-                {
-                    case PlayerTeam.RED:
-                        if (redTeamCaptureAmount > 0)
-                        {                           
-                            redTeamCaptureAmount -= decaySpeed * Time.deltaTime;
-
-                            if (redTeamCaptureAmount < 0)
-                            {
-                                ResetOrb();
-                            }
-                        }               
-                        break;
-
-                    case PlayerTeam.BLUE:
+                case PlayerTeam.RED:
+                    if (attachedGuardianColor.Contains(PlayerTeam.RED) && !attachedGuardianColor.Contains(PlayerTeam.BLUE))
+                    {
                         if (blueTeamCaptureAmount > 0)
                         {
-                            blueTeamCaptureAmount -= decaySpeed * Time.deltaTime;
+                            blueTeamCaptureAmount -= captureSpeed * Time.deltaTime;
+                        }
+                        else
+                        {
+                            orbCaptureIndicator.color = Color.red;
 
-                            if (blueTeamCaptureAmount < 0)
+                            redTeamCaptureAmount += captureSpeed * Time.deltaTime;
+                            blueTeamCaptureAmount = 0;
+
+                            if (redTeamCaptureAmount > totalCaptureAmount)
                             {
-                                ResetOrb();
+                                redTeamCaptureAmount = totalCaptureAmount;
+
+                                CompleteCapture(PlayerTeam.RED);
                             }
                         }
-                        break;
-                }
+                    }
+                    else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
+                    {
+                        
+                    }
+                    else
+                    {
+                        redTeamCaptureAmount -= decaySpeed * Time.deltaTime;
+
+                        if (redTeamCaptureAmount < 0)
+                        {
+                            ResetOrb();
+                        }
+                    }         
+                    break;
+
+                case PlayerTeam.BLUE:
+                    if (attachedGuardianColor.Contains(PlayerTeam.BLUE) && !attachedGuardianColor.Contains(PlayerTeam.RED))
+                    {
+                        if (redTeamCaptureAmount > 0)
+                        {
+                            redTeamCaptureAmount -= captureSpeed * Time.deltaTime;
+                        }
+                        else
+                        {
+                            orbCaptureIndicator.color = Color.blue;
+
+                            blueTeamCaptureAmount += captureSpeed * Time.deltaTime;
+                            redTeamCaptureAmount = 0;
+
+                            if (blueTeamCaptureAmount > totalCaptureAmount)
+                            {
+                                blueTeamCaptureAmount = totalCaptureAmount;
+
+                                CompleteCapture(PlayerTeam.BLUE);
+                            }
+                        }
+                    }
+                    else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
+                    {
+                       
+                    }
+                    else
+                    {
+                        blueTeamCaptureAmount -= decaySpeed * Time.deltaTime;
+
+                        if (blueTeamCaptureAmount < 0)
+                        {
+                            ResetOrb();
+                        }
+                    }                 
+                    break;
+                default:
+                    Debug.Log("Something wrong passed through CheckForOrbCapture, was " + orbColor);
+                    break;
             }
         }
     }
@@ -222,18 +235,17 @@ public class OrbController : MonoBehaviour
 
     public void ResetOrb()
     {
+        guardianPlayerController.isCapturingOrb = false;
         redTeamCaptureAmount = 0;
         blueTeamCaptureAmount = 0;
         orbRenderer.material.SetFloat("_Outline", 0);
-        isAttachedTo = false;
-        isBeingCaptured = false;
         orbState = OrbState.EMPTY;
         orbColor = PlayerTeam.NONE;
     }
 
-    public void DeselectOrb()
+    public void DeselectOrb(PlayerTeam guardianColor)
     {
+        attachedGuardianColor.Remove(guardianColor);
         orbRenderer.material.SetFloat("_Outline", 0);
-        isAttachedTo = false;
     }
 }

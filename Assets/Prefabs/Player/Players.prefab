@@ -4816,7 +4816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Van
   xAxis: 0
@@ -4919,7 +4919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 3
+  playerNum: 1
   playerTeam: 1
   PlayerName: Van
   xAxis: 0
@@ -4980,6 +4980,15 @@ MonoBehaviour:
   baseMovementSpeed: 15
   dodgeStrength: 20
   turnSpeed: 10
+  golemOffensiveValues:
+    baseAttack: 0
+    slashAttack: 0
+    smashAttack: 0
+    pierceAttack: 0
+    fireAttack: 0
+    waterAttack: 0
+    earthAttack: 0
+    windAttack: 0
   golemDefenseValues:
     baseDefense: 1
     slashDefense: 1.25
@@ -4995,6 +5004,7 @@ MonoBehaviour:
   - {fileID: 114387784088493478}
   - {fileID: 114195293961725206}
   - {fileID: 114365529268539334}
+  canMove: 1
   playerCurrentVelocity: 0
   blockIndicator: {fileID: 1933978755121180}
 --- !u!114 &114387784088493478
@@ -5062,7 +5072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 100
-  maxHealth: 1000
+  maxHealth: 100
   currentMana: 0
   maxMana: 1000
   healthRegenerationSpeed: 1.25
@@ -5161,7 +5171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 1000
-  maxHealth: 1000
+  maxHealth: 100
   currentMana: 1000
   maxMana: 1000
   healthRegenerationSpeed: 1.25
@@ -5190,6 +5200,15 @@ MonoBehaviour:
   baseMovementSpeed: 15
   dodgeStrength: 20
   turnSpeed: 10
+  golemOffensiveValues:
+    baseAttack: 0
+    slashAttack: 0
+    smashAttack: 0
+    pierceAttack: 0
+    fireAttack: 0
+    waterAttack: 0
+    earthAttack: 0
+    windAttack: 0
   golemDefenseValues:
     baseDefense: 1
     slashDefense: 1.25
@@ -5205,6 +5224,7 @@ MonoBehaviour:
   - {fileID: 114748483003826646}
   - {fileID: 114095776848391756}
   - {fileID: 114149652261849078}
+  canMove: 1
   playerCurrentVelocity: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114533035422661628
@@ -5373,7 +5393,7 @@ MonoBehaviour:
   selectionDelay: 0.3
   orbMask:
     serializedVersion: 2
-    m_Bits: 1048576
+    m_Bits: 1310720
 --- !u!114 &114743948172837518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5501,7 +5521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 2
   playerTeam: 0
   PlayerName: Matt
   xAxis: 0

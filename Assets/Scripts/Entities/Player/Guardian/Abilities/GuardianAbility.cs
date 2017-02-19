@@ -44,11 +44,12 @@ public class GuardianAbility : BaseGuardianAbilities
                 {
                     spawnRot = Quaternion.LookRotation(aimVec);
 
-                    spawnVec = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
+                    spawnVec = spawnPos.transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
 
                     GameObject newProjectile = Instantiate(ability, spawnVec, spawnRot) as GameObject;
                     Physics.IgnoreCollision(newProjectile.GetComponent<Collider>(), spawnPos.GetComponent<Collider>());
                     newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = abilityValues;
+                    newProjectile.GetComponent<BaseProjectileAbility>().InitializeAbility();
 
                     if (teamColor == PlayerTeam.RED)
                     {
@@ -74,7 +75,7 @@ public class GuardianAbility : BaseGuardianAbilities
                     spawnVec = spawnVec * abilityValues.spawnDistanceFromPlayer;
                     spawnVec.y = -5f;
 
-                    GameObject newStaticAbility = Instantiate(ability, transform.position + spawnVec, spawnRot) as GameObject;
+                    GameObject newStaticAbility = Instantiate(ability, spawnPos.transform.position + spawnVec, spawnRot) as GameObject;
                     newStaticAbility.GetComponent<BaseStaticAbility>().abilityValues = abilityValues;
                     newStaticAbility.GetComponent<BaseStaticAbility>().InitializeWall();
                 }
@@ -95,14 +96,14 @@ public class GuardianAbility : BaseGuardianAbilities
                         zoneSpawnVec = zoneSpawnVec * abilityValues.spawnDistanceFromPlayer;
                         zoneSpawnVec.y = 0f;
 
-                        GameObject newZoneAbility = Instantiate(ability, transform.position + zoneSpawnVec, spawnRot) as GameObject;
+                        GameObject newZoneAbility = Instantiate(ability, spawnPos.transform.position + zoneSpawnVec, spawnRot) as GameObject;
                         newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = abilityValues;
                         newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
                     }
                     else
                     {
                         Debug.Log("Should cast on myself");
-                        GameObject newZoneAbility = Instantiate(ability, transform.position, Quaternion.identity) as GameObject;
+                        GameObject newZoneAbility = Instantiate(ability, spawnPos.transform.position, Quaternion.identity) as GameObject;
                         newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = abilityValues;
                         newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
                     }
