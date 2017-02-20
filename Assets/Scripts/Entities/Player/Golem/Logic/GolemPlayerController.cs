@@ -14,9 +14,6 @@ public class GolemPlayerController : GolemStats
     private float xAxis;
     private float zAxis;
 
-    [Header("Player Attributes")]
-    public bool canMove = true;
-
     [Header("Debugging Values")]
     public float playerCurrentVelocity;
 
@@ -99,6 +96,13 @@ public class GolemPlayerController : GolemStats
         transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * turnSpeed);
     }
 
+    void TurnToCast(Vector3 aimVec)
+    {
+        Quaternion desiredRotation = Quaternion.LookRotation(aimVec);
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * turnCastSpeed);
+    }
+
     public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
     {
 		//Debug.Log (cdAbility.cdStateEngine.currentState.stateName + " with an ID of "+ cdAbility.cdStateEngine.currentState.stateID + " And you want " + cdAbility.possibleStates [2].stateName + " with an ID of " + cdAbility.possibleStates [2].stateID);
@@ -106,6 +110,7 @@ public class GolemPlayerController : GolemStats
         {
             if (aimVec != Vector3.zero)
             {
+                TurnToCast(aimVec);
                 golemAbilities[abilityNumber].CastAbility(aimVec, teamColor);
                 StartCoroutine(cdAbility.RestartCoolDownCoroutine());
             }

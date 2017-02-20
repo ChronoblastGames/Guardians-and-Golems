@@ -85,12 +85,12 @@ public class OrbController : MonoBehaviour
         }
        else if (attachedGuardianColor.Contains(PlayerTeam.RED))
         {
-            orbRenderer.material.SetColor("_BaseColor", Color.red);
+            orbRenderer.material.SetColor("_OutlineColor", Color.red);
             orbRenderer.material.SetFloat("_Outline", 30);
         }
        else if (attachedGuardianColor.Contains(PlayerTeam.BLUE))
         {
-            orbRenderer.material.SetColor("_BaseColor", Color.blue);
+            orbRenderer.material.SetColor("_OutlineColor", Color.blue);
             orbRenderer.material.SetFloat("_Outline", 30);
         }
     }

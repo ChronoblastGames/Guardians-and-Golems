@@ -7,8 +7,11 @@ public abstract class GolemStats : MonoBehaviour
     public float baseMovementSpeed;
     public float dodgeStrength;
 
+    public bool canMove = true;
+
     [Header("Player Turning Attributes")]
     public float turnSpeed;
+    public float turnCastSpeed;
 
     [Header("Golem Offenses")]
     public GolemOffense golemOffensiveValues;

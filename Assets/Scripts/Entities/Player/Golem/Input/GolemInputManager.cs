@@ -97,20 +97,20 @@ public class GolemInputManager : MonoBehaviour
         modifierAxis = Input.GetAxis("ModifierAxisPlayer" + PlayerNumber + "Win");
         blockAxis = Input.GetAxis("BlockAxisPlayer" + PlayerNumber + "Win");
 
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
+        if (modifierAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 4"))
         {
             golemPlayerController.UseAbility(2, aimVec, playerTeam);
         }
-        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 4"))
+        else if (Input.GetKeyUp("joystick " + PlayerNumber + " button 4"))
         {
             golemPlayerController.UseAbility(0, aimVec, playerTeam);
         }
 
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
+        if (modifierAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 5"))
         {
             golemPlayerController.UseAbility(3, aimVec, playerTeam);
         }
-        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 5"))
+        else if (Input.GetKeyUp("joystick " + PlayerNumber + " button 5"))
         {
             golemPlayerController.UseAbility(1, aimVec, playerTeam);
         }
