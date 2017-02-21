@@ -20,7 +20,6 @@ public class GolemSpellIndicators : MonoBehaviour
     [Header("Golem Spell Indicator")]
     public IndicatorType spellIndicatorType;
 
-    public GameObject spellIndicatorHolder;
     public GameObject spellIndicator;
 
     public bool isSpellIndicatorEnabled;
@@ -57,7 +56,7 @@ public class GolemSpellIndicators : MonoBehaviour
                     aimXAxis = golemInput.aimXAxis;
                     aimZAxis = golemInput.aimZAxis;
 
-                    spellIndicatorHolder.transform.position = golemInput.transform.position + new Vector3(0, 10, 0);
+                    spellIndicator.transform.position = golemInput.transform.position + new Vector3(0, 10, 0);
 
                     if (aimXAxis != 0 || aimZAxis != 0)
                     {
@@ -66,9 +65,7 @@ public class GolemSpellIndicators : MonoBehaviour
                         Vector2 aimVector = new Vector2(aimXAxis, aimZAxis);
                         float angle = Mathf.Atan2(aimZAxis, aimXAxis) * Mathf.Rad2Deg;
 
-                        angle -= 90f;
-
-                        spellIndicator.transform.localRotation = Quaternion.Euler(0, 0, angle);
+                        spellIndicator.transform.localRotation = Quaternion.Euler(90, 0, angle);
                     }
                     else
                     {
