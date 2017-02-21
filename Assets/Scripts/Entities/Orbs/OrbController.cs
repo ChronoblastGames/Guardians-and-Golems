@@ -58,8 +58,23 @@ public class OrbController : MonoBehaviour
 
     void InitializeOrb()
     {
-        orbState = OrbState.EMPTY;
-        orbColor = PlayerTeam.NONE;
+        if (orbState == OrbState.HOMEBASE)
+        {
+            switch (orbColor)
+            {
+                case PlayerTeam.RED:
+                    CompleteCapture(PlayerTeam.RED);
+                    break;
+                case PlayerTeam.BLUE:
+                    CompleteCapture(PlayerTeam.BLUE);
+                    break;
+            }
+        }
+        else
+        {
+            orbState = OrbState.EMPTY;
+            orbColor = PlayerTeam.NONE;
+        }
     }
 
     void ManageOrbUI()
