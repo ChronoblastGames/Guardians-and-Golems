@@ -20,6 +20,7 @@ public class GolemSpellIndicators : MonoBehaviour
     [Header("Golem Spell Indicator")]
     public IndicatorType spellIndicatorType;
 
+    public GameObject spellIndicatorHolder;
     public GameObject spellIndicator;
 
     public bool isSpellIndicatorEnabled;
@@ -56,7 +57,7 @@ public class GolemSpellIndicators : MonoBehaviour
                     aimXAxis = golemInput.aimXAxis;
                     aimZAxis = golemInput.aimZAxis;
 
-                    spellIndicator.transform.position = golemInput.transform.position + new Vector3(0, 10, 0);
+                    spellIndicatorHolder.transform.position = golemInput.transform.position + new Vector3(0, 10, 0);
 
                     if (aimXAxis != 0 || aimZAxis != 0)
                     {

@@ -305,21 +305,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1216003947438746
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4300325571777994}
-  m_Layer: 8
-  m_Name: Camera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1227143409807426
 GameObject:
   m_ObjectHideFlags: 1
@@ -448,21 +433,6 @@ GameObject:
   - component: {fileID: 23975943443132704}
   m_Layer: 9
   m_Name: Head
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1352357311962708
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4999832279383184}
-  m_Layer: 8
-  m_Name: Front_Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,21 +778,6 @@ GameObject:
   - component: {fileID: 23386011414141654}
   m_Layer: 8
   m_Name: Bicep3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1542771259545886
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4257514781882518}
-  m_Layer: 8
-  m_Name: Camera_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1227,21 +1182,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1773404903604992
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4455304229757206}
-  m_Layer: 8
-  m_Name: light
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1783175749753904
 GameObject:
   m_ObjectHideFlags: 1
@@ -1373,21 +1313,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1920164869211064
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4104266544938062}
-  m_Layer: 8
-  m_Name: Front_top
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1933978755121180
 GameObject:
   m_ObjectHideFlags: 1
@@ -1405,21 +1330,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!1 &1938540787324286
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4341513624455446}
-  m_Layer: 8
-  m_Name: Camera_Interest
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1952880065994778
 GameObject:
   m_ObjectHideFlags: 1
@@ -1579,19 +1489,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4350019124614406}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4104266544938062
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1920164869211064}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -1.8232974, y: 1.3471245, z: 2.686202}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4664199635185236}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4115636517262832
 Transform:
@@ -1774,21 +1671,6 @@ Transform:
   m_Father: {fileID: 4539649502703652}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4257514781882518
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1542771259545886}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.02, z: 0.19999999}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4300325571777994}
-  - {fileID: 4341513624455446}
-  m_Father: {fileID: 4664199635185236}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4284444564268232
 Transform:
   m_ObjectHideFlags: 1
@@ -1829,19 +1711,6 @@ Transform:
   - {fileID: 4158135578828550}
   - {fileID: 4346245419761356}
   m_Father: {fileID: 4922297261223794}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4300325571777994
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1216003947438746}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.86889, y: 1.2220323, z: 8.64729}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4257514781882518}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4307147096518028
@@ -1899,19 +1768,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4307257826991190}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4341513624455446
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1938540787324286}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.000033238368, y: -0.39439595, z: 0.032303367}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4257514781882518}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4346245419761356
 Transform:
@@ -2066,19 +1922,6 @@ Transform:
   - {fileID: 4977451451419418}
   m_Father: {fileID: 4294030440798096}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4455304229757206
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1773404903604992}
-  m_LocalRotation: {x: 0.3981126, y: -0.22985043, z: 0.22985043, w: 0.8578135}
-  m_LocalPosition: {x: -0.01, y: 0.01, z: 0.01}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4664199635185236}
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4486831062866208
 Transform:
@@ -2378,11 +2221,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4257514781882518}
-  - {fileID: 4999832279383184}
-  - {fileID: 4104266544938062}
   - {fileID: 4922297261223794}
-  - {fileID: 4455304229757206}
   m_Father: {fileID: 4911784436144964}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2636,7 +2475,7 @@ Transform:
   m_Children:
   - {fileID: 4294030440798096}
   m_Father: {fileID: 4664199635185236}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4953942248363826
 Transform:
@@ -2707,19 +2546,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4146139169561778}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4999832279383184
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1352357311962708}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 1.8010855, y: -2.835581, z: 2.1211035}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4664199635185236}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23031448370153378
 MeshRenderer:
@@ -4516,7 +4342,7 @@ MonoBehaviour:
   projectileSpeed: 0
   spawnDistanceFromPlayer: 10
   projectileActiveTime: 0
-  wallActiveTime: 0
+  wallActiveTime: 2
   raiseAmount: 5
   raiseSpeed: 5
   zoneRadius: 0
@@ -4526,7 +4352,7 @@ MonoBehaviour:
   healthCost: 0
   manaCost: 25
   isMelee: 0
-  isRanged: 0
+  isRanged: 1
   canStun: 0
   canSlow: 0
   canDrainHealth: 0
@@ -4555,7 +4381,7 @@ MonoBehaviour:
   damageAmount: 20
   projectileSpeed: 35
   spawnDistanceFromPlayer: 0
-  projectileActiveTime: 0
+  projectileActiveTime: 4
   wallActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
@@ -4608,7 +4434,7 @@ MonoBehaviour:
   damageAmount: 25
   projectileSpeed: 40
   spawnDistanceFromPlayer: 0
-  projectileActiveTime: 0
+  projectileActiveTime: 5
   wallActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
@@ -4736,29 +4562,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1333647240451610, guid: 82a8d1bc7a1470b4c9d0254897f082ac, type: 2}
-  damageType: 0
-  damageAmount: 0
-  projectileSpeed: 0
-  spawnDistanceFromPlayer: 20
-  projectileActiveTime: 0
+  ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
+  damageType: 3
+  damageAmount: 20
+  projectileSpeed: 35
+  spawnDistanceFromPlayer: 0
+  projectileActiveTime: 4
   wallActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
-  zoneRadius: 25
-  zoneHeight: 5
-  zoneStrength: 2.5
-  zoneTime: 2.5
+  zoneRadius: 0
+  zoneHeight: 0
+  zoneStrength: 0
+  zoneTime: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
-  isRanged: 0
+  isRanged: 1
   canStun: 0
   canSlow: 0
   canDrainHealth: 0
   canDrainMana: 0
   canBlind: 0
-  abilityType: 2
+  abilityType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -4816,13 +4642,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 2
   playerTeam: 0
   PlayerName: Van
   xAxis: 0
   zAxis: 0
   aimXAxis: 0
   aimZAxis: 0
+  multicastAxis: 0
 --- !u!114 &114251008324141822
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4890,8 +4717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponCollider: {fileID: 65269211345089734}
   meleeDamageType: 4
-  quickAttackDamage: 0
-  quickAttackSpeed: 7
+  quickAttackDamage: 10
+  quickAttackSpeed: 10
   swingArc: 180
   isAttacking: 0
   isSwinging: 0
@@ -4919,13 +4746,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 1
+  playerNum: 3
   playerTeam: 1
   PlayerName: Van
   xAxis: 0
   zAxis: 0
   aimXAxis: 0
   aimZAxis: 0
+  multicastAxis: 0
 --- !u!114 &114365529268539334
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4939,10 +4767,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
   damageType: 2
-  damageAmount: 15
-  projectileSpeed: 35
-  spawnDistanceFromPlayer: 2
-  projectileActiveTime: 0
+  damageAmount: 25
+  projectileSpeed: 40
+  spawnDistanceFromPlayer: 0
+  projectileActiveTime: 5
   wallActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
@@ -4953,7 +4781,7 @@ MonoBehaviour:
   healthCost: 0
   manaCost: 25
   isMelee: 0
-  isRanged: 0
+  isRanged: 1
   canStun: 0
   canSlow: 0
   canDrainHealth: 0
@@ -4977,9 +4805,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915aa1d54be46e04cae9a4973b14fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 15
+  baseMovementSpeed: 20
   dodgeStrength: 20
+  canMove: 1
   turnSpeed: 10
+  turnCastSpeed: 50
   golemOffensiveValues:
     baseAttack: 0
     slashAttack: 0
@@ -4999,12 +4829,12 @@ MonoBehaviour:
     earthDefense: 1
     windDefense: 1
     golemStability: 15
+  isBlocking: 0
   golemAbilities:
   - {fileID: 114070009581908512}
   - {fileID: 114387784088493478}
   - {fileID: 114195293961725206}
   - {fileID: 114365529268539334}
-  canMove: 1
   playerCurrentVelocity: 0
   blockIndicator: {fileID: 1933978755121180}
 --- !u!114 &114387784088493478
@@ -5023,7 +4853,7 @@ MonoBehaviour:
   damageAmount: 20
   projectileSpeed: 20
   spawnDistanceFromPlayer: 2
-  projectileActiveTime: 0
+  projectileActiveTime: 3
   wallActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
@@ -5138,7 +4968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 3
+  playerNum: 1
   playerTeam: 1
   PlayerName: Ryon
   xAxis: 0
@@ -5197,9 +5027,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915aa1d54be46e04cae9a4973b14fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 15
+  baseMovementSpeed: 20
   dodgeStrength: 20
+  canMove: 1
   turnSpeed: 10
+  turnCastSpeed: 50
   golemOffensiveValues:
     baseAttack: 0
     slashAttack: 0
@@ -5219,12 +5051,12 @@ MonoBehaviour:
     earthDefense: 1
     windDefense: 2
     golemStability: 25
+  isBlocking: 0
   golemAbilities:
   - {fileID: 114616598146008700}
   - {fileID: 114748483003826646}
   - {fileID: 114095776848391756}
   - {fileID: 114149652261849078}
-  canMove: 1
   playerCurrentVelocity: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114533035422661628
@@ -5280,9 +5112,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponCollider: {fileID: 65997611774834602}
-  meleeDamageType: 5
-  quickAttackDamage: 25
-  quickAttackSpeed: 7
+  meleeDamageType: 4
+  quickAttackDamage: 10
+  quickAttackSpeed: 10
   swingArc: 180
   isAttacking: 0
   isSwinging: 0
@@ -5298,15 +5130,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
+  ability: {fileID: 1209152084909362, guid: 35ee82f61feeba14e9ce16fda688dc36, type: 2}
   damageType: 0
-  damageAmount: 10
-  projectileSpeed: 25
-  spawnDistanceFromPlayer: 0
+  damageAmount: 0
+  projectileSpeed: 0
+  spawnDistanceFromPlayer: 10
   projectileActiveTime: 0
-  wallActiveTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
+  wallActiveTime: 2
+  raiseAmount: 5
+  raiseSpeed: 5
   zoneRadius: 0
   zoneHeight: 0
   zoneStrength: 0
@@ -5320,7 +5152,7 @@ MonoBehaviour:
   canDrainHealth: 0
   canDrainMana: 0
   canBlind: 0
-  abilityType: 0
+  abilityType: 1
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -5405,7 +5237,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e0be4b5c6053c4b805b19f5f0dc219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellIndicatorType: 1
+  spellIndicatorHolder: {fileID: 0}
   spellIndicator: {fileID: 0}
+  isSpellIndicatorEnabled: 1
+  spellIndicatorCircle: {fileID: 0}
+  spellIndicatorPoint: {fileID: 0}
+  spellIndicatorArrow: {fileID: 0}
+  spellIndicatorCone: {fileID: 0}
 --- !u!114 &114748483003826646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5417,12 +5256,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1620794945978752, guid: f95bac51cf992e9429aaf91095bed8c6, type: 2}
-  damageType: 1
+  ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
+  damageType: 0
   damageAmount: 15
   projectileSpeed: 30
   spawnDistanceFromPlayer: 0
-  projectileActiveTime: 0
+  projectileActiveTime: 3
   wallActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
@@ -5457,7 +5296,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e0be4b5c6053c4b805b19f5f0dc219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellIndicatorType: 1
+  spellIndicatorHolder: {fileID: 0}
   spellIndicator: {fileID: 0}
+  isSpellIndicatorEnabled: 1
+  spellIndicatorCircle: {fileID: 0}
+  spellIndicatorPoint: {fileID: 0}
+  spellIndicatorArrow: {fileID: 0}
+  spellIndicatorCone: {fileID: 0}
 --- !u!114 &114885350858660494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5521,7 +5367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Matt
   xAxis: 0

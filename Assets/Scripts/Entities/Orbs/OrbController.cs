@@ -81,7 +81,8 @@ public class OrbController : MonoBehaviour
     {
        if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
         {
-            Debug.Log("Both are attached");
+            orbRenderer.material.SetColor("_OutlineColor", Color.yellow);
+            orbRenderer.material.SetFloat("_Outline", 30);
         }
        else if (attachedGuardianColor.Contains(PlayerTeam.RED))
         {

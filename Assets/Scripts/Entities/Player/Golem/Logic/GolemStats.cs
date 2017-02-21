@@ -19,6 +19,8 @@ public abstract class GolemStats : MonoBehaviour
     [Header("Golem Defenses")]
     public GolemDefense golemDefenseValues;
 
+    public bool isBlocking;
+
     [Header("Golem Abilities")]
     public BaseGolemAbilities[] golemAbilities;
 }

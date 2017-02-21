@@ -140,55 +140,62 @@ public class GolemResources : MonoBehaviour
 
     public void TakeDamage(float damageValue, DamageType damageType)
     {
+        float baseDefense = golemDefense.baseDefense;
+
+        if (golemPlayerController.isBlocking)
+        {
+            baseDefense *= 2f;
+        }
+
         float calculatedResistance;
         float calculatedDamage;
 
         switch(damageType)
         {
             case DamageType.EARTH:
-                calculatedResistance = golemDefense.baseDefense * golemDefense.earthDefense;
+                calculatedResistance = baseDefense * golemDefense.earthDefense;
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
                 break;
 
             case DamageType.FIRE:
-                calculatedResistance = golemDefense.baseDefense * golemDefense.fireDefense;
+                calculatedResistance = baseDefense * golemDefense.fireDefense;
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
                 break;
 
             case DamageType.ICE:
-                calculatedResistance = golemDefense.baseDefense * golemDefense.waterDefense;
+                calculatedResistance = baseDefense * golemDefense.waterDefense;
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
                 break;
 
             case DamageType.WIND:
-                calculatedResistance = golemDefense.baseDefense * golemDefense.windDefense;
+                calculatedResistance = baseDefense * golemDefense.windDefense;
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
                 break;
 
             case DamageType.PIERCE:
-                calculatedResistance = golemDefense.baseDefense * golemDefense.pierceDefense;
+                calculatedResistance = baseDefense * golemDefense.pierceDefense;
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
                 break;
 
             case DamageType.SLASH:
-                calculatedResistance = golemDefense.baseDefense * golemDefense.slashDefense;
+                calculatedResistance = baseDefense * golemDefense.slashDefense;
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
                 break;
 
             case DamageType.SMASH:
-                calculatedResistance = golemDefense.baseDefense * golemDefense.smashDefense;
+                calculatedResistance = baseDefense * golemDefense.smashDefense;
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
                 break;
 
             case DamageType.PURE:
-                calculatedResistance = golemDefense.baseDefense;
+                calculatedResistance = baseDefense;
                 calculatedDamage = damageValue / calculatedResistance;
                 DealDamage(calculatedDamage);
                 break;

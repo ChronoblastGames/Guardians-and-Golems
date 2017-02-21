@@ -146,6 +146,7 @@ public class GolemPlayerController : GolemStats
         if (golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
         {
             golemStateMachine.combatStates = GolemStates.CombatStates.BLOCK;
+            isBlocking = true;
             blockIndicator.SetActive(true);
         }
     }
@@ -153,6 +154,7 @@ public class GolemPlayerController : GolemStats
     public void Unblock()
     {
         golemStateMachine.combatStates = GolemStates.CombatStates.IDLE;
+        isBlocking = false;
         blockIndicator.SetActive(false);
     }
 }
