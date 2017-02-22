@@ -10,7 +10,7 @@ public class GuardianInputManager : MonoBehaviour
     public PlayerTeam playerTeam;
 
     public string PlayerName;
-    private int PlayerNumber;
+    public int PlayerNumber;
 
     [Header("Guardian Input Values")]
     [HideInInspector]

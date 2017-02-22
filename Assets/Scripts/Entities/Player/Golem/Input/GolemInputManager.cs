@@ -17,7 +17,6 @@ public enum PlayerTeam
 }
 
 
-[System.Serializable]
 public class GolemInputManager : MonoBehaviour 
 {
     private GolemPlayerController golemPlayerController;
@@ -28,7 +27,7 @@ public class GolemInputManager : MonoBehaviour
 
     public string PlayerName;
 
-    private int PlayerNumber;
+    public int PlayerNumber;
 
     [Header("Golem Input Values")]
     [HideInInspector]
