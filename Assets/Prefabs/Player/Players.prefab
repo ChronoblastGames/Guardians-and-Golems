@@ -860,7 +860,6 @@ GameObject:
   - component: {fileID: 114512254700328952}
   - component: {fileID: 114504418916380880}
   - component: {fileID: 114576766405916554}
-  - component: {fileID: 114102669480423886}
   - component: {fileID: 114743948172837518}
   - component: {fileID: 108736799175698634}
   m_Layer: 8
@@ -1425,7 +1424,6 @@ GameObject:
   - component: {fileID: 114383319837824088}
   - component: {fileID: 114438268322136492}
   - component: {fileID: 114289645526924116}
-  - component: {fileID: 114418026239296920}
   - component: {fileID: 114796564846939670}
   - component: {fileID: 108120724477114666}
   m_Layer: 9
@@ -4329,7 +4327,7 @@ Animator:
   m_GameObject: {fileID: 1484368120376476}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e654cc3eb3e7077429a34c9e4af81a9a, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 770d475bb3db48945a88f9eecdff8e10, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4525,19 +4523,6 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &114102669480423886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1557658279121078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32f42fbe032ace146be9def1bf65143e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combatStates: 0
-  golemState: 0
 --- !u!114 &114149652261849078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4765,6 +4750,7 @@ MonoBehaviour:
   playerNum: 2
   playerTeam: 0
   PlayerName: Van
+  PlayerNumber: 0
   xAxis: 0
   zAxis: 0
   aimXAxis: 0
@@ -4869,6 +4855,7 @@ MonoBehaviour:
   playerNum: 3
   playerTeam: 1
   PlayerName: Van
+  PlayerNumber: 0
   xAxis: 0
   zAxis: 0
   aimXAxis: 0
@@ -4956,6 +4943,7 @@ MonoBehaviour:
   - {fileID: 114195293961725206}
   - {fileID: 114365529268539334}
   playerCurrentVelocity: 0
+  idleTime: 0
   blockIndicator: {fileID: 1933978755121180}
 --- !u!114 &114387784088493478
 MonoBehaviour:
@@ -4997,19 +4985,6 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &114418026239296920
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1960296656325956}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32f42fbe032ace146be9def1bf65143e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combatStates: 0
-  golemState: 0
 --- !u!114 &114438268322136492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5091,6 +5066,7 @@ MonoBehaviour:
   playerNum: 1
   playerTeam: 1
   PlayerName: Ryon
+  PlayerNumber: 0
   xAxis: 0
   zAxis: 0
   aimXAxis: 0
@@ -5178,6 +5154,7 @@ MonoBehaviour:
   - {fileID: 114095776848391756}
   - {fileID: 114149652261849078}
   playerCurrentVelocity: 0
+  idleTime: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114533035422661628
 MonoBehaviour:
@@ -5358,7 +5335,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellIndicatorType: 1
-  spellIndicatorHolder: {fileID: 0}
   spellIndicator: {fileID: 0}
   isSpellIndicatorEnabled: 1
   spellIndicatorCircle: {fileID: 0}
@@ -5417,7 +5393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellIndicatorType: 1
-  spellIndicatorHolder: {fileID: 0}
   spellIndicator: {fileID: 0}
   isSpellIndicatorEnabled: 1
   spellIndicatorCircle: {fileID: 0}
@@ -5490,6 +5465,7 @@ MonoBehaviour:
   playerNum: 0
   playerTeam: 0
   PlayerName: Matt
+  PlayerNumber: 0
   xAxis: 0
   zAxis: 0
   aimXAxis: 0

@@ -5,9 +5,12 @@ using UnityEngine;
 [System.Serializable]
 public class GolemPlayerController : GolemStats 
 {
+    private TimerClass idleTimer;
+
     private GolemInputManager golemInputManager;
     private GolemBaseWeapon golemBaseWeapon;
-    private GolemStates golemStateMachine;
+
+    private Animator golemState;
 
     private Rigidbody playerRigidbody;
 
@@ -17,11 +20,11 @@ public class GolemPlayerController : GolemStats
     [Header("Debugging Values")]
     public float playerCurrentVelocity;
 
+    public float idleTime;
+
     public GameObject blockIndicator;
 
 	private BasicCooldown cdAbility;
-
-    public Animator myAnimator;
 
     [Header("CoolDowns")]
 	private float globalCooldownTime;
@@ -34,6 +37,8 @@ public class GolemPlayerController : GolemStats
 	void Update () 
     {
         GetVelocity();
+
+        CheckIdle();
 	}
 
     private void FixedUpdate()
@@ -49,13 +54,15 @@ public class GolemPlayerController : GolemStats
 
 		cdAbility.cdTime = globalCooldownTime;
 
-        golemStateMachine = GetComponent<GolemStates>();
-
         golemInputManager = GetComponent<GolemInputManager>();
 
         golemBaseWeapon = GetComponent<GolemBaseWeapon>();
 
         playerRigidbody = GetComponent<Rigidbody>();
+
+        idleTimer = new TimerClass();
+
+        golemState = transform.GetChild(0).GetComponent<Animator>();
     }
 
     void GetVelocity()
@@ -79,17 +86,13 @@ public class GolemPlayerController : GolemStats
             {
                 Vector3 moveVec = new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime;
 
-                /*if (moveVec.magnitude > 1)
-                {
-                    moveVec.Normalize();
-                }*/
+                moveVec.Normalize();
 
-                Turn(moveVec.normalized);
+                Turn(moveVec);
 
-                playerRigidbody.MovePosition(transform.position + new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime);
+                playerRigidbody.MovePosition(transform.position + moveVec);
 
-                myAnimator.SetFloat("speed", moveVec.x + moveVec.z);
-                myAnimator.SetBool("isMoving", true);
+                idleTimer.ResetTimer(idleTime);         
             }  
         }       
     }
@@ -110,8 +113,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
     {
-		//Debug.Log (cdAbility.cdStateEngine.currentState.stateName + " with an ID of "+ cdAbility.cdStateEngine.currentState.stateID + " And you want " + cdAbility.possibleStates [2].stateName + " with an ID of " + cdAbility.possibleStates [2].stateID);
-		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]) && golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
+		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
         {
             if (aimVec != Vector3.zero)
             {
@@ -130,7 +132,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseQuickAttack()
     {
-        if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2] && golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
+        if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2])
         {
             golemBaseWeapon.QuickAttack();
             StartCoroutine(cdAbility.RestartCoolDownCoroutine());
@@ -139,7 +141,7 @@ public class GolemPlayerController : GolemStats
 
     public void Dodge()
     {
-        if (golemStateMachine.combatStates == GolemStates.CombatStates.IDLE && cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2])
+        if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2])
         {
             playerRigidbody.AddForce(transform.forward * dodgeStrength, ForceMode.Impulse);
             StartCoroutine(cdAbility.RestartCoolDownCoroutine());
@@ -148,18 +150,21 @@ public class GolemPlayerController : GolemStats
 
     public void Block()
     {
-        if (golemStateMachine.combatStates == GolemStates.CombatStates.IDLE)
-        {
-            golemStateMachine.combatStates = GolemStates.CombatStates.BLOCK;
-            isBlocking = true;
-            blockIndicator.SetActive(true);
-        }
+        isBlocking = true;
+        blockIndicator.SetActive(true);
     }
 
     public void Unblock()
     {
-        golemStateMachine.combatStates = GolemStates.CombatStates.IDLE;
         isBlocking = false;
         blockIndicator.SetActive(false);
+    }
+
+    void CheckIdle()
+    {
+        if (idleTimer.TimerIsDone())
+        {
+            Debug.Log("Is Idle");
+        }
     }
 }

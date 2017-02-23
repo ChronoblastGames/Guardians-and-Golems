@@ -4,7 +4,6 @@ using UnityEngine;
 public class GolemBaseWeapon : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
-    private GolemStates golemStateMachine;
     private WeaponCollider weapon;
 
     [Header("Weapon Collider Attributes")]
@@ -41,8 +40,6 @@ public class GolemBaseWeapon : MonoBehaviour
     {
         golemPlayerController = GetComponent<GolemPlayerController>();
 
-        golemStateMachine = GetComponent<GolemStates>();
-
         weapon = weaponCollider.GetComponent<WeaponCollider>();
     }
 
@@ -58,7 +55,6 @@ public class GolemBaseWeapon : MonoBehaviour
                 weaponCollider.enabled = false;
                 weaponCollider.transform.rotation = Quaternion.identity;
                 weaponIndicator.SetActive(false);
-                golemStateMachine.combatStates = GolemStates.CombatStates.IDLE;
             }
         }
     }
@@ -75,7 +71,6 @@ public class GolemBaseWeapon : MonoBehaviour
         weaponCollider.enabled = true;
         weaponIndicator.SetActive(true);
         isSwinging = true;
-        golemStateMachine.combatStates = GolemStates.CombatStates.LIGHTATTACK;
         weapon.damageType = meleeDamageType;
         weapon.damageValue = quickAttackDamage;
     }

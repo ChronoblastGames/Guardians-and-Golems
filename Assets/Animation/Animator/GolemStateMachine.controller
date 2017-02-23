@@ -7,19 +7,7 @@ AnimatorController:
   m_PrefabInternal: {fileID: 0}
   m_Name: GolemStateMachine
   serializedVersion: 5
-  m_AnimatorParameters:
-  - m_Name: speed
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: isMoving
-    m_Type: 4
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+  m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -102,13 +90,7 @@ AnimatorStateTransition:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: speed
-    m_EventTreshold: 5
-  - m_ConditionMode: 1
-    m_ConditionEvent: isMoving
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102454488028949728}
   m_Solo: 0
@@ -129,13 +111,7 @@ AnimatorStateTransition:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 4
-    m_ConditionEvent: speed
-    m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: test
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102644220418202332}
   m_Solo: 0
@@ -345,13 +321,7 @@ AnimatorStateTransition:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: speed
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isMoving
-    m_EventTreshold: 0
+  m_Conditions: []
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102471115896217932}
   m_Solo: 0
@@ -861,28 +831,28 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions:
     data:
-      first: {fileID: 1107190013284903996}
-      second:
-      - {fileID: 1109280013991334202}
-    data:
-      first: {fileID: 1107646449505411918}
-      second:
-      - {fileID: 1109704717390700832}
-    data:
-      first: {fileID: 1107734688846565350}
-      second:
-      - {fileID: 1109990929971241430}
-    data:
-      first: {fileID: 1107549269964944648}
-      second:
-      - {fileID: 1109128559916733676}
-    data:
       first: {fileID: 0}
       second: []
     data:
       first: {fileID: 1107269520196504420}
       second:
       - {fileID: 1109184205123277344}
+    data:
+      first: {fileID: 1107549269964944648}
+      second:
+      - {fileID: 1109128559916733676}
+    data:
+      first: {fileID: 1107734688846565350}
+      second:
+      - {fileID: 1109990929971241430}
+    data:
+      first: {fileID: 1107646449505411918}
+      second:
+      - {fileID: 1109704717390700832}
+    data:
+      first: {fileID: 1107190013284903996}
+      second:
+      - {fileID: 1109280013991334202}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 1452, y: 192, z: 0}
   m_EntryPosition: {x: 648, y: 456, z: 0}

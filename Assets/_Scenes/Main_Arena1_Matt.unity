@@ -979,56 +979,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 1279967831}
-    - target: {fileID: 114796564846939670, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicatorHolder
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114796564846939670, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 394457318}
-    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicatorHolder
-      value: 
-      objectReference: {fileID: 259908043}
-    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 259908043}
     - target: {fileID: 114315098865424614, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 482657122}
-    - target: {fileID: 114492390188686004, guid: a0dd775133547fa42941d810b37182d1,
+    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
-      propertyPath: playerNum
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114985709521354678, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: playerNum
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: myAnimator
+      propertyPath: spellIndicator
       value: 
-      objectReference: {fileID: 1750446419}
-    - target: {fileID: 95555631625510054, guid: a0dd775133547fa42941d810b37182d1,
+      objectReference: {fileID: 259908043}
+    - target: {fileID: 114796564846939670, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
-      propertyPath: m_Controller
+      propertyPath: spellIndicator
       value: 
-      objectReference: {fileID: 9100000, guid: 770d475bb3db48945a88f9eecdff8e10, type: 2}
+      objectReference: {fileID: 394457318}
+    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 1279967831}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0
@@ -1555,11 +1525,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1750446419 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95555631625510054, guid: a0dd775133547fa42941d810b37182d1,
-    type: 2}
-  m_PrefabInternal: {fileID: 1128305704}
 --- !u!1001 &1756087655
 Prefab:
   m_ObjectHideFlags: 0
