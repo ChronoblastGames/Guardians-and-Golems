@@ -21,7 +21,9 @@ public class GolemPlayerController : GolemStats
 
 	private BasicCooldown cdAbility;
 
-	[Header("CoolDowns")]
+    public Animator myAnimator;
+
+    [Header("CoolDowns")]
 	private float globalCooldownTime;
 
 	void Start () 
@@ -77,14 +79,17 @@ public class GolemPlayerController : GolemStats
             {
                 Vector3 moveVec = new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime;
 
-                if (moveVec.magnitude > 1)
+                /*if (moveVec.magnitude > 1)
                 {
                     moveVec.Normalize();
-                }
+                }*/
 
-                Turn(moveVec);
+                Turn(moveVec.normalized);
 
                 playerRigidbody.MovePosition(transform.position + new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime);
+
+                myAnimator.SetFloat("speed", moveVec.x + moveVec.z);
+                myAnimator.SetBool("isMoving", true);
             }  
         }       
     }
