@@ -4,24 +4,20 @@ using UnityEngine;
 public class GolemBaseWeapon : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
+
+    private TimerClass attackTimer;
+
+    private Animator golemStateMachine;
+
     private WeaponCollider weapon;
 
     [Header("Weapon Collider Attributes")]
     public Collider weaponCollider;
-    private Quaternion weaponCurrentRotation;   
-    private Quaternion weaponSwingStart;
-    private Quaternion weaponSwingEnd;
-    private float swingSpeed;
 
-    [Header("Weapon Quick Attack Attributes")]
+    [Header("Weapon Attack Attributes")]
     public DamageType meleeDamageType;
-    public float quickAttackDamage;
-    public float quickAttackSpeed;
-    public float swingArc;
-
-    [Header("Weapon State Attributes")]
-    public bool isAttacking;
-    public bool isSwinging;
+    public float attackDamage;
+    public int attackCount = 1;
 
     [Header("Weapon Debug")]
     public GameObject weaponIndicator;
@@ -31,47 +27,48 @@ public class GolemBaseWeapon : MonoBehaviour
         InitializeWeapon();
     }
 
-    private void Update()
+    void Update()
     {
-        ManageSwinging();
+        ManageAttacking();
     }
 
     void InitializeWeapon()
     {
         golemPlayerController = GetComponent<GolemPlayerController>();
 
+        golemStateMachine = transform.GetChild(0).GetComponent<Animator>();
+
         weapon = weaponCollider.GetComponent<WeaponCollider>();
+
+        attackTimer = new TimerClass();
     }
 
-    void ManageSwinging()
+    void ManageAttacking()
     {
-        if (isSwinging)
+        if (attackTimer.TimerIsDone())
         {
-            weaponCollider.transform.localRotation = Quaternion.Slerp(weaponCollider.transform.localRotation, weaponSwingEnd, Time.deltaTime * swingSpeed);
-
-            if (weaponCollider.transform.localRotation == weaponSwingEnd)
-            {
-                isSwinging = false;
-                weaponCollider.enabled = false;
-                weaponCollider.transform.rotation = Quaternion.identity;
-                weaponIndicator.SetActive(false);
-            }
+            ResetAttack();
         }
     }
 
-    public void QuickAttack()
+    public void Attack()
     {
-        weaponCurrentRotation = Quaternion.Euler(0, transform.localRotation.y, 0);
-        weaponSwingStart = Quaternion.Euler(0, swingArc / 2, 0);
-        weaponSwingEnd = Quaternion.Euler(0, -swingArc / 2, 0);
-        weaponSwingStart *= weaponCurrentRotation;
-        weaponSwingEnd *= weaponCurrentRotation;
-        weaponCollider.transform.localRotation = weaponSwingStart;
-        swingSpeed = quickAttackSpeed;
-        weaponCollider.enabled = true;
-        weaponIndicator.SetActive(true);
-        isSwinging = true;
-        weapon.damageType = meleeDamageType;
-        weapon.damageValue = quickAttackDamage;
+        switch(attackCount)
+        {
+            case 1:
+                attackCount++;
+                break;
+            case 2:
+                attackCount++;
+                break;
+            case 3:
+                attackCount++;
+                break;
+        }
+    }
+
+    void ResetAttack()
+    {
+        attackCount = 1;
     }
 }

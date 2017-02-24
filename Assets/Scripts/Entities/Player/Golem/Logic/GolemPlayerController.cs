@@ -22,6 +22,8 @@ public class GolemPlayerController : GolemStats
 
     public float idleTime;
 
+    public bool isIdle;
+
     public GameObject blockIndicator;
 
 	private BasicCooldown cdAbility;
@@ -36,8 +38,6 @@ public class GolemPlayerController : GolemStats
 	
 	void Update () 
     {
-        GetVelocity();
-
         CheckIdle();
 	}
 
@@ -63,11 +63,8 @@ public class GolemPlayerController : GolemStats
         idleTimer = new TimerClass();
 
         golemState = transform.GetChild(0).GetComponent<Animator>();
-    }
 
-    void GetVelocity()
-    {
-        playerCurrentVelocity = playerRigidbody.velocity.magnitude;
+        idleTimer.ResetTimer(idleTime);
     }
 
     void GatherInput()
@@ -84,15 +81,17 @@ public class GolemPlayerController : GolemStats
         {
             if (canMove)
             {
-                Vector3 moveVec = new Vector3(xAxis, 0, zAxis) * baseMovementSpeed * Time.deltaTime;
+                Vector3 moveVec = new Vector3(xAxis, 0, zAxis);
 
                 moveVec.Normalize();
 
                 Turn(moveVec);
 
-                playerRigidbody.MovePosition(transform.position + moveVec);
+                playerRigidbody.MovePosition(transform.position + moveVec * baseMovementSpeed * Time.deltaTime);
 
-                idleTimer.ResetTimer(idleTime);         
+                idleTimer.ResetTimer(idleTime);
+
+                isIdle = false;     
             }  
         }       
     }
@@ -134,7 +133,7 @@ public class GolemPlayerController : GolemStats
     {
         if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2])
         {
-            golemBaseWeapon.QuickAttack();
+            golemBaseWeapon.Attack();
             StartCoroutine(cdAbility.RestartCoolDownCoroutine());
         }
     }
@@ -162,9 +161,10 @@ public class GolemPlayerController : GolemStats
 
     void CheckIdle()
     {
-        if (idleTimer.TimerIsDone())
+        if (idleTimer.TimerIsDone() && !isIdle)
         {
-            Debug.Log("Is Idle");
+            golemState.SetTrigger("isIdle");
+            isIdle = true;
         }
     }
 }
