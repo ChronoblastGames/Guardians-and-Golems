@@ -34,6 +34,10 @@ public class GolemInputManager : MonoBehaviour
     public float xAxis;
     [HideInInspector]
     public float zAxis;
+    [HideInInspector]
+    public Vector2 moveVec;
+    [HideInInspector]
+    public Vector2 moveDirection;
 
     [HideInInspector]
     public float aimXAxis;
@@ -87,12 +91,15 @@ public class GolemInputManager : MonoBehaviour
     {
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
-
         xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber + "Win");
         zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber + "Win");
 
+        moveVec = new Vector2 (xAxis, zAxis);
+        moveDirection = moveVec.normalized;
+
         aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "Win");
         aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "Win");
+
         modifierAxis = Input.GetAxis("ModifierAxisPlayer" + PlayerNumber + "Win");
         blockAxis = Input.GetAxis("BlockAxisPlayer" + PlayerNumber + "Win");
 
@@ -191,8 +198,7 @@ public class GolemInputManager : MonoBehaviour
     {
         if (aimXAxis != 0 || aimZAxis != 0)
         {
-            aimVec = new Vector3(aimXAxis, 0, aimZAxis);
-            aimVec.Normalize();
+            aimVec = new Vector3(aimXAxis, 0, aimZAxis).normalized;
         }
         else
         {

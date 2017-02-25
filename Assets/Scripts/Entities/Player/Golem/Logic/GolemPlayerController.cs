@@ -6,27 +6,36 @@ using UnityEngine;
 public class GolemPlayerController : GolemStats 
 {
     private TimerClass idleTimer;
-
+    private BasicCooldown globalCooldown;
     private GolemInputManager golemInputManager;
+    private CharacterController characterController;
     private GolemBaseWeapon golemBaseWeapon;
 
     private Animator golemState;
 
-    private Rigidbody playerRigidbody;
-
-    private float xAxis;
-    private float zAxis;
-
-    [Header("Debugging Values")]
-    public float playerCurrentVelocity;
+    [Header("Player Movement Attributes")]
+    public float currentSpeed;
+    public float speedSmoothTime = 0.1f;
+    private float speedSmoothVelocity;
+    public float characterVelocity;
 
     public float idleTime;
 
     public bool isIdle;
 
-    public GameObject blockIndicator;
+    private Vector2 moveVec;
+    private Vector2 directionVec;
 
-	private BasicCooldown cdAbility;
+    [Header("Player Turning Attributes")]
+    public float turnSmoothTime = 0.2f;
+    private float turnSmoothVelocity;
+
+    [Header("Player Gravity Attributes")]
+    public float gravity = -12f;
+    private float velocityY;
+
+    [Header("Debugging Values")]
+    public GameObject blockIndicator;
 
     [Header("CoolDowns")]
 	private float globalCooldownTime;
@@ -38,27 +47,24 @@ public class GolemPlayerController : GolemStats
 	
 	void Update () 
     {
+        GatherInput();
+        ManageMovement();
         CheckIdle();
 	}
 
-    private void FixedUpdate()
-    {
-        GatherInput();
-    }
-
     void PlayerSetup()
     {
-		cdAbility = new BasicCooldown ();
+		globalCooldown = new BasicCooldown();
 
         globalCooldownTime = GameObject.FindObjectOfType<GeneralVariables>().globalCooldown;
 
-		cdAbility.cdTime = globalCooldownTime;
+		globalCooldown.cdTime = globalCooldownTime;
 
         golemInputManager = GetComponent<GolemInputManager>();
 
         golemBaseWeapon = GetComponent<GolemBaseWeapon>();
 
-        playerRigidbody = GetComponent<Rigidbody>();
+        characterController = GetComponent<CharacterController>();
 
         idleTimer = new TimerClass();
 
@@ -69,61 +75,49 @@ public class GolemPlayerController : GolemStats
 
     void GatherInput()
     {
-        xAxis = golemInputManager.xAxis;
-        zAxis = golemInputManager.zAxis;
-
-        Move(xAxis, zAxis);
+        moveVec = golemInputManager.moveVec;
+        directionVec = golemInputManager.moveDirection;
     }
 
-    void Move(float xAxis, float zAxis)
+    void ManageMovement()
     {
-        if (xAxis != 0 || zAxis != 0)
+        float targetSpeed = baseMovementSpeed * moveVec.magnitude;
+        currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
+
+        velocityY += Time.deltaTime * gravity;
+
+        Vector3 moveVel = transform.forward * currentSpeed + Vector3.up * velocityY;
+
+        characterController.Move(moveVel * Time.deltaTime);
+
+        characterVelocity = characterController.velocity.magnitude;
+
+        if (characterController.isGrounded)
         {
-            if (canMove)
-            {
-                Vector3 moveVec = new Vector3(xAxis, 0, zAxis);
+            velocityY = 0;
+        }
 
-                moveVec.Normalize();
-
-                Turn(moveVec);
-
-                playerRigidbody.MovePosition(transform.position + moveVec * baseMovementSpeed * Time.deltaTime);
-
-                idleTimer.ResetTimer(idleTime);
-
-                isIdle = false;     
-            }  
-        }       
+        if (directionVec != Vector2.zero)
+        {
+            float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
+            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
+        }
     }
 
-    void Turn(Vector3 lookVec)
-    {
-        Quaternion desiredRotation = Quaternion.LookRotation(lookVec);
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * turnSpeed);
-    }
-
-    void TurnToCast(Vector3 aimVec)
-    {
-        Quaternion desiredRotation = Quaternion.LookRotation(aimVec);
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, desiredRotation, Time.deltaTime * turnCastSpeed);
-    }
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
     {
-		if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
+		if (aimVec != null && (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2]))
         {
             if (aimVec != Vector3.zero)
             {
-                TurnToCast(aimVec);
                 golemAbilities[abilityNumber].CastAbility(aimVec, teamColor);
-                StartCoroutine(cdAbility.RestartCoolDownCoroutine());
+                StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
             }
             else
             {
                 golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor);
-                StartCoroutine(cdAbility.RestartCoolDownCoroutine());
+                StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
             }
 
         }
@@ -131,19 +125,18 @@ public class GolemPlayerController : GolemStats
 
     public void UseQuickAttack()
     {
-        if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2])
+        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2])
         {
             golemBaseWeapon.Attack();
-            StartCoroutine(cdAbility.RestartCoolDownCoroutine());
+            StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
         }
     }
 
     public void Dodge()
     {
-        if (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2])
+        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2])
         {
-            playerRigidbody.AddForce(transform.forward * dodgeStrength, ForceMode.Impulse);
-            StartCoroutine(cdAbility.RestartCoolDownCoroutine());
+            
         }
     }
 
@@ -161,10 +154,17 @@ public class GolemPlayerController : GolemStats
 
     void CheckIdle()
     {
-        if (idleTimer.TimerIsDone() && !isIdle)
+        if (characterVelocity == 0)
         {
-            golemState.SetTrigger("isIdle");
-            isIdle = true;
+            if (idleTimer.TimerIsDone())
+            {
+                isIdle = true;
+            }
+        }
+        else
+        {
+            idleTimer.ResetTimer(idleTime);
+            isIdle = false;
         }
     }
 }
