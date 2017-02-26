@@ -111,6 +111,11 @@ public abstract class BaseGolemAbilities : MonoBehaviour
     {
         Debug.LogError("Base Ability Cast, should have been overriden");
     }
+
+    public virtual void InitializeAbility()
+    {
+        Debug.LogError("Base Ability Initialize, should have been overriden");
+    }
 }
 
 

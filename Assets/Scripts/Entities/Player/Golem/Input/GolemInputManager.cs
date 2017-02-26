@@ -91,6 +91,7 @@ public class GolemInputManager : MonoBehaviour
     {
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
+
         xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber + "Win");
         zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber + "Win");
 
@@ -157,6 +158,9 @@ public class GolemInputManager : MonoBehaviour
 
         xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber + "OSX");
         zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber + "OSX");
+
+        moveVec = new Vector2 (xAxis, zAxis);
+        moveDirection = moveVec.normalized;
 
         aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "OSX");
         aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "OSX");

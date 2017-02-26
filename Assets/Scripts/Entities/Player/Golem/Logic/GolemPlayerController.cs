@@ -68,7 +68,7 @@ public class GolemPlayerController : GolemStats
 
         idleTimer = new TimerClass();
 
-        golemState = transform.GetChild(0).GetComponent<Animator>();
+        golemState = GetComponent<Animator>();
 
         idleTimer.ResetTimer(idleTime);
     }
@@ -84,18 +84,19 @@ public class GolemPlayerController : GolemStats
         float targetSpeed = baseMovementSpeed * moveVec.magnitude;
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
-        velocityY += Time.deltaTime * gravity;
-
         Vector3 moveVel = transform.forward * currentSpeed + Vector3.up * velocityY;
 
         characterController.Move(moveVel * Time.deltaTime);
 
         characterVelocity = characterController.velocity.magnitude;
+        golemState.SetFloat("playerVel", characterVelocity);
 
         if (characterController.isGrounded)
         {
             velocityY = 0;
         }
+
+        velocityY += Time.deltaTime * gravity;
 
         if (directionVec != Vector2.zero)
         {
@@ -103,7 +104,6 @@ public class GolemPlayerController : GolemStats
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
         }
     }
-
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
     {
@@ -136,7 +136,7 @@ public class GolemPlayerController : GolemStats
     {
         if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2])
         {
-            
+            StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
         }
     }
 
@@ -158,7 +158,7 @@ public class GolemPlayerController : GolemStats
         {
             if (idleTimer.TimerIsDone())
             {
-                isIdle = true;
+                golemState.SetTrigger("isIdle");
             }
         }
         else

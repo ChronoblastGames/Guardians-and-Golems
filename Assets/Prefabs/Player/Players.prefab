@@ -641,9 +641,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4664199635185236}
-  - component: {fileID: 95555631625510054}
   m_Layer: 8
-  m_Name: Earth_Golem
+  m_Name: Earth_Golem_Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -855,6 +854,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4911784436144964}
   - component: {fileID: 143882112693979638}
+  - component: {fileID: 95921877962024644}
   - component: {fileID: 114985709521354678}
   - component: {fileID: 114512254700328952}
   - component: {fileID: 114504418916380880}
@@ -1418,6 +1418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4486831062866208}
   - component: {fileID: 143239227496224924}
+  - component: {fileID: 95304262070322198}
   - component: {fileID: 114492390188686004}
   - component: {fileID: 114383319837824088}
   - component: {fileID: 114438268322136492}
@@ -4245,6 +4246,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5, z: 1}
   m_Center: {x: 0, y: 0, z: 1.25}
+--- !u!95 &95304262070322198
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960296656325956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95501609318887568
 Animator:
   serializedVersion: 3
@@ -4262,15 +4280,15 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95555631625510054
+--- !u!95 &95921877962024644
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1484368120376476}
+  m_GameObject: {fileID: 1557658279121078}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e654cc3eb3e7077429a34c9e4af81a9a, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 770d475bb3db48945a88f9eecdff8e10, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -4854,11 +4872,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMovementSpeed: 17.5
-  maxVelocity: 0
   dodgeStrength: 20
   canMove: 1
-  turnSpeed: 10
-  turnCastSpeed: 50
   golemOffensiveValues:
     baseAttack: 0
     slashAttack: 0
@@ -4886,10 +4901,11 @@ MonoBehaviour:
   - {fileID: 114365529268539334}
   currentSpeed: 0
   speedSmoothTime: 0.1
-  turnSmoothTime: 0.2
-  gravity: -12
+  characterVelocity: 0
   idleTime: 100
   isIdle: 0
+  turnSmoothTime: 0.2
+  gravity: -12
   blockIndicator: {fileID: 1933978755121180}
 --- !u!114 &114387784088493478
 MonoBehaviour:
@@ -5072,11 +5088,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMovementSpeed: 17.5
-  maxVelocity: 0
   dodgeStrength: 20
   canMove: 1
-  turnSpeed: 10
-  turnCastSpeed: 50
   golemOffensiveValues:
     baseAttack: 0
     slashAttack: 0
@@ -5104,10 +5117,11 @@ MonoBehaviour:
   - {fileID: 114149652261849078}
   currentSpeed: 0
   speedSmoothTime: 0.1
-  turnSmoothTime: 0.2
-  gravity: -12
+  characterVelocity: 0
   idleTime: 5
   isIdle: 0
+  turnSmoothTime: 0.2
+  gravity: -12
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114533035422661628
 MonoBehaviour:
