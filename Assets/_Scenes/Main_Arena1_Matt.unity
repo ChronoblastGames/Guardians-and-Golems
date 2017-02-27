@@ -843,6 +843,16 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 770d475bb3db48945a88f9eecdff8e10, type: 2}
+    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: dodgeStrength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: dodgeDistance
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0

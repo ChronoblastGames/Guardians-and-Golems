@@ -5,9 +5,14 @@ public abstract class GolemStats : MonoBehaviour
 {
     [Header("Golem Movement Attributes")]
     public float baseMovementSpeed;
-    public float dodgeStrength;
+    public float dodgeDistance;
+    public float dodgeSpeed;
+
 
     public bool canMove = true;
+    public bool canDodge = true;
+
+    public bool isDodging;
 
     [Header("Golem Offenses")]
     public GolemOffense golemOffensiveValues;

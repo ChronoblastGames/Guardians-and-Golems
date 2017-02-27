@@ -24,6 +24,8 @@ public class GolemPlayerController : GolemStats
     private float speedSmoothVelocity;
     public float characterVelocity;
 
+    private Vector3 dodgeDestination;
+
     public float idleTime;
 
     public bool isIdle;
@@ -56,6 +58,7 @@ public class GolemPlayerController : GolemStats
     {
         GatherInput();
         ManageMovement();
+        ManageDodge();
         ManageIdle();
         ManageRecoveryTime();
 	}
@@ -92,7 +95,7 @@ public class GolemPlayerController : GolemStats
     }
 
     void ManageMovement()
-    {       
+    {
         if (!isBlocking)
         {
            targetSpeed = baseMovementSpeed * moveVec.magnitude;      
@@ -157,9 +160,42 @@ public class GolemPlayerController : GolemStats
 
     public void Dodge()
     {
-        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2])
+        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && moveVec != Vector2.zero)
         {
+            Vector3 dodgeVec = new Vector3(moveVec.x, 0, moveVec.y);
+
+            dodgeVec *= dodgeDistance;
+
+            dodgeDestination = dodgeVec;
+      
+            Debug.Log(dodgeVec);
+
+            isDodging = true;
+
+            canMove = false;
+
             StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
+        }
+    }
+
+    void ManageDodge()
+    {
+        if (dodgeDestination != Vector3.zero && isDodging)
+        {
+            Vector3 interceptVec = transform.position - dodgeDestination;
+
+            if (interceptVec.magnitude > 0.1f)
+            {
+                characterController.Move(interceptVec * Time.deltaTime);
+
+                Debug.Log(interceptVec);
+            }
+            else
+            {
+                isDodging = false;
+                canMove = true;
+                dodgeDestination = Vector3.zero; ;
+            }
         }
     }
 
