@@ -2,15 +2,12 @@
 using UnityEngine;
 
 [System.Serializable]
-public class BaseProjectileAbility : MonoBehaviour
+public class BaseProjectileAbility : GolemAbilityBase
 {
     private TimerClass projectileTimer;
 
     private Rigidbody myRB;
     private GameObject trailRenderer;
-
-    [Header("Ability Values")]
-    public AbilityValues abilityValues;
 
     public bool hasTime;
 
@@ -30,7 +27,7 @@ public class BaseProjectileAbility : MonoBehaviour
         }
     }
 
-    public void InitializeAbility()
+    public override void InitializeAbility()
     {
         myRB = GetComponent<Rigidbody>();
 
@@ -57,7 +54,7 @@ public class BaseProjectileAbility : MonoBehaviour
     {
         if (other.gameObject.CompareTag("GolemRed") || other.gameObject.CompareTag("GolemBlue"))
         {
-            other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType);
+            other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, gameObject);
             HideSelf();
         }
     }

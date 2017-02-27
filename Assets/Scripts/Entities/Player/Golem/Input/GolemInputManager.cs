@@ -129,7 +129,7 @@ public class GolemInputManager : MonoBehaviour
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
         {
-            golemPlayerController.UseQuickAttack();
+            golemPlayerController.UseAttack();
         }
 
         if (blockAxis != 0)

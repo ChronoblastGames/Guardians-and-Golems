@@ -63,7 +63,7 @@ public struct AbilityValues
     public bool canBlind;
 }
 
-public abstract class BaseGolemAbilities : MonoBehaviour
+public abstract class AbilityBase : MonoBehaviour
 {
     [Header("Ability")]
     public GameObject ability;

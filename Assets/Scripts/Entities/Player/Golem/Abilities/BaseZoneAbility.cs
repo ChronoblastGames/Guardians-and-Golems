@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class BaseZoneAbility : MonoBehaviour
+public class BaseZoneAbility : GolemAbilityBase
 {
     private TimerClass zoneTimer;
-
-    [Header("Ability Attributes")]
-    public AbilityValues abilityValues;
 
     private bool isInitialized = false;
 
@@ -15,7 +12,7 @@ public class BaseZoneAbility : MonoBehaviour
         ManageZoneTime();
     }
 
-    public void InitializeAbility()
+    public override void InitializeAbility()
     {
         zoneTimer = new TimerClass();
       

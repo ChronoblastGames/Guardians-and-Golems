@@ -53,7 +53,7 @@ public class GuardianPlayerController : GuardianStats
     {
         cdAbility = new BasicCooldown();
 
-        globalCooldownTime = GameObject.FindObjectOfType<GeneralVariables>().globalCooldown;
+        globalCooldownTime = GameObject.FindObjectOfType<GlobalVariables>().guardianGlobalCooldown;
 
         cdAbility.cdTime = globalCooldownTime;
 

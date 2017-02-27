@@ -77,7 +77,7 @@ public class GuardianAbility : BaseGuardianAbilities
 
                     GameObject newStaticAbility = Instantiate(ability, spawnPos.transform.position + spawnVec, spawnRot) as GameObject;
                     newStaticAbility.GetComponent<BaseStaticAbility>().abilityValues = abilityValues;
-                    newStaticAbility.GetComponent<BaseStaticAbility>().InitializeWall();
+                    newStaticAbility.GetComponent<BaseStaticAbility>().InitializeAbility();
                 }
                 break;
 

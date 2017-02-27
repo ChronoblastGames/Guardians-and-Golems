@@ -24,7 +24,7 @@ public class WeaponCollider : MonoBehaviour
     {
         if (other.gameObject.layer != gameObject.layer)
         {
-            other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType);
+            other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, gameObject);
             weaponCol.enabled = false;
         }
     }

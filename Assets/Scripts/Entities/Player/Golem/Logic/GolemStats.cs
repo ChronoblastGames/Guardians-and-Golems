@@ -12,13 +12,17 @@ public abstract class GolemStats : MonoBehaviour
     [Header("Golem Offenses")]
     public GolemOffense golemOffensiveValues;
 
+    public bool canUseAbilities = true;
+
+    public bool canAttack = true;
+
     [Header("Golem Defenses")]
     public GolemDefense golemDefenseValues;
 
     public bool isBlocking;
 
     [Header("Golem Abilities")]
-    public BaseGolemAbilities[] golemAbilities;
+    public AbilityBase[] golemAbilities;
 }
 
 [System.Serializable]
@@ -38,6 +42,8 @@ public struct GolemDefense
 
     [Header("Golem Stability")]
     public float golemStability;
+
+    public float golemStaggerTime; //How long the Golem is staggered for
 }
 
 [System.Serializable]

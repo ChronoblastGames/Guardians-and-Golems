@@ -7,8 +7,11 @@ public class EarthGolemAbility1 : GolemAbilityBase
     public GameObject earthShard;
 
     public int shardCount;
+    public int ringCount;
 
     public float abilityRadius;
+
+    public float shardDepth;
 
     private void Start()
     {
@@ -26,15 +29,20 @@ public class EarthGolemAbility1 : GolemAbilityBase
 
         float distanceBetweenShards = 360 / shardCount;
 
-        for (int i = 0; i < shardCount; i++)
+        for (int o = 1; o < ringCount + 1; o++)
         {
-            Vector3 shardPos = CalculateCircle(transform.position, abilityRadius, distanceBetweenShards, i);
-            float shardAngle = distanceBetweenShards * i;
+            float newRadius = abilityRadius + (o * ringCount);
 
-            Quaternion shardRotation = Quaternion.Euler(0, shardAngle, 0);
+            for (int i = 0; i < shardCount; i++)
+            {
+                Vector3 shardPos = CalculateCircle(transform.position, newRadius, distanceBetweenShards, i);
+                float shardAngle = distanceBetweenShards * i;
 
-            GameObject newShard = Instantiate(earthShard, shardPos, shardRotation, transform) as GameObject;
-        }
+                Quaternion shardRotation = Quaternion.Euler(0, shardAngle, 0);
+
+                GameObject newShard = Instantiate(earthShard, shardPos, shardRotation, transform) as GameObject;
+            }
+        }    
     }
 
     Vector3 CalculateCircle(Vector3 centerVector, float circleRadius, float distBetween, int interationCount)
@@ -44,7 +52,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
 
         positionVec.x = centerVector.x + circleRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
         positionVec.z = centerVector.z + circleRadius * Mathf.Cos(angle * Mathf.Deg2Rad);
-        positionVec.y = 0;
+        positionVec.y = shardDepth;
 
         return positionVec;
     }

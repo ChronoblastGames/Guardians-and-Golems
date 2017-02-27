@@ -797,6 +797,47 @@ Prefab:
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 482657122}
+    - target: {fileID: 114616598146008700, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 1294764970468810, guid: 8505a053544ff194b9ade81f2225765a,
+        type: 2}
+    - target: {fileID: 114616598146008700, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: damageType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114616598146008700, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: damageAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114616598146008700, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spawnDistanceFromPlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114616598146008700, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: abilityType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114149652261849078, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: abilityType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114985709521354678, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: playerNum
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114492390188686004, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: playerNum
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0
@@ -831,49 +872,6 @@ Transform:
   - {fileID: 394457319}
   m_Father: {fileID: 645699399}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &900000522
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 900000524}
-  - component: {fileID: 900000523}
-  m_Layer: 0
-  m_Name: EarthGolemAbility1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &900000523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 900000522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aff0dfc65aefec644b370fe29be5c505, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  earthShard: {fileID: 0}
-  shardCount: 10
-  abilityRadius: 10
---- !u!4 &900000524
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 900000522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &976306290
 GameObject:

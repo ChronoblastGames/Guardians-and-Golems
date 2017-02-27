@@ -5,13 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class GolemPlayerController : GolemStats 
 {
-    private TimerClass idleTimer;
     private BasicCooldown globalCooldown;
+    private GlobalVariables globalVariables;
     private GolemInputManager golemInputManager;
     private CharacterController characterController;
     private GolemBaseWeapon golemBaseWeapon;
 
     private Animator golemState;
+
+    [Header("Timers")]
+    private TimerClass idleTimer;
+    private TimerClass recoveryTimer;
 
     [Header("Player Movement Attributes")]
     public float currentSpeed;
@@ -22,6 +26,8 @@ public class GolemPlayerController : GolemStats
     public float idleTime;
 
     public bool isIdle;
+
+    public bool isStaggered;
 
     private Vector2 moveVec;
     private Vector2 directionVec;
@@ -49,14 +55,17 @@ public class GolemPlayerController : GolemStats
     {
         GatherInput();
         ManageMovement();
-        CheckIdle();
+        ManageIdle();
+        ManageRecoveryTime();
 	}
 
     void PlayerSetup()
     {
 		globalCooldown = new BasicCooldown();
 
-        globalCooldownTime = GameObject.FindObjectOfType<GeneralVariables>().globalCooldown;
+        globalVariables = GameObject.FindObjectOfType<GlobalVariables>();
+
+        globalCooldownTime = globalVariables.golemGlobalCooldown;
 
 		globalCooldown.cdTime = globalCooldownTime;
 
@@ -67,6 +76,8 @@ public class GolemPlayerController : GolemStats
         characterController = GetComponent<CharacterController>();
 
         idleTimer = new TimerClass();
+
+        recoveryTimer = new TimerClass();
 
         golemState = GetComponent<Animator>();
 
@@ -86,7 +97,10 @@ public class GolemPlayerController : GolemStats
 
         Vector3 moveVel = transform.forward * currentSpeed + Vector3.up * velocityY;
 
-        characterController.Move(moveVel * Time.deltaTime);
+        if (canMove)
+        {
+            characterController.Move(moveVel * Time.deltaTime);
+        }
 
         characterVelocity = characterController.velocity.magnitude;
         golemState.SetFloat("playerVel", characterVelocity);
@@ -107,7 +121,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
     {
-		if (aimVec != null && (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2]))
+		if (aimVec != null && (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2]) && canUseAbilities)
         {
             if (aimVec != Vector3.zero)
             {
@@ -123,9 +137,9 @@ public class GolemPlayerController : GolemStats
         }
     }
 
-    public void UseQuickAttack()
+    public void UseAttack()
     {
-        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2])
+        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && canAttack)
         {
             golemBaseWeapon.Attack();
             StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
@@ -143,16 +157,42 @@ public class GolemPlayerController : GolemStats
     public void Block()
     {
         isBlocking = true;
+        golemState.SetBool("isBlocking", true);
         blockIndicator.SetActive(true);
     }
 
     public void Unblock()
     {
         isBlocking = false;
+        golemState.SetBool("isBlocking", false);
         blockIndicator.SetActive(false);
     }
+    
+    public void Stagger()
+    {
+        Debug.Log("I was Staggered! " + gameObject.name);
+        canMove = false;
+        canAttack = false;
+        canUseAbilities = false;
+        recoveryTimer.ResetTimer(globalVariables.golemRecoveryTime);
+        isStaggered = true;
+    }
 
-    void CheckIdle()
+    void ManageRecoveryTime()
+    {
+        if (isStaggered)
+        {
+            if (recoveryTimer.TimerIsDone())
+            {
+                canMove = true;
+                canAttack = true;
+                canUseAbilities = true;
+                isStaggered = false;
+            }
+        }
+    }
+
+    void ManageIdle()
     {
         if (characterVelocity == 0)
         {

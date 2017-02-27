@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class BaseStaticAbility : MonoBehaviour 
+public class BaseStaticAbility : GolemAbilityBase
 {
     private TimerClass activeTimer;
 
     [Header("Ability Attributes")]
-    public AbilityValues abilityValues;
-
-    private float t;
-
     public bool isRaising = false;
     public bool isLowering = false;
     public bool startCounting;
+
+    private float t;
 
     private Vector3 activeVec;
 
@@ -23,7 +21,7 @@ public class BaseStaticAbility : MonoBehaviour
         ManageWall();
     }
 
-    public void InitializeWall()
+    public override void InitializeAbility()
     {
         activeTimer = new TimerClass();
 

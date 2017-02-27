@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GolemAbility : BaseGolemAbilities 
+public class GolemAbility : AbilityBase 
 {
     private GolemResources golemResources;
 
@@ -47,8 +47,8 @@ public class GolemAbility : BaseGolemAbilities
                     spawnVec = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
 
                     GameObject newProjectile = Instantiate(ability, spawnVec, spawnRot) as GameObject;
-                    newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = abilityValues;
-                    newProjectile.GetComponent<BaseProjectileAbility>().InitializeAbility();
+                    newProjectile.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
+                    newProjectile.GetComponent<GolemAbilityBase>().InitializeAbility();
 
                     if (teamColor == PlayerTeam.RED)
                     {
@@ -75,8 +75,8 @@ public class GolemAbility : BaseGolemAbilities
                     spawnVec.y = -5f;
 
                     GameObject newStaticAbility = Instantiate(ability, transform.position + spawnVec, spawnRot) as GameObject;
-                    newStaticAbility.GetComponent<BaseStaticAbility>().abilityValues = abilityValues;
-                    newStaticAbility.GetComponent<BaseStaticAbility>().InitializeWall();            
+                    newStaticAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
+                    newStaticAbility.GetComponent<GolemAbilityBase>().InitializeAbility();            
                 }
                 break;
 
@@ -96,15 +96,15 @@ public class GolemAbility : BaseGolemAbilities
                         zoneSpawnVec.y = 0f;
 
                         GameObject newZoneAbility = Instantiate(ability, transform.position + zoneSpawnVec, spawnRot) as GameObject;
-                        newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = abilityValues;
-                        newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
+                        newZoneAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
+                        newZoneAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
                     }
                     else
                     {
                         Debug.Log("Should cast on myself");
                         GameObject newZoneAbility = Instantiate(ability, transform.position, Quaternion.identity) as GameObject;
-                        newZoneAbility.GetComponent<BaseZoneAbility>().abilityValues = abilityValues;
-                        newZoneAbility.GetComponent<BaseZoneAbility>().InitializeAbility();
+                        newZoneAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
+                        newZoneAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
                     }
                 }         
                 break;
