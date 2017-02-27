@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GolemBaseWeapon : MonoBehaviour
+public class GolemMelee : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
+    private GlobalVariables globalVariables;
 
     private TimerClass attackTimer;
 
-    private Animator golemStateMachine;
+    private Animator golemState;
 
     private WeaponCollider weapon;
 
@@ -16,8 +17,12 @@ public class GolemBaseWeapon : MonoBehaviour
 
     [Header("Weapon Attack Attributes")]
     public DamageType meleeDamageType;
+
     public float attackDamage;
-    public int attackCount = 1;
+
+    private int attackCount = 0;
+
+    public bool isAttacking = false;
 
     [Header("Weapon Debug")]
     public GameObject weaponIndicator;
@@ -36,7 +41,9 @@ public class GolemBaseWeapon : MonoBehaviour
     {
         golemPlayerController = GetComponent<GolemPlayerController>();
 
-        golemStateMachine = transform.GetChild(0).GetComponent<Animator>();
+        globalVariables = GameObject.FindObjectOfType<GlobalVariables>();
+
+        golemState = GetComponent<Animator>();
 
         weapon = weaponCollider.GetComponent<WeaponCollider>();
 
@@ -45,24 +52,34 @@ public class GolemBaseWeapon : MonoBehaviour
 
     void ManageAttacking()
     {
-        if (attackTimer.TimerIsDone())
+        if (isAttacking)
         {
-            ResetAttack();
-        }
+            if (attackTimer.TimerIsDone())
+            {
+                ResetAttack();
+            }
+        }    
     }
 
     public void Attack()
     {
         switch(attackCount)
         {
+            case 0:
+                attackCount++;
+                attackTimer.ResetTimer(globalVariables.golemAttackFollowUpTime);
+                golemState.SetTrigger("Attack1");
+                isAttacking = true;
+                break;
             case 1:
                 attackCount++;
+                attackTimer.ResetTimer(globalVariables.golemAttackFollowUpTime);
+                golemState.SetTrigger("Attack2");
                 break;
             case 2:
                 attackCount++;
-                break;
-            case 3:
-                attackCount++;
+                golemState.SetTrigger("Attack3");
+                ResetAttack();
                 break;
         }
     }
@@ -70,5 +87,6 @@ public class GolemBaseWeapon : MonoBehaviour
     void ResetAttack()
     {
         attackCount = 1;
+        isAttacking = false;
     }
 }

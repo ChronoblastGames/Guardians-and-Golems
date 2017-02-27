@@ -9,7 +9,7 @@ public class GolemPlayerController : GolemStats
     private GlobalVariables globalVariables;
     private GolemInputManager golemInputManager;
     private CharacterController characterController;
-    private GolemBaseWeapon golemBaseWeapon;
+    private GolemMelee golemMelee;
 
     private Animator golemState;
 
@@ -20,6 +20,7 @@ public class GolemPlayerController : GolemStats
     [Header("Player Movement Attributes")]
     public float currentSpeed;
     public float speedSmoothTime = 0.1f;
+    private float targetSpeed;
     private float speedSmoothVelocity;
     public float characterVelocity;
 
@@ -71,7 +72,7 @@ public class GolemPlayerController : GolemStats
 
         golemInputManager = GetComponent<GolemInputManager>();
 
-        golemBaseWeapon = GetComponent<GolemBaseWeapon>();
+        golemMelee = GetComponent<GolemMelee>();
 
         characterController = GetComponent<CharacterController>();
 
@@ -91,8 +92,16 @@ public class GolemPlayerController : GolemStats
     }
 
     void ManageMovement()
-    {
-        float targetSpeed = baseMovementSpeed * moveVec.magnitude;
+    {       
+        if (!isBlocking)
+        {
+           targetSpeed = baseMovementSpeed * moveVec.magnitude;      
+        }
+        else
+        {
+           targetSpeed = baseMovementSpeed / 2 * moveVec.magnitude;
+        }
+
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
         Vector3 moveVel = transform.forward * currentSpeed + Vector3.up * velocityY;
@@ -141,7 +150,7 @@ public class GolemPlayerController : GolemStats
     {
         if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && canAttack)
         {
-            golemBaseWeapon.Attack();
+            golemMelee.Attack();
             StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
         }
     }
@@ -170,12 +179,13 @@ public class GolemPlayerController : GolemStats
     
     public void Stagger()
     {
-        Debug.Log("I was Staggered! " + gameObject.name);
+        Debug.Log("I was Staggered! by " + gameObject.name);
         canMove = false;
         canAttack = false;
         canUseAbilities = false;
         recoveryTimer.ResetTimer(globalVariables.golemRecoveryTime);
         isStaggered = true;
+        golemState.SetTrigger("isStaggered");
     }
 
     void ManageRecoveryTime()

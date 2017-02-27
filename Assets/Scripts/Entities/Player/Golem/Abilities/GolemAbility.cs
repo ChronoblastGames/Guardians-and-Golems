@@ -75,6 +75,15 @@ public class GolemAbility : AbilityBase
                     spawnVec.y = -5f;
 
                     GameObject newStaticAbility = Instantiate(ability, transform.position + spawnVec, spawnRot) as GameObject;
+
+                    if (teamColor == PlayerTeam.RED)
+                    {
+                        newStaticAbility.layer = 8;
+                    }
+                    else if (teamColor == PlayerTeam.BLUE)
+                    {
+                        newStaticAbility.layer = 9;
+                    }
                     newStaticAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
                     newStaticAbility.GetComponent<GolemAbilityBase>().InitializeAbility();            
                 }

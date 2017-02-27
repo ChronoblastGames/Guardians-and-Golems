@@ -39,8 +39,9 @@ public class EarthGolemAbility1 : GolemAbilityBase
                 float shardAngle = distanceBetweenShards * i;
 
                 Quaternion shardRotation = Quaternion.Euler(0, shardAngle, 0);
-
                 GameObject newShard = Instantiate(earthShard, shardPos, shardRotation, transform) as GameObject;
+                newShard.layer = gameObject.layer;
+                
             }
         }    
     }

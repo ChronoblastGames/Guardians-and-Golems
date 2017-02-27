@@ -821,7 +821,7 @@ Prefab:
     - target: {fileID: 114616598146008700, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: abilityType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114149652261849078, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
@@ -838,6 +838,11 @@ Prefab:
       propertyPath: playerNum
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 95304262070322198, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 770d475bb3db48945a88f9eecdff8e10, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0
@@ -1831,6 +1836,31 @@ Prefab:
         type: 2}
       propertyPath: globalCooldown
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290774430385610, guid: 0aa43ced36c5d448eb2228e9141ef4b2,
+        type: 2}
+      propertyPath: golemStaggerTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290774430385610, guid: 0aa43ced36c5d448eb2228e9141ef4b2,
+        type: 2}
+      propertyPath: golemRecoveryTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290774430385610, guid: 0aa43ced36c5d448eb2228e9141ef4b2,
+        type: 2}
+      propertyPath: golemAttackFollowUpTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290774430385610, guid: 0aa43ced36c5d448eb2228e9141ef4b2,
+        type: 2}
+      propertyPath: golemGlobalCooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290774430385610, guid: 0aa43ced36c5d448eb2228e9141ef4b2,
+        type: 2}
+      propertyPath: guardianGlobalCooldown
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0aa43ced36c5d448eb2228e9141ef4b2, type: 2}

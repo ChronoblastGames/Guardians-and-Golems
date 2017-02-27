@@ -67,6 +67,7 @@ public class GolemResources : MonoBehaviour
     {
         DetermineHealthStatus();
         DetermineManaStatus();
+        ManageStaggerTimer();
     }
 
     private void FixedUpdate()
@@ -234,6 +235,15 @@ public class GolemResources : MonoBehaviour
         }
     }
 
+    void ManageStaggerTimer()
+    {
+        if (staggerTimer.TimerIsDone())
+        {
+            staggerDamage = 0;
+            isStaggerTimerActive = false;
+        }
+    }
+
     void DetermineStagger(float damageValue)
     {
         if (!golemPlayerController.isStaggered)
@@ -246,18 +256,13 @@ public class GolemResources : MonoBehaviour
                 {
                     GetStaggered();
                     staggerDamage = 0;
-                }
-
-                if (staggerTimer.TimerIsDone())
-                {
-                    staggerDamage = 0;
-                    isStaggerTimerActive = false;
-                }
+                }        
             }
             else
             {
                 staggerTimer.ResetTimer(globalVariables.golemStaggerTime);
                 isStaggerTimerActive = true;
+                staggerDamage += damageValue;
             }
         }      
     }
