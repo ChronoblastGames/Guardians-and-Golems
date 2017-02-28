@@ -86,7 +86,7 @@ public class GolemMelee : MonoBehaviour
 
     void ResetAttack()
     {
-        attackCount = 1;
+        attackCount = 0;
         isAttacking = false;
     }
 }

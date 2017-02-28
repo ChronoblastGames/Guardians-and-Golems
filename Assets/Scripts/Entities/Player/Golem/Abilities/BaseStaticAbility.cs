@@ -42,7 +42,7 @@ public class BaseStaticAbility : GolemAbilityBase
             {
                 isRaising = false;
                 startCounting = true;
-                activeTimer.ResetTimer(abilityValues.wallActiveTime);
+                activeTimer.ResetTimer(abilityValues.activeTime);
                 t = 0;
                 activeVec = transform.position - new Vector3(0, abilityValues.raiseAmount, 0);
             }

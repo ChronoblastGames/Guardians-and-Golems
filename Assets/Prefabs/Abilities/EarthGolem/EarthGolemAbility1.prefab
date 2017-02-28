@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   earthShard: {fileID: 1789083684272122, guid: 09f16026ab3d2934e88780c0f0d67ea7, type: 2}
-  shardCount: 5
-  ringCount: 1
-  abilityRadius: 0.3
+  shardCount: 20
+  ringCount: 6
+  abilityRadius: 0.5
   shardDepth: -2

@@ -13,12 +13,9 @@ public abstract class BaseGuardianAbilities : MonoBehaviour
     [Header("Range Attributes")]
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
-
-    [Header("Projectile Attributes")]
-    public float projectileActiveTime;
+    public float activeTime;
 
     [Header("Wall Attributes")]
-    public float wallActiveTime;
     public float raiseAmount;
     public float raiseSpeed;
 
@@ -26,7 +23,6 @@ public abstract class BaseGuardianAbilities : MonoBehaviour
     public float zoneRadius;
     public float zoneHeight;
     public float zoneStrength;
-    public float zoneTime;
 
     [Header("Use Attributes")]
     public float healthCost;

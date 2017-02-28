@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EarthGolemAbility1 : GolemAbilityBase 
 {
+    private TimerClass activeTimer;
+
     [Header("Ability Attributes")]
     public GameObject earthShard;
 
@@ -13,14 +15,30 @@ public class EarthGolemAbility1 : GolemAbilityBase
 
     public float shardDepth;
 
+    private bool timerActive;
+
     private void Start()
     {
         InitializeAbility();
     }
 
+    void Update()
+    {
+        ManageTimer();
+    }
+
     public override void InitializeAbility()
     {
+        activeTimer = new TimerClass();
+
         SpawnShards();
+
+        if (abilityValues.activeTime > 0)
+        {
+            activeTimer.ResetTimer(abilityValues.activeTime);
+
+            timerActive = true;
+        }
     }
 
     void SpawnShards()
@@ -56,5 +74,16 @@ public class EarthGolemAbility1 : GolemAbilityBase
         positionVec.y = shardDepth;
 
         return positionVec;
+    }
+
+    void ManageTimer()
+    {
+        if (timerActive)
+        {
+            if (activeTimer.TimerIsDone())
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

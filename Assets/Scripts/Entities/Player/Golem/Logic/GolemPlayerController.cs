@@ -24,12 +24,18 @@ public class GolemPlayerController : GolemStats
     private float speedSmoothVelocity;
     public float characterVelocity;
 
-    private Vector3 dodgeDestination;
-
     public float idleTime;
 
     public bool isIdle;
 
+    [Header("Player Dodge Attributes")]
+    public float dodgeSmoothTime = 0.1f;
+    private Vector3 dodgeDirectionVec;
+    private float currentDodgeSpeed;
+    private float targetDodgeSpeed;
+    private float dodgeSmoothVelocity;
+
+    [HideInInspector]
     public bool isStaggered;
 
     private Vector2 moveVec;
@@ -98,7 +104,7 @@ public class GolemPlayerController : GolemStats
     {
         if (!isBlocking)
         {
-           targetSpeed = baseMovementSpeed * moveVec.magnitude;      
+           targetSpeed = baseMovementSpeed * moveVec.magnitude;
         }
         else
         {
@@ -115,6 +121,7 @@ public class GolemPlayerController : GolemStats
         }
 
         characterVelocity = characterController.velocity.magnitude;
+
         golemState.SetFloat("playerVel", characterVelocity);
 
         if (characterController.isGrounded)
@@ -124,7 +131,7 @@ public class GolemPlayerController : GolemStats
 
         velocityY += Time.deltaTime * gravity;
 
-        if (directionVec != Vector2.zero)
+        if (directionVec != Vector2.zero && canMove)
         {
             float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
@@ -162,13 +169,7 @@ public class GolemPlayerController : GolemStats
     {
         if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && moveVec != Vector2.zero)
         {
-            Vector3 dodgeVec = new Vector3(moveVec.x, 0, moveVec.y);
-
-            dodgeVec *= dodgeDistance;
-
-            dodgeDestination = dodgeVec;
-      
-            Debug.Log(dodgeVec);
+            dodgeDirectionVec = new Vector3(moveVec.x, 0, moveVec.y);
 
             isDodging = true;
 
@@ -180,23 +181,13 @@ public class GolemPlayerController : GolemStats
 
     void ManageDodge()
     {
-        if (dodgeDestination != Vector3.zero && isDodging)
-        {
-            Vector3 interceptVec = transform.position - dodgeDestination;
+        targetDodgeSpeed = dodgeDistance * dodgeDirectionVec.magnitude;
 
-            if (interceptVec.magnitude > 0.1f)
-            {
-                characterController.Move(interceptVec * Time.deltaTime);
+        currentDodgeSpeed = Mathf.SmoothDamp(currentDodgeSpeed, targetDodgeSpeed, ref dodgeSmoothVelocity, dodgeSmoothTime);
 
-                Debug.Log(interceptVec);
-            }
-            else
-            {
-                isDodging = false;
-                canMove = true;
-                dodgeDestination = Vector3.zero; ;
-            }
-        }
+        Vector3 dodgeVec = dodgeDirectionVec * currentDodgeSpeed;
+
+        characterController.Move(dodgeVec * Time.deltaTime);
     }
 
     public void Block()

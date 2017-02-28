@@ -18,7 +18,7 @@ public class BaseZoneAbility : GolemAbilityBase
       
         transform.localScale = new Vector3(abilityValues.zoneRadius, abilityValues.zoneRadius, abilityValues.zoneRadius);
 
-        zoneTimer.ResetTimer(abilityValues.zoneTime);
+        zoneTimer.ResetTimer(abilityValues.activeTime);
 
         isInitialized = true;
     }

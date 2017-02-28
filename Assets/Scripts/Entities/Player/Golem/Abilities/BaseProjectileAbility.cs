@@ -33,11 +33,11 @@ public class BaseProjectileAbility : GolemAbilityBase
 
         trailRenderer = transform.GetChild(0).gameObject;
 
-        if (abilityValues.projectileActiveTime > 0)
+        if (abilityValues.activeTime > 0)
         {
             projectileTimer = new TimerClass();
 
-            projectileTimer.ResetTimer(abilityValues.projectileActiveTime);
+            projectileTimer.ResetTimer(abilityValues.activeTime);
 
             hasTime = true;
         }

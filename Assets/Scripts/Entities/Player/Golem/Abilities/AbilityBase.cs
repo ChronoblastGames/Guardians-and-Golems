@@ -33,12 +33,9 @@ public struct AbilityValues
     [Header("Range Attributes")]
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
-
-    [Header("Projectile Attributes")]
-    public float projectileActiveTime;
+    public float activeTime;
 
     [Header("Wall Attributes")]
-    public float wallActiveTime;
     public float raiseAmount;
     public float raiseSpeed;
 
@@ -46,7 +43,6 @@ public struct AbilityValues
     public float zoneRadius;
     public float zoneHeight;
     public float zoneStrength;
-    public float zoneTime;
 
     [Header("Use Attributes")]
     public float healthCost;
@@ -75,12 +71,12 @@ public abstract class AbilityBase : MonoBehaviour
     [Header("Range Attributes")]
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
+    public float activeTime;
 
     [Header("Projectile Attributes")]
     public float projectileActiveTime;
 
     [Header("Wall Attributes")]
-    public float wallActiveTime;
     public float raiseAmount;
     public float raiseSpeed;
 
@@ -88,7 +84,6 @@ public abstract class AbilityBase : MonoBehaviour
     public float zoneRadius;
     public float zoneHeight;
     public float zoneStrength;
-    public float zoneTime;
 
     [Header("Use Attributes")]
     public float healthCost;
