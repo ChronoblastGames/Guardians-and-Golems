@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum HealthStatus
@@ -25,7 +26,8 @@ public enum StatusEffect
     STUN,
     BLEED,
     MANA_DRAIN,
-    SILENCE
+    SILENCE,
+    SHIELD
 }
 
 
@@ -55,6 +57,9 @@ public class GolemResources : MonoBehaviour
 
     private float staggerDamage;
 
+    [Header("Player Status Effect")]
+    public List<StatusEffect> statusEffectList;
+
     [HideInInspector]
     public GolemDefense golemDefense;
 
@@ -74,6 +79,7 @@ public class GolemResources : MonoBehaviour
     {
         RegenerateHealth();
         RegenerateMana();
+        ManageStatusEffect();
     }
 
     void InitializeValues()
@@ -136,6 +142,37 @@ public class GolemResources : MonoBehaviour
     void DetermineManaStatus()
     {
 
+    }
+
+    void ManageStatusEffect()
+    {
+        if (statusEffectList.Count > 0)
+        {
+            for (int i = 0; i < statusEffectList.Count; i++)
+            {
+                switch (statusEffectList[i])
+                {
+                    case StatusEffect.BLEED:
+                        break;
+
+                    case StatusEffect.MANA_DRAIN:
+                        break;
+
+                    case StatusEffect.SILENCE:
+                        break;
+
+                    case StatusEffect.STUN:
+                        break;
+
+                    case StatusEffect.SHIELD:
+                        break;
+
+                    default:
+                        Debug.Log("Incorrect Argument passed through Status Effect Manager");
+                        break;
+                }
+            }
+        }   
     }
 
     public bool CanCast(float spellManaCost)
