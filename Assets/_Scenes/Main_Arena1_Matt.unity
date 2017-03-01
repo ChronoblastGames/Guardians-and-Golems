@@ -2152,7 +2152,7 @@ Prefab:
     - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: dodgeSpeed
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
@@ -2163,6 +2163,21 @@ Prefab:
         type: 2}
       propertyPath: m_StepOffset
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: dodgeSmoothTime
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: dodgeAccelerationSmooth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: dodgeDecelerationSmooth
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}

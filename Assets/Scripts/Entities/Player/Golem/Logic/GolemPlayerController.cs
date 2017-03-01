@@ -29,10 +29,12 @@ public class GolemPlayerController : GolemStats
     public bool isIdle;
 
     [Header("Player Dodge Attributes")]
-    public float dodgeSmoothTime = 0.1f;
-    private float currentDodgeSpeed;
+    public float dodgeAccelerationSmooth = 0.1f;
+    public float dodgeDecelerationSmooth = 0.1f;
+    public float currentDodgeSpeed;
     private float targetDodgeSpeed;
     private float dodgeSmoothVelocity;
+
     private Vector3 dodgeDirectionVec;
     private Vector3 dodgeDestination;
 
@@ -91,7 +93,6 @@ public class GolemPlayerController : GolemStats
         characterController = GetComponent<CharacterController>();
 
         idleTimer = new TimerClass();
-
         recoveryTimer = new TimerClass();
 
         golemState = GetComponent<Animator>();
@@ -176,12 +177,13 @@ public class GolemPlayerController : GolemStats
         {
             dodgeDirectionVec = new Vector3(moveVec.x, 0, moveVec.y);
 
-            dodgeDirectionVec *= dodgeDistance;
-
-            dodgeDestination = transform.position + dodgeDirectionVec;
+            dodgeDestination = transform.position + (dodgeDirectionVec * dodgeDistance);
             dodgeDestination.y = 0;
 
             Debug.Log(dodgeDestination);
+
+            currentDodgeSpeed = 0;
+            targetDodgeSpeed = dodgeSpeed;
 
             isDodging = true;
 
@@ -189,30 +191,42 @@ public class GolemPlayerController : GolemStats
             canAttack = false;
             canUseAbilities = false;
 
+            golemState.SetTrigger("isDodge");
+
             StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
         }
     }
 
     void ManageDodge()
     {
-        if (isDodging)
+        if (isDodging) //TODO Map strings to Hashes at Start of Runtime, Comparing string against hashed int is performance heavy
         {
-            targetDodgeSpeed = dodgeSpeed * dodgeDirectionVec.magnitude;
-
-            currentDodgeSpeed = Mathf.SmoothDamp(currentDodgeSpeed, targetDodgeSpeed, ref dodgeSmoothVelocity, dodgeSmoothTime);
-
-            Vector3 dodgeVec = dodgeDirectionVec * currentDodgeSpeed;
-
-            characterController.Move(dodgeVec * Time.deltaTime);
-
-            if (Vector3.Distance(transform.position, dodgeDestination) < 2)
+            if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Accel"))
             {
-                isDodging = false;
-                canMove = true;
-                canAttack = true;
-                canUseAbilities = true;
+                Debug.Log("Is Accel");
             }
-        }       
+            else if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Sustain"))
+            {
+                Debug.Log("Is Sustain");
+            }
+            else if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Decelerate"))
+            {
+                Debug.Log("Is Decel");
+            }
+            else if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Finished"))
+            {
+                ReachedEndOfDodge();
+            }
+        }
+    }
+
+    void ReachedEndOfDodge()
+    {
+        isDodging = false;
+        canDodge = true;
+        canMove = true;
+        canUseAbilities = true;
+        canAttack = true;
     }
 
     public void Block()
@@ -260,12 +274,13 @@ public class GolemPlayerController : GolemStats
         {
             if (idleTimer.TimerIsDone())
             {
-                golemState.SetTrigger("isIdle");
+                golemState.SetBool("isIdle", true);
             }
         }
-        else
+        else if (characterVelocity != 0)
         {
             idleTimer.ResetTimer(idleTime);
+            golemState.SetBool("isIdle", false);
             isIdle = false;
         }
     }
