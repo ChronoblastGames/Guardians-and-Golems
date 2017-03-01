@@ -22,7 +22,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
         InitializeAbility();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         ManageTimer();
     }

@@ -25,7 +25,7 @@ public class ShardController : MonoBehaviour
         InitializeShard();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MoveShard();
     }

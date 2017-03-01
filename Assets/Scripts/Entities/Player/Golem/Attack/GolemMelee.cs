@@ -32,7 +32,7 @@ public class GolemMelee : MonoBehaviour
         InitializeWeapon();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         ManageAttacking();
     }

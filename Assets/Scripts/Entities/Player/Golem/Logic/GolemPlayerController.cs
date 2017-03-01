@@ -30,10 +30,11 @@ public class GolemPlayerController : GolemStats
 
     [Header("Player Dodge Attributes")]
     public float dodgeSmoothTime = 0.1f;
-    private Vector3 dodgeDirectionVec;
     private float currentDodgeSpeed;
     private float targetDodgeSpeed;
     private float dodgeSmoothVelocity;
+    private Vector3 dodgeDirectionVec;
+    private Vector3 dodgeDestination;
 
     [HideInInspector]
     public bool isStaggered;
@@ -63,11 +64,15 @@ public class GolemPlayerController : GolemStats
 	void Update () 
     {
         GatherInput();
+	}
+
+    void FixedUpdate()
+    {
         ManageMovement();
         ManageDodge();
         ManageIdle();
         ManageRecoveryTime();
-	}
+    }
 
     void PlayerSetup()
     {
@@ -167,13 +172,22 @@ public class GolemPlayerController : GolemStats
 
     public void Dodge()
     {
-        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && moveVec != Vector2.zero)
+        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && moveVec != Vector2.zero && !isDodging)
         {
             dodgeDirectionVec = new Vector3(moveVec.x, 0, moveVec.y);
+
+            dodgeDirectionVec *= dodgeDistance;
+
+            dodgeDestination = transform.position + dodgeDirectionVec;
+            dodgeDestination.y = 0;
+
+            Debug.Log(dodgeDestination);
 
             isDodging = true;
 
             canMove = false;
+            canAttack = false;
+            canUseAbilities = false;
 
             StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
         }
@@ -181,13 +195,24 @@ public class GolemPlayerController : GolemStats
 
     void ManageDodge()
     {
-        targetDodgeSpeed = dodgeDistance * dodgeDirectionVec.magnitude;
+        if (isDodging)
+        {
+            targetDodgeSpeed = dodgeSpeed * dodgeDirectionVec.magnitude;
 
-        currentDodgeSpeed = Mathf.SmoothDamp(currentDodgeSpeed, targetDodgeSpeed, ref dodgeSmoothVelocity, dodgeSmoothTime);
+            currentDodgeSpeed = Mathf.SmoothDamp(currentDodgeSpeed, targetDodgeSpeed, ref dodgeSmoothVelocity, dodgeSmoothTime);
 
-        Vector3 dodgeVec = dodgeDirectionVec * currentDodgeSpeed;
+            Vector3 dodgeVec = dodgeDirectionVec * currentDodgeSpeed;
 
-        characterController.Move(dodgeVec * Time.deltaTime);
+            characterController.Move(dodgeVec * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, dodgeDestination) < 2)
+            {
+                isDodging = false;
+                canMove = true;
+                canAttack = true;
+                canUseAbilities = true;
+            }
+        }       
     }
 
     public void Block()
