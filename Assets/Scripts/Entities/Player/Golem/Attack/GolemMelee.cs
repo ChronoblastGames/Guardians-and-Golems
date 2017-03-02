@@ -27,6 +27,8 @@ public class GolemMelee : MonoBehaviour
     [Header("Weapon Debug")]
     public GameObject weaponIndicator;
 
+    public AnimationClip[] meleeAnimations;
+
     private void Start()
     {
         InitializeWeapon();
@@ -58,6 +60,8 @@ public class GolemMelee : MonoBehaviour
             {
                 ResetAttack();
             }
+
+            golemPlayerController.canMove = false;
         }    
     }
 
@@ -67,18 +71,27 @@ public class GolemMelee : MonoBehaviour
         {
             case 0:
                 attackCount++;
-                attackTimer.ResetTimer(globalVariables.golemAttackFollowUpTime);
+                attackTimer.ResetTimer(/*globalVariables.golemAttackFollowUpTime*/meleeAnimations[attackCount].length+100);
                 golemState.SetTrigger("Attack1");
                 isAttacking = true;
+
+                Debug.Log("Made attack number " + attackCount);
                 break;
+
             case 1:
                 attackCount++;
-                attackTimer.ResetTimer(globalVariables.golemAttackFollowUpTime);
+                attackTimer.ResetTimer(/*globalVariables.golemAttackFollowUpTime*/meleeAnimations[attackCount].length+100);
                 golemState.SetTrigger("Attack2");
+
+                Debug.Log("Made attack number " + attackCount);
                 break;
+
             case 2:
                 attackCount++;
                 golemState.SetTrigger("Attack3");
+
+                Debug.Log("Made attack number " + attackCount);
+
                 ResetAttack();
                 break;
         }
@@ -86,7 +99,9 @@ public class GolemMelee : MonoBehaviour
 
     void ResetAttack()
     {
+        Debug.Log("Resetting Attack");
         attackCount = 0;
         isAttacking = false;
+        golemPlayerController.canMove = true;
     }
 }

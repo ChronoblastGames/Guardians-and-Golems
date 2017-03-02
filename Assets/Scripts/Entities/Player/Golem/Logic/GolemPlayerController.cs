@@ -48,6 +48,8 @@ public class GolemPlayerController : GolemStats
     public float turnSmoothTime = 0.2f;
     private float turnSmoothVelocity;
 
+    public bool canRotate = true;
+
     [Header("Player Gravity Attributes")]
     public float gravity = -12f;
     private float velocityY;
@@ -57,6 +59,8 @@ public class GolemPlayerController : GolemStats
 
     [Header("CoolDowns")]
 	private float globalCooldownTime;
+
+    public AnimationCurve accelerationCurve;
 
 	void Start () 
     {
@@ -71,6 +75,7 @@ public class GolemPlayerController : GolemStats
     void FixedUpdate()
     {
         ManageMovement();
+        ManageRotation();
         ManageDodge();
         ManageIdle();
         ManageRecoveryTime();
@@ -134,10 +139,15 @@ public class GolemPlayerController : GolemStats
         {
             velocityY = 0;
         }
+        else
+        {
+            velocityY += Time.deltaTime * gravity;
+        }    
+    }
 
-        velocityY += Time.deltaTime * gravity;
-
-        if (directionVec != Vector2.zero && canMove)
+    void ManageRotation()
+    {
+        if (directionVec != Vector2.zero && canRotate)
         {
             float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
@@ -167,7 +177,7 @@ public class GolemPlayerController : GolemStats
         if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && canAttack)
         {
             golemMelee.Attack();
-            StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
+           // StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
         }
     }
 
@@ -182,7 +192,7 @@ public class GolemPlayerController : GolemStats
             }
             else
             {
-                dodgeDirectionVec = new Vector3(moveVec.x, 0, moveVec.y);
+                dodgeDirectionVec = new Vector3(moveVec.x, 0, moveVec.y).normalized;
             }
            
             dodgeDestination = transform.position + (dodgeDirectionVec * dodgeDistance);
@@ -207,36 +217,36 @@ public class GolemPlayerController : GolemStats
     {
         if (isDodging) //TODO Map strings to Hashes at Start of Runtime, Comparing string against hashed int is performance heavy
         {
-            if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Accelerate"))
+            /*if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Accelerate"))
             {
                 targetDodgeSpeed = dodgeSpeed;
 
                 currentDodgeSpeed = Mathf.SmoothDamp(currentDodgeSpeed, targetDodgeSpeed, ref dodgeSmoothVelocity, dodgeAccelerationSmooth);
 
-                Vector3 dodgeVec = dodgeDirectionVec * currentDodgeSpeed;
+                Vector3 dodgeVec = dodgeDirectionVec.normalized * currentDodgeSpeed;
 
                 characterController.Move(dodgeVec * Time.deltaTime);
             }
             else if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Sustain"))
             {
-                Vector3 dodgeVec = dodgeDirectionVec * currentDodgeSpeed;
+                Vector3 dodgeVec = dodgeDirectionVec.normalized * currentDodgeSpeed;
 
                 characterController.Move(dodgeVec * Time.deltaTime);
             }
-            else if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Decelerate"))
+            else if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Deccelerate"))
             {
                 targetDodgeSpeed = 0;
 
                 currentDodgeSpeed = Mathf.SmoothDamp(currentDodgeSpeed, targetDodgeSpeed, ref dodgeSmoothVelocity, dodgeDecelerationSmooth);
 
-                Vector3 dodgeVec = dodgeDirectionVec * currentDodgeSpeed;
+                Vector3 dodgeVec = dodgeDirectionVec.normalized * currentDodgeSpeed;
 
                 characterController.Move(dodgeVec * Time.deltaTime);
             }
             else if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Dodge.Finished"))
             {
                 ReachedEndOfDodge();
-            }
+            }*/    
         }
     }
 

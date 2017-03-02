@@ -4658,9 +4658,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915aa1d54be46e04cae9a4973b14fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 17.5
-  dodgeDistance: 0
-  dodgeSpeed: 0
+  baseMovementSpeed: 20
+  dodgeDistance: 10
+  dodgeSpeed: 30
   canMove: 1
   canDodge: 1
   isDodging: 0
@@ -4695,13 +4695,13 @@ MonoBehaviour:
   currentSpeed: 0
   speedSmoothTime: 0.1
   characterVelocity: 0
-  idleTime: 100
+  idleTime: 5
   isIdle: 0
   dodgeAccelerationSmooth: 0.1
   dodgeDecelerationSmooth: 0.1
   currentDodgeSpeed: 0
   isStaggered: 0
-  turnSmoothTime: 0.2
+  turnSmoothTime: 0.05
   gravity: -12
   blockIndicator: {fileID: 1933978755121180}
 --- !u!114 &114387784088493478
@@ -4756,8 +4756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
-  currentMana: 1000000
-  maxMana: 1000000
+  currentMana: Infinity
+  maxMana: Infinity
   healthRegenerationSpeed: 1.25
   manaRegenerationSpeed: 1.25
   isStaggerTimerActive: 0
@@ -4859,8 +4859,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
-  currentMana: 100000
-  maxMana: 100000
+  currentMana: Infinity
+  maxMana: Infinity
   healthRegenerationSpeed: 1.25
   manaRegenerationSpeed: 1.25
   isStaggerTimerActive: 0
@@ -4889,7 +4889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseMovementSpeed: 20
   dodgeDistance: 10
-  dodgeSpeed: 30
+  dodgeSpeed: 50
   canMove: 1
   canDodge: 1
   isDodging: 0
@@ -4926,8 +4926,8 @@ MonoBehaviour:
   characterVelocity: 0
   idleTime: 5
   isIdle: 0
-  dodgeAccelerationSmooth: 0.1
-  dodgeDecelerationSmooth: 0.1
+  dodgeAccelerationSmooth: 0.05
+  dodgeDecelerationSmooth: 1
   currentDodgeSpeed: 0
   isStaggered: 0
   turnSmoothTime: 0.05
