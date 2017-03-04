@@ -2097,16 +2097,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114576766405916554, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: meleeAnimations.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: accelerationCurve.m_Curve.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 4953942248363826, guid: a0dd775133547fa42941d810b37182d1, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2139,105 +2129,40 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 1279967831}
-    - target: {fileID: 114796564846939670, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 394457318}
-    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 259908043}
     - target: {fileID: 114315098865424614, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 482657122}
+    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 259908043}
+    - target: {fileID: 114796564846939670, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 394457318}
+    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 1279967831}
     - target: {fileID: 114576766405916554, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
-      propertyPath: meleeAnimations.Array.data[0]
-      value: 
-      objectReference: {fileID: 7400002, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
+      propertyPath: attackMovement.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 114576766405916554, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
-      propertyPath: meleeAnimations.Array.data[1]
-      value: 
-      objectReference: {fileID: 7400004, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
-    - target: {fileID: 114576766405916554, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: meleeAnimations.Array.data[2]
-      value: 
-      objectReference: {fileID: 7400006, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: dodgeSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: dodgeDistance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: dodgeAccelerationSmooth
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: dodgeDecelerationSmooth
+      propertyPath: attackMovement.Array.data[1]
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
+    - target: {fileID: 114576766405916554, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
-      propertyPath: accelerationCurve.m_Curve.Array.data[1].time
-      value: 0.21690993
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: accelerationCurve.m_Curve.Array.data[1].value
-      value: 0.120738566
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: accelerationCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: accelerationCurve.m_Curve.Array.data[1].inSlope
-      value: 1.0191649
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: accelerationCurve.m_Curve.Array.data[1].outSlope
-      value: 1.0191649
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: accelerationCurve.m_Curve.Array.data[2].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: accelerationCurve.m_Curve.Array.data[2].value
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: accelerationCurve.m_Curve.Array.data[3].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114512254700328952, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: accelerationCurve.m_Curve.Array.data[3].value
-      value: 1
+      propertyPath: attackMovement.Array.data[2]
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}

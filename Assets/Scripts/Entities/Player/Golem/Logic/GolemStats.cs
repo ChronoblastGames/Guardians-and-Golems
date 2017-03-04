@@ -5,7 +5,9 @@ public abstract class GolemStats : MonoBehaviour
 {
     [Header("Golem Movement Attributes")]
     public float baseMovementSpeed;
+
     public float dodgeDistance;
+    [HideInInspector]
     public float dodgeSpeed;
 
 

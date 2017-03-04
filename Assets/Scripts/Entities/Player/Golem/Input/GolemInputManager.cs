@@ -124,7 +124,7 @@ public class GolemInputManager : MonoBehaviour
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1"))
         {
-            golemPlayerController.Dodge();
+            golemPlayerController.DodgeSetup();
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))

@@ -72,7 +72,6 @@ public class GolemResources : MonoBehaviour
     {
         DetermineHealthStatus();
         DetermineManaStatus();
-        ManageStaggerTimer();
     }
 
     private void FixedUpdate()
@@ -80,6 +79,7 @@ public class GolemResources : MonoBehaviour
         RegenerateHealth();
         RegenerateMana();
         ManageStatusEffect();
+        ManageStaggerTimer();
     }
 
     void InitializeValues()

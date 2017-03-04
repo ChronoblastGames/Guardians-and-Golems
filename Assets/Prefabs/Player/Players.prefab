@@ -4573,9 +4573,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponCollider: {fileID: 65269211345089734}
   meleeDamageType: 4
-  attackDamage: 0
+  attackDamage: []
+  attackMovement: []
+  meleeAnimations: []
   isAttacking: 0
-  weaponIndicator: {fileID: 1496473323455568}
 --- !u!114 &114315098865424614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4692,16 +4693,22 @@ MonoBehaviour:
   - {fileID: 114387784088493478}
   - {fileID: 114195293961725206}
   - {fileID: 114365529268539334}
+  characterController: {fileID: 0}
   currentSpeed: 0
   speedSmoothTime: 0.1
   characterVelocity: 0
   idleTime: 5
   isIdle: 0
-  dodgeAccelerationSmooth: 0.1
-  dodgeDecelerationSmooth: 0.1
-  currentDodgeSpeed: 0
+  dodgeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  dodgeTime: 0
   isStaggered: 0
   turnSmoothTime: 0.05
+  canRotate: 1
   gravity: -12
   blockIndicator: {fileID: 1933978755121180}
 --- !u!114 &114387784088493478
@@ -4888,8 +4895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMovementSpeed: 20
-  dodgeDistance: 10
-  dodgeSpeed: 50
+  dodgeDistance: 1
+  dodgeSpeed: 0
   canMove: 1
   canDodge: 1
   isDodging: 0
@@ -4921,16 +4928,46 @@ MonoBehaviour:
   - {fileID: 114748483003826646}
   - {fileID: 114095776848391756}
   - {fileID: 114149652261849078}
+  characterController: {fileID: 0}
   currentSpeed: 0
   speedSmoothTime: 0.1
   characterVelocity: 0
   idleTime: 5
   isIdle: 0
-  dodgeAccelerationSmooth: 0.05
-  dodgeDecelerationSmooth: 1
-  currentDodgeSpeed: 0
+  dodgeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0.0000028391928
+      outSlope: 0.0000028391928
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.35
+      value: 1
+      inSlope: 0.00015043042
+      outSlope: 0.00015043042
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.5
+      value: 1
+      inSlope: -0.0340278
+      outSlope: -0.0340278
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.75
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  dodgeTime: 0.75
   isStaggered: 0
   turnSmoothTime: 0.05
+  canRotate: 1
   gravity: -12
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114533035422661628
@@ -4987,9 +5024,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponCollider: {fileID: 65997611774834602}
   meleeDamageType: 4
-  attackDamage: 0
+  attackDamage:
+  - 1
+  - 2
+  - 3
+  attackMovement:
+  - 1
+  - 2
+  - 5
+  meleeAnimations:
+  - {fileID: 7400002, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
+  - {fileID: 7400004, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
+  - {fileID: 7400006, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
   isAttacking: 0
-  weaponIndicator: {fileID: 1404720712972552}
 --- !u!114 &114616598146008700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5250,7 +5297,7 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: 0.1
-  m_FarClipPlane: 100
+  m_FarClipPlane: 15
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 1
@@ -5268,7 +5315,7 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: 0.1
-  m_FarClipPlane: 100
+  m_FarClipPlane: 15
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 1
@@ -5286,7 +5333,7 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: 0.1
-  m_FarClipPlane: 100
+  m_FarClipPlane: 15
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 1
@@ -5304,7 +5351,7 @@ Projector:
   m_Enabled: 1
   serializedVersion: 2
   m_NearClipPlane: 0.1
-  m_FarClipPlane: 100
+  m_FarClipPlane: 15
   m_FieldOfView: 60
   m_AspectRatio: 1
   m_Orthographic: 1
