@@ -16,7 +16,6 @@ public enum PlayerTeam
     NONE
 }
 
-
 public class GolemInputManager : MonoBehaviour 
 {
     private GolemPlayerController golemPlayerController;
@@ -35,6 +34,7 @@ public class GolemInputManager : MonoBehaviour
     [HideInInspector]
     public float zAxis;
     [HideInInspector]
+    public float holdTime;
     public Vector2 moveVec;
     [HideInInspector]
     public Vector2 moveDirection;
@@ -51,6 +51,7 @@ public class GolemInputManager : MonoBehaviour
 
     [Header("Debug Values")]
     private bool isBlockAxisActive = false;
+    public bool isHoldingAbility = false;
 
     private Vector3 aimVec;
 
@@ -104,22 +105,54 @@ public class GolemInputManager : MonoBehaviour
         modifierAxis = Input.GetAxis("ModifierAxisPlayer" + PlayerNumber + "Win");
         blockAxis = Input.GetAxis("BlockAxisPlayer" + PlayerNumber + "Win");
 
+        //Use Ability
         if (modifierAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 4"))
         {
-            golemPlayerController.UseAbility(2, aimVec, playerTeam);
+            golemPlayerController.UseAbility(2, aimVec, playerTeam, holdTime);
+            holdTime = 0;
         }
         else if (Input.GetKeyUp("joystick " + PlayerNumber + " button 4"))
         {
-            golemPlayerController.UseAbility(0, aimVec, playerTeam);
+            golemPlayerController.UseAbility(0, aimVec, playerTeam, holdTime);
+            holdTime = 0;
         }
 
         if (modifierAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 5"))
         {
-            golemPlayerController.UseAbility(3, aimVec, playerTeam);
+            golemPlayerController.UseAbility(3, aimVec, playerTeam, holdTime);
+            holdTime = 0;
         }
         else if (Input.GetKeyUp("joystick " + PlayerNumber + " button 5"))
         {
-            golemPlayerController.UseAbility(1, aimVec, playerTeam);
+            golemPlayerController.UseAbility(1, aimVec, playerTeam, holdTime);
+            holdTime = 0;
+        }
+
+        //Hold Down
+        if (modifierAxis != 0 && Input.GetKey("joystick " + PlayerNumber + " button 4"))
+        {
+            holdTime += Time.fixedDeltaTime;
+            isHoldingAbility = true;
+        }
+        else if (Input.GetKey("joystick " + PlayerNumber + " button 4"))
+        {
+            holdTime += Time.fixedDeltaTime;
+            isHoldingAbility = true;
+        }
+
+        if (modifierAxis != 0 && Input.GetKey("joystick " + PlayerNumber + " button 5"))
+        {
+            holdTime += Time.fixedDeltaTime;
+            isHoldingAbility = true;
+        }
+        else if (Input.GetKey("joystick " + PlayerNumber + " button 5"))
+        {
+            holdTime += Time.fixedDeltaTime;
+            isHoldingAbility = true;
+        }
+        else
+        {
+            isHoldingAbility = false;
         }
 
         if (Input.GetKeyDown("joystick " + PlayerNumber + " button 1"))
@@ -156,7 +189,7 @@ public class GolemInputManager : MonoBehaviour
 
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
 
-        xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber + "OSX");
+          xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber + "OSX");
         zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber + "OSX");
 
         moveVec = new Vector2 (xAxis, zAxis);
@@ -164,35 +197,88 @@ public class GolemInputManager : MonoBehaviour
 
         aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "OSX");
         aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "OSX");
-        modifierAxis = Input.GetAxis("ModifierAxis" + PlayerNumber + "OSX");
+
+        modifierAxis = Input.GetAxis("ModifierAxisPlayer" + PlayerNumber + "OSX");
         blockAxis = Input.GetAxis("BlockAxisPlayer" + PlayerNumber + "OSX");
 
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(ABILITY_1))
+        //Use Ability
+        if (modifierAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 13"))
         {
-            golemPlayerController.UseAbility(2, aimVec, playerTeam);
+            golemPlayerController.UseAbility(2, aimVec, playerTeam, holdTime);
+            holdTime = 0;
         }
-        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(ABILITY_1))
+        else if (Input.GetKeyUp("joystick " + PlayerNumber + " button 13"))
         {
-            golemPlayerController.UseAbility(0, aimVec, playerTeam);
-        }
-
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(ABILITY_1))
-        {
-            golemPlayerController.UseAbility(3, aimVec, playerTeam);
-        }
-        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(ABILITY_2))
-        {
-            golemPlayerController.UseAbility(1, aimVec, playerTeam);
+            golemPlayerController.UseAbility(0, aimVec, playerTeam, holdTime);
+            holdTime = 0;
         }
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18") || Input.GetKeyDown(LIGHT_ATTACK)) //Basic Attack
+        if (modifierAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 14"))
         {
-            golemPlayerController.UseQuickAttack();
+            golemPlayerController.UseAbility(3, aimVec, playerTeam, holdTime);
+            holdTime = 0;
+        }
+        else if (Input.GetKeyUp("joystick " + PlayerNumber + " button 14"))
+        {
+            golemPlayerController.UseAbility(1, aimVec, playerTeam, holdTime);
+            holdTime = 0;
+        }
+
+        //Hold Down
+        if (modifierAxis != 0 && Input.GetKey("joystick " + PlayerNumber + " button 13"))
+        {
+            holdTime += Time.fixedDeltaTime;
+            isHoldingAbility = true;
+        }
+        else if (Input.GetKey("joystick " + PlayerNumber + " button 13"))
+        {
+            holdTime += Time.fixedDeltaTime;
+            isHoldingAbility = true;
+        }
+
+        if (modifierAxis != 0 && Input.GetKey("joystick " + PlayerNumber + " button 14"))
+        {
+            holdTime += Time.fixedDeltaTime;
+            isHoldingAbility = true;
+        }
+        else if (Input.GetKey("joystick " + PlayerNumber + " button 14"))
+        {
+            holdTime += Time.fixedDeltaTime;
+            isHoldingAbility = true;
+        }
+        else
+        {
+            isHoldingAbility = false;
+        }
+
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 17"))
+        {
+            golemPlayerController.DodgeSetup();
+        }
+
+        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18"))
+        {
+            golemPlayerController.UseAttack();
         }
 
         if (blockAxis != 0)
         {
-            golemPlayerController.Block();
+            if (isBlockAxisActive == false)
+            {
+                isBlockAxisActive = true;
+            }
+            else if (isBlockAxisActive)
+            {
+                golemPlayerController.Block();
+            }           
+        }
+        else if (blockAxis == 0)
+        {
+            if (isBlockAxisActive)
+            {
+                golemPlayerController.Unblock();
+                isBlockAxisActive = false;
+            } 
         }
 
 #endif

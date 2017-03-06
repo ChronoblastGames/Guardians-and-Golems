@@ -11,7 +11,7 @@ public class GolemMelee : MonoBehaviour
     private Animator golemState;
 
     [Header("Weapon Collider Attributes")]
-    public Collider weaponCollider;
+    public Collider[] weaponCollider;
 
     [Header("Weapon Attack Attributes")]
     public DamageType meleeDamageType;
@@ -44,7 +44,10 @@ public class GolemMelee : MonoBehaviour
 
         golemState = GetComponent<Animator>();
 
-        weapon = weaponCollider.GetComponent<WeaponCollider>();
+        for (int i = 0; i < weaponCollider.Length; i++)
+        {
+            weaponCollider[i].GetComponent<WeaponCollider>();
+        }
 
         attackTimer = new TimerClass();
     }
@@ -77,10 +80,7 @@ public class GolemMelee : MonoBehaviour
                 golemPlayerController.characterController.Move(moveVec * Time.deltaTime);
             }
 
-            golemPlayerController.canDodge = false;
-            golemPlayerController.canMove = false;
-            golemPlayerController.canRotate = false;
-            golemPlayerController.canUseAbilities = false;
+      
         }        
     }
 
@@ -109,14 +109,19 @@ public class GolemMelee : MonoBehaviour
 
     void Attack1()
     {
-        attackTimer.ResetTimer(meleeAnimations[0].length + 2f);
+        golemPlayerController.canDodge = false;
+        golemPlayerController.canMove = false;
+        golemPlayerController.canRotate = false;
+        golemPlayerController.canUseAbilities = false;
+
+        attackTimer.ResetTimer(meleeAnimations[0].length + 3f);
         golemState.SetTrigger("Attack");
         isAttacking = true;  
     }
 
     void Attack2()
     {
-        attackTimer.ResetTimer(meleeAnimations[1].length + 2f);
+        attackTimer.ResetTimer(meleeAnimations[1].length + 3f);
         golemState.SetBool("Attack2", true);
     }
 
@@ -130,13 +135,54 @@ public class GolemMelee : MonoBehaviour
         golemState.SetBool("Attack2", false);
         golemState.SetBool("Attack3", false);
         attackCount = 0;
-        isAttacking = false;
-
+  
         golemPlayerController.canDodge = true;
         golemPlayerController.canMove = true;
         golemPlayerController.canRotate = true;
         golemPlayerController.canUseAbilities = true;
 
+        isAttacking = false;
+
         Debug.Log("Resetting Attack");
+    }
+
+    public void EnableWeaponCollider(int weaponNumber)
+    {
+        switch(weaponNumber)
+        {
+            case 1:
+                weaponCollider[0].enabled = true;
+                break;
+
+            case 2:
+                weaponCollider[1].enabled = true;
+                break;
+
+            case 3:
+                weaponCollider[2].enabled = true;
+                break;
+        }
+
+        
+    }
+
+    public void DisableWeaponCollider(int weaponNumber)
+    {
+        switch (weaponNumber)
+        {
+            case 1:
+                weaponCollider[0].enabled = false;
+                break;
+
+            case 2:
+                weaponCollider[1].enabled = false;
+                break;
+
+            case 3:
+                weaponCollider[2].enabled = false;
+                break;
+        }
+
+        
     }
 }

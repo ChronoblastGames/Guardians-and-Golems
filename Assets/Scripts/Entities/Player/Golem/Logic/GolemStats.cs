@@ -10,23 +10,11 @@ public abstract class GolemStats : MonoBehaviour
     [HideInInspector]
     public float dodgeSpeed;
 
-
-    public bool canMove = true;
-    public bool canDodge = true;
-
-    public bool isDodging;
-
     [Header("Golem Offenses")]
     public GolemOffense golemOffensiveValues;
 
-    public bool canUseAbilities = true;
-
-    public bool canAttack = true;
-
     [Header("Golem Defenses")]
     public GolemDefense golemDefenseValues;
-
-    public bool isBlocking;
 
     [Header("Golem Abilities")]
     public AbilityBase[] golemAbilities;

@@ -12,6 +12,9 @@ public class GolemAbility : AbilityBase
     public LayerMask redMask;
     public LayerMask blueMask;
 
+    [Header("Ability Debug")]
+    public float minHoldTime = 0.25f;
+
     private void Start()
     {
         Initialize();
@@ -22,11 +25,16 @@ public class GolemAbility : AbilityBase
         golemResources = transform.parent.parent.GetComponent<GolemResources>();
     }
 
-    public override void CastAbility(Vector3 aimVec, PlayerTeam teamColor)
+    public override void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float holdTime)
     {
         AbilityValues abilityValues;
         Vector3 spawnVec;
         Quaternion spawnRot;
+
+        if (holdTime < minHoldTime)
+        {
+            holdTime = 0;
+        }
 
         switch(abilityType)
         {
@@ -127,6 +135,7 @@ public class GolemAbility : AbilityBase
         abilityInfo.damageType = damageType;
         abilityInfo.damageAmount = damageAmount;
         abilityInfo.activeTime = activeTime;
+        abilityInfo.holdTime = holdTime;
         abilityInfo.projectileSpeed = projectileSpeed;
         abilityInfo.spawnDistanceFromPlayer = spawnDistanceFromPlayer;
         abilityInfo.raiseAmount = raiseAmount;

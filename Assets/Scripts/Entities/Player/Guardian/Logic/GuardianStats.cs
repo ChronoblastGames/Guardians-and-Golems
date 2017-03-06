@@ -7,7 +7,7 @@ public abstract class GuardianStats : MonoBehaviour
     public float captureSpeed;
 
     [Header("Guardian Abilities")]
-    public BaseGuardianAbilities[] guardianAbilites;
+    public AbilityBase[] guardianAbilites;
 
     public bool canAttack = false;
 }

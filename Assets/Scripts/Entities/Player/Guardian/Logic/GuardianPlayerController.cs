@@ -133,7 +133,7 @@ public class GuardianPlayerController : GuardianStats
         }
     }
 
-    public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
+    public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor, float holdTime)
     {
         if (canAttack && attachedOrb != null)
         {
@@ -143,19 +143,19 @@ public class GuardianPlayerController : GuardianStats
 
                 if (aimVec != Vector3.zero)
                 {           
-                    guardianAbilites[abilityNumber].CastAbility(aimVec, spawnObj, teamColor);
+                    guardianAbilites[abilityNumber].CastGuardianAbility(aimVec, spawnObj, teamColor, holdTime);
                     StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                 }
                 else
                 {
-                    guardianAbilites[abilityNumber].CastAbility(transform.forward, spawnObj, teamColor);
+                    guardianAbilites[abilityNumber].CastGuardianAbility(transform.forward, spawnObj, teamColor, holdTime);
                     StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                 }
             }
         }     
     }
 
-    public void UseAbilityFromAllOrbs(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
+    public void UseAbilityFromAllOrbs(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor, float holdTime)
     {
         if (canAttack && attachedOrb != null)
         {
@@ -167,12 +167,12 @@ public class GuardianPlayerController : GuardianStats
 
                     if (aimVec != Vector3.zero)
                     {
-                        guardianAbilites[abilityNumber].CastAbility(aimVec, spawnObj, teamColor);
+                        guardianAbilites[abilityNumber].CastGuardianAbility(aimVec, spawnObj, teamColor, holdTime);
                         StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                     }
                     else
                     {
-                        guardianAbilites[abilityNumber].CastAbility(transform.forward, spawnObj, teamColor);
+                        guardianAbilites[abilityNumber].CastGuardianAbility(transform.forward, spawnObj, teamColor, holdTime);
                         StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                     }
                 }            

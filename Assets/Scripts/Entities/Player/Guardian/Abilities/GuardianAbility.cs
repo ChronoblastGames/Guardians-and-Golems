@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GuardianAbility : BaseGuardianAbilities
+public class GuardianAbility : AbilityBase
 {
     private GuardianResources guardianResources;
 
@@ -22,7 +22,7 @@ public class GuardianAbility : BaseGuardianAbilities
         guardianResources = transform.parent.parent.GetComponent<GuardianResources>();
     }
 
-    public override void CastAbility(Vector3 aimVec, GameObject spawnPos, PlayerTeam teamColor)
+    public override void CastGuardianAbility(Vector3 aimVec, GameObject spawnPos, PlayerTeam teamColor, float holdTime)
     {
         AbilityValues abilityValues;
         Vector3 spawnVec;
@@ -119,6 +119,7 @@ public class GuardianAbility : BaseGuardianAbilities
         abilityInfo.damageType = damageType;
         abilityInfo.damageAmount = damageAmount;
         abilityInfo.activeTime = activeTime;
+        abilityInfo.holdTime = holdTime;
         abilityInfo.projectileSpeed = projectileSpeed;
         abilityInfo.spawnDistanceFromPlayer = spawnDistanceFromPlayer;
         abilityInfo.raiseAmount = raiseAmount;

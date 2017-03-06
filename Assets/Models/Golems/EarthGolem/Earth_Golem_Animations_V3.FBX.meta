@@ -138,6 +138,7 @@ ModelImporter:
     7400004: Attack2
     7400006: Attack3
     7400008: Stand
+    7400010: Earth_Golem_Rig_Animations_V3
     9500000: //RootNode
     13700000: Belly
     13700002: Bicep_Left
@@ -164,7 +165,7 @@ ModelImporter:
     13700044: Thigh_Left
     13700046: Thigh_Right
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
   animations:
@@ -723,7 +724,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -841,6 +842,138 @@ ModelImporter:
         weight: 0
       - path: Thigh_Right
         weight: 0
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Earth_Golem_Rig_Animations_V3
+      takeName: Earth_Golem_Rig_Animations_V3
+      firstFrame: 20
+      lastFrame: 120
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Belly
+        weight: 1
+      - path: Bicep_Left
+        weight: 1
+      - path: Bicep_Right
+        weight: 1
+      - path: Chest
+        weight: 1
+      - path: Elbow1
+        weight: 1
+      - path: Elbow_Right
+        weight: 1
+      - path: Fist_Left
+        weight: 1
+      - path: Fist_Right
+        weight: 1
+      - path: Foot_left
+        weight: 1
+      - path: Foot_Right
+        weight: 1
+      - path: Forearm_Left
+        weight: 1
+      - path: Forearm_Right
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: Hip_Left
+        weight: 1
+      - path: Hip_Right
+        weight: 1
+      - path: Knee_Left
+        weight: 1
+      - path: Knee_Right
+        weight: 1
+      - path: MainPelvis
+        weight: 1
+      - path: Shin_Left
+        weight: 1
+      - path: Shin_Right
+        weight: 1
+      - path: Shoulder_Left
+        weight: 1
+      - path: Shoulder_Right
+        weight: 1
+      - path: Spine_Pelvis
+        weight: 1
+      - path: Spine_Pelvis/Left_Hip
+        weight: 1
+      - path: Spine_Pelvis/Left_Hip/Left_Thigh
+        weight: 1
+      - path: Spine_Pelvis/Left_Hip/Left_Thigh/Left_Shin
+        weight: 1
+      - path: Spine_Pelvis/Left_Hip/Left_Thigh/Left_Shin/Left_Foot
+        weight: 1
+      - path: Spine_Pelvis/Left_Hip/Left_Thigh/Left_Shin/Left_Foot/Left_Toe
+        weight: 1
+      - path: Spine_Pelvis/Right_Hip
+        weight: 1
+      - path: Spine_Pelvis/Right_Hip/Right_Thigh
+        weight: 1
+      - path: Spine_Pelvis/Right_Hip/Right_Thigh/Right_Shin
+        weight: 1
+      - path: Spine_Pelvis/Right_Hip/Right_Thigh/Right_Shin/Right_Foot
+        weight: 1
+      - path: Spine_Pelvis/Right_Hip/Right_Thigh/Right_Shin/Right_Foot/Right_Toe
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Left_Shoulder
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Left_Shoulder/Left_Bicep
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Left_Shoulder/Left_Bicep/Left_Forearm
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Left_Shoulder/Left_Bicep/Left_Forearm/Left_Fist
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Left_Shoulder/Left_Bicep/Left_Forearm/Left_Fist/LeftFistTip
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Left_Shoulder/Left_Shoulder_Tip
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Right_Shoulder
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Right_Shoulder/Right_Bicep
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Right_Shoulder/Right_Bicep/Right_Forearm
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Right_Shoulder/Right_Bicep/Right_Forearm/Right_Fist
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Right_Shoulder/Right_Bicep/Right_Forearm/Right_Fist/Right_FistTip
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Right_Shoulder/Right_Shoulder_Tip
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Spine_Head
+        weight: 1
+      - path: Spine_Pelvis/Spine_Bot/Spine_Chest/Spine_Head/FaceTip
+        weight: 1
+      - path: Thigh_Left
+        weight: 1
+      - path: Thigh_Right
+        weight: 1
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0

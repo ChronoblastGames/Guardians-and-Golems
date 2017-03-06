@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GolemPlayerController : GolemStats 
 {
+    [HideInInspector]
     public CharacterController characterController;
 
     private BasicCooldown globalCooldown;
@@ -24,10 +25,8 @@ public class GolemPlayerController : GolemStats
     private float targetSpeed;
     private float speedSmoothVelocity;
     public float characterVelocity;
-
     public float idleTime;
 
-    public bool isIdle;
 
     [Header("Player Dodge Attributes")]
     public AnimationCurve dodgeCurve;
@@ -50,11 +49,20 @@ public class GolemPlayerController : GolemStats
     public float turnSmoothTime = 0.2f;
     private float turnSmoothVelocity;
 
-    public bool canRotate = true;
-
     [Header("Player Gravity Attributes")]
     public float gravity = -12f;
     private float velocityY;
+
+    [Header("Player Booleans")]
+    public bool isIdle = false;
+    public bool canRotate = true;
+    public bool canMove = true;
+    public bool canDodge = true;
+    public bool canUseAbilities = true;
+    public bool canAttack = true;
+    public bool canBlock = true;
+    public bool isDodging = false;
+    public bool isBlocking = false;
 
     [Header("Debugging Values")]
     public GameObject blockIndicator;
@@ -153,18 +161,18 @@ public class GolemPlayerController : GolemStats
         }
     }
 
-    public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor)
+    public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor, float holdTime)
     {
 		if (aimVec != null && (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2]) && canUseAbilities)
         {
             if (aimVec != Vector3.zero)
             {
-                golemAbilities[abilityNumber].CastAbility(aimVec, teamColor);
+                golemAbilities[abilityNumber].CastAbility(aimVec, teamColor, holdTime);
                 StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
             }
             else
             {
-                golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor);
+                golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor, holdTime);
                 StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
             }
 
@@ -254,14 +262,18 @@ public class GolemPlayerController : GolemStats
         canRotate = true;
         canUseAbilities = true;
         canAttack = true;
+        canBlock = true;
         isDodging = false;
     }
 
     public void Block()
     {
-        isBlocking = true;
-        golemState.SetBool("isBlocking", true);
-        blockIndicator.SetActive(true);
+        if (canBlock)
+        {
+            isBlocking = true;
+            golemState.SetBool("isBlocking", true);
+            blockIndicator.SetActive(true);
+        }
     }
 
     public void Unblock()
@@ -290,12 +302,19 @@ public class GolemPlayerController : GolemStats
         {
             if (recoveryTimer.TimerIsDone())
             {
-                canMove = true;
-                canAttack = true;
-                canUseAbilities = true;
-                isStaggered = false;
+                RecoverFromStagger();
             }
         }
+    }
+
+    void RecoverFromStagger()
+    {
+        canMove = true;
+        canAttack = true;
+        canUseAbilities = true;
+        canDodge = true;
+        canBlock = true;
+        isStaggered = false;
     }
 
     void ManageIdle()

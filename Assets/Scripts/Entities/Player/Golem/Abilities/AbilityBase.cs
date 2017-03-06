@@ -34,6 +34,7 @@ public struct AbilityValues
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
     public float activeTime;
+    public float holdTime;
 
     [Header("Wall Attributes")]
     public float raiseAmount;
@@ -72,6 +73,7 @@ public abstract class AbilityBase : MonoBehaviour
     public float projectileSpeed;
     public float spawnDistanceFromPlayer;
     public float activeTime;
+    public float holdTime;
 
     [Header("Projectile Attributes")]
     public float projectileActiveTime;
@@ -102,9 +104,14 @@ public abstract class AbilityBase : MonoBehaviour
     [Header("Ability Info")]
     public AbilityValues abilityValues;
 
-    public virtual void CastAbility(Vector3 aimVec, PlayerTeam teamColor)
+    public virtual void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float holdTime)
     {
         Debug.LogError("Base Ability Cast, should have been overriden");
+    }
+
+    public virtual void CastGuardianAbility(Vector3 aimVec, GameObject spawnPos, PlayerTeam color, float holdTime)
+    {
+        Debug.LogError("Base GuardianAbility Cast, should have been overriden");
     }
 
     public virtual void InitializeAbility()

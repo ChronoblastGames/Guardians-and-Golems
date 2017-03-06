@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EarthGolemAbility1 : GolemAbilityBase 
+public class RingGenerator : GolemAbilityBase
 {
     private TimerClass activeTimer;
 
@@ -11,10 +11,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
     public int shardCount;
     public int ringCount;
 
-    public float minAbilityRadius;
-    public float maxAbilityRadius;
-
-    private float abilityRadius;
+    public float abilityRadius;
 
     public float shardDepth;
 
@@ -33,23 +30,6 @@ public class EarthGolemAbility1 : GolemAbilityBase
     public override void InitializeAbility()
     {
         activeTimer = new TimerClass();
-
-        Debug.Log(abilityValues.holdTime);
-
-        if (abilityValues.holdTime < minAbilityRadius)
-        {
-            abilityValues.holdTime = minAbilityRadius;
-            abilityRadius = abilityValues.holdTime;
-        }
-        else if (abilityValues.holdTime > maxAbilityRadius)
-        {
-            abilityValues.holdTime = maxAbilityRadius;
-            abilityRadius = abilityValues.holdTime;
-        }
-        else
-        {
-            abilityRadius = abilityValues.holdTime;
-        }
 
         SpawnShards();
 
@@ -70,7 +50,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
         for (int o = 1; o < ringCount + 1; o++)
         {
             float newRadius = abilityRadius + (o * ringCount);
-       
+
             for (int i = 0; i < shardCount; i++)
             {
                 Vector3 shardPos = CalculateCircle(transform.position, newRadius, distanceBetweenShards, i);
@@ -103,24 +83,6 @@ public class EarthGolemAbility1 : GolemAbilityBase
             if (activeTimer.TimerIsDone())
             {
                 Destroy(gameObject);
-            }
-        }
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
-        {
-            if (other.CompareTag("GolemBlue"))
-            {
-                Debug.Log("Hit Blue Golem");
-                Vector3 interceptVec = (other.gameObject.transform.position - transform.position).normalized;
-            }
-        }
-        else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
-        {
-            if (other.CompareTag("GolemRed"))
-            {
-                Debug.Log("Hit Red Golem");
             }
         }
     }
