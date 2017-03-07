@@ -148,41 +148,11 @@ public class GolemMelee : MonoBehaviour
 
     public void EnableWeaponCollider(int weaponNumber)
     {
-        switch(weaponNumber)
-        {
-            case 1:
-                weaponCollider[0].enabled = true;
-                break;
-
-            case 2:
-                weaponCollider[1].enabled = true;
-                break;
-
-            case 3:
-                weaponCollider[2].enabled = true;
-                break;
-        }
-
-        
+        weaponCollider[weaponNumber].enabled = true;   
     }
 
     public void DisableWeaponCollider(int weaponNumber)
     {
-        switch (weaponNumber)
-        {
-            case 1:
-                weaponCollider[0].enabled = false;
-                break;
-
-            case 2:
-                weaponCollider[1].enabled = false;
-                break;
-
-            case 3:
-                weaponCollider[2].enabled = false;
-                break;
-        }
-
-        
+        weaponCollider[weaponNumber].enabled = false;       
     }
 }

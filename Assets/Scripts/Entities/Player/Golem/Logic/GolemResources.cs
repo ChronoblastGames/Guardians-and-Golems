@@ -208,49 +208,49 @@ public class GolemResources : MonoBehaviour
             case DamageType.EARTH:
                 calculatedResistance = baseDefense * golemDefense.earthDefense;
                 calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject);
+                DealDamage(calculatedDamage, damagingObject, DamageType.EARTH);
                 break;
 
             case DamageType.FIRE:
                 calculatedResistance = baseDefense * golemDefense.fireDefense;
                 calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject);
+                DealDamage(calculatedDamage, damagingObject, DamageType.FIRE);
                 break;
 
             case DamageType.ICE:
                 calculatedResistance = baseDefense * golemDefense.waterDefense;
                 calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject);
+                DealDamage(calculatedDamage, damagingObject, DamageType.ICE);
                 break;
 
             case DamageType.WIND:
                 calculatedResistance = baseDefense * golemDefense.windDefense;
                 calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject);
+                DealDamage(calculatedDamage, damagingObject, DamageType.WIND);
                 break;
 
             case DamageType.PIERCE:
                 calculatedResistance = baseDefense * golemDefense.pierceDefense;
                 calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject);
+                DealDamage(calculatedDamage, damagingObject, DamageType.PIERCE);
                 break;
 
             case DamageType.SLASH:
                 calculatedResistance = baseDefense * golemDefense.slashDefense;
                 calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject);
+                DealDamage(calculatedDamage, damagingObject, DamageType.SLASH);
                 break;
 
             case DamageType.SMASH:
                 calculatedResistance = baseDefense * golemDefense.smashDefense;
                 calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject);
+                DealDamage(calculatedDamage, damagingObject, DamageType.SMASH);
                 break;
 
             case DamageType.PURE:
                 calculatedResistance = baseDefense;
                 calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject);
+                DealDamage(calculatedDamage, damagingObject, DamageType.PURE);
                 break;
 
             default:
@@ -259,12 +259,12 @@ public class GolemResources : MonoBehaviour
         }
     }
 
-    public void DealDamage(float damageValue, GameObject damagingObject)
+    public void DealDamage(float damageValue, GameObject damagingObject, DamageType damageType)
     {
         if (currentHealth > damageValue)
         {
             currentHealth -= damageValue;
-            Debug.Log(gameObject.name + " took " + damageValue + " of damage from " + damagingObject.name);
+            Debug.Log(gameObject.name + " took " + damageValue + " of " + damageType + " damage from " + damagingObject.name);
         }
         else
         {
