@@ -214,7 +214,7 @@ public class GolemPlayerController : GolemStats
 
             canMove = false;
             canAttack = false;
-            canRotate = false;
+            //canRotate = false;
             canUseAbilities = false;
             isDodging = true;
 
