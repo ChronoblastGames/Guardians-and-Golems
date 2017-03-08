@@ -4153,8 +4153,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975596697930704}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.00000011920929, y: 0, z: -0.00000003057678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4551853109124186}
@@ -4824,7 +4824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMovementSpeed: 20
-  dodgeDistance: 1
+  dodgeDistance: 0.75
   dodgeSpeed: 0
   golemOffensiveValues:
     baseAttack: 0
@@ -4862,11 +4862,11 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0.0000028391928
-      outSlope: 0.0000028391928
+      inSlope: 0.007748604
+      outSlope: 0.007748604
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.35
+      time: 0.3
       value: 1
       inSlope: 0.00015043042
       outSlope: 0.00015043042
@@ -5353,16 +5353,71 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponCollider: []
-  meleeDamageType: 4
+  weaponCollider:
+  - {fileID: 65648951314741200}
+  - {fileID: 65142051098583712}
+  - {fileID: 65142051098583712}
+  meleeDamageType: 050000000500000005000000
   attackDamage:
   - 1
   - 2
   - 3
-  attackMovement:
-  - 5
-  - 5
-  - 5
+  attackMovementSpeed:
+  - 0.25
+  - 0.25
+  - 0.25
+  attackMovementCurves:
+  - serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: -1
+      outSlope: -1
+      tangentMode: 34
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: -1
+      outSlope: -1
+      tangentMode: 34
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  - serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0.023785304
+      outSlope: 0.023785304
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  - serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0.0015185977
+      outSlope: 0.0015185977
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   meleeAnimations:
   - {fileID: 7400002, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
   - {fileID: 7400004, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
@@ -5380,15 +5435,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponCollider: []
-  meleeDamageType: 4
+  meleeDamageType: 
   attackDamage:
   - 1
   - 2
   - 3
-  attackMovement:
-  - 5
-  - 5
-  - 5
+  attackMovementSpeed: []
+  attackMovementCurves: []
   meleeAnimations:
   - {fileID: 7400002, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
   - {fileID: 7400004, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
