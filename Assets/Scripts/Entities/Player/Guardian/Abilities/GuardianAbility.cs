@@ -131,11 +131,8 @@ public class GuardianAbility : AbilityBase
         abilityInfo.isRanged = isRanged;
         abilityInfo.healthCost = healthCost;
         abilityInfo.manaCost = manaCost;
-        abilityInfo.canStun = canStun;
-        abilityInfo.canSlow = canSlow;
-        abilityInfo.canDrainHealth = canDrainHealth;
-        abilityInfo.canDrainMana = canDrainMana;
-        abilityInfo.canBlind = canBlind;
+        abilityInfo.statusEffect = statusEffect;
+        abilityInfo.effectStrength = effectStrength;
 
         return abilityInfo;
     }

@@ -54,7 +54,7 @@ public class BaseProjectileAbility : GolemAbilityBase
     {
         if (other.gameObject.CompareTag("GolemRed") || other.gameObject.CompareTag("GolemBlue"))
         {
-            other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, gameObject);
+            other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, gameObject);
             HideSelf();
         }
     }

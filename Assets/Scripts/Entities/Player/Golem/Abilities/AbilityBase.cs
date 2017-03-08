@@ -52,12 +52,10 @@ public struct AbilityValues
     public bool isMelee;
     public bool isRanged;
 
-    [Header("Has Effect")]
-    public bool canStun;
-    public bool canSlow;
-    public bool canDrainHealth;
-    public bool canDrainMana;
-    public bool canBlind;
+    [Header("Ability Effect")]
+    public StatusEffect statusEffect;
+
+    public float effectStrength;
 }
 
 public abstract class AbilityBase : MonoBehaviour
@@ -94,12 +92,10 @@ public abstract class AbilityBase : MonoBehaviour
     public bool isMelee;
     public bool isRanged;
 
-    [Header("Has Effect")]
-    public bool canStun;
-    public bool canSlow;
-    public bool canDrainHealth;
-    public bool canDrainMana;
-    public bool canBlind;
+    [Header("Ability Effect")]
+    public StatusEffect statusEffect;
+
+    public float effectStrength;
 
     [Header("Ability Info")]
     public AbilityValues abilityValues;

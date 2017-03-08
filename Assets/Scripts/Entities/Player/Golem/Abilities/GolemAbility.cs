@@ -25,7 +25,7 @@ public class GolemAbility : AbilityBase
         golemResources = transform.parent.parent.GetComponent<GolemResources>();
     }
 
-    public override void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float holdTime)
+    public override void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float heldTime)
     {
         AbilityValues abilityValues;
         Vector3 spawnVec;
@@ -35,6 +35,8 @@ public class GolemAbility : AbilityBase
         {
             holdTime = 0;
         }
+
+        holdTime = heldTime;
 
         switch(abilityType)
         {
@@ -147,11 +149,8 @@ public class GolemAbility : AbilityBase
         abilityInfo.isRanged = isRanged;
         abilityInfo.healthCost = healthCost;
         abilityInfo.manaCost = manaCost;
-        abilityInfo.canStun = canStun;
-        abilityInfo.canSlow = canSlow;
-        abilityInfo.canDrainHealth = canDrainHealth;
-        abilityInfo.canDrainMana = canDrainMana;
-        abilityInfo.canBlind = canBlind;
+        abilityInfo.statusEffect = statusEffect;
+        abilityInfo.effectStrength = effectStrength;
 
         return abilityInfo;
     }

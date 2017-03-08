@@ -27,7 +27,8 @@ public enum StatusEffect
     BLEED,
     MANA_DRAIN,
     SILENCE,
-    SHIELD
+    SHIELD,
+    KNOCKBACK
 }
 
 
@@ -167,6 +168,9 @@ public class GolemResources : MonoBehaviour
                     case StatusEffect.SHIELD:
                         break;
 
+                    case StatusEffect.KNOCKBACK:
+                        break;
+
                     default:
                         Debug.Log("Incorrect Argument passed through Status Effect Manager");
                         break;
@@ -189,13 +193,18 @@ public class GolemResources : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageValue, DamageType damageType, GameObject damagingObject)
+    public void TakeDamage(float damageValue, DamageType damageType, StatusEffect statusEffect, float effectStrength, GameObject damagingObject)
     {
         float baseDefense = golemDefense.baseDefense;
 
         if (golemPlayerController.isBlocking)
         {
             baseDefense *= 2f;
+        }
+
+        if (statusEffect != StatusEffect.NONE)
+        {
+            InflictStatusEffect(statusEffect, effectStrength);
         }
 
         float calculatedResistance;
@@ -309,10 +318,28 @@ public class GolemResources : MonoBehaviour
         golemPlayerController.Stagger();
     }
 
-    public void InflictStatusEffect(StatusEffect statusEffect)
+    public void InflictStatusEffect(StatusEffect statusEffect, float effectStrength)
     {
         switch(statusEffect)
         {
+            case StatusEffect.BLEED:
+                break;
+
+            case StatusEffect.MANA_DRAIN:
+                break;
+
+            case StatusEffect.SHIELD:
+                break;
+
+            case StatusEffect.SILENCE:
+                break;
+
+            case StatusEffect.STUN:
+                break;
+
+            case StatusEffect.KNOCKBACK:
+                break;
+
             default:
                 Debug.Log("Something went wrong in InflictStatusEffect, wrong argument passed, was: " + statusEffect);
                 break;

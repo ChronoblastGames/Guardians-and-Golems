@@ -8,6 +8,8 @@ public class EarthGolemAbility1 : GolemAbilityBase
     [Header("Ability Attributes")]
     public GameObject earthShard;
 
+    private SphereCollider abilityTrigger;
+
     public int shardCount;
     public int ringCount;
 
@@ -34,8 +36,6 @@ public class EarthGolemAbility1 : GolemAbilityBase
     {
         activeTimer = new TimerClass();
 
-        Debug.Log(abilityValues.holdTime);
-
         if (abilityValues.holdTime < minAbilityRadius)
         {
             abilityValues.holdTime = minAbilityRadius;
@@ -51,14 +51,17 @@ public class EarthGolemAbility1 : GolemAbilityBase
             abilityRadius = abilityValues.holdTime;
         }
 
-        SpawnShards();
-
         if (abilityValues.activeTime > 0)
         {
             activeTimer.ResetTimer(abilityValues.activeTime);
 
             timerActive = true;
         }
+
+        abilityTrigger = GetComponent<SphereCollider>();
+        abilityTrigger.radius = abilityRadius * 1.75f;
+
+        SpawnShards();
     }
 
     void SpawnShards()
@@ -113,7 +116,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
             if (other.CompareTag("GolemBlue"))
             {
                 Debug.Log("Hit Blue Golem");
-                Vector3 interceptVec = (other.gameObject.transform.position - transform.position).normalized;
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, gameObject);
             }
         }
         else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
@@ -121,6 +124,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
             if (other.CompareTag("GolemRed"))
             {
                 Debug.Log("Hit Red Golem");
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, gameObject);
             }
         }
     }
