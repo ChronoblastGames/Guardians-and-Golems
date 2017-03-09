@@ -36,6 +36,7 @@ public class GolemResources : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
     private GlobalVariables globalVariables;
+    private UIManager UIManager;
 
     private TimerClass staggerTimer;
 
@@ -92,6 +93,8 @@ public class GolemResources : MonoBehaviour
         golemPlayerController = GetComponent<GolemPlayerController>();
 
         globalVariables = GameObject.FindObjectOfType<GlobalVariables>();
+
+        UIManager = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
         staggerTimer = new TimerClass();
 
@@ -285,6 +288,8 @@ public class GolemResources : MonoBehaviour
         {
             Die();
         }
+
+        UIManager.RequestDamageText(damageValue, transform);
     }
 
     void ManageStaggerTimer()

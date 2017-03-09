@@ -2,8 +2,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GolemUIManager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
+    private FloatingTextManager floatingTextManager;
+
     private GolemResources redGolemResources;
     private GolemResources blueGolemResources;
 
@@ -20,6 +22,8 @@ public class GolemUIManager : MonoBehaviour
     {
         redGolemResources = GameObject.FindGameObjectWithTag("GolemRed").GetComponent<GolemResources>();
         blueGolemResources = GameObject.FindGameObjectWithTag("GolemBlue").GetComponent<GolemResources>();
+
+        floatingTextManager = GetComponent<FloatingTextManager>();
     }
 
     void Update()
@@ -31,5 +35,10 @@ public class GolemUIManager : MonoBehaviour
     {
         redGolemHealthBar.fillAmount = redGolemResources.currentHealth / redGolemResources.maxHealth;
         blueGolemHealthBar.fillAmount = blueGolemResources.currentHealth / blueGolemResources.maxHealth;
+    }
+
+    public void RequestDamageText(float damageValue, Transform textPosition)
+    {
+        floatingTextManager.CreateDamageText(damageValue, textPosition);
     }
 }
