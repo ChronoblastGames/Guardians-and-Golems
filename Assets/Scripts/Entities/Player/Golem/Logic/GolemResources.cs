@@ -39,6 +39,8 @@ public class GolemResources : MonoBehaviour
 
     private TimerClass staggerTimer;
 
+    private ParticleSystem hitParticles;
+
     [Header("Player Health Attributes")]
     public float currentHealth;
     public float maxHealth;
@@ -57,6 +59,8 @@ public class GolemResources : MonoBehaviour
     public bool isStaggerTimerActive;
 
     private float staggerDamage;
+
+    private bool isStaggerResist;
 
     [Header("Player Status Effect")]
     public List<StatusEffect> statusEffectList;
@@ -90,6 +94,8 @@ public class GolemResources : MonoBehaviour
         globalVariables = GameObject.FindObjectOfType<GlobalVariables>();
 
         staggerTimer = new TimerClass();
+
+        hitParticles = GetComponent<ParticleSystem>();
 
         currentHealth = maxHealth;
 
@@ -204,7 +210,7 @@ public class GolemResources : MonoBehaviour
 
         if (statusEffect != StatusEffect.NONE)
         {
-            InflictStatusEffect(statusEffect, effectStrength);
+            InflictStatusEffect(statusEffect, effectStrength, damagingObject);
         }
 
         float calculatedResistance;
@@ -273,7 +279,7 @@ public class GolemResources : MonoBehaviour
         if (currentHealth > damageValue)
         {
             currentHealth -= damageValue;
-            Debug.Log(gameObject.name + " took " + damageValue + " of " + damageType + " damage from " + damagingObject.name);
+            hitParticles.Emit(100);
         }
         else
         {
@@ -288,11 +294,13 @@ public class GolemResources : MonoBehaviour
             staggerDamage = 0;
             isStaggerTimerActive = false;
         }
+
+
     }
 
     void DetermineStagger(float damageValue)
     {
-        if (!golemPlayerController.isStaggered)
+        if (!golemPlayerController.isStaggered && !isStaggerResist)
         {
             if (isStaggerTimerActive)
             {
@@ -318,8 +326,10 @@ public class GolemResources : MonoBehaviour
         golemPlayerController.Stagger();
     }
 
-    public void InflictStatusEffect(StatusEffect statusEffect, float effectStrength)
+    public void InflictStatusEffect(StatusEffect statusEffect, float effectStrength, GameObject damagingObject)
     {
+        Debug.Log(gameObject + " was inflicted with " + statusEffect + " for " + effectStrength + " by " + damagingObject.name);
+
         switch(statusEffect)
         {
             case StatusEffect.BLEED:
@@ -338,6 +348,11 @@ public class GolemResources : MonoBehaviour
                 break;
 
             case StatusEffect.KNOCKBACK:
+                Vector3 interceptVec = (damagingObject.transform.position - transform.position).normalized;
+                interceptVec.y = 0;
+                interceptVec*= effectStrength;
+
+                golemPlayerController.characterController.Move(interceptVec * Time.deltaTime);
                 break;
 
             default:

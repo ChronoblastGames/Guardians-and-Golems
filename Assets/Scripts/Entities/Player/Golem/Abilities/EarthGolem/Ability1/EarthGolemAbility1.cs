@@ -115,7 +115,6 @@ public class EarthGolemAbility1 : GolemAbilityBase
         {
             if (other.CompareTag("GolemBlue"))
             {
-                Debug.Log("Hit Blue Golem");
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, gameObject);
             }
         }
@@ -123,7 +122,6 @@ public class EarthGolemAbility1 : GolemAbilityBase
         {
             if (other.CompareTag("GolemRed"))
             {
-                Debug.Log("Hit Red Golem");
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, gameObject);
             }
         }

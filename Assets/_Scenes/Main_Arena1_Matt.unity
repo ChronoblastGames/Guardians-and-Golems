@@ -259,6 +259,7 @@ GameObject:
   - component: {fileID: 65759243}
   - component: {fileID: 65759242}
   - component: {fileID: 65759241}
+  - component: {fileID: 65759245}
   m_Layer: 5
   m_Name: MainUI
   m_TagString: Untagged
@@ -333,6 +334,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 575857202}
+  - {fileID: 1185229293}
+  - {fileID: 404909633}
   m_Father: {fileID: 2019182671}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -341,34 +344,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &79638251
-GameObject:
+--- !u!114 &65759245
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 79638254}
-  m_Layer: 0
-  m_Name: EventSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &79638254
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 79638251}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 65759240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fbeba74199ec84985dd3e8f52ef4c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redGolemHealthBar: {fileID: 1185229294}
+  blueGolemHealthBar: {fileID: 404909634}
 --- !u!1 &126889033
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +568,74 @@ Transform:
   m_Father: {fileID: 1910630977}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &404909632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 404909633}
+  - component: {fileID: 404909635}
+  - component: {fileID: 404909634}
+  m_Layer: 5
+  m_Name: GolemBlueHealthBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &404909633
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 404909632}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 65759244}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: -12.5}
+  m_SizeDelta: {x: 200, y: 25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &404909634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 404909632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.006896496, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 2bc7053225302a742b002231af5428f0, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 1
+--- !u!222 &404909635
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 404909632}
 --- !u!1 &482657122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,26 +1076,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114315098865424614, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 482657122}
-    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 394457318}
-    - target: {fileID: 114776423742069052, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 259908043}
     - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 1279967831}
+    - target: {fileID: 114776423742069052, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 259908043}
+    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 394457318}
+    - target: {fileID: 114315098865424614, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 482657122}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0
@@ -1463,6 +1519,74 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1154488050}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1185229292
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1185229293}
+  - component: {fileID: 1185229295}
+  - component: {fileID: 1185229294}
+  m_Layer: 5
+  m_Name: GolemRedHealthBar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1185229293
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185229292}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 65759244}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 100, y: -12.5}
+  m_SizeDelta: {x: 200, y: 25}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1185229294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185229292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 2bc7053225302a742b002231af5428f0, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1185229295
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185229292}
 --- !u!1 &1250562221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,7 +2346,7 @@ Prefab:
     - target: {fileID: 114290774430385610, guid: 0aa43ced36c5d448eb2228e9141ef4b2,
         type: 2}
       propertyPath: golemRecoveryTime
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 114290774430385610, guid: 0aa43ced36c5d448eb2228e9141ef4b2,
         type: 2}
@@ -2232,7 +2356,7 @@ Prefab:
     - target: {fileID: 114290774430385610, guid: 0aa43ced36c5d448eb2228e9141ef4b2,
         type: 2}
       propertyPath: golemGlobalCooldown
-      value: 1
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 114290774430385610, guid: 0aa43ced36c5d448eb2228e9141ef4b2,
         type: 2}
@@ -2678,17 +2802,17 @@ Prefab:
     - target: {fileID: 20323717071377634, guid: c37b4f592090913488ef7123e2452891,
         type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 0.2827587
+      value: 0.72794116
       objectReference: {fileID: 0}
     - target: {fileID: 20323717071377634, guid: c37b4f592090913488ef7123e2452891,
         type: 2}
       propertyPath: m_BackGroundColor.g
-      value: 0
+      value: 0.72794116
       objectReference: {fileID: 0}
     - target: {fileID: 20323717071377634, guid: c37b4f592090913488ef7123e2452891,
         type: 2}
       propertyPath: m_BackGroundColor.b
-      value: 1
+      value: 0.72794116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c37b4f592090913488ef7123e2452891, type: 2}

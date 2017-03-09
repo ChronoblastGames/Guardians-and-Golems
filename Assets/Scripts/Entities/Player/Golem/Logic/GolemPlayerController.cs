@@ -126,7 +126,7 @@ public class GolemPlayerController : GolemStats
         }
         else
         {
-           targetSpeed = baseMovementSpeed / 2 * moveVec.magnitude;
+           targetSpeed = baseMovementSpeed / 4 * moveVec.magnitude;
         }
 
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
@@ -189,7 +189,7 @@ public class GolemPlayerController : GolemStats
 
     public void DodgeSetup()
     {
-        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && !isDodging)
+        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && !isDodging && canDodge)
         {
             if (moveVec == Vector2.zero)
             {
@@ -213,6 +213,7 @@ public class GolemPlayerController : GolemStats
             golemState.SetTrigger("isDodge");
 
             canMove = false;
+            canDodge = false;
             canAttack = false;
             canRotate = false;
             canUseAbilities = false;
@@ -244,7 +245,7 @@ public class GolemPlayerController : GolemStats
 
             characterController.Move(interceptVec * dodgeCurrentSpeed);
 
-            if (dodgeCurrentSpeed == 0)
+            if (dodgeTimer > 1)
             {
                 ReachedEndOfDodge();
             }
@@ -255,6 +256,8 @@ public class GolemPlayerController : GolemStats
 
     void ReachedEndOfDodge()
     {
+        StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
+
         DodgeCoroutine = null;
 
         canDodge = true;
@@ -285,8 +288,6 @@ public class GolemPlayerController : GolemStats
     
     public void Stagger()
     {
-        Debug.Log("I was Staggered! by " + gameObject.name);
-
         canMove = false;
         canAttack = false;
         canUseAbilities = false;
