@@ -56,6 +56,7 @@ public struct AbilityValues
     public StatusEffect statusEffect;
 
     public float effectStrength;
+    public float effectTime;
 }
 
 public abstract class AbilityBase : MonoBehaviour
@@ -96,6 +97,7 @@ public abstract class AbilityBase : MonoBehaviour
     public StatusEffect statusEffect;
 
     public float effectStrength;
+    public float effectTime;
 
     [Header("Ability Info")]
     public AbilityValues abilityValues;

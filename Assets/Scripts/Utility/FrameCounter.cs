@@ -27,9 +27,9 @@ public class FrameCounter : MonoBehaviour
 
         framesPerSecond = 1.0f / deltaTime;
 
-        framesPerSecond = Mathf.FloorToInt(framesPerSecond);
+        framesPerSecond = (int)framesPerSecond;
 
-        frameCountText.text = framesPerSecond + " FPS";
+        frameCountText.text = framesPerSecond.ToString();
     }
 
 }

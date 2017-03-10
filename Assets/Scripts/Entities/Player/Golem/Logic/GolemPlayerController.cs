@@ -47,6 +47,7 @@ public class GolemPlayerController : GolemStats
 
     [Header("Player Turning Attributes")]
     public float turnSmoothTime = 0.2f;
+    public float attackTurnSmoothTime = 0.3f;
     private float turnSmoothVelocity;
 
     [Header("Player Gravity Attributes")]
@@ -63,6 +64,7 @@ public class GolemPlayerController : GolemStats
     public bool canBlock = true;
     public bool isDodging = false;
     public bool isBlocking = false;
+    public bool isAttacking = false;
 
     [Header("Debugging Values")]
     public GameObject blockIndicator;
@@ -120,13 +122,17 @@ public class GolemPlayerController : GolemStats
 
     void ManageMovement()
     {
-        if (!isBlocking)
+        if (isBlocking)
         {
-           targetSpeed = baseMovementSpeed * moveVec.magnitude;
+           targetSpeed = baseMovementSpeed / 4 * moveVec.magnitude;
+        }
+        else if (isAttacking)
+        {
+            targetSpeed = baseMovementSpeed / 4 * moveVec.magnitude;
         }
         else
         {
-           targetSpeed = baseMovementSpeed / 4 * moveVec.magnitude;
+            targetSpeed = baseMovementSpeed * moveVec.magnitude;
         }
 
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
@@ -156,8 +162,17 @@ public class GolemPlayerController : GolemStats
     {
         if (directionVec != Vector2.zero && canRotate)
         {
-            float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
-            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
+            if (isAttacking)
+            {
+                float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
+                transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, attackTurnSmoothTime);
+            }
+            else
+            {
+                float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
+                transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
+            }
+            
         }
     }
 
@@ -239,7 +254,7 @@ public class GolemPlayerController : GolemStats
 
         while (dodgeTimer <= dodgeTime)
         {
-            dodgeTimer += Time.fixedDeltaTime / dodgeTime;
+            dodgeTimer += Time.deltaTime / dodgeTime;
 
             float dodgeCurrentSpeed = dodgeSpeed * dodgeCurve.Evaluate(dodgeTimer);
 

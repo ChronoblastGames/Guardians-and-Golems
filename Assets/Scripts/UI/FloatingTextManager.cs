@@ -45,6 +45,7 @@ public class FloatingTextManager : MonoBehaviour
         else
         {
             GameObject newText = Instantiate(textPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+            newText.name = "DamageText" + damageTextPool.Count;
 
             return newText;
         }

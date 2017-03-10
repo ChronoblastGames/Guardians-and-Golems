@@ -10,6 +10,7 @@ public class WeaponCollider : MonoBehaviour
 
     private StatusEffect statusEffect;
     private float statusEffectStrength;
+    private float statusEffectTime;
 
     private Collider weaponCol;
 
@@ -23,12 +24,13 @@ public class WeaponCollider : MonoBehaviour
         weaponCol = GetComponent<Collider>();
     }
 
-    public void SetValues(DamageType attackType, float attackDamage, StatusEffect attackEffect, float effectStrength)
+    public void SetValues(DamageType attackType, float attackDamage, StatusEffect attackEffect, float effectStrength, float effectTime)
     {
         damageType = attackType;
         damageValue = attackDamage;
         statusEffect = attackEffect;
         statusEffectStrength = effectStrength;
+        statusEffectTime = effectTime;
     }
 
     void OnTriggerEnter(Collider other)
@@ -37,7 +39,7 @@ public class WeaponCollider : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemBlue"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, gameObject);
                 weaponCol.enabled = false;
             }
         }
@@ -45,7 +47,7 @@ public class WeaponCollider : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemRed"))
             { 
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, gameObject);
                 weaponCol.enabled = false;
             }
         } 

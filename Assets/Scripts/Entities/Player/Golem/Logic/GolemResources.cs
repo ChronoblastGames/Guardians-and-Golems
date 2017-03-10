@@ -66,6 +66,10 @@ public class GolemResources : MonoBehaviour
     [Header("Player Status Effect")]
     public List<StatusEffect> statusEffectList;
 
+    public AnimationCurve knockBackCurve;
+
+    private float knockbackTime;
+
     [HideInInspector]
     public GolemDefense golemDefense;
 
@@ -202,7 +206,7 @@ public class GolemResources : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damageValue, DamageType damageType, StatusEffect statusEffect, float effectStrength, GameObject damagingObject)
+    public void TakeDamage(float damageValue, DamageType damageType, StatusEffect statusEffect, float effectStrength, float effectTime, GameObject damagingObject)
     {
         float baseDefense = golemDefense.baseDefense;
 
@@ -213,7 +217,7 @@ public class GolemResources : MonoBehaviour
 
         if (statusEffect != StatusEffect.NONE)
         {
-            InflictStatusEffect(statusEffect, effectStrength, damagingObject);
+            InflictStatusEffect(statusEffect, effectStrength, effectTime, damagingObject);
         }
 
         float calculatedResistance;
@@ -331,10 +335,8 @@ public class GolemResources : MonoBehaviour
         golemPlayerController.Stagger();
     }
 
-    public void InflictStatusEffect(StatusEffect statusEffect, float effectStrength, GameObject damagingObject)
+    public void InflictStatusEffect(StatusEffect statusEffect, float effectStrength, float effectTime, GameObject damagingObject)
     {
-        Debug.Log(gameObject + " was inflicted with " + statusEffect + " for " + effectStrength + " by " + damagingObject.name);
-
         switch(statusEffect)
         {
             case StatusEffect.BLEED:
@@ -355,9 +357,10 @@ public class GolemResources : MonoBehaviour
             case StatusEffect.KNOCKBACK:
                 Vector3 interceptVec = (damagingObject.transform.position - transform.position).normalized;
                 interceptVec.y = 0;
-                interceptVec*= effectStrength;
 
-                golemPlayerController.characterController.Move(interceptVec * Time.deltaTime);
+                StartCoroutine(Knockback(-interceptVec, knockBackCurve, effectStrength, effectTime));
+
+                statusEffectList.Add(StatusEffect.KNOCKBACK);
                 break;
 
             default:
@@ -370,6 +373,47 @@ public class GolemResources : MonoBehaviour
     {
         Debug.Log(gameObject.name + " is Dead!");
         gameObject.SetActive(false);
+    }
+
+
+    IEnumerator Knockback(Vector3 interceptVec, AnimationCurve knockbackCurve, float knockbackStrength, float knockbackTime)
+    {
+        float knockbackTimer = 0f;
+
+        golemPlayerController.canMove = false;
+        golemPlayerController.canRotate = false;
+        golemPlayerController.canUseAbilities = false;
+        golemPlayerController.canBlock = false;
+        golemPlayerController.canAttack = false;
+
+        while (knockbackTimer <= knockbackTime)
+        {
+            knockbackTimer += Time.deltaTime / knockbackTime;
+
+            float knockbackCurrentSpeed = knockbackStrength * knockbackCurve.Evaluate(knockbackTimer);
+
+            golemPlayerController.characterController.Move(interceptVec * knockbackCurrentSpeed);
+
+            if (knockbackTimer > 1)
+            {
+                StopKnockback();
+            }
+
+            yield return null;
+        }
+    }
+
+    void StopKnockback()
+    {
+        knockbackTime = 0;
+
+        golemPlayerController.canMove = true;
+        golemPlayerController.canRotate = true;
+        golemPlayerController.canUseAbilities = true;
+        golemPlayerController.canBlock = true;
+        golemPlayerController.canAttack = true;
+
+        statusEffectList.Remove(StatusEffect.KNOCKBACK);
     }
 }
 

@@ -133,6 +133,7 @@ public class GuardianAbility : AbilityBase
         abilityInfo.manaCost = manaCost;
         abilityInfo.statusEffect = statusEffect;
         abilityInfo.effectStrength = effectStrength;
+        abilityInfo.effectTime = effectTime;
 
         return abilityInfo;
     }

@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class FloatingTextController : MonoBehaviour 
 {
+    private TimerClass textTimer;
     private FloatingTextManager textPool;
-    public TimerClass textTimer;
 
     private Animator textAnimator;
     public AnimationClip textAnim;
@@ -15,13 +15,15 @@ public class FloatingTextController : MonoBehaviour
     {
         textTimer = new TimerClass();
 
-        textPool = transform.parent.GetComponent<FloatingTextManager>();
+        textPool = GameObject.FindGameObjectWithTag("UIManager").GetComponent<FloatingTextManager>();
 
         textAnimator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     public void Initialize()
     {
+        gameObject.SetActive(true);
+
         textTimer.ResetTimer(textAnim.length);
 
         textAnimator.SetTrigger("isActive");
@@ -47,10 +49,10 @@ public class FloatingTextController : MonoBehaviour
 
     void SendBackToPool()
     {
-        textPool.ReturnToPool(gameObject);
-
         isActive = false;
 
         gameObject.SetActive(false);
+
+        textPool.ReturnToPool(gameObject);      
     }
 }

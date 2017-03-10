@@ -20,6 +20,7 @@ public class GolemMelee : MonoBehaviour
     public StatusEffect[] attackEffects;
 
     public float[] effectStrength;
+    public float[] effectTimes;
 
     public float[] attackMovementSpeed;
 
@@ -122,14 +123,15 @@ public class GolemMelee : MonoBehaviour
 
     void Attack1()
     {
-        golemPlayerController.canDodge = false;
         golemPlayerController.canMove = false;
+        golemPlayerController.canDodge = false;
         golemPlayerController.canUseAbilities = false;
+        golemPlayerController.isAttacking = true;
 
         attackTimer.ResetTimer(meleeAnimations[0].length + 3f);
         golemState.SetTrigger("Attack");
 
-        weaponCollider[0].GetComponent<WeaponCollider>().SetValues(meleeDamageType[0], attackDamage[0], attackEffects[0], effectStrength[0]);
+        weaponCollider[0].GetComponent<WeaponCollider>().SetValues(meleeDamageType[0], attackDamage[0], attackEffects[0], effectStrength[0], effectTimes[0]);
 
         isAttacking = true;  
     }
@@ -138,14 +140,14 @@ public class GolemMelee : MonoBehaviour
     {
         attackTimer.ResetTimer(meleeAnimations[1].length + 3f);
 
-        weaponCollider[1].GetComponent<WeaponCollider>().SetValues(meleeDamageType[1], attackDamage[1], attackEffects[1], effectStrength[1]);
+        weaponCollider[1].GetComponent<WeaponCollider>().SetValues(meleeDamageType[1], attackDamage[1], attackEffects[1], effectStrength[1], effectTimes[1]);
 
         golemState.SetBool("Attack2", true);
     }
 
     void Attack3()
     {
-        weaponCollider[2].GetComponent<WeaponCollider>().SetValues(meleeDamageType[2], attackDamage[2], attackEffects[2], effectStrength[2]);
+        weaponCollider[2].GetComponent<WeaponCollider>().SetValues(meleeDamageType[2], attackDamage[2], attackEffects[2], effectStrength[2], effectTimes[2]);
 
         golemState.SetBool("Attack3", true);
     }
@@ -163,6 +165,7 @@ public class GolemMelee : MonoBehaviour
         golemPlayerController.canDodge = true;
         golemPlayerController.canMove = true;
         golemPlayerController.canUseAbilities = true;
+        golemPlayerController.isAttacking = false;
 
         isAttacking = false;
     }

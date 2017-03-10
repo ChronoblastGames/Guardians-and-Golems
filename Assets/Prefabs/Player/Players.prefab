@@ -4607,6 +4607,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -4644,6 +4645,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 6
   effectStrength: 5
+  effectTime: 2
   abilityType: 1
   redMask:
     serializedVersion: 2
@@ -4682,6 +4684,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -4720,6 +4723,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -4758,6 +4762,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -4795,6 +4800,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -4813,7 +4819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915aa1d54be46e04cae9a4973b14fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 15
+  baseMovementSpeed: 12.5
   dodgeDistance: 1
   dodgeSpeed: 0
   golemOffensiveValues:
@@ -4879,6 +4885,7 @@ MonoBehaviour:
   dodgeTime: 1
   isStaggered: 0
   turnSmoothTime: 0.05
+  attackTurnSmoothTime: 0.3
   gravity: -12
   isIdle: 0
   canRotate: 1
@@ -4889,6 +4896,7 @@ MonoBehaviour:
   canBlock: 1
   isDodging: 0
   isBlocking: 0
+  isAttacking: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114204453139013332
 MonoBehaviour:
@@ -4920,6 +4928,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -4992,6 +5001,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -5054,6 +5064,30 @@ MonoBehaviour:
   manaRegenerationSpeed: 1.25
   isStaggerTimerActive: 0
   statusEffectList: 
+  knockBackCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+    - serializedVersion: 2
+      time: 0.5
+      value: 0.5
+      inSlope: -0.007960245
+      outSlope: -0.007960245
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   golemDefense:
     baseDefense: 0
     slashDefense: 0
@@ -5116,6 +5150,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -5154,6 +5189,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -5191,6 +5227,12 @@ MonoBehaviour:
   manaRegenerationSpeed: 1.25
   isStaggerTimerActive: 0
   statusEffectList: 
+  knockBackCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   golemDefense:
     baseDefense: 0
     slashDefense: 0
@@ -5213,7 +5255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915aa1d54be46e04cae9a4973b14fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 15
+  baseMovementSpeed: 12.5
   dodgeDistance: 1
   dodgeSpeed: 0
   golemOffensiveValues:
@@ -5279,6 +5321,7 @@ MonoBehaviour:
   dodgeTime: 1
   isStaggered: 0
   turnSmoothTime: 0.05
+  attackTurnSmoothTime: 0.3
   gravity: -12
   isIdle: 0
   canRotate: 1
@@ -5289,6 +5332,7 @@ MonoBehaviour:
   canBlock: 1
   isDodging: 0
   isBlocking: 0
+  isAttacking: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114525928338324388
 MonoBehaviour:
@@ -5360,10 +5404,14 @@ MonoBehaviour:
   meleeDamageType: 050000000500000005000000
   attackDamage:
   - 7.5
+  - 7.5
   - 10
-  - 12.5
   attackEffects: 000000000000000000000000
   effectStrength:
+  - 0
+  - 0
+  - 0
+  effectTimes:
   - 0
   - 0
   - 0
@@ -5451,16 +5499,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponCollider:
-  - {fileID: 65278865730595232}
-  - {fileID: 65653464962581862}
-  - {fileID: 65653464962581862}
+  - {fileID: 65648951314741200}
+  - {fileID: 65142051098583712}
+  - {fileID: 65142051098583712}
   meleeDamageType: 050000000500000005000000
   attackDamage:
   - 7.5
+  - 7.5
   - 10
-  - 12.5
   attackEffects: 000000000000000000000000
   effectStrength:
+  - 0
+  - 0
+  - 0
+  effectTimes:
   - 0
   - 0
   - 0
@@ -5553,8 +5605,9 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
-  statusEffect: 0
-  effectStrength: 0
+  statusEffect: 6
+  effectStrength: 5
+  effectTime: 2
   abilityType: 1
   redMask:
     serializedVersion: 2
@@ -5593,6 +5646,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -5675,6 +5729,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -5731,6 +5786,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -5780,6 +5836,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -5829,6 +5886,7 @@ MonoBehaviour:
   isRanged: 1
   statusEffect: 0
   effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -8134,7 +8192,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1443673561
+  randomSeed: 281073537
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10759,7 +10817,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1400003572
+  randomSeed: -589817214
   InitialModule:
     serializedVersion: 3
     enabled: 1
