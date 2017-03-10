@@ -711,6 +711,7 @@ GameObject:
   - component: {fileID: 404909633}
   - component: {fileID: 404909635}
   - component: {fileID: 404909634}
+  - component: {fileID: 404909636}
   m_Layer: 5
   m_Name: GolemBlueHealthBar
   m_TagString: Untagged
@@ -769,6 +770,20 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 404909632}
+--- !u!114 &404909636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 404909632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &482657122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1307,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4953942248363826, guid: a0dd775133547fa42941d810b37182d1, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.00000011920929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4953942248363826, guid: a0dd775133547fa42941d810b37182d1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1300,19 +1315,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4953942248363826, guid: a0dd775133547fa42941d810b37182d1, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -0.00000003057678
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4953942248363826, guid: a0dd775133547fa42941d810b37182d1, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4953942248363826, guid: a0dd775133547fa42941d810b37182d1, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4953942248363826, guid: a0dd775133547fa42941d810b37182d1, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4953942248363826, guid: a0dd775133547fa42941d810b37182d1, type: 2}
       propertyPath: m_LocalRotation.w
@@ -1322,26 +1337,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 1279967831}
-    - target: {fileID: 114776423742069052, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 259908043}
-    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 394457318}
     - target: {fileID: 114315098865424614, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 482657122}
+    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 394457318}
+    - target: {fileID: 114776423742069052, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 259908043}
+    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 1279967831}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0
@@ -1775,6 +1790,7 @@ GameObject:
   - component: {fileID: 1185229293}
   - component: {fileID: 1185229295}
   - component: {fileID: 1185229294}
+  - component: {fileID: 1185229296}
   m_Layer: 5
   m_Name: GolemRedHealthBar
   m_TagString: Untagged
@@ -1826,13 +1842,27 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
 --- !u!222 &1185229295
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1185229292}
+--- !u!114 &1185229296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1185229292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 3, y: -3}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1195769038 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1616603814310854, guid: 04eaf8a51115c7d45ae073ad7921f97d,
@@ -3416,17 +3446,17 @@ Prefab:
     - target: {fileID: 20323717071377634, guid: c37b4f592090913488ef7123e2452891,
         type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 0
+      value: 0.13435338
       objectReference: {fileID: 0}
     - target: {fileID: 20323717071377634, guid: c37b4f592090913488ef7123e2452891,
         type: 2}
       propertyPath: m_BackGroundColor.g
-      value: 0
+      value: 0.24932809
       objectReference: {fileID: 0}
     - target: {fileID: 20323717071377634, guid: c37b4f592090913488ef7123e2452891,
         type: 2}
       propertyPath: m_BackGroundColor.b
-      value: 0
+      value: 0.52205884
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c37b4f592090913488ef7123e2452891, type: 2}

@@ -29,6 +29,16 @@ public class GuardianInputManager : MonoBehaviour
 
     private Vector3 aimVec;
 
+    private string inputAxisX = "";
+    private string inputAxisZ = "";
+    private string inputAimAxisX = "";
+    private string inputAimAxisZ = "";
+    private string inputModifierAxis = "";
+    private string inputMulticastAxis = "";
+    private string inputCaptureButton = "";
+    private string inputAbility1Button = "";
+    private string inputAbility2Button = "";
+
     private void Start()
     {
         PlayerSetup();
@@ -60,95 +70,93 @@ public class GuardianInputManager : MonoBehaviour
                 PlayerNumber = 4;
                 break;
         }
-    }
-
-    void GetInput()
-    {
 
 #if UNITY_EDITOR_WIN || UNITY_STANDALONE_WIN
 
-        xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber + "Win");
-        zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber + "Win");
+        inputAxisX = "HorizontalPlayer" + PlayerNumber + "Win";
+        inputAxisZ = "VerticalPlayer" + PlayerNumber + "Win";
 
-        aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "Win");
-        aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "Win");
-        modifierAxis = Input.GetAxis("ModifierAxisPlayer" + PlayerNumber + "Win");
-        multicastAxis = Input.GetAxis("BlockAxisPlayer" + PlayerNumber + "Win");
+        inputAimAxisX = "HorizontalAimPlayer" + PlayerNumber + "Win";
+        inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "Win";
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 2"))
-        {
-            guardianController.CaptureOrb();
-        }
+        inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "Win";
+        inputMulticastAxis = "BlockAxisPlayer" + PlayerNumber + "Win";
 
-        if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 4"))
-        {
-            guardianController.UseAbilityFromAllOrbs(2, aimVec, playerTeam, holdTime);
-        }
-        else if (modifierAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 4"))
-        {
-            guardianController.UseAbility(2, aimVec, playerTeam, holdTime);
-        }
-        else if (multicastAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 4"))
-        {
-            guardianController.UseAbilityFromAllOrbs(0, aimVec, playerTeam, holdTime);
-        }
-        else if (Input.GetKeyUp("joystick " + PlayerNumber + " button 4"))
-        {
-            guardianController.UseAbility(0, aimVec, playerTeam, holdTime);
-        }
+        inputCaptureButton = "joystick " + PlayerNumber + " button 2";
 
-        if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 5"))
-        {
-            guardianController.UseAbilityFromAllOrbs(3, aimVec, playerTeam, holdTime);
-        }
-        else if (modifierAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 5"))
-        {
-            guardianController.UseAbility(3, aimVec, playerTeam, holdTime);
-        }
-        else if (multicastAxis != 0 && Input.GetKeyUp("joystick " + PlayerNumber + " button 4"))
-        {
-            guardianController.UseAbilityFromAllOrbs(1, aimVec, playerTeam, holdTime);
-        }
-        else if (Input.GetKeyUp("joystick " + PlayerNumber + " button 5"))
-        {
-            guardianController.UseAbility(1, aimVec, playerTeam, holdTime);
-        }
-
+        inputAbility1Button = "joystick " + PlayerNumber + " button 4";
+        inputAbility2Button = "joystick " + PlayerNumber + " button 5";
 #endif
 
 #if UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
 
-        xAxis = Input.GetAxis("HorizontalPlayer" + PlayerNumber + "OSX");
-        zAxis = Input.GetAxis("VerticalPlayer" + PlayerNumber + "OSX");
+        inputAxisX = "HorizontalPlayer" + PlayerNumber + "OSX";
+        inputAxisZ = "VerticalPlayer" + PlayerNumber + "OSX";
 
-        aimXAxis = Input.GetAxis("HorizontalAimPlayer" + PlayerNumber + "OSX");
-        aimZAxis = Input.GetAxis("VerticalAimPlayer" + PlayerNumber + "OSX");
-        modifierAxis = Input.GetAxis("ModifierAxis" + PlayerNumber + "OSX");
+        inputAimAxisX = "HorizontalAimPlayer" + PlayerNumber + "OSX";
+        inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "OSX";
 
-        if (Input.GetKeyDown("joystick " + PlayerNumber + " button 18"))
+        inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "OSX";
+        inputMulticastAxis = "BlockAxisPlayer" + PlayerNumber + "OSX";
+
+        inputCaptureButton = "joystick " + PlayerNumber + " button 18";
+
+        inputAbility1Button = "joystick " + PlayerNumber + " button 13";
+        inputAbility2Button = "joystick " + PlayerNumber + " button 14";
+
+#endif
+
+    }
+
+    void GetInput()
+    {
+        xAxis = Input.GetAxis(inputAxisX);
+        zAxis = Input.GetAxis(inputAxisZ);
+
+        aimXAxis = Input.GetAxis(inputAimAxisX);
+        aimZAxis = Input.GetAxis(inputAimAxisZ);
+
+        modifierAxis = Input.GetAxis(inputModifierAxis);
+        multicastAxis = Input.GetAxis(inputMulticastAxis);
+
+        if (Input.GetKeyDown(inputCaptureButton))
         {
             guardianController.CaptureOrb();
         }
 
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(ABILITY_1))
+        if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp(inputAbility1Button))
         {
-            guardianController.UseAbility(2, aimVec, playerTeam);
+            guardianController.UseAbilityFromAllOrbs(2, aimVec, playerTeam, holdTime);
         }
-        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 13") || Input.GetKeyDown(ABILITY_1))
+        else if (modifierAxis != 0 && Input.GetKeyUp(inputAbility1Button))
         {
-            guardianController.UseAbility(0, aimVec, playerTeam);
+            guardianController.UseAbility(2, aimVec, playerTeam, holdTime);
+        }
+        else if (multicastAxis != 0 && Input.GetKeyUp(inputAbility1Button))
+        {
+            guardianController.UseAbilityFromAllOrbs(0, aimVec, playerTeam, holdTime);
+        }
+        else if (Input.GetKeyUp(inputAbility1Button))
+        {
+            guardianController.UseAbility(0, aimVec, playerTeam, holdTime);
         }
 
-        if (modifierAxis != 0 && Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(ABILITY_1))
+        if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp(inputAbility2Button))
         {
-            guardianController.UseAbility(3, aimVec, playerTeam);
+            guardianController.UseAbilityFromAllOrbs(3, aimVec, playerTeam, holdTime);
         }
-        else if (Input.GetKeyDown("joystick " + PlayerNumber + " button 14") || Input.GetKeyDown(ABILITY_2))
+        else if (modifierAxis != 0 && Input.GetKeyUp(inputAbility2Button))
         {
-            guardianController.UseAbility(1, aimVec, playerTeam);
+            guardianController.UseAbility(3, aimVec, playerTeam, holdTime);
         }
-
-#endif
+        else if (multicastAxis != 0 && Input.GetKeyUp(inputAbility2Button))
+        {
+            guardianController.UseAbilityFromAllOrbs(1, aimVec, playerTeam, holdTime);
+        }
+        else if (Input.GetKeyUp(inputAbility2Button))
+        {
+            guardianController.UseAbility(1, aimVec, playerTeam, holdTime);
+        }
     }
 
     void CalculateAimVec()

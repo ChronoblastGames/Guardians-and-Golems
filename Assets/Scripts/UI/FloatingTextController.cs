@@ -4,7 +4,7 @@ using UnityEngine;
 public class FloatingTextController : MonoBehaviour 
 {
     private FloatingTextManager textPool;
-    private TimerClass textTimer;
+    public TimerClass textTimer;
 
     private Animator textAnimator;
     public AnimationClip textAnim;

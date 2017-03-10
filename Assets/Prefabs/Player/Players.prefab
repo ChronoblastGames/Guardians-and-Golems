@@ -694,6 +694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4056171694451290}
   - component: {fileID: 65278865730595232}
+  - component: {fileID: 114570017983367912}
   m_Layer: 9
   m_Name: RightFist
   m_TagString: Untagged
@@ -898,6 +899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4095477848292940}
   - component: {fileID: 65653464962581862}
+  - component: {fileID: 114525928338324388}
   m_Layer: 9
   m_Name: LeftFist
   m_TagString: Untagged
@@ -3592,7 +3594,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1577469605315538}
-  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4102,7 +4104,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1557658279121078}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 56, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -4112,7 +4114,7 @@ Transform:
   - {fileID: 4617465031315580}
   m_Father: {fileID: 4551853109124186}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4914354215884210
 Transform:
   m_ObjectHideFlags: 1
@@ -4159,8 +4161,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1975596697930704}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000011920929, y: 0, z: -0.00000003057678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4551853109124186}
@@ -4444,7 +4446,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1373789011931860}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4468,7 +4470,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1439699816380016}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4552,7 +4554,7 @@ Light:
   m_Type: 2
   m_Color: {r: 0, g: 0.751724, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 9.93556
+  m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -5250,11 +5252,11 @@ MonoBehaviour:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0.0000028391928
-      outSlope: 0.0000028391928
+      inSlope: 0.007748604
+      outSlope: 0.007748604
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.35
+      time: 0.3
       value: 1
       inSlope: 0.00015043042
       outSlope: 0.00015043042
@@ -5287,7 +5289,18 @@ MonoBehaviour:
   canBlock: 1
   isDodging: 0
   isBlocking: 0
-  blockIndicator: {fileID: 1367470690802138}
+  blockIndicator: {fileID: 1485026448992000}
+--- !u!114 &114525928338324388
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439699816380016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b5347fe3f99ba4fa94fbe43bb5aa50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114533035422661628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5415,6 +5428,17 @@ MonoBehaviour:
   - {fileID: 7400004, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
   - {fileID: 7400006, guid: 932a805f919c2e845811b7bcba7cc063, type: 3}
   isAttacking: 0
+--- !u!114 &114570017983367912
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373789011931860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b5347fe3f99ba4fa94fbe43bb5aa50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114576766405916554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5429,7 +5453,7 @@ MonoBehaviour:
   weaponCollider:
   - {fileID: 65278865730595232}
   - {fileID: 65653464962581862}
-  - {fileID: 65278865730595232}
+  - {fileID: 65653464962581862}
   meleeDamageType: 050000000500000005000000
   attackDamage:
   - 7.5
@@ -5825,7 +5849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
-  playerTeam: 0
+  playerTeam: 1
   PlayerName: Matt
   PlayerNumber: 0
   xAxis: 0
@@ -8110,7 +8134,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1769033232
+  randomSeed: 1443673561
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10735,7 +10759,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1064446158
+  randomSeed: -1400003572
   InitialModule:
     serializedVersion: 3
     enabled: 1
