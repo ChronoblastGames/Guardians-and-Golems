@@ -60,6 +60,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
 
         abilityTrigger = GetComponent<SphereCollider>();
         abilityTrigger.radius = abilityRadius * 1.75f;
+        shardCount = (int)abilityRadius * 2;
 
         SpawnShards();
     }
@@ -79,7 +80,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
                 Vector3 shardPos = CalculateCircle(transform.position, newRadius, distanceBetweenShards, i);
                 float shardAngle = distanceBetweenShards * i;
 
-                Quaternion shardRotation = Quaternion.Euler(0, shardAngle, 0);
+                Quaternion shardRotation = Quaternion.Euler(-60, shardAngle, 0);
                 GameObject newShard = Instantiate(earthShard, shardPos, shardRotation, transform) as GameObject;
                 newShard.layer = gameObject.layer;
 

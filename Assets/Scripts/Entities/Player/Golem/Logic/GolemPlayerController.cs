@@ -8,10 +8,11 @@ public class GolemPlayerController : GolemStats
     [HideInInspector]
     public CharacterController characterController;
 
-    private BasicCooldown globalCooldown;
-    private GlobalVariables globalVariables;
     private GolemInputManager golemInputManager;
     private GolemMelee golemMelee;
+    private CooldownManager golemCooldown;
+
+    private GlobalVariables globalVariables;
 
     private Animator golemState;
 
@@ -69,8 +70,7 @@ public class GolemPlayerController : GolemStats
     [Header("Debugging Values")]
     public GameObject blockIndicator;
 
-    [Header("CoolDowns")]
-	private float globalCooldownTime;
+    private string abilityString = "Ability";
 
 	void Start () 
     {
@@ -92,19 +92,15 @@ public class GolemPlayerController : GolemStats
 
     void PlayerSetup()
     {
-		globalCooldown = new BasicCooldown();
-
-        globalVariables = GameObject.FindObjectOfType<GlobalVariables>();
-
-        globalCooldownTime = globalVariables.golemGlobalCooldown;
-
-		globalCooldown.cdTime = globalCooldownTime;
+        characterController = GetComponent<CharacterController>();
 
         golemInputManager = GetComponent<GolemInputManager>();
 
         golemMelee = GetComponent<GolemMelee>();
 
-        characterController = GetComponent<CharacterController>();
+        golemCooldown = GetComponent<CooldownManager>();
+
+        globalVariables = GameObject.FindGameObjectWithTag("GlobalVariables").GetComponent<GlobalVariables>();
 
         idleTimer = new TimerClass();
         recoveryTimer = new TimerClass();
@@ -178,33 +174,35 @@ public class GolemPlayerController : GolemStats
 
     public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor, float holdTime)
     {
-		if (aimVec != null && (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2]) && canUseAbilities)
+        if (aimVec != null && canUseAbilities && golemCooldown.GlobalCooldownReady() && golemCooldown.CanUseAbility(abilityNumber))
         {
             if (aimVec != Vector3.zero)
             {
                 golemAbilities[abilityNumber].CastAbility(aimVec, teamColor, holdTime);
-                StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
+                golemCooldown.QueueGlobalCooldown();
+                golemCooldown.QueueAbilityCooldown(abilityNumber);
             }
             else
             {
                 golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor, holdTime);
-                StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
+                golemCooldown.QueueGlobalCooldown();
+                golemCooldown.QueueAbilityCooldown(abilityNumber);
             }
-
         }
     }
 
     public void UseAttack()
     {
-        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && canAttack)
+        if (canAttack && golemCooldown.GlobalCooldownReady())
         {
             golemMelee.QueueAttack();
+            golemCooldown.QueueGlobalCooldown();
         }
     }
 
     public void DodgeSetup()
     {
-        if (globalCooldown.cdStateEngine.currentState == globalCooldown.possibleStates[2] && !isDodging && canDodge)
+        if (!isDodging && canDodge && golemCooldown.GlobalCooldownReady())
         {
             if (moveVec == Vector2.zero)
             {
@@ -234,6 +232,7 @@ public class GolemPlayerController : GolemStats
             canUseAbilities = false;
             isDodging = true;
 
+            golemCooldown.QueueGlobalCooldown();
             StartCoroutine(Dodge(dodgeVec, dodgeCurve, dodgeTime));
             DodgeCoroutine = (Dodge(dodgeVec, dodgeCurve, dodgeTime));
         }
@@ -271,8 +270,6 @@ public class GolemPlayerController : GolemStats
 
     void ReachedEndOfDodge()
     {
-        StartCoroutine(globalCooldown.RestartCoolDownCoroutine());
-
         DodgeCoroutine = null;
 
         canDodge = true;

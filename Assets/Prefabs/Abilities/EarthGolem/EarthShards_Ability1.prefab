@@ -52,12 +52,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff0dfc65aefec644b370fe29be5c505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  earthShard: {fileID: 1468933578431452, guid: 542601ca998adc5439106546b332fb57, type: 2}
+  earthShard: {fileID: 1689473895437552, guid: b885afc24a87b044a80c5223f95f7d97, type: 2}
   shardCount: 5
   ringCount: 1
-  minAbilityRadius: 1
-  maxAbilityRadius: 5
-  shardDepth: 0
+  minAbilityRadius: 2
+  maxAbilityRadius: 7
+  shardDepth: 2
 --- !u!135 &135865323125058988
 SphereCollider:
   m_ObjectHideFlags: 1
