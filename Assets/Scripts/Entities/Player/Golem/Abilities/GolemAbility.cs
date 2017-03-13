@@ -50,7 +50,7 @@ public class GolemAbility : AbilityBase
 
                 abilityValues = CreateAbilityStruct();
 
-                if (golemResources.CanCast(abilityValues.manaCost) && golemResources)
+                if (golemResources.CanCast(abilityValues.manaCost))
                 {
                     spawnRot = Quaternion.LookRotation(aimVec);
 

@@ -70,8 +70,6 @@ public class GolemPlayerController : GolemStats
     [Header("Debugging Values")]
     public GameObject blockIndicator;
 
-    private string abilityString = "Ability";
-
 	void Start () 
     {
         PlayerSetup();

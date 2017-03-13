@@ -4597,7 +4597,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -4633,11 +4632,10 @@ MonoBehaviour:
   damageAmount: 5
   projectileSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 5
+  activeTime: 2
   holdTime: 0
-  projectileActiveTime: 0
-  raiseAmount: 5
-  raiseSpeed: 5
+  raiseAmount: 0
+  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
   zoneStrength: 0
@@ -4674,7 +4672,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 4
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -4713,7 +4710,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 5
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -4752,7 +4748,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -4810,7 +4805,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -4938,7 +4932,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -5011,7 +5004,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -5153,14 +5145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
-  damageType: 0
+  ability: {fileID: 1530976692658324, guid: a804f9018193a234492f4dbc70def55d, type: 2}
+  damageType: 3
   damageAmount: 15
   projectileSpeed: 30
   spawnDistanceFromPlayer: 0
-  activeTime: 0
+  activeTime: 5
   holdTime: 0
-  projectileActiveTime: 3
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -5170,9 +5161,9 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
-  statusEffect: 0
-  effectStrength: 0
-  effectTime: 0
+  statusEffect: 2
+  effectStrength: 2
+  effectTime: 3
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -5199,7 +5190,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -5633,11 +5623,10 @@ MonoBehaviour:
   damageAmount: 5
   projectileSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 5
+  activeTime: 2
   holdTime: 0
-  projectileActiveTime: 0
-  raiseAmount: 5
-  raiseSpeed: 5
+  raiseAmount: 0
+  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
   zoneStrength: 0
@@ -5674,7 +5663,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -5750,14 +5738,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
-  damageType: 0
+  ability: {fileID: 1530976692658324, guid: a804f9018193a234492f4dbc70def55d, type: 2}
+  damageType: 3
   damageAmount: 15
   projectileSpeed: 30
   spawnDistanceFromPlayer: 0
-  activeTime: 0
+  activeTime: 5
   holdTime: 0
-  projectileActiveTime: 3
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -5767,9 +5754,9 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
-  statusEffect: 0
-  effectStrength: 0
-  effectTime: 0
+  statusEffect: 2
+  effectStrength: 2
+  effectTime: 3
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -5814,7 +5801,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 5
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -5864,7 +5850,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -5934,7 +5919,6 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  projectileActiveTime: 4
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
@@ -8252,7 +8236,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1214729438
+  randomSeed: -909943445
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10877,7 +10861,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1162546906
+  randomSeed: 1707178175
   InitialModule:
     serializedVersion: 3
     enabled: 1

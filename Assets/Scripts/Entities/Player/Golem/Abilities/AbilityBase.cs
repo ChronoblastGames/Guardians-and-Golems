@@ -74,9 +74,6 @@ public abstract class AbilityBase : MonoBehaviour
     public float activeTime;
     public float holdTime;
 
-    [Header("Projectile Attributes")]
-    public float projectileActiveTime;
-
     [Header("Wall Attributes")]
     public float raiseAmount;
     public float raiseSpeed;

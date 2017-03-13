@@ -24,6 +24,7 @@ public enum StatusEffect
 {
     NONE,
     STUN,
+    SLOW,
     BLEED,
     MANA_DRAIN,
     SILENCE,
@@ -67,8 +68,6 @@ public class GolemResources : MonoBehaviour
     public List<StatusEffect> statusEffectList;
 
     public AnimationCurve knockBackCurve;
-
-    private float knockbackTime;
 
     [HideInInspector]
     public GolemDefense golemDefense;
@@ -179,6 +178,9 @@ public class GolemResources : MonoBehaviour
                         break;
 
                     case StatusEffect.SHIELD:
+                        break;
+
+                    case StatusEffect.SLOW:
                         break;
 
                     case StatusEffect.KNOCKBACK:
@@ -354,6 +356,9 @@ public class GolemResources : MonoBehaviour
             case StatusEffect.STUN:
                 break;
 
+            case StatusEffect.SLOW:
+                break;
+
             case StatusEffect.KNOCKBACK:
                 Vector3 interceptVec = (damagingObject.transform.position - transform.position).normalized;
                 interceptVec.y = 0;
@@ -405,8 +410,6 @@ public class GolemResources : MonoBehaviour
 
     void StopKnockback()
     {
-        knockbackTime = 0;
-
         golemPlayerController.canMove = true;
         golemPlayerController.canRotate = true;
         golemPlayerController.canUseAbilities = true;
