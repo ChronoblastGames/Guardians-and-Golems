@@ -2,24 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum HealthStatus
-{
-    FULL,
-    HEALTHY,
-    INJURED,
-    CRITICAL,
-    DEAD
-}
-
-public enum ManaStatus
-{
-    FULL,
-    HIGH,
-    MEDIUM,
-    LOW,
-    NO_MANA
-}
-
 public enum StatusEffect
 {
     NONE,
@@ -68,6 +50,13 @@ public class GolemResources : MonoBehaviour
     public List<StatusEffect> statusEffectList;
 
     public AnimationCurve knockBackCurve;
+
+    public bool isSlowed = false;
+    public bool isKnockedBack = false;
+    public bool isBleeding = false;
+    public bool isShielded = false;
+    public bool isStunned = false;
+    public bool isSilenced = false;
 
     [HideInInspector]
     public GolemDefense golemDefense;
@@ -357,6 +346,9 @@ public class GolemResources : MonoBehaviour
                 break;
 
             case StatusEffect.SLOW:
+                StartCoroutine(Slow(effectStrength, effectTime));
+
+                statusEffectList.Add(StatusEffect.SLOW);
                 break;
 
             case StatusEffect.KNOCKBACK:
@@ -391,6 +383,8 @@ public class GolemResources : MonoBehaviour
         golemPlayerController.canBlock = false;
         golemPlayerController.canAttack = false;
 
+        isKnockedBack = true;
+
         while (knockbackTimer <= knockbackTime)
         {
             knockbackTimer += Time.deltaTime / knockbackTime;
@@ -416,7 +410,29 @@ public class GolemResources : MonoBehaviour
         golemPlayerController.canBlock = true;
         golemPlayerController.canAttack = true;
 
+        isKnockedBack = false;
+
         statusEffectList.Remove(StatusEffect.KNOCKBACK);
+    }
+
+    IEnumerator Slow(float slowStrength, float slowTime)
+    {
+        isSlowed = true;
+
+        golemPlayerController.movementSpeed = golemPlayerController.baseMovementSpeed / slowStrength;
+
+        yield return new WaitForSeconds(slowTime);
+
+        StopSlow();
+    }
+
+    void StopSlow()
+    {
+        isSlowed = false;
+
+        statusEffectList.Remove(StatusEffect.SLOW);
+
+        golemPlayerController.movementSpeed = golemPlayerController.baseMovementSpeed;
     }
 }
 

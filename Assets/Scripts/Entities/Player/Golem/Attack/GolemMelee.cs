@@ -128,6 +128,8 @@ public class GolemMelee : MonoBehaviour
         golemPlayerController.canUseAbilities = false;
         golemPlayerController.isAttacking = true;
 
+        golemPlayerController.movementSpeed = golemPlayerController.baseMovementSpeed / 4;
+
         attackTimer.ResetTimer(meleeAnimations[0].length + 3f);
         golemState.SetTrigger("Attack");
 
@@ -166,6 +168,8 @@ public class GolemMelee : MonoBehaviour
         golemPlayerController.canMove = true;
         golemPlayerController.canUseAbilities = true;
         golemPlayerController.isAttacking = false;
+
+        golemPlayerController.movementSpeed = golemPlayerController.baseMovementSpeed;
 
         isAttacking = false;
     }

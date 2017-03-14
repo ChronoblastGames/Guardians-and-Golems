@@ -21,6 +21,7 @@ public class GolemPlayerController : GolemStats
     private TimerClass recoveryTimer;
 
     [Header("Player Movement Attributes")]
+    public float movementSpeed = 0.0f;
     public float currentSpeed;
     public float speedSmoothTime = 0.1f;
     private float targetSpeed;
@@ -31,6 +32,8 @@ public class GolemPlayerController : GolemStats
 
     [Header("Player Dodge Attributes")]
     public AnimationCurve dodgeCurve;
+
+    private float dodgeTimer;
 
     public float dodgeTime;
 
@@ -66,6 +69,7 @@ public class GolemPlayerController : GolemStats
     public bool isDodging = false;
     public bool isBlocking = false;
     public bool isAttacking = false;
+    public bool isSlowed = false;
 
     [Header("Debugging Values")]
     public GameObject blockIndicator;
@@ -106,6 +110,8 @@ public class GolemPlayerController : GolemStats
         golemState = GetComponent<Animator>();
 
         idleTimer.ResetTimer(idleTime);
+
+        movementSpeed = baseMovementSpeed;
     }
 
     void GatherInput()
@@ -116,18 +122,7 @@ public class GolemPlayerController : GolemStats
 
     void ManageMovement()
     {
-        if (isBlocking)
-        {
-           targetSpeed = baseMovementSpeed / 4 * moveVec.magnitude;
-        }
-        else if (isAttacking)
-        {
-            targetSpeed = baseMovementSpeed / 4 * moveVec.magnitude;
-        }
-        else
-        {
-            targetSpeed = baseMovementSpeed * moveVec.magnitude;
-        }
+        targetSpeed = movementSpeed * moveVec.magnitude;
 
         currentSpeed = Mathf.SmoothDamp(currentSpeed, targetSpeed, ref speedSmoothVelocity, speedSmoothTime);
 
@@ -223,12 +218,7 @@ public class GolemPlayerController : GolemStats
 
             golemState.SetTrigger("isDodge");
 
-            canMove = false;
-            canDodge = false;
-            canAttack = false;
-            canRotate = false;
-            canUseAbilities = false;
-            isDodging = true;
+            dodgeTimer = 0f;
 
             golemCooldown.QueueGlobalCooldown();
             StartCoroutine(Dodge(dodgeVec, dodgeCurve, dodgeTime));
@@ -249,7 +239,14 @@ public class GolemPlayerController : GolemStats
     {
         float dodgeTimer = 0f;
 
-        while (dodgeTimer <= dodgeTime)
+        canMove = false;
+        canDodge = false;
+        canAttack = false;
+        canRotate = false;
+        canUseAbilities = false;
+        isDodging = true;
+
+        while (dodgeTimer <= dodgeTime) //Fucking While Loop is fucking up my shit.
         {
             dodgeTimer += Time.deltaTime / dodgeTime;
 
@@ -268,6 +265,7 @@ public class GolemPlayerController : GolemStats
 
     void ReachedEndOfDodge()
     {
+        StopDodging();
         DodgeCoroutine = null;
 
         canDodge = true;
@@ -284,6 +282,7 @@ public class GolemPlayerController : GolemStats
         if (canBlock)
         {
             isBlocking = true;
+            movementSpeed = baseMovementSpeed / 4;
             golemState.SetBool("isBlocking", true);
             blockIndicator.SetActive(true);
         }
@@ -292,6 +291,7 @@ public class GolemPlayerController : GolemStats
     public void Unblock()
     {
         isBlocking = false;
+        movementSpeed = baseMovementSpeed;
         golemState.SetBool("isBlocking", false);
         blockIndicator.SetActive(false);
     }
