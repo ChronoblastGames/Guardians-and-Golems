@@ -9,6 +9,7 @@ public enum OrbState
     IN_PROGRESS,
     CONTROLLED,
     CONTESTED,
+    DISABLED,
     HOMEBASE
 }
 
@@ -94,7 +95,12 @@ public class OrbController : MonoBehaviour
 
     public void ManageOrbOutline()
     {
-       if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
+        if (orbState == OrbState.DISABLED)
+        {
+            orbRenderer.material.SetColor("_OutlineColor", Color.black);
+            orbRenderer.material.SetFloat("_Outline", 30);
+        }
+       else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
         {
             orbRenderer.material.SetColor("_OutlineColor", Color.yellow);
             orbRenderer.material.SetFloat("_Outline", 30);
@@ -263,5 +269,31 @@ public class OrbController : MonoBehaviour
     {
         attachedGuardianColor.Remove(guardianColor);
         orbRenderer.material.SetFloat("_Outline", 0);
+    }
+
+    public void DisableOrb (float length, PlayerTeam teamColor)
+    {
+        if (orbColor != teamColor)
+        {
+            OrbDisable(length);
+        }
+    }
+
+    private IEnumerator OrbDisable (float disableTime)
+    {
+        orbState = OrbState.DISABLED;
+
+        yield return new WaitForSeconds(disableTime);
+
+        if (orbColor == PlayerTeam.RED || orbColor == PlayerTeam.BLUE)
+        {
+            orbState = OrbState.CONTROLLED;
+        }
+        else
+        {
+            orbState = OrbState.EMPTY;
+        }
+
+        yield return null;
     }
 }

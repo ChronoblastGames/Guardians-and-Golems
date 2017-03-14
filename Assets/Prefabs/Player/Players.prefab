@@ -5982,16 +5982,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
-  damageType: 3
-  damageAmount: 20
-  projectileSpeed: 35
+  ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
+  damageType: 8
+  damageAmount: 0
+  projectileSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
   raiseAmount: 0
   raiseSpeed: 0
-  zoneRadius: 0
+  zoneRadius: 100
   zoneHeight: 0
   zoneStrength: 0
   healthCost: 0
@@ -6001,7 +6001,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 0
+  abilityType: 1
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -6050,7 +6050,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: 805ea4572992d0f41b146ac87a8c033d, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 4294901759
+    m_Bits: 4294950911
 --- !u!119 &119743700198945468
 Projector:
   m_ObjectHideFlags: 1
@@ -6104,7 +6104,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: af109a113b297d54d9739ce61930ddcd, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 4294901759
+    m_Bits: 4294950911
 --- !u!137 &137004941007066236
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -8306,7 +8306,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -909943445
+  randomSeed: -1447886979
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10931,7 +10931,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1971112227
+  randomSeed: -1976036457
   InitialModule:
     serializedVersion: 3
     enabled: 1

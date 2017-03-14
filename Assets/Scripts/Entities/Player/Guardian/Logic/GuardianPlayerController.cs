@@ -78,7 +78,10 @@ public class GuardianPlayerController : GuardianStats
     {
         if (orbList.Contains(attachedOrb))
         {
-            canAttack = true;
+            if (orbController.orbState != OrbState.DISABLED)
+            {
+                canAttack = true;
+            }
         }
         else
         {

@@ -82,7 +82,6 @@ public class GolemAbility : AbilityBase
                     spawnVec = aimVec;
                     spawnVec.Normalize();
                     spawnVec = spawnVec * abilityValues.spawnDistanceFromPlayer;
-                    spawnVec.y = -5f;
 
                     GameObject newStaticAbility = Instantiate(ability, transform.position + spawnVec, spawnRot) as GameObject;
 
@@ -115,8 +114,19 @@ public class GolemAbility : AbilityBase
                         zoneSpawnVec.y = 0f;
 
                         GameObject newZoneAbility = Instantiate(ability, transform.position + zoneSpawnVec, spawnRot) as GameObject;
+
+                        if (teamColor == PlayerTeam.RED)
+                        {
+                            newZoneAbility.layer = 8;
+                        }
+                        else if (teamColor == PlayerTeam.BLUE)
+                        {
+                            newZoneAbility.layer = 9;
+                        }
+
                         newZoneAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
                         newZoneAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
+
                     }
                     else
                     {
