@@ -1544,6 +1544,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1675050976224572
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4079497624747322}
+  - component: {fileID: 65391917031043818}
+  - component: {fileID: 114182925151035022}
+  m_Layer: 8
+  m_Name: BothFists
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1680011134509246
 GameObject:
   m_ObjectHideFlags: 1
@@ -2464,6 +2481,19 @@ Transform:
   m_Father: {fileID: 4614758910850322}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4079497624747322
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1675050976224572}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4551453349576554}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4086427017568270
 Transform:
   m_ObjectHideFlags: 1
@@ -3289,7 +3319,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4079497624747322}
   m_Father: {fileID: 4174307244583330}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4453,6 +4484,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65391917031043818
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1675050976224572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65648951314741200
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -4643,9 +4686,9 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
-  statusEffect: 6
+  statusEffect: 7
   effectStrength: 0.5
-  effectTime: 1.25
+  effectTime: 1
   abilityType: 1
   redMask:
     serializedVersion: 2
@@ -4787,6 +4830,17 @@ MonoBehaviour:
   isAbility2Ready: 1
   isAbility3Ready: 1
   isAbility4Ready: 1
+--- !u!114 &114182925151035022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1675050976224572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b5347fe3f99ba4fa94fbe43bb5aa50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114187497020868692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4864,18 +4918,19 @@ MonoBehaviour:
   - {fileID: 114979732921295764}
   - {fileID: 114827916180472632}
   characterController: {fileID: 0}
+  movementSpeed: 0
   currentSpeed: 0
   speedSmoothTime: 0.1
   characterVelocity: 0
-  idleTime: 5
+  idleTime: 10
   dodgeCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0.007748604
-      outSlope: 0.007748604
+      inSlope: 0.0047683716
+      outSlope: 0.0047683716
       tangentMode: 0
     - serializedVersion: 2
       time: 0.3
@@ -4913,6 +4968,7 @@ MonoBehaviour:
   isDodging: 0
   isBlocking: 0
   isAttacking: 0
+  isSlowed: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114204453139013332
 MonoBehaviour:
@@ -5102,6 +5158,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  isSlowed: 0
+  isKnockedBack: 0
+  isBleeding: 0
+  isShielded: 0
+  isStunned: 0
+  isSilenced: 0
   golemDefense:
     baseDefense: 0
     slashDefense: 0
@@ -5263,6 +5325,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  isSlowed: 0
+  isKnockedBack: 0
+  isBleeding: 0
+  isShielded: 0
+  isStunned: 0
+  isSilenced: 0
   golemDefense:
     baseDefense: 0
     slashDefense: 0
@@ -5314,18 +5382,19 @@ MonoBehaviour:
   - {fileID: 114095776848391756}
   - {fileID: 114149652261849078}
   characterController: {fileID: 0}
+  movementSpeed: 0
   currentSpeed: 0
   speedSmoothTime: 0.1
   characterVelocity: 0
-  idleTime: 5
+  idleTime: 10
   dodgeCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
       time: 0
       value: 0
-      inSlope: 0.007748604
-      outSlope: 0.007748604
+      inSlope: 0.0047683716
+      outSlope: 0.0047683716
       tangentMode: 0
     - serializedVersion: 2
       time: 0.3
@@ -5363,6 +5432,7 @@ MonoBehaviour:
   isDodging: 0
   isBlocking: 0
   isAttacking: 0
+  isSlowed: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114525928338324388
 MonoBehaviour:
@@ -5430,11 +5500,11 @@ MonoBehaviour:
   weaponCollider:
   - {fileID: 65648951314741200}
   - {fileID: 65142051098583712}
-  - {fileID: 65142051098583712}
+  - {fileID: 65391917031043818}
   meleeDamageType: 050000000500000005000000
   attackDamage:
   - 7.5
-  - 7.5
+  - 5
   - 10
   attackEffects: 000000000000000000000000
   effectStrength:
@@ -5446,9 +5516,9 @@ MonoBehaviour:
   - 0
   - 0
   attackMovementSpeed:
-  - 0.15
-  - 0.25
-  - 0.1
+  - 0.2
+  - 0.3
+  - 0.2
   attackMovementCurves:
   - serializedVersion: 2
     m_Curve:
@@ -5547,9 +5617,9 @@ MonoBehaviour:
   - 0
   - 0
   attackMovementSpeed:
-  - 0.15
-  - 0.25
-  - 0.1
+  - 0.2
+  - 0.3
+  - 0.2
   attackMovementCurves:
   - serializedVersion: 2
     m_Curve:
@@ -5634,9 +5704,9 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
-  statusEffect: 6
+  statusEffect: 7
   effectStrength: 0.5
-  effectTime: 1.25
+  effectTime: 1
   abilityType: 1
   redMask:
     serializedVersion: 2
@@ -8189,7 +8259,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1557658279121078}
   serializedVersion: 5
   lengthInSec: 1
-  speed: 1
+  simulationSpeed: 1
   looping: 0
   prewarm: 0
   playOnAwake: 0
@@ -10814,7 +10884,7 @@ ParticleSystem:
   m_GameObject: {fileID: 1680011134509246}
   serializedVersion: 5
   lengthInSec: 1
-  speed: 1
+  simulationSpeed: 1
   looping: 0
   prewarm: 0
   playOnAwake: 0
@@ -10861,7 +10931,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1707178175
+  randomSeed: -1971112227
   InitialModule:
     serializedVersion: 3
     enabled: 1

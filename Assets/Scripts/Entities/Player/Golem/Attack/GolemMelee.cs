@@ -73,7 +73,7 @@ public class GolemMelee : MonoBehaviour
 
             if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Melee.Attack1"))
             {
-                attack1Time += Time.fixedDeltaTime / meleeAnimations[0].length;
+                attack1Time += Time.deltaTime / meleeAnimations[0].length;
 
                 float attackMovement = attackMovementSpeed[0] * attackMovementCurves[0].Evaluate(attack1Time);
 
@@ -81,7 +81,7 @@ public class GolemMelee : MonoBehaviour
             }
             else if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Melee.Attack2"))
             {
-                attack2Time += Time.fixedDeltaTime / meleeAnimations[1].length;
+                attack2Time += Time.deltaTime / meleeAnimations[1].length;
 
                 float attackMovement = attackMovementSpeed[1] * attackMovementCurves[1].Evaluate(attack2Time);
 
@@ -89,7 +89,7 @@ public class GolemMelee : MonoBehaviour
             }
             else if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Melee.Attack3"))
             {
-                attack3Time += Time.fixedDeltaTime / meleeAnimations[2].length;
+                attack3Time += Time.deltaTime / meleeAnimations[2].length;
 
                 float attackMovement = attackMovementSpeed[2] * attackMovementCurves[2].Evaluate(attack3Time);
 

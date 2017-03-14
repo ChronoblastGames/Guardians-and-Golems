@@ -186,9 +186,10 @@ public class GolemPlayerController : GolemStats
 
     public void UseAttack()
     {
-        if (canAttack && golemCooldown.GlobalCooldownReady())
+        if (canAttack)
         {
             golemMelee.QueueAttack();
+
             golemCooldown.QueueGlobalCooldown();
         }
     }
@@ -330,14 +331,15 @@ public class GolemPlayerController : GolemStats
 
     void ManageIdle()
     {
-        if (characterVelocity == 0)
+        if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Base.Stand"))
         {
             if (idleTimer.TimerIsDone())
             {
+                isIdle = true;
                 golemState.SetBool("isIdle", true);
             }
         }
-        else if (characterVelocity != 0)
+        else if (characterVelocity > 0)
         {
             idleTimer.ResetTimer(idleTime);
             golemState.SetBool("isIdle", false);
