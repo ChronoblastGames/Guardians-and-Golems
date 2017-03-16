@@ -391,15 +391,12 @@ public class GolemResources : MonoBehaviour
 
             float knockbackCurrentSpeed = knockbackStrength * knockbackCurve.Evaluate(knockbackTimer);
 
-            golemPlayerController.characterController.Move(interceptVec * knockbackCurrentSpeed);
-
-            if (knockbackTimer > 1)
-            {
-                StopKnockback();
-            }
+            golemPlayerController.characterController.Move((interceptVec * knockbackCurrentSpeed) * Time.deltaTime);
 
             yield return null;
         }
+
+        StopKnockback();
     }
 
     void StopKnockback()

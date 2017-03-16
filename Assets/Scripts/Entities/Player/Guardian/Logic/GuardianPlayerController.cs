@@ -32,9 +32,6 @@ public class GuardianPlayerController : GuardianStats
 
     public LayerMask orbMask;
 
-    [Header("Debugging Values")]
-    private BasicCooldown cdAbility;
-
     [Header("CoolDowns")]
     private float globalCooldownTime;
 
@@ -51,11 +48,8 @@ public class GuardianPlayerController : GuardianStats
 
     void PlayerSetup()
     {
-        cdAbility = new BasicCooldown();
 
         globalCooldownTime = GameObject.FindObjectOfType<GlobalVariables>().guardianGlobalCooldown;
-
-        cdAbility.cdTime = globalCooldownTime;
 
         guardianInputManager = GetComponent<GuardianInputManager>();
 
@@ -140,19 +134,17 @@ public class GuardianPlayerController : GuardianStats
     {
         if (canAttack && attachedOrb != null)
         {
-            if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
+            if (aimVec != null)
             {
                 GameObject spawnObj = orbController.orbObjectBase;
 
                 if (aimVec != Vector3.zero)
                 {           
                     guardianAbilites[abilityNumber].CastGuardianAbility(aimVec, spawnObj, teamColor, holdTime);
-                    StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                 }
                 else
                 {
                     guardianAbilites[abilityNumber].CastGuardianAbility(transform.forward, spawnObj, teamColor, holdTime);
-                    StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                 }
             }
         }     
@@ -162,7 +154,7 @@ public class GuardianPlayerController : GuardianStats
     {
         if (canAttack && attachedOrb != null)
         {
-            if (aimVec != null && (cdAbility.cdStateEngine.currentState == cdAbility.possibleStates[2]))
+            if (aimVec != null)
             {
                 for (int i = 0; i < orbList.Count; i++)
                 {
@@ -171,12 +163,10 @@ public class GuardianPlayerController : GuardianStats
                     if (aimVec != Vector3.zero)
                     {
                         guardianAbilites[abilityNumber].CastGuardianAbility(aimVec, spawnObj, teamColor, holdTime);
-                        StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                     }
                     else
                     {
                         guardianAbilites[abilityNumber].CastGuardianAbility(transform.forward, spawnObj, teamColor, holdTime);
-                        StartCoroutine(cdAbility.RestartCoolDownCoroutine());
                     }
                 }            
             }

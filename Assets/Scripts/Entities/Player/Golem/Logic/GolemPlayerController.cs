@@ -29,19 +29,8 @@ public class GolemPlayerController : GolemStats
     public float characterVelocity;
     public float idleTime;
 
-
     [Header("Player Dodge Attributes")]
-    public AnimationCurve dodgeCurve;
-
-    private float dodgeTimer;
-
-    public float dodgeTime;
-
-    private Vector3 dodgeVec;
-    private Vector3 dodgeDirectionVec;
-    private Vector3 dodgeDestination;
-
-    private IEnumerator DodgeCoroutine;
+    public GolemDodgeAbilityBase golemDodge;
 
     [HideInInspector]
     public bool isStaggered;
@@ -198,6 +187,8 @@ public class GolemPlayerController : GolemStats
     {
         if (!isDodging && canDodge && golemCooldown.GlobalCooldownReady())
         {
+            Vector3 dodgeDirectionVec;
+
             if (moveVec == Vector2.zero)
             {
                 dodgeDirectionVec = transform.forward;
@@ -208,67 +199,22 @@ public class GolemPlayerController : GolemStats
                 dodgeDirectionVec = new Vector3(moveVec.x, 0, moveVec.y).normalized;
             }
            
-            dodgeDestination = transform.position + (dodgeDirectionVec * dodgeDistance);
-            dodgeDestination.y = 0;
-
-            dodgeSpeed = dodgeDistance / dodgeTime;
-
-            dodgeVec = (dodgeDestination - transform.position).normalized;
-
-            dodgeDestination.y = 0;
-
             golemState.SetTrigger("isDodge");
 
-            dodgeTimer = 0f;
+            canMove = false;
+            canDodge = false;
+            canAttack = false;
+            canRotate = false;
+            canUseAbilities = false;
+            isDodging = true;
 
             golemCooldown.QueueGlobalCooldown();
-            StartCoroutine(Dodge(dodgeVec, dodgeCurve, dodgeTime));
-            DodgeCoroutine = (Dodge(dodgeVec, dodgeCurve, dodgeTime));
+            golemDodge.StartDodge(dodgeDirectionVec);
         }
     } 
 
-    public void StopDodging()
-    {
-        if (isDodging)
-        {
-            StopCoroutine(DodgeCoroutine);
-        }
-    }
-
-
-    IEnumerator Dodge(Vector3 interceptVec, AnimationCurve dodgeCurve, float dodgeTime)
-    {
-        float dodgeTimer = 0f;
-
-        canMove = false;
-        canDodge = false;
-        canAttack = false;
-        canRotate = false;
-        canUseAbilities = false;
-        isDodging = true;
-
-        while (dodgeTimer <= dodgeTime) //Fucking While Loop is fucking up my shit.
-        {
-            dodgeTimer += Time.deltaTime / dodgeTime;
-
-            float dodgeCurrentSpeed = dodgeSpeed * dodgeCurve.Evaluate(dodgeTimer);
-
-            characterController.Move(interceptVec * dodgeCurrentSpeed);
-
-            if (dodgeTimer > 1)
-            {
-                ReachedEndOfDodge();
-            }
-
-            yield return null;
-        }
-    }
-
-    void ReachedEndOfDodge()
-    {
-        StopDodging();
-        DodgeCoroutine = null;
-
+    public void StopDodge()
+    {      
         canDodge = true;
         canMove = true;
         canRotate = true;

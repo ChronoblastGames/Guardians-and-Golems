@@ -794,25 +794,25 @@ Prefab:
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 1279967831}
-    - target: {fileID: 114176637646751958, guid: a0dd775133547fa42941d810b37182d1,
+    - target: {fileID: 114736899289739244, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
-      propertyPath: ability3Time
-      value: 2
+      propertyPath: dodgeSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114736899289739244, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: dodgeTime
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114052737197182830, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: effectStrength
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 114979732921295764, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: zoneRadius
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114979732921295764, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: abilityType
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114979732921295764, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: effectStrength
-      value: 10
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
@@ -1099,6 +1099,47 @@ Transform:
   - {fileID: 33743264}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1637065182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1637065184}
+  - component: {fileID: 1637065183}
+  m_Layer: 0
+  m_Name: FrameRateTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1637065183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637065182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93c91d959dec4e242b9e6a982cc5d619, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFrameRate: -1
+--- !u!4 &1637065184
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637065182}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1665538778
 Prefab:
@@ -1391,57 +1432,6 @@ Prefab:
     - target: {fileID: 1977623815689276, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
       propertyPath: m_Name
       value: RedBaseOrb
-      objectReference: {fileID: 0}
-    - target: {fileID: 114538917348251022, guid: 07ba592ea78a69f45b2914cddb758356,
-        type: 2}
-      propertyPath: totalCaptureAmount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114538917348251022, guid: 07ba592ea78a69f45b2914cddb758356,
-        type: 2}
-      propertyPath: orbState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114538917348251022, guid: 07ba592ea78a69f45b2914cddb758356,
-        type: 2}
-      propertyPath: orbColor
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185452576720686, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1429179078685972, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1653769800795204, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1597136909923742, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1977623815689276, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1339888121984822, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1964789019689796, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1652068388012806, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1977623815689276, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07ba592ea78a69f45b2914cddb758356, type: 2}

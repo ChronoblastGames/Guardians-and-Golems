@@ -57,6 +57,8 @@ public class UIManager : MonoBehaviour
 
     public void RequestDamageText(float damageValue, Transform textPosition)
     {
-        floatingTextManager.CreateDamageText(damageValue, textPosition);
+        int damageAmount = (int)damageValue;
+
+        floatingTextManager.CreateDamageText(damageAmount, textPosition);
     }
 }
