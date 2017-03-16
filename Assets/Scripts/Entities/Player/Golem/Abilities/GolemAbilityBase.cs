@@ -7,6 +7,8 @@ public class GolemAbilityBase : MonoBehaviour
 
     public AbilityValues abilityValues;
 
+    public bool isAbilityActive = false;
+
 	public virtual void InitializeAbility()
     {
 

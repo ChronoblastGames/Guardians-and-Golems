@@ -54,7 +54,6 @@ GameObject:
   - component: {fileID: 4323297434244802}
   - component: {fileID: 33199510285621792}
   - component: {fileID: 23171338062563346}
-  - component: {fileID: 65732909674959090}
   m_Layer: 0
   m_Name: pCube1
   m_TagString: Untagged
@@ -138,6 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4125177043700050}
   - component: {fileID: 114538917348251022}
+  - component: {fileID: 65580251209169978}
   m_Layer: 16
   m_Name: Orb_v1
   m_TagString: Untagged
@@ -305,17 +305,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1597136909923742}
   m_Mesh: {fileID: 4300002, guid: 986175d3aceb4294890e2ed3136d365a, type: 3}
---- !u!65 &65732909674959090
+--- !u!65 &65580251209169978
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1429179078685972}
+  m_GameObject: {fileID: 1977623815689276}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.1, y: 1.5, z: 2.1}
+  m_Size: {x: 2, y: 5, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &108420838298661258
 Light:

@@ -30,10 +30,7 @@ public class GuardianAbility : AbilityBase
 
         switch (abilityType)
         {
-            case AbilityType.BUFF:
-                break;
-
-            case AbilityType.DEBUFF:
+            case AbilityType.SELF:
                 break;
 
             case AbilityType.PROJECTILE:
@@ -47,7 +44,9 @@ public class GuardianAbility : AbilityBase
                     spawnVec = spawnPos.transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
 
                     GameObject newProjectile = Instantiate(ability, spawnVec, spawnRot) as GameObject;
+
                     Physics.IgnoreCollision(newProjectile.GetComponent<Collider>(), spawnPos.GetComponent<Collider>());
+
                     newProjectile.GetComponent<BaseProjectileAbility>().abilityValues = abilityValues;
                     newProjectile.GetComponent<BaseProjectileAbility>().InitializeAbility();
 
@@ -116,6 +115,7 @@ public class GuardianAbility : AbilityBase
     {
         AbilityValues abilityInfo;
 
+        abilityInfo.abilityCastTime = abilityCastTime;
         abilityInfo.damageType = damageType;
         abilityInfo.damageAmount = damageAmount;
         abilityInfo.activeTime = activeTime;
@@ -129,6 +129,7 @@ public class GuardianAbility : AbilityBase
         abilityInfo.zoneStrength = zoneStrength;
         abilityInfo.isMelee = isMelee;
         abilityInfo.isRanged = isRanged;
+        abilityInfo.isHeld = isHeld;
         abilityInfo.healthCost = healthCost;
         abilityInfo.manaCost = manaCost;
         abilityInfo.statusEffect = statusEffect;

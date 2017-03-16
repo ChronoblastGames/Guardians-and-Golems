@@ -20,12 +20,14 @@ public enum AbilityType
     STATIC,
     ZONE,
     BEAM,
-    BUFF,
-    DEBUFF,
+    SELF,
 }
 
 public struct AbilityValues
 {
+    [Header("Ability Cast Time")]
+    public float abilityCastTime;
+
     [Header("Damage Attributes")]
     public DamageType damageType;
     public float damageAmount;
@@ -51,6 +53,7 @@ public struct AbilityValues
 
     public bool isMelee;
     public bool isRanged;
+    public bool isHeld;
 
     [Header("Ability Effect")]
     public StatusEffect statusEffect;
@@ -64,6 +67,9 @@ public abstract class AbilityBase : MonoBehaviour
     [Header("Ability")]
     public GameObject ability;
 
+    [Header("Ability Cast Time")]
+    public float abilityCastTime;
+
     [Header("Damage Attributes")]
     public DamageType damageType;
     public float damageAmount;
@@ -89,6 +95,7 @@ public abstract class AbilityBase : MonoBehaviour
 
     public bool isMelee;
     public bool isRanged;
+    public bool isHeld;
 
     [Header("Ability Effect")]
     public StatusEffect statusEffect;

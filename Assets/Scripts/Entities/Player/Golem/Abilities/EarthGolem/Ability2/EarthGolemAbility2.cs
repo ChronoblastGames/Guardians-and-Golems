@@ -6,7 +6,6 @@ public class EarthGolemAbility2 : GolemAbilityBase
     private TimerClass activeTimer;
 
     private bool isTimerActive;
-    private bool isAbilityActive;
 	
 	void Update () 
     {

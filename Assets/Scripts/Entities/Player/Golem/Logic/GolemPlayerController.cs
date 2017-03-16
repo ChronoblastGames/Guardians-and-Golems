@@ -9,6 +9,7 @@ public class GolemPlayerController : GolemStats
     public CharacterController characterController;
 
     private GolemInputManager golemInputManager;
+    private GolemResources golemResources;
     private GolemMelee golemMelee;
     private CooldownManager golemCooldown;
 
@@ -87,6 +88,8 @@ public class GolemPlayerController : GolemStats
 
         golemInputManager = GetComponent<GolemInputManager>();
 
+        golemResources = GetComponent<GolemResources>();
+
         golemMelee = GetComponent<GolemMelee>();
 
         golemCooldown = GetComponent<CooldownManager>();
@@ -158,17 +161,20 @@ public class GolemPlayerController : GolemStats
     {
         if (aimVec != null && canUseAbilities && golemCooldown.GlobalCooldownReady() && golemCooldown.CanUseAbility(abilityNumber))
         {
-            if (aimVec != Vector3.zero)
+            if (golemResources.CanCast(golemAbilities[abilityNumber].GetComponent<GolemAbility>().manaCost, golemAbilities[abilityNumber].GetComponent<GolemAbility>().healthCost))
             {
-                golemAbilities[abilityNumber].CastAbility(aimVec, teamColor, holdTime);
-                golemCooldown.QueueGlobalCooldown();
-                golemCooldown.QueueAbilityCooldown(abilityNumber);
-            }
-            else
-            {
-                golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor, holdTime);
-                golemCooldown.QueueGlobalCooldown();
-                golemCooldown.QueueAbilityCooldown(abilityNumber);
+                if (aimVec != Vector3.zero)
+                {
+                    golemAbilities[abilityNumber].CastAbility(aimVec, teamColor, holdTime);
+                    golemCooldown.QueueGlobalCooldown();
+                    golemCooldown.QueueAbilityCooldown(abilityNumber);
+                }
+                else
+                {
+                    golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor, holdTime);
+                    golemCooldown.QueueGlobalCooldown();
+                    golemCooldown.QueueAbilityCooldown(abilityNumber);
+                }
             }
         }
     }

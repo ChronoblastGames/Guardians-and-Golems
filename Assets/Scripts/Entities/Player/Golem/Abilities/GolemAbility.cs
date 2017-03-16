@@ -31,7 +31,9 @@ public class GolemAbility : AbilityBase
         Vector3 spawnVec;
         Quaternion spawnRot;
 
-        if (holdTime < minHoldTime)
+        abilityValues = CreateAbilityStruct();
+
+        if (heldTime < minHoldTime)
         {
             holdTime = 0;
         }
@@ -40,110 +42,73 @@ public class GolemAbility : AbilityBase
 
         switch(abilityType)
         {
-            case AbilityType.BUFF:
-                break;
-
-            case AbilityType.DEBUFF:
+            case AbilityType.SELF:
                 break;
 
             case AbilityType.PROJECTILE:
 
-                abilityValues = CreateAbilityStruct();
+                spawnRot = Quaternion.LookRotation(aimVec);
 
-                if (golemResources.CanCast(abilityValues.manaCost))
-                {
-                    spawnRot = Quaternion.LookRotation(aimVec);
+                spawnVec = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
 
-                    spawnVec = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
+                StartCoroutine(FireAbility(ability, spawnVec, spawnRot, abilityValues.abilityCastTime, teamColor, null, abilityValues));
 
-                    GameObject newProjectile = Instantiate(ability, spawnVec, spawnRot) as GameObject;
-                    newProjectile.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
-                    newProjectile.GetComponent<GolemAbilityBase>().InitializeAbility();
-
-                    if (teamColor == PlayerTeam.RED)
-                    {
-                        newProjectile.layer = 8;
-                    }
-                    else if (teamColor == PlayerTeam.BLUE)
-                    {
-                        newProjectile.layer = 9;
-                    }
-                }              
                 break;
 
             case AbilityType.STATIC:
 
-                abilityValues = CreateAbilityStruct();
+                spawnRot = Quaternion.LookRotation(aimVec);
 
-                if (golemResources.CanCast(abilityValues.manaCost))
-                {
-                    spawnRot = Quaternion.LookRotation(aimVec);
+                spawnVec = aimVec;
+                spawnVec.Normalize();
+                spawnVec = spawnVec * abilityValues.spawnDistanceFromPlayer;
 
-                    spawnVec = aimVec;
-                    spawnVec.Normalize();
-                    spawnVec = spawnVec * abilityValues.spawnDistanceFromPlayer;
+                spawnVec = transform.position + spawnVec;
 
-                    GameObject newStaticAbility = Instantiate(ability, transform.position + spawnVec, spawnRot) as GameObject;
+                StartCoroutine(FireAbility(ability, spawnVec, spawnRot, abilityValues.abilityCastTime, teamColor, null, abilityValues));
 
-                    if (teamColor == PlayerTeam.RED)
-                    {
-                        newStaticAbility.layer = 8;
-                    }
-                    else if (teamColor == PlayerTeam.BLUE)
-                    {
-                        newStaticAbility.layer = 9;
-                    }
-                    newStaticAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
-                    newStaticAbility.GetComponent<GolemAbilityBase>().InitializeAbility();            
-                }
                 break;
 
             case AbilityType.ZONE:
 
-                abilityValues = CreateAbilityStruct();
+                spawnRot = Quaternion.LookRotation(aimVec);
 
-                if (golemResources.CanCast(abilityValues.manaCost))
-                {
-                    if (aimVec != Vector3.zero)
-                    {
-                        spawnRot = Quaternion.LookRotation(aimVec);
+                Vector3 zoneSpawnVec = aimVec;
+                zoneSpawnVec.Normalize();
+                zoneSpawnVec = zoneSpawnVec * abilityValues.spawnDistanceFromPlayer;
+                zoneSpawnVec.y = 0f;
 
-                        Vector3 zoneSpawnVec = aimVec;
-                        zoneSpawnVec.Normalize();
-                        zoneSpawnVec = zoneSpawnVec * abilityValues.spawnDistanceFromPlayer;
-                        zoneSpawnVec.y = 0f;
+                zoneSpawnVec = transform.position + zoneSpawnVec;
 
-                        GameObject newZoneAbility = Instantiate(ability, transform.position + zoneSpawnVec, spawnRot) as GameObject;
+                StartCoroutine(FireAbility(ability, zoneSpawnVec, spawnRot, abilityValues.abilityCastTime, teamColor, null, abilityValues));
 
-                        if (teamColor == PlayerTeam.RED)
-                        {
-                            newZoneAbility.layer = 8;
-                        }
-                        else if (teamColor == PlayerTeam.BLUE)
-                        {
-                            newZoneAbility.layer = 9;
-                        }
-
-                        newZoneAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
-                        newZoneAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
-
-                    }
-                    else
-                    {
-                        Debug.Log("Should cast on myself");
-                        GameObject newZoneAbility = Instantiate(ability, transform.position, Quaternion.identity) as GameObject;
-                        newZoneAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityValues;
-                        newZoneAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
-                    }
-                }         
                 break;
         }       
+    }
+
+    private IEnumerator FireAbility(GameObject ability, Vector3 spawnPos, Quaternion spawnRot, float castTime, PlayerTeam teamColor, GameObject target, AbilityValues abilityInfo)
+    {
+        yield return new WaitForSeconds(castTime);
+
+        if (teamColor == PlayerTeam.RED)
+        {
+            ability.layer = 8;
+        }
+        else if (teamColor == PlayerTeam.BLUE)
+        {
+            ability.layer = 9;
+        }
+        GameObject newAbility = Instantiate(ability, spawnPos, spawnRot) as GameObject;
+
+        newAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityInfo;
+        newAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
     }
 
     public AbilityValues CreateAbilityStruct()
     {
         AbilityValues abilityInfo;
 
+        abilityInfo.abilityCastTime = abilityCastTime;
         abilityInfo.damageType = damageType;
         abilityInfo.damageAmount = damageAmount;
         abilityInfo.activeTime = activeTime;
@@ -157,6 +122,7 @@ public class GolemAbility : AbilityBase
         abilityInfo.zoneStrength = zoneStrength;
         abilityInfo.isMelee = isMelee;
         abilityInfo.isRanged = isRanged;
+        abilityInfo.isHeld = isHeld;
         abilityInfo.healthCost = healthCost;
         abilityInfo.manaCost = manaCost;
         abilityInfo.statusEffect = statusEffect;

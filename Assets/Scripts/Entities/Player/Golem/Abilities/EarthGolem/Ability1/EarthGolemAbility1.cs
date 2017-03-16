@@ -20,8 +20,6 @@ public class EarthGolemAbility1 : GolemAbilityBase
 
     public float shardDepth;
 
-    private bool timerActive;
-
     private void Start()
     {
         InitializeAbility();
@@ -55,7 +53,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
         {
             activeTimer.ResetTimer(abilityValues.activeTime);
 
-            timerActive = true;
+            isAbilityActive = true;
         }
 
         abilityTrigger = GetComponent<SphereCollider>();
@@ -102,7 +100,7 @@ public class EarthGolemAbility1 : GolemAbilityBase
 
     void ManageTimer()
     {
-        if (timerActive)
+        if (isAbilityActive)
         {
             if (activeTimer.TimerIsDone())
             {

@@ -183,11 +183,12 @@ public class GolemResources : MonoBehaviour
         }   
     }
 
-    public bool CanCast(float spellManaCost)
+    public bool CanCast(float spellManaCost, float spellHealthCost)
     {
-        if (currentMana > spellManaCost)
+        if (currentMana > spellManaCost && currentHealth > spellHealthCost)
         {
             currentMana -= spellManaCost;
+            currentHealth -= spellHealthCost;
             return true;
         }
         else

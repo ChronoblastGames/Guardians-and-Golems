@@ -283,6 +283,8 @@ public class OrbController : MonoBehaviour
     {
         orbState = OrbState.DISABLED;
 
+        Debug.Log("Off");
+
         yield return new WaitForSeconds(disableTime);
 
         if (orbColor == PlayerTeam.RED || orbColor == PlayerTeam.BLUE)

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4568474706958080}
   - component: {fileID: 114100532039277750}
   - component: {fileID: 135865323125058988}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EarthShards_Ability1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff0dfc65aefec644b370fe29be5c505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAbilityActive: 0
   earthShard: {fileID: 1689473895437552, guid: b885afc24a87b044a80c5223f95f7d97, type: 2}
   shardCount: 5
   ringCount: 1

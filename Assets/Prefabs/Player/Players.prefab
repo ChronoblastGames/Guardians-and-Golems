@@ -4664,6 +4664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
+  abilityCastTime: 0
   damageType: 0
   damageAmount: 10
   projectileSpeed: 25
@@ -4679,6 +4680,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -4701,6 +4703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
+  abilityCastTime: 0.5
   damageType: 3
   damageAmount: 5
   projectileSpeed: 0
@@ -4716,8 +4719,9 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 1
   statusEffect: 7
-  effectStrength: 0.5
+  effectStrength: 35
   effectTime: 1
   abilityType: 1
   redMask:
@@ -4739,6 +4743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
+  abilityCastTime: 0
   damageType: 3
   damageAmount: 20
   projectileSpeed: 35
@@ -4754,6 +4759,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -4777,6 +4783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
+  abilityCastTime: 0
   damageType: 2
   damageAmount: 25
   projectileSpeed: 40
@@ -4792,6 +4799,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -4815,6 +4823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962, type: 2}
+  abilityCastTime: 0
   damageType: 0
   damageAmount: 15
   projectileSpeed: 30
@@ -4830,6 +4839,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -4883,6 +4893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
+  abilityCastTime: 0
   damageType: 2
   damageAmount: 25
   projectileSpeed: 40
@@ -4898,6 +4909,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -4982,6 +4994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
+  abilityCastTime: 0
   damageType: 0
   damageAmount: 10
   projectileSpeed: 25
@@ -4997,6 +5010,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -5054,6 +5068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
+  abilityCastTime: 0
   damageType: 3
   damageAmount: 20
   projectileSpeed: 35
@@ -5069,6 +5084,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -5208,6 +5224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1530976692658324, guid: a804f9018193a234492f4dbc70def55d, type: 2}
+  abilityCastTime: 0
   damageType: 3
   damageAmount: 15
   projectileSpeed: 30
@@ -5223,6 +5240,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 2
   effectStrength: 2
   effectTime: 3
@@ -5246,6 +5264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
+  abilityCastTime: 0
   damageType: 3
   damageAmount: 20
   projectileSpeed: 35
@@ -5261,6 +5280,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -5659,6 +5679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
+  abilityCastTime: 0
   damageType: 3
   damageAmount: 5
   projectileSpeed: 0
@@ -5674,6 +5695,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 7
   effectStrength: 0.5
   effectTime: 1
@@ -5697,6 +5719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962, type: 2}
+  abilityCastTime: 0
   damageType: 0
   damageAmount: 15
   projectileSpeed: 30
@@ -5712,6 +5735,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -5777,22 +5801,22 @@ MonoBehaviour:
       outSlope: 0.02797422
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.65
-      value: 1
-      inSlope: 0.000009372313
-      outSlope: 0.000009372313
+      time: 0.55
+      value: 0.75
+      inSlope: -2.1505675
+      outSlope: -2.1505675
       tangentMode: 0
     - serializedVersion: 2
       time: 0.75
       value: 0
-      inSlope: -9.999998
-      outSlope: -9.999998
+      inSlope: -3.7500002
+      outSlope: -3.7500002
       tangentMode: 34
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
   dodgeTime: 0.75
-  dodgeSpeed: 5
+  dodgeSpeed: 50
   dodgeDamage: 0
   dodgeEffect: 0
 --- !u!114 &114743948172837518
@@ -5825,6 +5849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1530976692658324, guid: a804f9018193a234492f4dbc70def55d, type: 2}
+  abilityCastTime: 0
   damageType: 3
   damageAmount: 15
   projectileSpeed: 30
@@ -5840,6 +5865,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 2
   effectStrength: 2
   effectTime: 3
@@ -5880,8 +5906,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
-  damageType: 2
+  ability: {fileID: 0}
+  abilityCastTime: 2
+  damageType: 3
   damageAmount: 25
   projectileSpeed: 40
   spawnDistanceFromPlayer: 0
@@ -5896,10 +5923,11 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 0
+  abilityType: 2
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -5930,6 +5958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
+  abilityCastTime: 0
   damageType: 2
   damageAmount: 25
   projectileSpeed: 40
@@ -5945,6 +5974,7 @@ MonoBehaviour:
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
@@ -5999,6 +6029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
+  abilityCastTime: 1
   damageType: 8
   damageAmount: 0
   projectileSpeed: 0
@@ -6007,13 +6038,14 @@ MonoBehaviour:
   holdTime: 0
   raiseAmount: 0
   raiseSpeed: 0
-  zoneRadius: 25
+  zoneRadius: 1000
   zoneHeight: 0
   zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
   isRanged: 1
+  isHeld: 0
   statusEffect: 0
   effectStrength: 10
   effectTime: 0

@@ -15,8 +15,6 @@ public class GolemDodgeAbilityBase : MonoBehaviour
 
     public float dodgeSpeed;
 
-    private IEnumerator DodgeCoroutine;
-
     [Header("Player Dodge Damage Attributes")]
     public float dodgeDamage;
 
