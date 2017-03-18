@@ -44,6 +44,9 @@ public class GolemInputManager : MonoBehaviour
     [HideInInspector]
     public float aimZAxis;
 
+    [HideInInspector]
+    public Vector2 aimVecDirection;
+
     private float modifierAxis;
 
     [HideInInspector]
@@ -146,6 +149,8 @@ public class GolemInputManager : MonoBehaviour
 
         aimXAxis = Input.GetAxis(inputAimAxisX);
         aimZAxis = Input.GetAxis(inputAimAxisZ);
+
+        aimVecDirection = new Vector2(aimXAxis, aimZAxis).normalized;
 
         modifierAxis = Input.GetAxis(inputModifierAxis);
         blockAxis = Input.GetAxis(inputBlockAxis);

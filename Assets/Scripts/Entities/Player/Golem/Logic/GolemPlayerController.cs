@@ -38,10 +38,12 @@ public class GolemPlayerController : GolemStats
 
     private Vector2 moveVec;
     private Vector2 directionVec;
+    private Vector3 aimDirectionVec;
 
     [Header("Player Turning Attributes")]
     public float turnSmoothTime = 0.2f;
     public float attackTurnSmoothTime = 0.3f;
+    public float aimAttackTurnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
     [Header("Player Gravity Attributes")]
@@ -59,6 +61,7 @@ public class GolemPlayerController : GolemStats
     public bool isDodging = false;
     public bool isBlocking = false;
     public bool isAttacking = false;
+    public bool isUsingAbility = false;
     public bool isSlowed = false;
 
     [Header("Debugging Values")]
@@ -110,6 +113,7 @@ public class GolemPlayerController : GolemStats
     {
         moveVec = golemInputManager.moveVec;
         directionVec = golemInputManager.moveDirection;
+        aimDirectionVec = golemInputManager.aimVecDirection;
     }
 
     void ManageMovement()
@@ -148,6 +152,11 @@ public class GolemPlayerController : GolemStats
                 float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
                 transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, attackTurnSmoothTime);
             }
+            else if (isUsingAbility)
+            {
+                float targetRotation = Mathf.Atan2(aimDirectionVec.x, aimDirectionVec.y) * Mathf.Rad2Deg;
+                transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, aimAttackTurnSmoothTime);
+            }
             else
             {
                 float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
@@ -165,12 +174,16 @@ public class GolemPlayerController : GolemStats
             {
                 if (aimVec != Vector3.zero)
                 {
+                    golemState.SetTrigger("UseAbility");
+                    golemState.SetTrigger("Ability" + (abilityNumber + 1));
                     golemAbilities[abilityNumber].CastAbility(aimVec, teamColor, holdTime, gameObject);
                     golemCooldown.QueueGlobalCooldown();
                     golemCooldown.QueueAbilityCooldown(abilityNumber);
                 }
                 else
                 {
+                    golemState.SetTrigger("UseAbility");
+                    golemState.SetTrigger("Ability" + (abilityNumber + 1));
                     golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor, holdTime, gameObject);
                     golemCooldown.QueueGlobalCooldown();
                     golemCooldown.QueueAbilityCooldown(abilityNumber);

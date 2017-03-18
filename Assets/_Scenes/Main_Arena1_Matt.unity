@@ -794,30 +794,25 @@ Prefab:
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 482657122}
-    - target: {fileID: 114979732921295764, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: activeTime
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114979732921295764, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: zoneRadius
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114979732921295764, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: statusEffect
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114979732921295764, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: effectTime
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 114384258539769410, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: abilityCastTime
-      value: 0.25
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114052737197182830, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: abilityCastTime
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114979732921295764, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: abilityCastTime
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 114827916180472632, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: abilityCastTime
+      value: 1.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}

@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 4315936605452330}
   - component: {fileID: 114052737197182830}
   m_Layer: 8
-  m_Name: Ability1
+  m_Name: Ability2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1492,7 +1492,7 @@ GameObject:
   - component: {fileID: 4348496682315820}
   - component: {fileID: 114384258539769410}
   m_Layer: 8
-  m_Name: Ability2
+  m_Name: Ability1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2478,8 +2478,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4399883938092270}
-  - {fileID: 4315936605452330}
   - {fileID: 4348496682315820}
+  - {fileID: 4315936605452330}
   - {fileID: 4066930200333990}
   - {fileID: 4684925797780620}
   m_Father: {fileID: 4049594650926698}
@@ -2990,7 +2990,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4070352502973254}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4316448543642942
 Transform:
@@ -3047,7 +3047,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4070352502973254}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4350429443611182
 Transform:
@@ -4663,6 +4663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
   abilityCastTime: 0
   damageType: 0
@@ -4702,6 +4703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
   abilityCastTime: 0.5
   damageType: 3
@@ -4742,6 +4744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
   abilityCastTime: 0
   damageType: 3
@@ -4782,6 +4785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
   abilityCastTime: 0
   damageType: 2
@@ -4822,6 +4826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962, type: 2}
   abilityCastTime: 0
   damageType: 0
@@ -4892,6 +4897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
   abilityCastTime: 0
   damageType: 2
@@ -4955,8 +4961,8 @@ MonoBehaviour:
     golemStability: 25
     golemStaggerTime: 0
   golemAbilities:
-  - {fileID: 114052737197182830}
   - {fileID: 114384258539769410}
+  - {fileID: 114052737197182830}
   - {fileID: 114979732921295764}
   - {fileID: 114827916180472632}
   characterController: {fileID: 0}
@@ -4993,6 +4999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
   abilityCastTime: 0
   damageType: 0
@@ -5067,6 +5074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
   abilityCastTime: 0
   damageType: 3
@@ -5144,6 +5152,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  temporaryHealth: 0
   currentMana: Infinity
   maxMana: Infinity
   healthRegenerationSpeed: 1.25
@@ -5223,8 +5232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1530976692658324, guid: a804f9018193a234492f4dbc70def55d, type: 2}
-  abilityCastTime: 0
+  abilityCastTime: 0.25
   damageType: 3
   damageAmount: 15
   projectileSpeed: 30
@@ -5263,6 +5273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
   abilityCastTime: 0
   damageType: 3
@@ -5315,6 +5326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
+  temporaryHealth: 0
   currentMana: Infinity
   maxMana: Infinity
   healthRegenerationSpeed: 1.25
@@ -5678,6 +5690,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
   abilityCastTime: 0
   damageType: 3
@@ -5718,6 +5731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962, type: 2}
   abilityCastTime: 0
   damageType: 0
@@ -5848,6 +5862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1530976692658324, guid: a804f9018193a234492f4dbc70def55d, type: 2}
   abilityCastTime: 0
   damageType: 3
@@ -5906,13 +5921,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ability: {fileID: 0}
+  casterGameObject: {fileID: 0}
+  ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
   abilityCastTime: 2
   damageType: 3
-  damageAmount: 25
-  projectileSpeed: 40
+  damageAmount: 2
+  projectileSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 0
+  activeTime: 5
   holdTime: 0
   raiseAmount: 0
   raiseSpeed: 0
@@ -5920,13 +5936,13 @@ MonoBehaviour:
   zoneHeight: 0
   zoneStrength: 0
   healthCost: 0
-  manaCost: 25
+  manaCost: 50
   isMelee: 0
   isRanged: 1
   isHeld: 0
-  statusEffect: 0
-  effectStrength: 0
-  effectTime: 0
+  statusEffect: 2
+  effectStrength: 1
+  effectTime: 2
   abilityType: 2
   redMask:
     serializedVersion: 2
@@ -5957,6 +5973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
   abilityCastTime: 0
   damageType: 2
@@ -6028,17 +6045,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
   abilityCastTime: 1
   damageType: 8
   damageAmount: 0
   projectileSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 0
+  activeTime: 1.25
   holdTime: 0
   raiseAmount: 0
   raiseSpeed: 0
-  zoneRadius: 1000
+  zoneRadius: 100
   zoneHeight: 0
   zoneStrength: 0
   healthCost: 0
@@ -6046,9 +6064,9 @@ MonoBehaviour:
   isMelee: 0
   isRanged: 1
   isHeld: 0
-  statusEffect: 0
+  statusEffect: 6
   effectStrength: 10
-  effectTime: 0
+  effectTime: 3
   abilityType: 2
   redMask:
     serializedVersion: 2
@@ -10979,7 +10997,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 128977810
+  randomSeed: -162992482
   InitialModule:
     serializedVersion: 3
     enabled: 1
