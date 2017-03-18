@@ -28,6 +28,7 @@ public class GolemResources : MonoBehaviour
     [Header("Player Health Attributes")]
     public float currentHealth;
     public float maxHealth;
+    public float temporaryHealth;
 
     [Header("Player Mana Attributes")]
     public float currentMana;
@@ -60,6 +61,10 @@ public class GolemResources : MonoBehaviour
 
     [HideInInspector]
     public GolemDefense golemDefense;
+
+    private IEnumerator currentSlowCoroutine;
+    private IEnumerator currentShieldCoroutine;
+    private IEnumerator currentKnockbackCoroutine;
 
     void Awake()
     {     
@@ -275,7 +280,27 @@ public class GolemResources : MonoBehaviour
 
     public void DealDamage(float damageValue, GameObject damagingObject, DamageType damageType)
     {
-        if (currentHealth > damageValue)
+        if (temporaryHealth > 0)
+        {
+            float calculateDamage = temporaryHealth - damageValue;
+
+            if (calculateDamage < 0)
+            {
+                statusEffectList.Remove(StatusEffect.SHIELD);
+
+                StopCoroutine(currentShieldCoroutine);
+                StopShield();
+
+                currentHealth -= Mathf.Abs(damageValue);
+            }
+            else
+            {
+                temporaryHealth -= damageValue;
+            }
+
+            hitParticles.Emit(100);
+        }
+        else if (currentHealth > damageValue)
         {
             currentHealth -= damageValue;
             hitParticles.Emit(100);
@@ -338,6 +363,9 @@ public class GolemResources : MonoBehaviour
                 break;
 
             case StatusEffect.SHIELD:
+                StartCoroutine(Shield(effectStrength, effectTime));
+
+                statusEffectList.Add(StatusEffect.SHIELD);
                 break;
 
             case StatusEffect.SILENCE:
@@ -357,6 +385,7 @@ public class GolemResources : MonoBehaviour
                 interceptVec.y = 0;
 
                 StartCoroutine(Knockback(-interceptVec, knockBackCurve, effectStrength, effectTime));
+                currentKnockbackCoroutine = Knockback(-interceptVec, knockBackCurve, effectStrength, effectTime);
 
                 statusEffectList.Add(StatusEffect.KNOCKBACK);
                 break;
@@ -375,10 +404,11 @@ public class GolemResources : MonoBehaviour
 
 
     IEnumerator Knockback(Vector3 interceptVec, AnimationCurve knockbackCurve, float knockbackStrength, float knockbackTime)
-    {
+    {      
         float knockbackTimer = 0f;
 
-        golemPlayerController.canMove = false;
+        golemPlayerController.StopMovement();
+
         golemPlayerController.canRotate = false;
         golemPlayerController.canUseAbilities = false;
         golemPlayerController.canBlock = false;
@@ -402,7 +432,8 @@ public class GolemResources : MonoBehaviour
 
     void StopKnockback()
     {
-        golemPlayerController.canMove = true;
+        golemPlayerController.StartMovement();
+
         golemPlayerController.canRotate = true;
         golemPlayerController.canUseAbilities = true;
         golemPlayerController.canBlock = true;
@@ -428,9 +459,29 @@ public class GolemResources : MonoBehaviour
     {
         isSlowed = false;
 
-        statusEffectList.Remove(StatusEffect.SLOW);
-
         golemPlayerController.movementSpeed = golemPlayerController.baseMovementSpeed;
+
+        statusEffectList.Remove(StatusEffect.SLOW);
+    }
+
+    IEnumerator Shield (float shieldStrength, float shieldTime)
+    {
+        isShielded = true;
+
+        temporaryHealth += shieldStrength;
+
+        yield return new WaitForSeconds(shieldTime);
+
+        StopShield();
+    }
+
+    void StopShield()
+    {
+        isShielded = false;
+
+        temporaryHealth = 0;
+
+        statusEffectList.Remove(StatusEffect.SHIELD);
     }
 }
 

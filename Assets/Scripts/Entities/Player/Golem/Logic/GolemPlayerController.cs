@@ -165,13 +165,13 @@ public class GolemPlayerController : GolemStats
             {
                 if (aimVec != Vector3.zero)
                 {
-                    golemAbilities[abilityNumber].CastAbility(aimVec, teamColor, holdTime);
+                    golemAbilities[abilityNumber].CastAbility(aimVec, teamColor, holdTime, gameObject);
                     golemCooldown.QueueGlobalCooldown();
                     golemCooldown.QueueAbilityCooldown(abilityNumber);
                 }
                 else
                 {
-                    golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor, holdTime);
+                    golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor, holdTime, gameObject);
                     golemCooldown.QueueGlobalCooldown();
                     golemCooldown.QueueAbilityCooldown(abilityNumber);
                 }
@@ -297,5 +297,17 @@ public class GolemPlayerController : GolemStats
             golemState.SetBool("isIdle", false);
             isIdle = false;
         }
+    }
+
+    public void StartMovement()
+    {
+        canMove = true;
+        golemState.SetBool("canMove", true);
+    }
+
+    public void StopMovement()
+    {
+        canMove = false;
+        golemState.SetBool("canMove", false);
     }
 }

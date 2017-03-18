@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GolemAbility : AbilityBase 
 {
+    private GolemPlayerController golemPlayerController;
     private GolemResources golemResources;
 
     [Header("Ability Type")]
@@ -25,13 +26,17 @@ public class GolemAbility : AbilityBase
         golemResources = transform.parent.parent.GetComponent<GolemResources>();
     }
 
-    public override void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float heldTime)
+    public override void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float heldTime, GameObject casterObject)
     {
         AbilityValues abilityValues;
         Vector3 spawnVec;
         Quaternion spawnRot;
 
+        golemPlayerController = casterObject.GetComponent<GolemPlayerController>();
+
         abilityValues = CreateAbilityStruct();
+
+        abilityValues.casterGameObject = casterObject;
 
         if (heldTime < minHoldTime)
         {
@@ -86,9 +91,16 @@ public class GolemAbility : AbilityBase
         }       
     }
 
-    private IEnumerator FireAbility(GameObject ability, Vector3 spawnPos, Quaternion spawnRot, float castTime, PlayerTeam teamColor, GameObject target, AbilityValues abilityInfo)
+    private IEnumerator FireAbility(GameObject ability, Vector3 spawnPos, Quaternion spawnRot, float castTime, PlayerTeam teamColor, GameObject targetSpawnPos, AbilityValues abilityInfo)
     {
-        yield return new WaitForSeconds(castTime);
+        if (castTime > 0)
+        {
+            golemPlayerController.StopMovement();
+
+            yield return new WaitForSeconds(castTime);
+
+            golemPlayerController.StartMovement();
+        }
 
         if (teamColor == PlayerTeam.RED)
         {
@@ -108,6 +120,7 @@ public class GolemAbility : AbilityBase
     {
         AbilityValues abilityInfo;
 
+        abilityInfo.casterGameObject = casterGameObject;
         abilityInfo.abilityCastTime = abilityCastTime;
         abilityInfo.damageType = damageType;
         abilityInfo.damageAmount = damageAmount;

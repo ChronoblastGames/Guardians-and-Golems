@@ -9,6 +9,15 @@ public class EarthGolemAbility3 : GolemAbilityBase
     public override void InitializeAbility()
     {
         CheckArea();
+
+        GiveShield();
+
+        Destroy(gameObject, abilityValues.activeTime);
+    }
+
+    void GiveShield()
+    {
+        abilityValues.casterGameObject.GetComponent<GolemResources>().InflictStatusEffect(abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
     }
 
     void CheckArea()
@@ -21,7 +30,6 @@ public class EarthGolemAbility3 : GolemAbilityBase
         {
             if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
             {
-                Debug.Log("Domo Origato Mr Roboto");
                 hitColliders[i].GetComponent<OrbController>().DisableOrb(abilityValues.effectTime, PlayerTeam.RED);
             }
             else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))

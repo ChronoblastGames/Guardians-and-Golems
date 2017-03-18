@@ -25,6 +25,9 @@ public enum AbilityType
 
 public struct AbilityValues
 {
+    [Header("Cast Info")]
+    public GameObject casterGameObject;
+
     [Header("Ability Cast Time")]
     public float abilityCastTime;
 
@@ -64,6 +67,9 @@ public struct AbilityValues
 
 public abstract class AbilityBase : MonoBehaviour
 {
+    [Header("Cast Info")]
+    public GameObject casterGameObject;
+
     [Header("Ability")]
     public GameObject ability;
 
@@ -106,7 +112,7 @@ public abstract class AbilityBase : MonoBehaviour
     [Header("Ability Info")]
     public AbilityValues abilityValues;
 
-    public virtual void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float holdTime)
+    public virtual void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float holdTime, GameObject casterObject)
     {
         Debug.LogError("Base Ability Cast, should have been overriden");
     }
