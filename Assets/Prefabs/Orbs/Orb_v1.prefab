@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 65580251209169978}
   m_Layer: 16
   m_Name: Orb_v1
-  m_TagString: Untagged
+  m_TagString: Conduit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

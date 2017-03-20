@@ -54,7 +54,14 @@ public class GolemAbility : AbilityBase
 
                 spawnRot = Quaternion.LookRotation(aimVec);
 
-                spawnVec = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
+                if (spawnPos != null)
+                {
+                    spawnVec = spawnPos.transform.position;
+                }
+                else
+                {
+                    spawnVec = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
+                }
 
                 StartCoroutine(FireAbility(ability, spawnVec, spawnRot, abilityValues.abilityCastTime, teamColor, null, abilityValues));
 
@@ -121,6 +128,7 @@ public class GolemAbility : AbilityBase
         AbilityValues abilityInfo;
 
         abilityInfo.casterGameObject = casterGameObject;
+        abilityInfo.createPoint = spawnPos;
         abilityInfo.abilityCastTime = abilityCastTime;
         abilityInfo.damageType = damageType;
         abilityInfo.damageAmount = damageAmount;

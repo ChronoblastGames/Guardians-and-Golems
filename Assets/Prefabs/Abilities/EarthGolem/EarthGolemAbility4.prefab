@@ -54,5 +54,5 @@ MonoBehaviour:
   isAbilityActive: 0
   earthFragments: {fileID: 1235903987350220, guid: c696c945bee1fb748ad72063bc12afb1,
     type: 2}
-  abilityRadius: 10
-  ringCount: 3.5
+  abilityRadius: 5
+  ringCount: 4

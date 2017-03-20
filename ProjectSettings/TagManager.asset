@@ -8,6 +8,8 @@ TagManager:
   - GolemBlue
   - UIManager
   - GlobalVariables
+  - Variable
+  - Conduit
   layers:
   - Default
   - TransparentFX

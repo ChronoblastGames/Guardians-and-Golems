@@ -5,21 +5,9 @@ using UnityEngine.UI;
 
 public class FloatingTextManager : MonoBehaviour 
 {
-    private UIManager UIManager;
-
     public List<GameObject> damageTextPool = new List<GameObject>();
 
     public GameObject textPrefab;
-
-    private void Start()
-    {
-        Initialize();
-    }
-
-    void Initialize()
-    {
-        UIManager = GetComponent<UIManager>();
-    }
 
     public void CreateDamageText(float damageValue, Transform textLocation)
     {

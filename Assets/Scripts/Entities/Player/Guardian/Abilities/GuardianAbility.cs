@@ -32,6 +32,7 @@ public class GuardianAbility : AbilityBase
         AbilityValues abilityInfo;
 
         abilityInfo.casterGameObject = casterGameObject;
+        abilityInfo.createPoint = spawnPos;
         abilityInfo.abilityCastTime = abilityCastTime;
         abilityInfo.damageType = damageType;
         abilityInfo.damageAmount = damageAmount;

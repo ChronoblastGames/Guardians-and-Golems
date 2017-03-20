@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114537362160058876}
   - component: {fileID: 54025691511904418}
   m_Layer: 8
-  m_Name: EarthGolem_Ability2
+  m_Name: EarthGolem_Ability1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

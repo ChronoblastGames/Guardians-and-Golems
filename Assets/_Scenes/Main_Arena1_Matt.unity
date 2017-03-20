@@ -774,46 +774,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 1279967831}
-    - target: {fileID: 114776423742069052, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 259908043}
-    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 394457318}
     - target: {fileID: 114315098865424614, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 482657122}
-    - target: {fileID: 114384258539769410, guid: a0dd775133547fa42941d810b37182d1,
+    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
-      propertyPath: abilityCastTime
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114052737197182830, guid: a0dd775133547fa42941d810b37182d1,
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 394457318}
+    - target: {fileID: 114776423742069052, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
-      propertyPath: abilityCastTime
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114979732921295764, guid: a0dd775133547fa42941d810b37182d1,
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 259908043}
+    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
-      propertyPath: abilityCastTime
-      value: 0.65
-      objectReference: {fileID: 0}
-    - target: {fileID: 114827916180472632, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: abilityCastTime
-      value: 1.25
-      objectReference: {fileID: 0}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 1279967831}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0

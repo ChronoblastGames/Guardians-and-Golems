@@ -30,11 +30,17 @@ public class EarthGolemAbility3 : GolemAbilityBase
         {
             if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
             {
-                hitColliders[i].GetComponent<OrbController>().DisableOrb(abilityValues.effectTime, PlayerTeam.RED);
+                if (hitColliders[i].CompareTag("Conduit"))
+                {
+                    hitColliders[i].GetComponent<OrbController>().DisableOrb(abilityValues.effectTime, PlayerTeam.RED);
+                }
             }
             else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
             {
-                hitColliders[i].GetComponent<OrbController>().DisableOrb(abilityValues.effectTime, PlayerTeam.BLUE);
+                if (hitColliders[i].CompareTag("Conduit"))
+                {
+                    hitColliders[i].GetComponent<OrbController>().DisableOrb(abilityValues.effectTime, PlayerTeam.BLUE);
+                }
             }
         }
     }

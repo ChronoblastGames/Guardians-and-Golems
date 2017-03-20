@@ -181,23 +181,23 @@ public class GolemInputManager : MonoBehaviour
         //Hold Down
         if (modifierAxis != 0 && Input.GetKey(inputAbility1Button))
         {
-            holdTime += Time.fixedDeltaTime;
+            holdTime += Time.deltaTime;
             isHoldingAbility = true;
         }
         else if (Input.GetKey(inputAbility1Button))
         {
-            holdTime += Time.fixedDeltaTime;
+            holdTime += Time.deltaTime;
             isHoldingAbility = true;
         }
 
         if (modifierAxis != 0 && Input.GetKey(inputAbility2Button))
         {
-            holdTime += Time.fixedDeltaTime;
+            holdTime += Time.deltaTime;
             isHoldingAbility = true;
         }
         else if (Input.GetKey(inputAbility2Button))
         {
-            holdTime += Time.fixedDeltaTime;
+            holdTime += Time.deltaTime;
             isHoldingAbility = true;
         }
         else

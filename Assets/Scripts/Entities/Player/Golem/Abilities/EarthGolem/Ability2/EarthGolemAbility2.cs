@@ -5,6 +5,8 @@ public class EarthGolemAbility2 : GolemAbilityBase
 {
     private TimerClass activeTimer;
 
+    private Animator boulderAnimator;
+
     private bool isTimerActive;
 	
 	void Update () 
@@ -27,6 +29,8 @@ public class EarthGolemAbility2 : GolemAbilityBase
     {
         activeTimer = new TimerClass();
 
+        boulderAnimator = GetComponent<Animator>();
+
         if (abilityValues.activeTime > 0)
         {
             activeTimer.ResetTimer(abilityValues.activeTime);
@@ -44,26 +48,40 @@ public class EarthGolemAbility2 : GolemAbilityBase
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
+        if (isAbilityActive)
         {
-            if (other.gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
+            if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
-                Destroy(gameObject);
+                if (other.gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
+                {
+                    boulderAnimator.SetTrigger("isShatter");
+
+                    other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
+
+                    Destroy(gameObject, 2f);
+                    isAbilityActive = false;
+                }
             }
-        }
-        else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
-        {
-            if (other.gameObject.layer == LayerMask.NameToLayer("GolemRed"))
+            else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
-                Destroy(gameObject);
+                if (other.gameObject.layer == LayerMask.NameToLayer("GolemRed"))
+                {
+                    boulderAnimator.SetTrigger("isShatter");
+
+                    other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
+
+                    Destroy(gameObject, 2f);
+                    isAbilityActive = false;
+                }
             }
-        }
+        }   
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        boulderAnimator.SetTrigger("isShatter");
+
+        isAbilityActive = false;
+        Destroy(gameObject, 2f);
     }
 }

@@ -4663,6 +4663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
   abilityCastTime: 0
@@ -4703,9 +4704,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
-  abilityCastTime: 0.5
+  abilityCastTime: 0.8
   damageType: 3
   damageAmount: 5
   projectileSpeed: 0
@@ -4744,6 +4746,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
   abilityCastTime: 0
@@ -4785,6 +4788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
   abilityCastTime: 0
@@ -4826,6 +4830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962, type: 2}
   abilityCastTime: 0
@@ -4897,6 +4902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
   abilityCastTime: 0
@@ -4975,6 +4981,7 @@ MonoBehaviour:
   isStaggered: 0
   turnSmoothTime: 0.05
   attackTurnSmoothTime: 0.3
+  aimAttackTurnSmoothTime: 0.1
   gravity: -12
   isIdle: 0
   canRotate: 1
@@ -4986,6 +4993,7 @@ MonoBehaviour:
   isDodging: 0
   isBlocking: 0
   isAttacking: 0
+  isUsingAbility: 0
   isSlowed: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114204453139013332
@@ -4999,6 +5007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
   abilityCastTime: 0
@@ -5074,6 +5083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
   abilityCastTime: 0
@@ -5125,6 +5135,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0}
   aimXAxis: 0
   aimZAxis: 0
+  aimVecDirection: {x: 0, y: 0}
   blockAxis: 0
   isHoldingAbility: 0
 --- !u!114 &114315098865424614
@@ -5232,9 +5243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
-  ability: {fileID: 1530976692658324, guid: a804f9018193a234492f4dbc70def55d, type: 2}
-  abilityCastTime: 0.25
+  ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
+  abilityCastTime: 0.7
   damageType: 3
   damageAmount: 15
   projectileSpeed: 30
@@ -5273,6 +5285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
   abilityCastTime: 0
@@ -5423,6 +5436,7 @@ MonoBehaviour:
   isStaggered: 0
   turnSmoothTime: 0.05
   attackTurnSmoothTime: 0.3
+  aimAttackTurnSmoothTime: 0.1
   gravity: -12
   isIdle: 0
   canRotate: 1
@@ -5434,6 +5448,7 @@ MonoBehaviour:
   isDodging: 0
   isBlocking: 0
   isAttacking: 0
+  isUsingAbility: 0
   isSlowed: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114525928338324388
@@ -5690,6 +5705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
   abilityCastTime: 0
@@ -5731,6 +5747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962, type: 2}
   abilityCastTime: 0
@@ -5862,6 +5879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1530976692658324, guid: a804f9018193a234492f4dbc70def55d, type: 2}
   abilityCastTime: 0
@@ -5921,9 +5939,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
-  abilityCastTime: 2
+  abilityCastTime: 1.25
   damageType: 3
   damageAmount: 2
   projectileSpeed: 0
@@ -5973,6 +5992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
   abilityCastTime: 0
@@ -6045,9 +6065,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
-  abilityCastTime: 1
+  abilityCastTime: 0.65
   damageType: 8
   damageAmount: 0
   projectileSpeed: 0
@@ -6097,6 +6118,7 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0}
   aimXAxis: 0
   aimZAxis: 0
+  aimVecDirection: {x: 0, y: 0}
   blockAxis: 0
   isHoldingAbility: 0
 --- !u!119 &119354877313877146
@@ -10997,7 +11019,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -162992482
+  randomSeed: 1420790918
   InitialModule:
     serializedVersion: 3
     enabled: 1

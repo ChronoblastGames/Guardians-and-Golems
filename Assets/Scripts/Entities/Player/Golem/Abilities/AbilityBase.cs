@@ -26,6 +26,8 @@ public enum AbilityType
 public struct AbilityValues
 {
     [Header("Cast Info")]
+    public GameObject createPoint;
+    [HideInInspector]
     public GameObject casterGameObject;
 
     [Header("Ability Cast Time")]
@@ -68,7 +70,10 @@ public struct AbilityValues
 public abstract class AbilityBase : MonoBehaviour
 {
     [Header("Cast Info")]
+    public GameObject spawnPos;
+    [HideInInspector]
     public GameObject casterGameObject;
+
 
     [Header("Ability")]
     public GameObject ability;
