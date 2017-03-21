@@ -52,7 +52,7 @@ public class EarthGolemAbility2 : GolemAbilityBase
         {
             if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
             {
-                if (other.gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
+                if (other.gameObject.CompareTag("GolemBlue"))
                 {
                     boulderAnimator.SetTrigger("isShatter");
 
@@ -64,7 +64,7 @@ public class EarthGolemAbility2 : GolemAbilityBase
             }
             else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
             {
-                if (other.gameObject.layer == LayerMask.NameToLayer("GolemRed"))
+                if (other.gameObject.CompareTag("GolemRed"))
                 {
                     boulderAnimator.SetTrigger("isShatter");
 

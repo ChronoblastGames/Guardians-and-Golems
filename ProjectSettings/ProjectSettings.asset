@@ -470,7 +470,7 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     UNet: 1
-  cloudProjectId: 381fc399-538e-4fba-8247-43a3aa335352
-  projectName: Indepedent Game Project
-  organizationId: chronoblast-games
+  cloudProjectId: b1d86fdb-addf-4568-83c7-8d52aa6e3693
+  projectName: Guardians and Golems
+  organizationId: chronoblast
   cloudEnabled: 0

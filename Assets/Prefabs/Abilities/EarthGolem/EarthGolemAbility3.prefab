@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4599802896306194}
   - component: {fileID: 114720583270435990}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: EarthGolemAbility3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

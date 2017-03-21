@@ -288,7 +288,6 @@ public class GolemResources : MonoBehaviour
             {
                 statusEffectList.Remove(StatusEffect.SHIELD);
 
-                StopCoroutine(currentShieldCoroutine);
                 StopShield();
 
                 currentHealth -= Mathf.Abs(damageValue);
