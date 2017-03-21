@@ -9,12 +9,17 @@ public class CooldownManager : MonoBehaviour
     private float globalCooldownTime;
 
     [Header("Ability Cooldown Attributes")]
+    public float dodgeCooldownTime;
+    [Space(10)]
+
     public float ability1Time = 0f;
     public float ability2Time = 0f;
     public float ability3Time = 0f;
     public float ability4Time = 0f;
 
     public bool isGlobalCooldownReady = true;
+
+    public bool isDodgeCooldownReady = true;
 
     public bool isAbility1Ready = true;
     public bool isAbility2Ready = true;
@@ -37,6 +42,11 @@ public class CooldownManager : MonoBehaviour
     public void QueueGlobalCooldown()
     {
         StartCoroutine(StartGlobalCooldown());
+    }
+
+    public void QueueDodgeCooldown()
+    {
+        StartCoroutine(StartDodgeCooldown());
     }
 
     public void QueueAbilityCooldown(int abilityNum)
@@ -106,6 +116,27 @@ public class CooldownManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public bool DodgeCooldownReady()
+    {
+        if (isDodgeCooldownReady)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private IEnumerator StartDodgeCooldown()
+    {
+        isDodgeCooldownReady = false;
+
+        yield return new WaitForSeconds(dodgeCooldownTime);
+
+        isDodgeCooldownReady = true;
     }
 
     private IEnumerator StartGlobalCooldown()

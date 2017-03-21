@@ -1372,41 +1372,6 @@ Prefab:
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 482657122}
-    - target: {fileID: 114332213426420612, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: healthRegenerationSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114504418916380880, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: healthRegenerationSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114332213426420612, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: manaRegenerationSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114504418916380880, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: manaRegenerationSpeed
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114616598146008700, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: projectileSpeed
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 114384258539769410, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: projectileSpeed
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 198778459313168646, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: randomSeed
-      value: 329411000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0

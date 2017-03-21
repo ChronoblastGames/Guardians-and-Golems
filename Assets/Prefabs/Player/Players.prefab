@@ -4955,11 +4955,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7e182cd16383d4d8b11f578fc5443d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodgeCooldownTime: 3
   ability1Time: 2
   ability2Time: 1
   ability3Time: 2
   ability4Time: 2
   isGlobalCooldownReady: 1
+  isDodgeCooldownReady: 1
   isAbility1Ready: 1
   isAbility2Ready: 1
   isAbility3Ready: 1
@@ -5261,8 +5263,8 @@ MonoBehaviour:
   temporaryHealth: 0
   currentMana: Infinity
   maxMana: Infinity
-  healthRegenerationSpeed: 1.25
-  manaRegenerationSpeed: 1.25
+  healthRegenerationSpeed: 0.5
+  manaRegenerationSpeed: 0.5
   isStaggerTimerActive: 0
   statusEffectList: 
   knockBackCurve:
@@ -5344,7 +5346,7 @@ MonoBehaviour:
   abilityCastTime: 0.7
   damageType: 3
   damageAmount: 15
-  projectileSpeed: 30
+  projectileSpeed: 60
   spawnDistanceFromPlayer: 0
   activeTime: 5
   holdTime: 0
@@ -5437,8 +5439,8 @@ MonoBehaviour:
   temporaryHealth: 0
   currentMana: Infinity
   maxMana: Infinity
-  healthRegenerationSpeed: 1.25
-  manaRegenerationSpeed: 1.25
+  healthRegenerationSpeed: 0.5
+  manaRegenerationSpeed: 0.5
   isStaggerTimerActive: 0
   statusEffectList: 
   knockBackCurve:
@@ -5841,7 +5843,7 @@ MonoBehaviour:
   abilityCastTime: 0.7
   damageType: 3
   damageAmount: 15
-  projectileSpeed: 30
+  projectileSpeed: 60
   spawnDistanceFromPlayer: 0
   activeTime: 5
   holdTime: 0
@@ -6175,11 +6177,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a7e182cd16383d4d8b11f578fc5443d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodgeCooldownTime: 3
   ability1Time: 2
   ability2Time: 1
   ability3Time: 6
   ability4Time: 2
   isGlobalCooldownReady: 1
+  isDodgeCooldownReady: 1
   isAbility1Ready: 1
   isAbility2Ready: 1
   isAbility3Ready: 1
@@ -11149,7 +11153,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1372161768
+  randomSeed: 329411000
   InitialModule:
     serializedVersion: 3
     enabled: 1

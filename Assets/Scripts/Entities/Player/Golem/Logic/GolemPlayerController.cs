@@ -170,7 +170,7 @@ public class GolemPlayerController : GolemStats
     {
         if (aimVec != null && canUseAbilities && golemCooldown.GlobalCooldownReady() && golemCooldown.CanUseAbility(abilityNumber))
         {
-            if (golemResources.CanCast(golemAbilities[abilityNumber].GetComponent<GolemAbility>().manaCost, golemAbilities[abilityNumber].GetComponent<GolemAbility>().healthCost))
+            if (golemResources.CanCast(golemAbilities[abilityNumber].GetComponent<AbilityCreate>().manaCost, golemAbilities[abilityNumber].GetComponent<AbilityCreate>().healthCost))
             {
                 if (aimVec != Vector3.zero)
                 {
@@ -204,7 +204,7 @@ public class GolemPlayerController : GolemStats
 
     public void DodgeSetup()
     {
-        if (!isDodging && canDodge && golemCooldown.GlobalCooldownReady())
+        if (!isDodging && canDodge && golemCooldown.GlobalCooldownReady() && golemCooldown.DodgeCooldownReady())
         {
             Vector3 dodgeDirectionVec;
 
@@ -228,6 +228,8 @@ public class GolemPlayerController : GolemStats
             isDodging = true;
 
             golemCooldown.QueueGlobalCooldown();
+            golemCooldown.QueueDodgeCooldown();
+
             golemDodge.StartDodge(dodgeDirectionVec);
         }
     } 
