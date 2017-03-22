@@ -460,6 +460,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4125177043700050, guid: 07ba592ea78a69f45b2914cddb758356,
     type: 2}
   m_PrefabInternal: {fileID: 1775388370}
+--- !u!1 &669485982 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1181904162715068, guid: a0dd775133547fa42941d810b37182d1,
+    type: 2}
+  m_PrefabInternal: {fileID: 1799594834}
 --- !u!1 &976306290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,6 +1377,31 @@ Prefab:
       propertyPath: spellIndicator
       value: 
       objectReference: {fileID: 482657122}
+    - target: {fileID: 114384258539769410, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: spawnPos
+      value: 
+      objectReference: {fileID: 669485982}
+    - target: {fileID: 143882112693979638, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 143359850381646682, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: m_Center.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 114280593905735110, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: playerNum
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114985709521354678, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: playerNum
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0

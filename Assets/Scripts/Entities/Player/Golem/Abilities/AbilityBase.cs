@@ -117,7 +117,7 @@ public abstract class AbilityBase : MonoBehaviour
     [Header("Ability Info")]
     public AbilityValues abilityValues;
 
-    public virtual void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float holdTime, GameObject casterObject)
+    public virtual void CastAbility(PlayerTeam teamColor, float holdTime, GameObject casterObject)
     {
         Debug.LogError("Base Ability Cast, should have been overriden");
     }

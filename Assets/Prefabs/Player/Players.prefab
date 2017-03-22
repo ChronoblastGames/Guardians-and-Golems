@@ -903,7 +903,7 @@ GameObject:
   - component: {fileID: 4315936605452330}
   - component: {fileID: 114052737197182830}
   m_Layer: 8
-  m_Name: Ability2
+  m_Name: Ability1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1459,7 +1459,7 @@ GameObject:
   - component: {fileID: 4348496682315820}
   - component: {fileID: 114384258539769410}
   m_Layer: 8
-  m_Name: Ability1
+  m_Name: Ability2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2563,8 +2563,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4937298613026608}
-  - {fileID: 4348496682315820}
   - {fileID: 4315936605452330}
+  - {fileID: 4348496682315820}
   - {fileID: 4066930200333990}
   - {fileID: 4684925797780620}
   m_Father: {fileID: 4049594650926698}
@@ -3072,7 +3072,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4070352502973254}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4316448543642942
 Transform:
@@ -3155,7 +3155,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4070352502973254}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4349878128029452
 Transform:
@@ -5053,8 +5053,8 @@ MonoBehaviour:
     golemStability: 25
     golemStaggerTime: 0
   golemAbilities:
-  - {fileID: 114384258539769410}
   - {fileID: 114052737197182830}
+  - {fileID: 114384258539769410}
   - {fileID: 114979732921295764}
   - {fileID: 114827916180472632}
   characterController: {fileID: 0}
@@ -5230,9 +5230,9 @@ MonoBehaviour:
   holdTime: 0
   moveVec: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0}
+  aimVec: {x: 0, y: 0, z: 0}
   aimXAxis: 0
   aimZAxis: 0
-  aimVecDirection: {x: 0, y: 0}
   blockAxis: 0
   isHoldingAbility: 0
 --- !u!114 &114315098865424614
@@ -6250,9 +6250,9 @@ MonoBehaviour:
   holdTime: 0
   moveVec: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0}
+  aimVec: {x: 0, y: 0, z: 0}
   aimXAxis: 0
   aimZAxis: 0
-  aimVecDirection: {x: 0, y: 0}
   blockAxis: 0
   isHoldingAbility: 0
 --- !u!119 &119354877313877146
@@ -11153,7 +11153,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 329411000
+  randomSeed: -2100673388
   InitialModule:
     serializedVersion: 3
     enabled: 1

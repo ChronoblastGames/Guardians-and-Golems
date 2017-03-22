@@ -81,7 +81,6 @@ public class GolemResources : MonoBehaviour
     {
         RegenerateHealth();
         RegenerateMana();
-        ManageStatusEffect();
         ManageStaggerTimer();
     }
 
@@ -149,43 +148,6 @@ public class GolemResources : MonoBehaviour
     void DetermineManaStatus()
     {
 
-    }
-
-    void ManageStatusEffect()
-    {
-        if (statusEffectList.Count > 0)
-        {
-            for (int i = 0; i < statusEffectList.Count; i++)
-            {
-                switch (statusEffectList[i])
-                {
-                    case StatusEffect.BLEED:
-                        break;
-
-                    case StatusEffect.MANA_DRAIN:
-                        break;
-
-                    case StatusEffect.SILENCE:
-                        break;
-
-                    case StatusEffect.STUN:
-                        break;
-
-                    case StatusEffect.SHIELD:
-                        break;
-
-                    case StatusEffect.SLOW:
-                        break;
-
-                    case StatusEffect.KNOCKBACK:
-                        break;
-
-                    default:
-                        Debug.Log("Incorrect Argument passed through Status Effect Manager");
-                        break;
-                }
-            }
-        }   
     }
 
     public bool CanCast(float spellManaCost, float spellHealthCost)
@@ -407,6 +369,8 @@ public class GolemResources : MonoBehaviour
         float knockbackTimer = 0f;
 
         golemPlayerController.StopMovement();
+
+        GetStaggered();
 
         golemPlayerController.canRotate = false;
         golemPlayerController.canUseAbilities = false;
