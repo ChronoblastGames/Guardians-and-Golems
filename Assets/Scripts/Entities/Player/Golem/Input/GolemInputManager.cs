@@ -34,29 +34,30 @@ public class GolemInputManager : MonoBehaviour
     [HideInInspector]
     public float zAxis;
     [HideInInspector]
-    public float holdTime;
-    public Vector2 moveVec;
-    [HideInInspector]
-    public Vector2 moveDirection;
-
-    [HideInInspector]
-    public float aimXAxis;
-    [HideInInspector]
     public float aimZAxis;
-
-    [HideInInspector]
-    public Vector2 aimVecDirection;
-
     private float modifierAxis;
 
     [HideInInspector]
     public float blockAxis;
 
+    [HideInInspector]
+    public Vector2 moveVec;
+    [HideInInspector]
+    public Vector2 moveDirection;
+
+    [HideInInspector]
+    public Vector3 aimVec;
+
+    [HideInInspector]
+    public float aimXAxis;
+
+    [Space(10)]
+    public float holdTime;
+    private float holdMultiplier = 2f;
+
     [Header("Debug Values")]
     private bool isBlockAxisActive = false;
     public bool isHoldingAbility = false;
-
-    private Vector3 aimVec;
 
     private string inputAxisX = "";
     private string inputAxisZ = "";
@@ -150,54 +151,52 @@ public class GolemInputManager : MonoBehaviour
         aimXAxis = Input.GetAxis(inputAimAxisX);
         aimZAxis = Input.GetAxis(inputAimAxisZ);
 
-        aimVecDirection = new Vector2(aimXAxis, aimZAxis).normalized;
-
         modifierAxis = Input.GetAxis(inputModifierAxis);
         blockAxis = Input.GetAxis(inputBlockAxis);
 
         //Use Ability
         if (modifierAxis != 0 && Input.GetKeyUp(inputAbility1Button))
         {
-            golemPlayerController.UseAbility(2, aimVec, playerTeam, holdTime);
+            golemPlayerController.UseAbility(2, playerTeam, holdTime);
             holdTime = 0;
         }
         else if (Input.GetKeyUp(inputAbility1Button))
         {
-            golemPlayerController.UseAbility(0, aimVec, playerTeam, holdTime);
+            golemPlayerController.UseAbility(0, playerTeam, holdTime);
             holdTime = 0;
         }
 
         if (modifierAxis != 0 && Input.GetKeyUp(inputAbility2Button))
         {
-            golemPlayerController.UseAbility(3, aimVec, playerTeam, holdTime);
+            golemPlayerController.UseAbility(3, playerTeam, holdTime);
             holdTime = 0;
         }
         else if (Input.GetKeyUp(inputAbility2Button))
         {
-            golemPlayerController.UseAbility(1, aimVec, playerTeam, holdTime);
+            golemPlayerController.UseAbility(1, playerTeam, holdTime);
             holdTime = 0;
         }
 
         //Hold Down
         if (modifierAxis != 0 && Input.GetKey(inputAbility1Button))
         {
-            holdTime += Time.deltaTime;
+            holdTime += Time.deltaTime * holdMultiplier;
             isHoldingAbility = true;
         }
         else if (Input.GetKey(inputAbility1Button))
         {
-            holdTime += Time.deltaTime;
+            holdTime += Time.deltaTime * holdMultiplier;
             isHoldingAbility = true;
         }
 
         if (modifierAxis != 0 && Input.GetKey(inputAbility2Button))
         {
-            holdTime += Time.deltaTime;
+            holdTime += Time.deltaTime * holdMultiplier;
             isHoldingAbility = true;
         }
         else if (Input.GetKey(inputAbility2Button))
         {
-            holdTime += Time.deltaTime;
+            holdTime += Time.deltaTime * holdMultiplier;
             isHoldingAbility = true;
         }
         else

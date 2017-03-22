@@ -7,14 +7,11 @@ public class EarthFragments : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
-
         if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
         {
             if (other.gameObject.CompareTag("GolemBlue"))
             {
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(ablityValues.damageAmount, ablityValues.damageType, ablityValues.statusEffect, ablityValues.effectStrength, ablityValues.effectTime, gameObject);
-                Debug.Log("Hit");
                 Destroy(gameObject);
             }
         }

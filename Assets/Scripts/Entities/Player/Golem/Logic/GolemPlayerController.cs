@@ -38,7 +38,6 @@ public class GolemPlayerController : GolemStats
 
     private Vector2 moveVec;
     private Vector2 directionVec;
-    private Vector3 aimDirectionVec;
 
     [Header("Player Turning Attributes")]
     public float turnSmoothTime = 0.2f;
@@ -113,7 +112,6 @@ public class GolemPlayerController : GolemStats
     {
         moveVec = golemInputManager.moveVec;
         directionVec = golemInputManager.moveDirection;
-        aimDirectionVec = golemInputManager.aimVecDirection;
     }
 
     void ManageMovement()
@@ -152,11 +150,6 @@ public class GolemPlayerController : GolemStats
                 float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
                 transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, attackTurnSmoothTime);
             }
-            else if (isUsingAbility)
-            {
-                float targetRotation = Mathf.Atan2(aimDirectionVec.x, aimDirectionVec.y) * Mathf.Rad2Deg;
-                transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, aimAttackTurnSmoothTime);
-            }
             else
             {
                 float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
@@ -166,28 +159,17 @@ public class GolemPlayerController : GolemStats
         }
     }
 
-    public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor, float holdTime)
+    public void UseAbility(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
-        if (aimVec != null && canUseAbilities && golemCooldown.GlobalCooldownReady() && golemCooldown.CanUseAbility(abilityNumber))
+        if (canUseAbilities && golemCooldown.GlobalCooldownReady() && golemCooldown.CanUseAbility(abilityNumber))
         {
             if (golemResources.CanCast(golemAbilities[abilityNumber].GetComponent<AbilityCreate>().manaCost, golemAbilities[abilityNumber].GetComponent<AbilityCreate>().healthCost))
             {
-                if (aimVec != Vector3.zero)
-                {
-                    golemState.SetTrigger("UseAbility");
-                    golemState.SetTrigger("Ability" + (abilityNumber + 1));
-                    golemAbilities[abilityNumber].CastAbility(aimVec, teamColor, holdTime, gameObject);
-                    golemCooldown.QueueGlobalCooldown();
-                    golemCooldown.QueueAbilityCooldown(abilityNumber);
-                }
-                else
-                {
-                    golemState.SetTrigger("UseAbility");
-                    golemState.SetTrigger("Ability" + (abilityNumber + 1));
-                    golemAbilities[abilityNumber].CastAbility(transform.forward, teamColor, holdTime, gameObject);
-                    golemCooldown.QueueGlobalCooldown();
-                    golemCooldown.QueueAbilityCooldown(abilityNumber);
-                }
+                golemState.SetTrigger("UseAbility");
+                golemState.SetTrigger("Ability" + (abilityNumber + 1));
+                golemAbilities[abilityNumber].CastAbility(teamColor, holdTime, gameObject);
+                golemCooldown.QueueGlobalCooldown();
+                golemCooldown.QueueAbilityCooldown(abilityNumber);
             }
         }
     }

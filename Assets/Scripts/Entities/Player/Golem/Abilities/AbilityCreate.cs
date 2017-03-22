@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class AbilityCreate : AbilityBase 
 {
+    private GolemInputManager golemInputManager;
     private GolemPlayerController golemPlayerController;
     private GolemResources golemResources;
 
@@ -23,89 +24,86 @@ public class AbilityCreate : AbilityBase
 
     void Initialize()
     {
-        golemResources = transform.parent.parent.GetComponent<GolemResources>();
+        golemInputManager = transform.parent.parent.GetComponent<GolemInputManager>();
+        golemPlayerController = golemInputManager.GetComponent<GolemPlayerController>();
+        golemResources = golemInputManager.GetComponent<GolemResources>();
     }
 
-    public override void CastAbility(Vector3 aimVec, PlayerTeam teamColor, float heldTime, GameObject casterObject)
+    public override void CastAbility(PlayerTeam teamColor, float heldTime, GameObject casterObject)
     {
-        AbilityValues abilityValues = CreateAbilityStruct();
-        Vector3 spawnVec = Vector3.zero;
-        Quaternion spawnRot = Quaternion.identity;
+        AbilityValues newAblityValues = CreateAbilityStruct();
 
-        golemPlayerController = casterObject.GetComponent<GolemPlayerController>();
-
-        abilityValues.casterGameObject = casterObject;
+        newAblityValues.casterGameObject = casterObject;
 
         if (heldTime < minHoldTime)
         {
-            holdTime = 0;
+            heldTime = 0;
         }
 
-        holdTime = heldTime;
+        newAblityValues.holdTime = heldTime;
 
-        switch(abilityType)
+        StartCoroutine(FireAbility(teamColor, newAblityValues));     
+    }
+
+    private IEnumerator FireAbility(PlayerTeam teamColor, AbilityValues abilityInfo)
+    {
+        if (abilityInfo.abilityCastTime > 0)
         {
-            case AbilityType.SELF:
-                break;
+            golemPlayerController.StopMovement();
 
+            yield return new WaitForSeconds(abilityInfo.abilityCastTime);
+
+            golemPlayerController.StartMovement();
+        }
+
+        Vector3 newSpawnPosition = Vector3.zero;
+        Vector3 newAimVector = golemInputManager.aimVec;
+
+        if (newAimVector == Vector3.zero)
+        {
+            newAimVector = transform.forward;
+        }
+
+        Quaternion newSpawnRotation = Quaternion.identity;
+
+        switch (abilityType)
+        {
             case AbilityType.PROJECTILE:
 
-                if (spawnPos != null)
+                if (abilityInfo.createPoint != null)
                 {
-                    spawnVec = spawnPos.transform.position;
+                    newSpawnPosition = abilityInfo.createPoint.transform.position;
                 }
                 else
                 {
-                    spawnVec = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityValues.spawnDistanceFromPlayer);
+                    newSpawnPosition = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityInfo.spawnDistanceFromPlayer);
                 }
-
-                StartCoroutine(FireAbility(ability, spawnVec, aimVec, abilityValues.abilityCastTime, teamColor, null, abilityValues));
 
                 break;
 
             case AbilityType.STATIC:
 
-                spawnVec = aimVec;
-                spawnVec.Normalize();
-                spawnVec = spawnVec * abilityValues.spawnDistanceFromPlayer;
+                newSpawnPosition = newAimVector;
+                newSpawnPosition = newSpawnPosition * abilityInfo.spawnDistanceFromPlayer;
 
-                spawnVec = transform.position + spawnVec;
-
-                StartCoroutine(FireAbility(ability, spawnVec, aimVec, abilityValues.abilityCastTime, teamColor, null, abilityValues));
+                newSpawnPosition = transform.position + newSpawnPosition;
 
                 break;
 
             case AbilityType.ZONE:
 
-                spawnVec = aimVec * abilityValues.spawnDistanceFromPlayer;
-                spawnVec.y = 0f;
+                newSpawnPosition = newAimVector * abilityInfo.spawnDistanceFromPlayer;
+                newSpawnPosition.y = 0f;
 
-                spawnVec = transform.position + spawnVec;
-
-                StartCoroutine(FireAbility(ability, spawnVec, aimVec, abilityValues.abilityCastTime, teamColor, null, abilityValues));
+                newSpawnPosition = transform.position + newSpawnPosition;
 
                 break;
-        }       
-    }
-
-    private IEnumerator FireAbility(GameObject ability, Vector3 spawnPos, Vector3 aimVector, float castTime, PlayerTeam teamColor, GameObject targetSpawnPos, AbilityValues abilityInfo)
-    {
-        if (castTime > 0)
-        {
-            golemPlayerController.StopMovement();
-
-            yield return new WaitForSeconds(castTime);
-
-            golemPlayerController.StartMovement();
         }
 
-        Quaternion spawnRot = Quaternion.LookRotation(aimVector);
+        newSpawnRotation = Quaternion.LookRotation(newAimVector);
 
-        GameObject newAbility = Instantiate(ability, spawnPos, spawnRot) as GameObject;
-
-        newAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityInfo;
-        newAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
-
+        GameObject newAbility = Instantiate(ability, newSpawnPosition, newSpawnRotation) as GameObject;
+  
         if (teamColor == PlayerTeam.RED)
         {
             newAbility.layer = LayerMask.NameToLayer("GolemRed");
@@ -114,6 +112,9 @@ public class AbilityCreate : AbilityBase
         {
             newAbility.layer = LayerMask.NameToLayer("GolemBlue");
         }
+
+        newAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityInfo;
+        newAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
     }
 
     public AbilityValues CreateAbilityStruct()
