@@ -7,71 +7,118 @@ public class CinematicCameraController : MonoBehaviour
     [Header("Camera Waypoints")]
     public List<GameObject> cameraWaypointList;
 
+    public GameObject targetObject;
+
     [Header("Camera Point Curves")]
-    public List<AnimationCurve> cameraAnimationCurves;
+    public List<AnimationCurve> cameraMovementAnimationCurves;
+    public List<AnimationCurve> cameraRotationAnimationCurves;
 
     [Header("Camera Waypoint Timings")]
     public List<float> cameraPointTimes;
 
     [Header("Debug Attributes")]
+    private Vector3 startPos;
+    private GameObject targetPoint;
+
+    private AnimationCurve targetMovementAnimationCurve;
+    private AnimationCurve targetRotationAnimationCurve;
+
+    private float targetTiming;
+
     private int waypointNumber = 0;
     private int numberOfWaypoints = 0;
 
-    public bool isActive;
+    private float t;
+    private float o;
 
+    public bool isActive;
+   
     private void Start()
     {
         CameraSetup();
     }
 
+    void FixedUpdate()
+    {
+        MoveCamera();
+    }
+
     void CameraSetup()
     {
         numberOfWaypoints = cameraWaypointList.Count;
+
+        StartRoute();
+    }
+
+    void MoveCamera()
+    {
+        if (isActive)
+        {
+            transform.position = Vector3.Slerp(startPos, targetPoint.transform.position, targetMovementAnimationCurve.Evaluate(t / targetTiming));
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetPoint.transform.rotation, targetMovementAnimationCurve.Evaluate(o / targetTiming));
+
+            t += Time.deltaTime / targetTiming;
+            o += Time.deltaTime / targetTiming;
+
+            if (transform.position == targetPoint.transform.position)
+            {
+                isActive = false;
+
+                t = 0;
+                o = 0;
+
+                FindNextPoint();
+            }
+        }
+    }
+
+    void StartRoute()
+    {
+        startPos = transform.position;
+        targetPoint = cameraWaypointList[0];
+
+        targetMovementAnimationCurve = cameraMovementAnimationCurves[0];
+        targetRotationAnimationCurve = cameraRotationAnimationCurves[0];
+
+        targetTiming = cameraPointTimes[0];
+
+        isActive = true;
     }
 
     void FindNextPoint()
     {
-        if (waypointNumber++ <= numberOfWaypoints)
+        if (CanMoveToNextPosition())
         {
-            Debug.Log(waypointNumber);
+            startPos = targetObject.transform.position;
             waypointNumber++;
 
-            GameObject newPoint = cameraWaypointList[waypointNumber];
-            AnimationCurve newAnimationCurve = cameraAnimationCurves[waypointNumber];
-            float newPointTime = cameraPointTimes[waypointNumber];
+            targetPoint = cameraWaypointList[waypointNumber];
 
-            StartCoroutine(MoveToNextPoint(newPoint, newAnimationCurve, newPointTime));
+            targetMovementAnimationCurve = cameraMovementAnimationCurves[waypointNumber];
+            targetRotationAnimationCurve = cameraRotationAnimationCurves[waypointNumber];
 
+            targetTiming = cameraPointTimes[waypointNumber];
+
+            isActive = true;
         }
         else
         {
-            Debug.Log("Reach end of Route!");
+            Debug.Log("Reached end of Route");
         }
     }
 
-    private IEnumerator MoveToNextPoint(GameObject nextPoint, AnimationCurve pointCurve, float pointTime)
+    private bool CanMoveToNextPosition()
     {
-        isActive = true;
+        int nextPointNumber = waypointNumber + 1;
 
-        float moveTimer = 0;
-
-        while (moveTimer <= pointTime)
+        if (nextPointNumber <= numberOfWaypoints)
         {
-            moveTimer += Time.deltaTime / pointTime;
-
-            float moveSpeed = pointTime * pointCurve.Evaluate(moveTimer);
-
-            transform.position = Vector3.Lerp(transform.position, nextPoint.transform.position, moveSpeed);
-
-            transform.rotation = Quaternion.Lerp(transform.rotation, nextPoint.transform.rotation, moveSpeed);
+            return true;
         }
-
-        isActive = false;
-
-        FindNextPoint();
-
-        yield return null;
+        else
+        {
+            return false;
+        }
     }
-
 
 }
