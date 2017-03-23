@@ -3588,6 +3588,11 @@ Prefab:
       propertyPath: spawnPos
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114187731884477584, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: abilitySmoothTime
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0

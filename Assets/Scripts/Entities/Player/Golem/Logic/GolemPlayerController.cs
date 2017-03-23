@@ -40,7 +40,7 @@ public class GolemPlayerController : GolemStats
     private Vector2 directionVec;
 
     [Header("Player Turning Attributes")]
-    public float abilityRotateTime = 0.1f;
+    public float abilitySmoothTime = 0.1f;
     public float turnSmoothTime = 0.2f;
     public float attackTurnSmoothTime = 0.3f;
     private float turnSmoothVelocity;
@@ -60,6 +60,7 @@ public class GolemPlayerController : GolemStats
     public bool isDodging = false;
     public bool isBlocking = false;
     public bool isAttacking = false;
+    public bool isCastingAbility = false;
     public bool isSlowed = false;
 
     [Header("Debugging Values")]
@@ -128,7 +129,9 @@ public class GolemPlayerController : GolemStats
 
         characterVelocity = characterController.velocity.magnitude;
 
-        golemState.SetFloat("playerVel", characterVelocity); if (characterController.isGrounded)
+        golemState.SetFloat("playerVel", characterVelocity);
+
+        if (characterController.isGrounded)
         {
             velocityY = 0;
         }
@@ -152,7 +155,20 @@ public class GolemPlayerController : GolemStats
                 float targetRotation = Mathf.Atan2(directionVec.x, directionVec.y) * Mathf.Rad2Deg;
                 transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
             }
-            
+        }
+        else if (isCastingAbility)
+        {
+            if (golemInputManager.aimVec != Vector3.zero)
+            {
+                float targetRotation = Mathf.Atan2(golemInputManager.aimVec.x, golemInputManager.aimVec.z) * Mathf.Rad2Deg;
+
+                if (targetRotation < 0)
+                {
+                    targetRotation += 360;
+                }
+
+                transform.eulerAngles = Vector3.up * Mathf.SmoothDamp(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, abilitySmoothTime);
+            }
         }
     }
 

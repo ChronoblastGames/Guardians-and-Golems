@@ -49,6 +49,8 @@ public class AbilityCreate : AbilityBase
 
     private IEnumerator FireAbility(PlayerTeam teamColor, AbilityValues abilityInfo)
     {
+        golemPlayerController.isCastingAbility = true;
+
         Vector3 storedAimVec = golemInputManager.aimVec;
 
         if (abilityInfo.abilityCastTime > 0)
@@ -127,6 +129,8 @@ public class AbilityCreate : AbilityBase
 
         newAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityInfo;
         newAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
+
+        golemPlayerController.isCastingAbility = false;
 
         golemCooldown.QueueGlobalCooldown();
     }
