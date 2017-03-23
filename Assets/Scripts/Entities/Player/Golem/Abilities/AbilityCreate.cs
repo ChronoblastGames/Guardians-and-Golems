@@ -6,6 +6,7 @@ public class AbilityCreate : AbilityBase
     private GolemInputManager golemInputManager;
     private GolemPlayerController golemPlayerController;
     private GolemResources golemResources;
+    private CooldownManager golemCooldown;
 
     [Header("Ability Type")]
     public AbilityType abilityType;
@@ -27,6 +28,7 @@ public class AbilityCreate : AbilityBase
         golemInputManager = transform.parent.parent.GetComponent<GolemInputManager>();
         golemPlayerController = golemInputManager.GetComponent<GolemPlayerController>();
         golemResources = golemInputManager.GetComponent<GolemResources>();
+        golemCooldown = golemInputManager.GetComponent<CooldownManager>();
     }
 
     public override void CastAbility(PlayerTeam teamColor, float heldTime, GameObject casterObject)
@@ -47,6 +49,8 @@ public class AbilityCreate : AbilityBase
 
     private IEnumerator FireAbility(PlayerTeam teamColor, AbilityValues abilityInfo)
     {
+        Vector3 storedAimVec = golemInputManager.aimVec;
+
         if (abilityInfo.abilityCastTime > 0)
         {
             golemPlayerController.StopMovement();
@@ -57,9 +61,17 @@ public class AbilityCreate : AbilityBase
         }
 
         Vector3 newSpawnPosition = Vector3.zero;
+
         Vector3 newAimVector = golemInputManager.aimVec;
 
-        if (newAimVector == Vector3.zero)
+        if (newAimVector != storedAimVec)
+        {
+            if (newAimVector == Vector3.zero)
+            {
+                newAimVector = storedAimVec;
+            }
+        }
+        else if (newAimVector == Vector3.zero)
         {
             newAimVector = transform.forward;
         }
@@ -115,6 +127,8 @@ public class AbilityCreate : AbilityBase
 
         newAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityInfo;
         newAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
+
+        golemCooldown.QueueGlobalCooldown();
     }
 
     public AbilityValues CreateAbilityStruct()

@@ -40,9 +40,9 @@ public class GolemPlayerController : GolemStats
     private Vector2 directionVec;
 
     [Header("Player Turning Attributes")]
+    public float abilityRotateTime = 0.1f;
     public float turnSmoothTime = 0.2f;
     public float attackTurnSmoothTime = 0.3f;
-    public float aimAttackTurnSmoothTime = 0.1f;
     private float turnSmoothVelocity;
 
     [Header("Player Gravity Attributes")]
@@ -60,7 +60,6 @@ public class GolemPlayerController : GolemStats
     public bool isDodging = false;
     public bool isBlocking = false;
     public bool isAttacking = false;
-    public bool isUsingAbility = false;
     public bool isSlowed = false;
 
     [Header("Debugging Values")]
@@ -297,12 +296,14 @@ public class GolemPlayerController : GolemStats
     public void StartMovement()
     {
         canMove = true;
+        canRotate = true;
         golemState.SetBool("canMove", true);
     }
 
     public void StopMovement()
     {
         canMove = false;
+        canRotate = false;
         golemState.SetBool("canMove", false);
     }
 }

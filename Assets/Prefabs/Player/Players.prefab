@@ -4780,7 +4780,7 @@ MonoBehaviour:
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
-  abilityCastTime: 0.8
+  abilityCastTime: 0.7
   damageType: 3
   damageAmount: 5
   projectileSpeed: 0
@@ -5343,7 +5343,7 @@ MonoBehaviour:
   spawnPos: {fileID: 1181904162715068}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
-  abilityCastTime: 0.7
+  abilityCastTime: 0.6
   damageType: 3
   damageAmount: 15
   projectileSpeed: 60
@@ -5617,9 +5617,9 @@ MonoBehaviour:
   - {fileID: 65459500181351302}
   meleeDamageType: 050000000500000005000000
   attackDamage:
-  - 7.5
-  - 5
+  - 8
   - 10
+  - 12
   attackEffects: 000000000000000000000000
   effectStrength:
   - 0
@@ -5707,9 +5707,9 @@ MonoBehaviour:
   - {fileID: 65391917031043818}
   meleeDamageType: 050000000500000005000000
   attackDamage:
-  - 7.5
-  - 7.5
+  - 8
   - 10
+  - 12
   attackEffects: 000000000000000000000000
   effectStrength:
   - 0
@@ -6202,7 +6202,7 @@ MonoBehaviour:
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
-  abilityCastTime: 0.65
+  abilityCastTime: 0.5
   damageType: 8
   damageAmount: 0
   projectileSpeed: 0
@@ -8528,7 +8528,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1489157465
+  randomSeed: -68412292
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -11153,7 +11153,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -2100673388
+  randomSeed: -1089677306
   InitialModule:
     serializedVersion: 3
     enabled: 1
