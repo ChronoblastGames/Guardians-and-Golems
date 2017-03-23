@@ -7,8 +7,6 @@ public class CinematicCameraController : MonoBehaviour
     [Header("Camera Waypoints")]
     public List<GameObject> cameraWaypointList;
 
-    public GameObject targetObject;
-
     [Header("Camera Point Curves")]
     public List<AnimationCurve> cameraMovementAnimationCurves;
     public List<AnimationCurve> cameraRotationAnimationCurves;
@@ -18,6 +16,8 @@ public class CinematicCameraController : MonoBehaviour
 
     [Header("Debug Attributes")]
     private Vector3 startPos;
+    private Quaternion startRotation;
+
     private GameObject targetPoint;
 
     private AnimationCurve targetMovementAnimationCurve;
@@ -54,11 +54,11 @@ public class CinematicCameraController : MonoBehaviour
     {
         if (isActive)
         {
-            transform.position = Vector3.Slerp(startPos, targetPoint.transform.position, targetMovementAnimationCurve.Evaluate(t / targetTiming));
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetPoint.transform.rotation, targetMovementAnimationCurve.Evaluate(o / targetTiming));
+            transform.position = Vector3.Lerp(startPos, targetPoint.transform.position, targetMovementAnimationCurve.Evaluate(t / targetTiming));
+            transform.rotation = Quaternion.Slerp(startRotation, targetPoint.transform.rotation, targetMovementAnimationCurve.Evaluate(o / targetTiming));
 
-            t += Time.deltaTime / targetTiming;
-            o += Time.deltaTime / targetTiming;
+            t += Time.fixedDeltaTime / targetTiming;
+            o += Time.fixedDeltaTime / targetTiming;
 
             if (transform.position == targetPoint.transform.position)
             {
@@ -74,13 +74,18 @@ public class CinematicCameraController : MonoBehaviour
 
     void StartRoute()
     {
+        transform.position = cameraWaypointList[0].transform.position;
+        transform.rotation = cameraWaypointList[0].transform.rotation;
+
         startPos = transform.position;
-        targetPoint = cameraWaypointList[0];
+        startRotation = transform.rotation;
 
-        targetMovementAnimationCurve = cameraMovementAnimationCurves[0];
-        targetRotationAnimationCurve = cameraRotationAnimationCurves[0];
+        targetPoint = cameraWaypointList[1];
 
-        targetTiming = cameraPointTimes[0];
+        targetMovementAnimationCurve = cameraMovementAnimationCurves[1];
+        targetRotationAnimationCurve = cameraRotationAnimationCurves[1];
+
+        targetTiming = cameraPointTimes[1];
 
         isActive = true;
     }
@@ -89,7 +94,9 @@ public class CinematicCameraController : MonoBehaviour
     {
         if (CanMoveToNextPosition())
         {
-            startPos = targetObject.transform.position;
+            startPos = transform.position;
+            startRotation = transform.rotation;
+
             waypointNumber++;
 
             targetPoint = cameraWaypointList[waypointNumber];

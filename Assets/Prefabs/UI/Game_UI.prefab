@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 224610505334763194}
   - component: {fileID: 222681643348185340}
   - component: {fileID: 114457427084229998}
-  - component: {fileID: 114056768601233018}
+  - component: {fileID: 114438547554075192}
   m_Layer: 5
   m_Name: FPSCounter
   m_TagString: Untagged
@@ -1031,17 +1031,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
---- !u!114 &114056768601233018
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1686738820771382}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 048ecf1862fe43f49bd82d2b8a30a757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114187786956295790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1199,6 +1188,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!114 &114438547554075192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686738820771382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b928660a56d40604ba86382800f95b42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114457427084229998
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -124,21 +124,19 @@ public class GolemPlayerController : GolemStats
 
         if (canMove)
         {
-            characterController.Move(moveVel * Time.deltaTime);
+            characterController.Move(moveVel * Time.fixedDeltaTime);
         }
 
         characterVelocity = characterController.velocity.magnitude;
 
-        golemState.SetFloat("playerVel", characterVelocity);
-
-        if (characterController.isGrounded)
+        golemState.SetFloat("playerVel", characterVelocity); if (characterController.isGrounded)
         {
             velocityY = 0;
         }
         else
         {
-            velocityY += Time.deltaTime * gravity;
-        }    
+            velocityY += Time.fixedDeltaTime * gravity;
+        }
     }
 
     void ManageRotation()

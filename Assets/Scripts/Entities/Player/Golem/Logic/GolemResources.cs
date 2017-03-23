@@ -107,7 +107,7 @@ public class GolemResources : MonoBehaviour
     {
         if (currentHealth < maxHealth)
         {
-            currentHealth += healthRegenerationSpeed * Time.deltaTime;
+            currentHealth += healthRegenerationSpeed * Time.fixedDeltaTime;
 
             if (currentHealth > maxHealth)
             {
@@ -124,7 +124,7 @@ public class GolemResources : MonoBehaviour
     {
         if (currentMana < maxMana)
         {
-            currentMana += manaRegenerationSpeed * Time.deltaTime;
+            currentMana += manaRegenerationSpeed * Time.fixedDeltaTime;
 
             if (currentMana > maxMana)
             {
