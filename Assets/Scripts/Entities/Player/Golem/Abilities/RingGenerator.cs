@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class RingGenerator : GolemAbilityBase
+public class RingGenerator : AbilityCastBase
 {
     private TimerClass activeTimer;
 

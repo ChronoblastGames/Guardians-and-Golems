@@ -11,7 +11,7 @@ public class GolemPlayerController : GolemStats
     private GolemInputManager golemInputManager;
     private GolemResources golemResources;
     private GolemMelee golemMelee;
-    private CooldownManager golemCooldown;
+    private GolemCooldownManager golemCooldown;
 
     private GlobalVariables globalVariables;
 
@@ -94,7 +94,7 @@ public class GolemPlayerController : GolemStats
 
         golemMelee = GetComponent<GolemMelee>();
 
-        golemCooldown = GetComponent<CooldownManager>();
+        golemCooldown = GetComponent<GolemCooldownManager>();
 
         globalVariables = GameObject.FindGameObjectWithTag("GlobalVariables").GetComponent<GlobalVariables>();
 

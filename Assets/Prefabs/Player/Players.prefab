@@ -149,10 +149,10 @@ GameObject:
   - component: {fileID: 95360332978647460}
   - component: {fileID: 114240599644795854}
   - component: {fileID: 114533035422661628}
+  - component: {fileID: 114228259173448258}
   - component: {fileID: 114544368522993898}
-  - component: {fileID: 114146186100982294}
   - component: {fileID: 114923871507058664}
-  m_Layer: 19
+  m_Layer: 15
   m_Name: Guardian_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1894,7 +1894,7 @@ GameObject:
   - component: {fileID: 114706984062216586}
   - component: {fileID: 114315098865424614}
   - component: {fileID: 114251008324141822}
-  m_Layer: 19
+  m_Layer: 15
   m_Name: Guardian_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4785,6 +4785,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114052737197182830
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4880,28 +4881,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   minHoldTime: 0.25
---- !u!114 &114146186100982294
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1088820104138258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a7e182cd16383d4d8b11f578fc5443d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dodgeCooldownTime: 0
-  ability1Time: 0
-  ability2Time: 0
-  ability3Time: 0
-  ability4Time: 0
-  isGlobalCooldownReady: 1
-  isDodgeCooldownReady: 1
-  isAbility1Ready: 1
-  isAbility2Ready: 1
-  isAbility3Ready: 1
-  isAbility4Ready: 1
 --- !u!114 &114149652261849078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4985,6 +4964,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114176637646751958
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5059,6 +5039,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114187731884477584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5164,6 +5145,27 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
+--- !u!114 &114228259173448258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1088820104138258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe6933ba40f562947aec71c9b42f5ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability1Time: 1
+  ability2Time: 2
+  ability3Time: 2
+  ability4Time: 1
+  isGlobalCooldownReady: 1
+  isAbility1Ready: 1
+  isAbility2Ready: 1
+  isAbility3Ready: 1
+  isAbility4Ready: 1
 --- !u!114 &114240599644795854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5175,13 +5177,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
   xAxis: 0
   zAxis: 0
   holdTime: 0
+  holdTimeMultiplier: 2
   aimXAxis: 0
   aimZAxis: 0
   multicastAxis: 0
@@ -5252,6 +5255,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114280593905735110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5263,7 +5267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 2
   playerTeam: 0
   PlayerName: Matt
   PlayerNumber: 0
@@ -5368,6 +5372,7 @@ MonoBehaviour:
   xAxis: 0
   zAxis: 0
   holdTime: 0
+  holdTimeMultiplier: 2
   aimXAxis: 0
   aimZAxis: 0
   multicastAxis: 0
@@ -5455,6 +5460,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114465515721213644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5622,13 +5628,17 @@ MonoBehaviour:
   canAttack: 0
   orbList: []
   playerTeam: 0
-  isCapturingOrb: 0
   attachedOrb: {fileID: 0}
   selectionDistance: 100
   selectionDelay: 0.3
   orbMask:
     serializedVersion: 2
     m_Bits: 1376256
+  canMove: 1
+  canCaptureOrb: 1
+  isCapturingOrb: 0
+  canUseAbility: 0
+  isUsingAbility: 0
 --- !u!114 &114544368522993898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5952,6 +5962,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114706984062216586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5972,13 +5983,17 @@ MonoBehaviour:
   canAttack: 0
   orbList: []
   playerTeam: 1
-  isCapturingOrb: 0
   attachedOrb: {fileID: 0}
   selectionDistance: 100
   selectionDelay: 0.3
   orbMask:
     serializedVersion: 2
     m_Bits: 1310720
+  canMove: 1
+  canCaptureOrb: 1
+  isCapturingOrb: 0
+  canUseAbility: 0
+  isUsingAbility: 0
 --- !u!114 &114736899289739244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6197,6 +6212,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114923871507058664
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,6 +18,7 @@ public class GuardianInputManager : MonoBehaviour
     [HideInInspector]
     public float zAxis;
     public float holdTime;
+    public float holdTimeMultiplier = 2;
 
     [HideInInspector]
     public float aimXAxis;
@@ -25,7 +26,7 @@ public class GuardianInputManager : MonoBehaviour
     public float aimZAxis;
 
     private float modifierAxis;
-    public float multicastAxis;
+    private float multicastAxis;
 
     [HideInInspector]
     public Vector3 aimVec;
@@ -128,35 +129,60 @@ public class GuardianInputManager : MonoBehaviour
         if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp(inputAbility1Button))
         {
             guardianController.UseAbilityFromAllOrbs(2, playerTeam, holdTime);
+            holdTime = 0;
         }
         else if (modifierAxis != 0 && Input.GetKeyUp(inputAbility1Button))
         {
             guardianController.UseAbility(2, playerTeam, holdTime);
+            holdTime = 0;
         }
         else if (multicastAxis != 0 && Input.GetKeyUp(inputAbility1Button))
         {
             guardianController.UseAbilityFromAllOrbs(0, playerTeam, holdTime);
+            holdTime = 0;
         }
         else if (Input.GetKeyUp(inputAbility1Button))
         {
             guardianController.UseAbility(0, playerTeam, holdTime);
+            holdTime = 0;
         }
 
         if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp(inputAbility2Button))
         {
             guardianController.UseAbilityFromAllOrbs(3, playerTeam, holdTime);
+            holdTime = 0;
         }
         else if (modifierAxis != 0 && Input.GetKeyUp(inputAbility2Button))
         {
             guardianController.UseAbility(3, playerTeam, holdTime);
+            holdTime = 0;
         }
         else if (multicastAxis != 0 && Input.GetKeyUp(inputAbility2Button))
         {
             guardianController.UseAbilityFromAllOrbs(1, playerTeam, holdTime);
+            holdTime = 0;
         }
         else if (Input.GetKeyUp(inputAbility2Button))
         {
             guardianController.UseAbility(1, playerTeam, holdTime);
+            holdTime = 0;
+        }
+
+        if (Input.GetKeyDown(inputAbility1Button))
+        {
+            holdTime += Time.deltaTime * holdTimeMultiplier;
+        }
+        else if (modifierAxis != 0 && Input.GetKeyDown(inputAbility1Button))
+        {
+            holdTime += Time.deltaTime * holdTimeMultiplier;
+        }
+        else if (Input.GetKeyDown(inputAbility2Button))
+        {
+            holdTime += Time.deltaTime * holdTimeMultiplier;
+        }
+        else if (modifierAxis != 0 && Input.GetKeyDown(inputAbility2Button))
+        {
+            holdTime += Time.deltaTime * holdTimeMultiplier;
         }
     }
 

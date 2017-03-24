@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GolemAbilityCreate : AbilityBase 
+public class GolemAbilityCreate : CreateAbilityBase 
 {
     private GolemInputManager golemInputManager;
     private GolemPlayerController golemPlayerController;
     private GolemResources golemResources;
-    private CooldownManager golemCooldown;
+    private GolemCooldownManager golemCooldown;
 
     [Header("Ability Type")]
     public AbilityType abilityType;
@@ -28,7 +28,7 @@ public class GolemAbilityCreate : AbilityBase
         golemInputManager = transform.parent.parent.GetComponent<GolemInputManager>();
         golemPlayerController = golemInputManager.GetComponent<GolemPlayerController>();
         golemResources = golemInputManager.GetComponent<GolemResources>();
-        golemCooldown = golemInputManager.GetComponent<CooldownManager>();
+        golemCooldown = golemInputManager.GetComponent<GolemCooldownManager>();
     }
 
     public override void CastAbility(PlayerTeam teamColor, float heldTime, GameObject casterObject)
@@ -127,8 +127,8 @@ public class GolemAbilityCreate : AbilityBase
             newAbility.layer = LayerMask.NameToLayer("GolemBlue");
         }
 
-        newAbility.GetComponent<GolemAbilityBase>().abilityValues = abilityInfo;
-        newAbility.GetComponent<GolemAbilityBase>().InitializeAbility();
+        newAbility.GetComponent<AbilityCastBase>().abilityValues = abilityInfo;
+        newAbility.GetComponent<AbilityCastBase>().InitializeAbility();
 
         golemPlayerController.isCastingAbility = false;
 

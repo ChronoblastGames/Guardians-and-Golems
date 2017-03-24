@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EarthGolemAbility3 : GolemAbilityBase
+public class EarthGolemAbility3 : AbilityCastBase
 {
     [Header("Ability Attributes")]
     public LayerMask conduitMask;

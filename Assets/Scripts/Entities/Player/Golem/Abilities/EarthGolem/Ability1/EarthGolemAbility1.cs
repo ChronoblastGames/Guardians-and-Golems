@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EarthGolemAbility1 : GolemAbilityBase 
+public class EarthGolemAbility1 : AbilityCastBase 
 {
     private TimerClass activeTimer;
 

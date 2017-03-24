@@ -67,7 +67,7 @@ public struct AbilityValues
     public float effectTime;
 }
 
-public abstract class AbilityBase : MonoBehaviour
+public abstract class CreateAbilityBase : MonoBehaviour
 {
     [Header("Cast Info")]
     public GameObject spawnPos;
@@ -121,7 +121,7 @@ public abstract class AbilityBase : MonoBehaviour
         Debug.LogError("Base Golem Ability Cast, should have been overriden");
     }
 
-    public virtual void CastGuardianAbility(PlayerTeam color, float holdTime, GameObject spawnPos)
+    public virtual void CastGuardianAbility(PlayerTeam color, float holdTime, GameObject spawnPos, GameObject casterObject)
     {
         Debug.LogError("Base Guardian Ability Cast, should have been overriden");
     }

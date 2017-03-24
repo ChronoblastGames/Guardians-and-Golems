@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class BaseProjectileAbility : GolemAbilityBase
+public class BaseProjectileAbility : AbilityCastBase
 {
     private TimerClass projectileTimer;
 

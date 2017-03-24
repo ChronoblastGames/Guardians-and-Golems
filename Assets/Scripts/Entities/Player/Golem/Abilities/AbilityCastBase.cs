@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GolemAbilityBase : MonoBehaviour 
+public class AbilityCastBase : MonoBehaviour 
 {
     private TimerClass abilityTimer;
 

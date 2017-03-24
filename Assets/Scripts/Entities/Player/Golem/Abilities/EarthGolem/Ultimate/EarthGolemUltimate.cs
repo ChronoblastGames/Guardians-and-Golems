@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class EarthGolemUltimate : GolemAbilityBase
+public class EarthGolemUltimate : AbilityCastBase
 {
     [Header("Ability Attributes")]
     public GameObject earthFragments;

@@ -59,6 +59,8 @@ public class OrbController : MonoBehaviour
 
     void InitializeOrb()
     {
+        orbObjectBase = gameObject;
+
         if (orbState == OrbState.HOMEBASE)
         {
             switch (orbColor)

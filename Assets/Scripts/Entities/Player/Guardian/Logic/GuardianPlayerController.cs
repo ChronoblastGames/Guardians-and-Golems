@@ -8,7 +8,7 @@ public class GuardianPlayerController : GuardianStats
 {
     private GuardianInputManager guardianInputManager;
     private GuardianResources guardianResources;
-    private CooldownManager guardianCooldown;
+    private GuardianCooldownManager guardianCooldown;
 
     private OrbController orbController;
 
@@ -24,8 +24,6 @@ public class GuardianPlayerController : GuardianStats
 
     public PlayerTeam playerTeam;
 
-    public bool isCapturingOrb = false;
-
     [Header("Selection Values")]
     public GameObject attachedOrb;
     private GameObject selectedOrb;
@@ -38,8 +36,12 @@ public class GuardianPlayerController : GuardianStats
 
     public LayerMask orbMask;
 
-    [Header("CoolDowns")]
-    private float globalCooldownTime;
+    [Header("Guardian Booleans")]
+    public bool canMove = true;
+    public bool canCaptureOrb = true;
+    public bool isCapturingOrb = false;
+    public bool canUseAbility = false;
+    public bool isUsingAbility = false;
 
     void Start()
     {
@@ -54,11 +56,9 @@ public class GuardianPlayerController : GuardianStats
 
     void PlayerSetup()
     {
-        globalCooldownTime = GameObject.FindObjectOfType<GlobalVariables>().guardianGlobalCooldown;
-
         guardianInputManager = GetComponent<GuardianInputManager>();
         guardianResources = GetComponent<GuardianResources>();
-        guardianCooldown = GetComponent<CooldownManager>();
+        guardianCooldown = GetComponent<GuardianCooldownManager>();
 
         guardianState = GetComponent<Animator>();
 
@@ -141,11 +141,11 @@ public class GuardianPlayerController : GuardianStats
 
     public void UseAbility(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
-        if (canAttack && attachedOrb != null)
+        if (canAttack && attachedOrb != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
         {
             GameObject spawnObj = orbController.orbObjectBase;
 
-            guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj);
+            guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
             guardianCooldown.QueueGlobalCooldown();
             guardianCooldown.QueueAbilityCooldown(abilityNumber);
         }     
@@ -159,7 +159,7 @@ public class GuardianPlayerController : GuardianStats
             {
                 GameObject spawnObj = orbList[i].GetComponent<OrbController>().orbObjectBase;
 
-                guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj);
+                guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
             }
 
             guardianCooldown.QueueGlobalCooldown();

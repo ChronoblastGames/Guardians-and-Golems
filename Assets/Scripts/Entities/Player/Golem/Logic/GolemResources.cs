@@ -62,10 +62,6 @@ public class GolemResources : MonoBehaviour
     [HideInInspector]
     public GolemDefense golemDefense;
 
-    private IEnumerator currentSlowCoroutine;
-    private IEnumerator currentShieldCoroutine;
-    private IEnumerator currentKnockbackCoroutine;
-
     void Awake()
     {     
         InitializeValues();
@@ -346,7 +342,6 @@ public class GolemResources : MonoBehaviour
                 interceptVec.y = 0;
 
                 StartCoroutine(Knockback(-interceptVec, knockBackCurve, effectStrength, effectTime));
-                currentKnockbackCoroutine = Knockback(-interceptVec, knockBackCurve, effectStrength, effectTime);
 
                 statusEffectList.Add(StatusEffect.KNOCKBACK);
                 break;

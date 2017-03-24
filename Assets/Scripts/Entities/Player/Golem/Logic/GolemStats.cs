@@ -17,7 +17,7 @@ public abstract class GolemStats : MonoBehaviour
     public GolemDefense golemDefenseValues;
 
     [Header("Golem Abilities")]
-    public AbilityBase[] golemAbilities;
+    public CreateAbilityBase[] golemAbilities;
 }
 
 [System.Serializable]
