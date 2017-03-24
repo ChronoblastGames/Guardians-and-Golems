@@ -7,8 +7,14 @@ using UnityEngine;
 public class GuardianPlayerController : GuardianStats 
 {
     private GuardianInputManager guardianInputManager;
+    private GuardianResources guardianResources;
+    private CooldownManager guardianCooldown;
+
     private OrbController orbController;
+
     private TimerClass selectionTimer;
+
+    private Animator guardianState;
 
     private float xAxis;
     private float zAxis;
@@ -48,10 +54,13 @@ public class GuardianPlayerController : GuardianStats
 
     void PlayerSetup()
     {
-
         globalCooldownTime = GameObject.FindObjectOfType<GlobalVariables>().guardianGlobalCooldown;
 
         guardianInputManager = GetComponent<GuardianInputManager>();
+        guardianResources = GetComponent<GuardianResources>();
+        guardianCooldown = GetComponent<CooldownManager>();
+
+        guardianState = GetComponent<Animator>();
 
         selectionTimer = new TimerClass();
 
@@ -130,46 +139,31 @@ public class GuardianPlayerController : GuardianStats
         }
     }
 
-    public void UseAbility(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor, float holdTime)
+    public void UseAbility(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
         if (canAttack && attachedOrb != null)
         {
-            if (aimVec != null)
-            {
-                GameObject spawnObj = orbController.orbObjectBase;
+            GameObject spawnObj = orbController.orbObjectBase;
 
-                if (aimVec != Vector3.zero)
-                {           
-                    guardianAbilites[abilityNumber].CastGuardianAbility(aimVec, spawnObj, teamColor, holdTime);
-                }
-                else
-                {
-                    guardianAbilites[abilityNumber].CastGuardianAbility(transform.forward, spawnObj, teamColor, holdTime);
-                }
-            }
+            guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj);
+            guardianCooldown.QueueGlobalCooldown();
+            guardianCooldown.QueueAbilityCooldown(abilityNumber);
         }     
     }
 
-    public void UseAbilityFromAllOrbs(int abilityNumber, Vector3 aimVec, PlayerTeam teamColor, float holdTime)
+    public void UseAbilityFromAllOrbs(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
         if (canAttack && attachedOrb != null)
         {
-            if (aimVec != null)
+            for (int i = 0; i < orbList.Count; i++)
             {
-                for (int i = 0; i < orbList.Count; i++)
-                {
-                    GameObject spawnObj = orbList[i].GetComponent<OrbController>().orbObjectBase;
+                GameObject spawnObj = orbList[i].GetComponent<OrbController>().orbObjectBase;
 
-                    if (aimVec != Vector3.zero)
-                    {
-                        guardianAbilites[abilityNumber].CastGuardianAbility(aimVec, spawnObj, teamColor, holdTime);
-                    }
-                    else
-                    {
-                        guardianAbilites[abilityNumber].CastGuardianAbility(transform.forward, spawnObj, teamColor, holdTime);
-                    }
-                }            
+                guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj);
             }
+
+            guardianCooldown.QueueGlobalCooldown();
+            guardianCooldown.QueueAbilityCooldown(abilityNumber);
         }
     }
 }

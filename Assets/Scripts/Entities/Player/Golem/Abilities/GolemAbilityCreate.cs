@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class AbilityCreate : AbilityBase 
+public class GolemAbilityCreate : AbilityBase 
 {
     private GolemInputManager golemInputManager;
     private GolemPlayerController golemPlayerController;

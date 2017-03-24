@@ -74,7 +74,6 @@ public abstract class AbilityBase : MonoBehaviour
     [HideInInspector]
     public GameObject casterGameObject;
 
-
     [Header("Ability")]
     public GameObject ability;
 
@@ -119,12 +118,12 @@ public abstract class AbilityBase : MonoBehaviour
 
     public virtual void CastAbility(PlayerTeam teamColor, float holdTime, GameObject casterObject)
     {
-        Debug.LogError("Base Ability Cast, should have been overriden");
+        Debug.LogError("Base Golem Ability Cast, should have been overriden");
     }
 
-    public virtual void CastGuardianAbility(Vector3 aimVec, GameObject spawnPos, PlayerTeam color, float holdTime)
+    public virtual void CastGuardianAbility(PlayerTeam color, float holdTime, GameObject spawnPos)
     {
-        Debug.LogError("Base GuardianAbility Cast, should have been overriden");
+        Debug.LogError("Base Guardian Ability Cast, should have been overriden");
     }
 
     public virtual void InitializeAbility()

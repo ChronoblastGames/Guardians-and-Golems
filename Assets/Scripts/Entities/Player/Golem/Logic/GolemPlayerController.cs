@@ -176,7 +176,7 @@ public class GolemPlayerController : GolemStats
     {
         if (canUseAbilities && golemCooldown.GlobalCooldownReady() && golemCooldown.CanUseAbility(abilityNumber))
         {
-            if (golemResources.CanCast(golemAbilities[abilityNumber].GetComponent<AbilityCreate>().manaCost, golemAbilities[abilityNumber].GetComponent<AbilityCreate>().healthCost))
+            if (golemResources.CanCast(golemAbilities[abilityNumber].GetComponent<GolemAbilityCreate>().manaCost, golemAbilities[abilityNumber].GetComponent<GolemAbilityCreate>().healthCost))
             {
                 golemState.SetTrigger("UseAbility");
                 golemState.SetTrigger("Ability" + (abilityNumber + 1));

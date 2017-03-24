@@ -146,10 +146,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4178880074371146}
+  - component: {fileID: 95360332978647460}
   - component: {fileID: 114240599644795854}
   - component: {fileID: 114533035422661628}
-  - component: {fileID: 114923871507058664}
   - component: {fileID: 114544368522993898}
+  - component: {fileID: 114146186100982294}
+  - component: {fileID: 114923871507058664}
   m_Layer: 19
   m_Name: Guardian_Red
   m_TagString: Untagged
@@ -3327,7 +3329,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1772983915643092}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29, y: 2, z: 0}
+  m_LocalPosition: {x: 30, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4286687022282982}
@@ -4623,6 +4625,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &95360332978647460
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1088820104138258}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95832887800613972
 Animator:
   serializedVersion: 3
@@ -4861,6 +4880,28 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   minHoldTime: 0.25
+--- !u!114 &114146186100982294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1088820104138258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7e182cd16383d4d8b11f578fc5443d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dodgeCooldownTime: 0
+  ability1Time: 0
+  ability2Time: 0
+  ability3Time: 0
+  ability4Time: 0
+  isGlobalCooldownReady: 1
+  isDodgeCooldownReady: 1
+  isAbility1Ready: 1
+  isAbility2Ready: 1
+  isAbility3Ready: 1
+  isAbility4Ready: 1
 --- !u!114 &114149652261849078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5065,9 +5106,9 @@ MonoBehaviour:
   idleTime: 10
   golemDodge: {fileID: 114599647602105188}
   isStaggered: 0
+  abilitySmoothTime: 0.1
   turnSmoothTime: 0.05
   attackTurnSmoothTime: 0.3
-  aimAttackTurnSmoothTime: 0.1
   gravity: -12
   isIdle: 0
   canRotate: 1
@@ -5079,7 +5120,7 @@ MonoBehaviour:
   isDodging: 0
   isBlocking: 0
   isAttacking: 0
-  isUsingAbility: 0
+  isCastingAbility: 0
   isSlowed: 0
   blockIndicator: {fileID: 1485026448992000}
 --- !u!114 &114204453139013332
@@ -5144,6 +5185,7 @@ MonoBehaviour:
   aimXAxis: 0
   aimZAxis: 0
   multicastAxis: 0
+  aimVec: {x: 0, y: 0, z: 0}
 --- !u!114 &114247853651247480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5329,6 +5371,7 @@ MonoBehaviour:
   aimXAxis: 0
   aimZAxis: 0
   multicastAxis: 0
+  aimVec: {x: 0, y: 0, z: 0}
 --- !u!114 &114384258539769410
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5340,7 +5383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPos: {fileID: 1181904162715068}
+  spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
   abilityCastTime: 0.6
@@ -5531,9 +5574,9 @@ MonoBehaviour:
   idleTime: 10
   golemDodge: {fileID: 114736899289739244}
   isStaggered: 0
+  abilitySmoothTime: 0.1
   turnSmoothTime: 0.05
   attackTurnSmoothTime: 0.3
-  aimAttackTurnSmoothTime: 0.1
   gravity: -12
   isIdle: 0
   canRotate: 1
@@ -5545,7 +5588,7 @@ MonoBehaviour:
   isDodging: 0
   isBlocking: 0
   isAttacking: 0
-  isUsingAbility: 0
+  isCastingAbility: 0
   isSlowed: 0
   blockIndicator: {fileID: 1367470690802138}
 --- !u!114 &114514925697194130
@@ -5585,7 +5628,7 @@ MonoBehaviour:
   selectionDelay: 0.3
   orbMask:
     serializedVersion: 2
-    m_Bits: 1310720
+    m_Bits: 1376256
 --- !u!114 &114544368522993898
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5597,8 +5640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953f1c2258cad8f45819677ca6a4982a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentMana: 1000
-  maxMana: 1000
+  currentMana: Infinity
+  maxMana: Infinity
   manaRegenerationSpeed: 1.5
 --- !u!114 &114562030781692596
 MonoBehaviour:
@@ -11153,7 +11196,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1089677306
+  randomSeed: 539175615
   InitialModule:
     serializedVersion: 3
     enabled: 1

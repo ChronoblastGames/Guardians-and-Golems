@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GuardianAbility : AbilityBase
+public class GuardianAbilityCreate : AbilityBase
 {
     private GuardianResources guardianResources;
 
@@ -22,7 +22,7 @@ public class GuardianAbility : AbilityBase
         guardianResources = transform.parent.parent.GetComponent<GuardianResources>();
     }
 
-    public override void CastGuardianAbility(Vector3 aimVec, GameObject spawnPos, PlayerTeam teamColor, float holdTime)
+    public override void CastGuardianAbility(PlayerTeam teamColor, float holdTime, GameObject spawnPos)
     {
 
     }

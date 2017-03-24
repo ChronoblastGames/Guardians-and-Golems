@@ -27,7 +27,8 @@ public class GuardianInputManager : MonoBehaviour
     private float modifierAxis;
     public float multicastAxis;
 
-    private Vector3 aimVec;
+    [HideInInspector]
+    public Vector3 aimVec;
 
     private string inputAxisX = "";
     private string inputAxisZ = "";
@@ -126,36 +127,36 @@ public class GuardianInputManager : MonoBehaviour
 
         if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp(inputAbility1Button))
         {
-            guardianController.UseAbilityFromAllOrbs(2, aimVec, playerTeam, holdTime);
+            guardianController.UseAbilityFromAllOrbs(2, playerTeam, holdTime);
         }
         else if (modifierAxis != 0 && Input.GetKeyUp(inputAbility1Button))
         {
-            guardianController.UseAbility(2, aimVec, playerTeam, holdTime);
+            guardianController.UseAbility(2, playerTeam, holdTime);
         }
         else if (multicastAxis != 0 && Input.GetKeyUp(inputAbility1Button))
         {
-            guardianController.UseAbilityFromAllOrbs(0, aimVec, playerTeam, holdTime);
+            guardianController.UseAbilityFromAllOrbs(0, playerTeam, holdTime);
         }
         else if (Input.GetKeyUp(inputAbility1Button))
         {
-            guardianController.UseAbility(0, aimVec, playerTeam, holdTime);
+            guardianController.UseAbility(0, playerTeam, holdTime);
         }
 
         if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp(inputAbility2Button))
         {
-            guardianController.UseAbilityFromAllOrbs(3, aimVec, playerTeam, holdTime);
+            guardianController.UseAbilityFromAllOrbs(3, playerTeam, holdTime);
         }
         else if (modifierAxis != 0 && Input.GetKeyUp(inputAbility2Button))
         {
-            guardianController.UseAbility(3, aimVec, playerTeam, holdTime);
+            guardianController.UseAbility(3, playerTeam, holdTime);
         }
         else if (multicastAxis != 0 && Input.GetKeyUp(inputAbility2Button))
         {
-            guardianController.UseAbilityFromAllOrbs(1, aimVec, playerTeam, holdTime);
+            guardianController.UseAbilityFromAllOrbs(1, playerTeam, holdTime);
         }
         else if (Input.GetKeyUp(inputAbility2Button))
         {
-            guardianController.UseAbility(1, aimVec, playerTeam, holdTime);
+            guardianController.UseAbility(1, playerTeam, holdTime);
         }
     }
 
