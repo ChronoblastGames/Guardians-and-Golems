@@ -83,12 +83,12 @@ public class GuardianPlayerController : GuardianStats
         {
             if (orbController.orbState != OrbState.DISABLED)
             {
-                canAttack = true;
+                canUseAbility = true;
             }
         }
         else
         {
-            canAttack = false;
+            canUseAbility = false;
         }
     }
 
@@ -141,7 +141,7 @@ public class GuardianPlayerController : GuardianStats
 
     public void UseAbility(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
-        if (canAttack && attachedOrb != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
+        if (canUseAbility && attachedOrb != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
         {
             GameObject spawnObj = orbController.orbObjectBase;
 
@@ -153,7 +153,7 @@ public class GuardianPlayerController : GuardianStats
 
     public void UseAbilityFromAllOrbs(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
-        if (canAttack && attachedOrb != null)
+        if (canUseAbility && attachedOrb != null)
         {
             for (int i = 0; i < orbList.Count; i++)
             {

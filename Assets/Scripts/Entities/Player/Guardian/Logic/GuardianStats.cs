@@ -8,8 +8,6 @@ public abstract class GuardianStats : MonoBehaviour
 
     [Header("Guardian Abilities")]
     public CreateAbilityBase[] guardianAbilites;
-
-    public bool canAttack = false;
 }
 
 [System.Serializable]

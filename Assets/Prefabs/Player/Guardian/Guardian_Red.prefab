@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 114142960946627464}
   - component: {fileID: 114264578236057050}
   m_Layer: 19
-  m_Name: Guardian_Red 1
+  m_Name: Guardian_Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -272,27 +272,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8, type: 2}
+  abilityCastTime: 0
   damageType: 3
   damageAmount: 20
   projectileSpeed: 35
   spawnDistanceFromPlayer: 0
   activeTime: 0
+  holdTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
   zoneStrength: 0
-  zoneTime: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
   isRanged: 1
-  canStun: 0
-  canSlow: 0
-  canDrainHealth: 0
-  canDrainMana: 0
-  canBlind: 0
+  isHeld: 0
+  statusEffect: 0
+  effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -300,6 +302,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114130812135643850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,27 +314,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710, type: 2}
+  abilityCastTime: 0
   damageType: 2
   damageAmount: 25
   projectileSpeed: 40
   spawnDistanceFromPlayer: 0
   activeTime: 0
+  holdTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
   zoneStrength: 0
-  zoneTime: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
   isRanged: 1
-  canStun: 0
-  canSlow: 0
-  canDrainHealth: 0
-  canDrainMana: 0
-  canBlind: 0
+  isHeld: 0
+  statusEffect: 0
+  effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -339,6 +344,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114142960946627464
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,7 +356,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062c416258928cc41be0f480c7058579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spellIndicatorType: 0
   spellIndicator: {fileID: 0}
+  isSpellIndicatorEnabled: 0
+  spellIndicatorCircle: {fileID: 0}
+  spellIndicatorPoint: {fileID: 0}
+  spellIndicatorArrow: {fileID: 0}
+  spellIndicatorCone: {fileID: 0}
 --- !u!114 &114184374196193374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,27 +374,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
+  abilityCastTime: 0
   damageType: 0
   damageAmount: 10
   projectileSpeed: 25
   spawnDistanceFromPlayer: 0
   activeTime: 0
+  holdTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
   zoneStrength: 0
-  zoneTime: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
   isRanged: 1
-  canStun: 0
-  canSlow: 0
-  canDrainHealth: 0
-  canDrainMana: 0
-  canBlind: 0
+  isHeld: 0
+  statusEffect: 0
+  effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -390,6 +404,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114264578236057050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -415,27 +430,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPos: {fileID: 0}
+  casterGameObject: {fileID: 0}
   ability: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962, type: 2}
+  abilityCastTime: 0
   damageType: 0
   damageAmount: 15
   projectileSpeed: 30
   spawnDistanceFromPlayer: 0
   activeTime: 0
+  holdTime: 0
   raiseAmount: 0
   raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
   zoneStrength: 0
-  zoneTime: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
   isRanged: 1
-  canStun: 0
-  canSlow: 0
-  canDrainHealth: 0
-  canDrainMana: 0
-  canBlind: 0
+  isHeld: 0
+  statusEffect: 0
+  effectStrength: 0
+  effectTime: 0
   abilityType: 0
   redMask:
     serializedVersion: 2
@@ -443,6 +460,7 @@ MonoBehaviour:
   blueMask:
     serializedVersion: 2
     m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114509852185430838
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -457,10 +475,14 @@ MonoBehaviour:
   playerNum: 0
   playerTeam: 0
   PlayerName: Van
+  PlayerNumber: 0
   xAxis: 0
   zAxis: 0
+  holdTime: 0
+  holdTimeMultiplier: 2
   aimXAxis: 0
   aimZAxis: 0
+  aimVec: {x: 0, y: 0, z: 0}
 --- !u!114 &114985126059208492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -478,13 +500,16 @@ MonoBehaviour:
   - {fileID: 114324692451499520}
   - {fileID: 114007815906623248}
   - {fileID: 114130812135643850}
-  canAttack: 0
   orbList: []
   playerTeam: 0
-  isCapturingOrb: 0
   attachedOrb: {fileID: 0}
   selectionDistance: 100
   selectionDelay: 0.3
   orbMask:
     serializedVersion: 2
     m_Bits: 1048576
+  canMove: 1
+  canCaptureOrb: 1
+  isCapturingOrb: 0
+  canUseAbility: 0
+  isUsingAbility: 0
