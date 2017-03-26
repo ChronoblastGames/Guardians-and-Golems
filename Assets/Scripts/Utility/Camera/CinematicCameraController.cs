@@ -10,25 +10,33 @@ public class CinematicCameraController : MonoBehaviour
     [Header("Camera Point Curves")]
     public List<AnimationCurve> cameraMovementAnimationCurves;
     public List<AnimationCurve> cameraRotationAnimationCurves;
+    public List<AnimationCurve> cameraZoomAnimationCurves;
+
+    [Header("Camera Zoom Values")]
+    public List<float> zoomPointTarget;
 
     [Header("Camera Waypoint Timings")]
     public float startDelay;
 
-    public List<float> cameraPointTimes;
+    public List<float> cameraWaitTimes;
+    public List<float> cameraPointSpeedModifiers;
 
     [Header("Debug Attributes")]
     private Vector3 startPos;
     private Quaternion startRotation;
+    private float startFOV;
 
     private GameObject targetPoint;
 
     private AnimationCurve targetMovementAnimationCurve;
     private AnimationCurve targetRotationAnimationCurve;
+    private AnimationCurve targetZoomAnimationCurve;
 
     private float targetTiming;
 
     private int waypointNumber = 0;
     private int numberOfWaypoints = 0;
+    private int nextPointNumber = 1;
 
     private float t;
     private float o;
@@ -58,6 +66,7 @@ public class CinematicCameraController : MonoBehaviour
         {
             transform.position = Vector3.Lerp(startPos, targetPoint.transform.position, targetMovementAnimationCurve.Evaluate(t / targetTiming));
             transform.rotation = Quaternion.Slerp(startRotation, targetPoint.transform.rotation, targetMovementAnimationCurve.Evaluate(o / targetTiming));
+            Camera.main.fieldOfView = Mathf.Lerp(startFOV, zoomPointTarget[waypointNumber], targetZoomAnimationCurve.Evaluate(t / targetTiming));
 
             t += Time.fixedDeltaTime / targetTiming;
             o += Time.fixedDeltaTime / targetTiming;
@@ -72,7 +81,7 @@ public class CinematicCameraController : MonoBehaviour
                 t = 0;
                 o = 0;
 
-                FindNextPoint();
+                StartCoroutine(FindNextPoint());
             }
         }
     }
@@ -89,23 +98,30 @@ public class CinematicCameraController : MonoBehaviour
 
         startPos = transform.position;
         startRotation = transform.rotation;
+        startFOV = Camera.main.fieldOfView;
 
         targetPoint = cameraWaypointList[1];
 
         targetMovementAnimationCurve = cameraMovementAnimationCurves[1];
         targetRotationAnimationCurve = cameraRotationAnimationCurves[1];
+        targetZoomAnimationCurve = cameraZoomAnimationCurves[1];
 
-        targetTiming = cameraPointTimes[1];
+        targetTiming = cameraPointSpeedModifiers[1];
 
         isActive = true;
 
         yield return null;
     }
 
-    void FindNextPoint()
+    private IEnumerator FindNextPoint()
     {
         if (CanMoveToNextPosition())
         {
+            if (cameraWaitTimes[waypointNumber] > 0)
+            {
+                yield return new WaitForSeconds(cameraWaitTimes[waypointNumber]);
+            }
+
             startPos = transform.position;
             startRotation = transform.rotation;
 
@@ -115,20 +131,19 @@ public class CinematicCameraController : MonoBehaviour
 
             targetMovementAnimationCurve = cameraMovementAnimationCurves[waypointNumber];
             targetRotationAnimationCurve = cameraRotationAnimationCurves[waypointNumber];
+            targetZoomAnimationCurve = cameraZoomAnimationCurves[waypointNumber];
 
-            targetTiming = cameraPointTimes[waypointNumber];
+            targetTiming = cameraPointSpeedModifiers[waypointNumber];
 
             isActive = true;
-        }
-        else
-        {
-            Debug.Log("Reached end of Route");
+
+            yield return null;
         }
     }
 
     private bool CanMoveToNextPosition()
     {
-        int nextPointNumber = waypointNumber + 1;
+        nextPointNumber++;
 
         if (nextPointNumber <= numberOfWaypoints)
         {
