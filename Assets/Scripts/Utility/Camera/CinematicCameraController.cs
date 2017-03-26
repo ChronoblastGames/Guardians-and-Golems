@@ -12,6 +12,8 @@ public class CinematicCameraController : MonoBehaviour
     public List<AnimationCurve> cameraRotationAnimationCurves;
 
     [Header("Camera Waypoint Timings")]
+    public float startDelay;
+
     public List<float> cameraPointTimes;
 
     [Header("Debug Attributes")]
@@ -47,7 +49,7 @@ public class CinematicCameraController : MonoBehaviour
     {
         numberOfWaypoints = cameraWaypointList.Count;
 
-        StartRoute();
+        StartCoroutine(StartRoute(startDelay));
     }
 
     void MoveCamera()
@@ -60,7 +62,10 @@ public class CinematicCameraController : MonoBehaviour
             t += Time.fixedDeltaTime / targetTiming;
             o += Time.fixedDeltaTime / targetTiming;
 
-            if (transform.position == targetPoint.transform.position)
+
+            Vector3 interceptVec = targetPoint.transform.position - transform.position;
+
+            if (interceptVec.magnitude < 0.20f)
             {
                 isActive = false;
 
@@ -72,8 +77,13 @@ public class CinematicCameraController : MonoBehaviour
         }
     }
 
-    void StartRoute()
+    private IEnumerator StartRoute(float waitTime)
     {
+        if (waitTime > 0)
+        {
+            yield return new WaitForSeconds(waitTime);
+        }
+
         transform.position = cameraWaypointList[0].transform.position;
         transform.rotation = cameraWaypointList[0].transform.rotation;
 
@@ -88,6 +98,8 @@ public class CinematicCameraController : MonoBehaviour
         targetTiming = cameraPointTimes[1];
 
         isActive = true;
+
+        yield return null;
     }
 
     void FindNextPoint()
