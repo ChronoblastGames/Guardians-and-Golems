@@ -57,6 +57,9 @@ public class CinematicCameraController : MonoBehaviour
     {
         numberOfWaypoints = cameraWaypointList.Count;
 
+        transform.position = cameraWaypointList[0].transform.position;
+        transform.rotation = cameraWaypointList[0].transform.rotation;
+
         StartCoroutine(StartRoute(startDelay));
     }
 
@@ -92,9 +95,6 @@ public class CinematicCameraController : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
         }
-
-        transform.position = cameraWaypointList[0].transform.position;
-        transform.rotation = cameraWaypointList[0].transform.rotation;
 
         startPos = transform.position;
         startRotation = transform.rotation;

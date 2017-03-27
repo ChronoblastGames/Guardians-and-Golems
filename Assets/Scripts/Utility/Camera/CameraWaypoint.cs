@@ -10,7 +10,7 @@ public class CameraWaypoint : MonoBehaviour
         LookAtPoint(lookAtTarget);
     }
     void Update() {
-        LookAtPoint(lookAtTarget);
+        //LookAtPoint(lookAtTarget);
     }
 
     void LookAtPoint(GameObject target)
