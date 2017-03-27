@@ -13,11 +13,11 @@ public enum OrbState
     HOMEBASE
 }
 
-public class OrbController : MonoBehaviour 
+public class ConduitController : MonoBehaviour 
 {
     private GuardianPlayerController guardianPlayerController;
 
-    [Header("Orb Attributes")]
+    [Header("Conduit Attributes")]
     public OrbState orbState;
     public PlayerTeam orbColor;
 
@@ -33,17 +33,21 @@ public class OrbController : MonoBehaviour
     public bool isBeingAssistedByRedGolem;
     public bool isBeingAssistedByBlueGolem;
 
-    [Header("Orb ObjectBase")]
+    [Header("Conduit ObjectBase")]
     public GameObject orbObjectBase;
 
-    [Header("Orb UI Attributes")]
+    [Header("Conduit UI Attributes")]
     public Image orbCaptureIndicator;
 
-    [Header("Orb Renderer Attributes")]
+    [Header("Conduit Renderer Attributes")]
     public Renderer orbRenderer;
     public Material orbBaseMaterial;
     public Material redOrbMaterial;
     public Material blueOrbMaterial;
+
+    [Header("Conduit Particles Systems")]
+    public ParticleSystem redParticles;
+    public ParticleSystem blueParticles;
 
     private void Start()
     {
@@ -243,10 +247,12 @@ public class OrbController : MonoBehaviour
         switch(teamColor)
         {
             case PlayerTeam.RED:
-                orbRenderer.material = redOrbMaterial; 
+                orbRenderer.material = redOrbMaterial;
+                PlayRedCaptureParticles();
                 break;
             case PlayerTeam.BLUE:
                 orbRenderer.material = blueOrbMaterial;
+                PlayBlueCaptureParticles();
                 break;
         }
 
@@ -255,6 +261,16 @@ public class OrbController : MonoBehaviour
         guardianPlayerController.isCapturingOrb = false;
         guardianPlayerController.orbList.Add(gameObject);
         orbState = OrbState.CONTROLLED;
+    }
+
+    void PlayRedCaptureParticles()
+    {
+        redParticles.Play();
+    }
+
+    void PlayBlueCaptureParticles()
+    {
+        blueParticles.Play();
     }
 
     public void ResetOrb()

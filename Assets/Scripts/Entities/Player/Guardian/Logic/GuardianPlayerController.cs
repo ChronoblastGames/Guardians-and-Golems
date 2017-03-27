@@ -10,7 +10,7 @@ public class GuardianPlayerController : GuardianStats
     private GuardianResources guardianResources;
     private GuardianCooldownManager guardianCooldown;
 
-    private OrbController orbController;
+    private ConduitController orbController;
 
     private TimerClass selectionTimer;
 
@@ -119,7 +119,7 @@ public class GuardianPlayerController : GuardianStats
     {
         transform.position = orb.transform.position;
         attachedOrb = orb;
-        orbController = attachedOrb.GetComponent<OrbController>();
+        orbController = attachedOrb.GetComponent<ConduitController>();
         selectionTimer.ResetTimer(selectionDelay);
         orbController.attachedGuardianColor.Add(playerTeam);
     }
@@ -157,7 +157,7 @@ public class GuardianPlayerController : GuardianStats
         {
             for (int i = 0; i < orbList.Count; i++)
             {
-                GameObject spawnObj = orbList[i].GetComponent<OrbController>().orbObjectBase;
+                GameObject spawnObj = orbList[i].GetComponent<ConduitController>().orbObjectBase;
 
                 guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
             }

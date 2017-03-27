@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class OrbAreaTrigger : MonoBehaviour
+public class ConduitAreaTrigger : MonoBehaviour
 {
-    private OrbController orbController;
+    private ConduitController orbController;
 
     void Start()
     {
@@ -12,7 +12,7 @@ public class OrbAreaTrigger : MonoBehaviour
 
     void Initialize()
     {
-        orbController = transform.parent.GetComponent<OrbController>();
+        orbController = transform.parent.GetComponent<ConduitController>();
     }
 
     void OnTriggerEnter(Collider golem)
