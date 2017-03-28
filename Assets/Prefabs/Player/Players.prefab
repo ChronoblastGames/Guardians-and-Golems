@@ -2520,7 +2520,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1680011134509246}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -60, y: 1, z: 0}
+  m_LocalPosition: {x: -45, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4045779130944634}
@@ -4187,7 +4187,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1557658279121078}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 56, y: 1, z: 0}
+  m_LocalPosition: {x: 45, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4614758910850322}
@@ -5114,7 +5114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 1
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
@@ -5167,7 +5167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 2
   playerTeam: 0
   PlayerName: Matt
   PlayerNumber: 0
@@ -6148,7 +6148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 3
+  playerNum: 0
   playerTeam: 1
   PlayerName: Van
   PlayerNumber: 0
@@ -6378,7 +6378,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: 805ea4572992d0f41b146ac87a8c033d, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 4294950911
+    m_Bits: 4294885375
 --- !u!119 &119473291759532616
 Projector:
   m_ObjectHideFlags: 1
@@ -6393,7 +6393,7 @@ Projector:
   m_AspectRatio: 1
   m_Orthographic: 1
   m_OrthographicSize: 4
-  m_Material: {fileID: 2100000, guid: acc3bcebacb8e1f44890ca34e5383a64, type: 2}
+  m_Material: {fileID: 2100000, guid: 805ea4572992d0f41b146ac87a8c033d, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 4294901759
@@ -6432,7 +6432,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: af109a113b297d54d9739ce61930ddcd, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 4294950911
+    m_Bits: 4294885375
 --- !u!137 &137050955007384944
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

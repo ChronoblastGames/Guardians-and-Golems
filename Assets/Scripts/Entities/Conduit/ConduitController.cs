@@ -94,6 +94,10 @@ public class ConduitController : MonoBehaviour
             {
                 orbCaptureIndicator.fillAmount = redTeamCaptureAmount / totalCaptureAmount;
 
+                Debug.Log(redTeamCaptureAmount / totalCaptureAmount);
+
+                conduitCrackRenderer.material.color = Color.Lerp(conduitCrackRenderer.material.color, Color.yellow, redTeamCaptureAmount / totalCaptureAmount);
+
                 foreach (Renderer gemRender in gemRenderer)
                 {
                     gemRender.material.color = Color.Lerp(gemRender.material.color, Color.yellow, redTeamCaptureAmount / totalCaptureAmount);
@@ -103,6 +107,8 @@ public class ConduitController : MonoBehaviour
             else if (blueTeamCaptureAmount > 0)
             {
                 orbCaptureIndicator.fillAmount = blueTeamCaptureAmount / totalCaptureAmount;
+
+                conduitCrackRenderer.material.color = Color.Lerp(conduitCrackRenderer.material.color, Color.blue, blueTeamCaptureAmount / totalCaptureAmount);
 
                 foreach (Renderer gemRender in gemRenderer)
                 {
