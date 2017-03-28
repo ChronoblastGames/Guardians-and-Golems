@@ -2705,7 +2705,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: acc3bcebacb8e1f44890ca34e5383a64, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 4294950911
+    m_Bits: 4294885375
 --- !u!119 &119391407911797818
 Projector:
   m_ObjectHideFlags: 1
@@ -2723,7 +2723,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: 423ba05039cf70a4699c176497277673, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 4294950911
+    m_Bits: 4294885375
 --- !u!119 &119446284985901626
 Projector:
   m_ObjectHideFlags: 1
@@ -2741,7 +2741,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: 423ba05039cf70a4699c176497277673, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 4294950911
+    m_Bits: 4294885375
 --- !u!119 &119607685466254166
 Projector:
   m_ObjectHideFlags: 1
@@ -2759,7 +2759,7 @@ Projector:
   m_Material: {fileID: 2100000, guid: acc3bcebacb8e1f44890ca34e5383a64, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
-    m_Bits: 4294950911
+    m_Bits: 4294885375
 --- !u!222 &222077403806970200
 CanvasRenderer:
   m_ObjectHideFlags: 1

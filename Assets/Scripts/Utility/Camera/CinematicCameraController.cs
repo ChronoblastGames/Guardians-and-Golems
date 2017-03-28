@@ -48,7 +48,7 @@ public class CinematicCameraController : MonoBehaviour
         CameraSetup();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         MoveCamera();
     }
@@ -68,11 +68,11 @@ public class CinematicCameraController : MonoBehaviour
         if (isActive)
         {
             transform.position = Vector3.Lerp(startPos, targetPoint.transform.position, targetMovementAnimationCurve.Evaluate(t / targetTiming));
-            transform.rotation = Quaternion.Slerp(startRotation, targetPoint.transform.rotation, targetMovementAnimationCurve.Evaluate(o / targetTiming));
+            transform.rotation = Quaternion.Lerp(startRotation, targetPoint.transform.rotation, targetMovementAnimationCurve.Evaluate(o / targetTiming));
             Camera.main.fieldOfView = Mathf.Lerp(startFOV, zoomPointTarget[waypointNumber], targetZoomAnimationCurve.Evaluate(t / targetTiming));
 
-            t += Time.fixedDeltaTime / targetTiming;
-            o += Time.fixedDeltaTime / targetTiming;
+            t += Time.deltaTime / targetTiming;
+            o += Time.deltaTime / targetTiming;
 
 
             Vector3 interceptVec = targetPoint.transform.position - transform.position;

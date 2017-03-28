@@ -5073,7 +5073,7 @@ MonoBehaviour:
   orbList: []
   playerTeam: 1
   attachedOrb: {fileID: 0}
-  selectionDistance: 100
+  selectionDistance: 40
   selectionDelay: 0.3
   orbMask:
     serializedVersion: 2
@@ -5114,7 +5114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 2
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
@@ -5167,7 +5167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Matt
   PlayerNumber: 0
@@ -5619,7 +5619,7 @@ MonoBehaviour:
   orbList: []
   playerTeam: 0
   attachedOrb: {fileID: 0}
-  selectionDistance: 100
+  selectionDistance: 40
   selectionDelay: 0.3
   orbMask:
     serializedVersion: 2
@@ -8561,7 +8561,7 @@ CharacterController:
   m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.75, z: 0}
+  m_Center: {x: 0, y: 1.55, z: 0}
 --- !u!143 &143882112693979638
 CharacterController:
   m_ObjectHideFlags: 1
@@ -8578,7 +8578,7 @@ CharacterController:
   m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.75, z: 0}
+  m_Center: {x: 0, y: 1.55, z: 0}
 --- !u!198 &198037259881445724
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -8634,7 +8634,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -68412292
+  randomSeed: -1392232149
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -11259,7 +11259,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 539175615
+  randomSeed: 339000918
   InitialModule:
     serializedVersion: 3
     enabled: 1
