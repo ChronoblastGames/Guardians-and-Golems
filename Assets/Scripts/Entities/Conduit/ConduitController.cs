@@ -33,21 +33,23 @@ public class ConduitController : MonoBehaviour
     public bool isBeingAssistedByRedGolem;
     public bool isBeingAssistedByBlueGolem;
 
-    [Header("Conduit ObjectBase")]
+    [HideInInspector]
     public GameObject orbObjectBase;
 
     [Header("Conduit UI Attributes")]
     public Image orbCaptureIndicator;
 
     [Header("Conduit Renderer Attributes")]
-    public Renderer orbRenderer;
-    public Material orbBaseMaterial;
-    public Material redOrbMaterial;
-    public Material blueOrbMaterial;
+    public Renderer conduitCrackRenderer;
+    public Renderer outerRingRenderer;
+    public Renderer[] gemRenderer;
 
     [Header("Conduit Particles Systems")]
-    public ParticleSystem redParticles;
-    public ParticleSystem blueParticles;
+    public ParticleSystem redCaptureParticles;
+    public ParticleSystem blueCaptureParticles;
+
+    public ParticleSystem[] redConstantParticles;
+    public ParticleSystem[] blueConstantParticles;
 
     private void Start()
     {
@@ -91,10 +93,21 @@ public class ConduitController : MonoBehaviour
            if (redTeamCaptureAmount > 0)
             {
                 orbCaptureIndicator.fillAmount = redTeamCaptureAmount / totalCaptureAmount;
+
+                foreach (Renderer gemRender in gemRenderer)
+                {
+                    gemRender.material.color = Color.Lerp(gemRender.material.color, Color.yellow, redTeamCaptureAmount / totalCaptureAmount);
+                }
+
             }
             else if (blueTeamCaptureAmount > 0)
             {
                 orbCaptureIndicator.fillAmount = blueTeamCaptureAmount / totalCaptureAmount;
+
+                foreach (Renderer gemRender in gemRenderer)
+                {
+                    gemRender.material.color = Color.Lerp(gemRender.material.color, Color.blue, blueTeamCaptureAmount / totalCaptureAmount);
+                }
             }
         }
     }
@@ -103,23 +116,19 @@ public class ConduitController : MonoBehaviour
     {
         if (orbState == OrbState.DISABLED)
         {
-            orbRenderer.material.SetColor("_OutlineColor", Color.black);
-            orbRenderer.material.SetFloat("_Outline", 30);
+            outerRingRenderer.material.color = Color.gray;
         }
        else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
         {
-            orbRenderer.material.SetColor("_OutlineColor", Color.yellow);
-            orbRenderer.material.SetFloat("_Outline", 30);
+            outerRingRenderer.material.color = Color.green;
         }
-       else if (attachedGuardianColor.Contains(PlayerTeam.RED))
+        else if (attachedGuardianColor.Contains(PlayerTeam.RED))
         {
-            orbRenderer.material.SetColor("_OutlineColor", Color.red);
-            orbRenderer.material.SetFloat("_Outline", 30);
+            outerRingRenderer.material.color = Color.yellow;
         }
        else if (attachedGuardianColor.Contains(PlayerTeam.BLUE))
         {
-            orbRenderer.material.SetColor("_OutlineColor", Color.blue);
-            orbRenderer.material.SetFloat("_Outline", 30);
+            outerRingRenderer.material.color = Color.blue;
         }
     }
 
@@ -247,11 +256,23 @@ public class ConduitController : MonoBehaviour
         switch(teamColor)
         {
             case PlayerTeam.RED:
-                orbRenderer.material = redOrbMaterial;
+                conduitCrackRenderer.material.color = Color.yellow;
+
+                foreach (Renderer gemRender in gemRenderer)
+                {
+                    gemRender.material.color = Color.yellow;
+                }
+
                 PlayRedCaptureParticles();
                 break;
             case PlayerTeam.BLUE:
-                orbRenderer.material = blueOrbMaterial;
+                conduitCrackRenderer.material.color = Color.blue;
+
+                foreach (Renderer gemRender in gemRenderer)
+                {
+                    gemRender.material.color = Color.blue;
+                }
+
                 PlayBlueCaptureParticles();
                 break;
         }
@@ -265,12 +286,22 @@ public class ConduitController : MonoBehaviour
 
     void PlayRedCaptureParticles()
     {
-        redParticles.Play();
+        redCaptureParticles.Play();
+
+        foreach (ParticleSystem particles in redConstantParticles)
+        {
+            
+        }
     }
 
     void PlayBlueCaptureParticles()
     {
-        blueParticles.Play();
+        blueCaptureParticles.Play();
+
+        foreach (ParticleSystem particles in blueConstantParticles)
+        {
+
+        }
     }
 
     public void ResetOrb()
@@ -278,15 +309,25 @@ public class ConduitController : MonoBehaviour
         guardianPlayerController.isCapturingOrb = false;
         redTeamCaptureAmount = 0;
         blueTeamCaptureAmount = 0;
-        orbRenderer.material.SetFloat("_Outline", 0);
+
+        foreach (Renderer gemRender in gemRenderer)
+        {
+            gemRender.material.color = Color.black;
+        }
+
+        conduitCrackRenderer.material.color = Color.black;
         orbState = OrbState.EMPTY;
         orbColor = PlayerTeam.NONE;
     }
 
     public void DeselectOrb(PlayerTeam guardianColor)
     {
-        attachedGuardianColor.Remove(guardianColor);
-        orbRenderer.material.SetFloat("_Outline", 0);
+        attachedGuardianColor.Remove(guardianColor);      
+        
+        if (attachedGuardianColor.Count == 0)
+        {
+            outerRingRenderer.material.color = Color.black;
+        }
     }
 
     public void DisableOrb (float length, PlayerTeam teamColor)

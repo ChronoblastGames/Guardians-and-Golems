@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4624029978291712}
   - component: {fileID: 198993091849021608}
   - component: {fileID: 199123826980261548}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FireballParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65455166540947408
 BoxCollider:
@@ -141,7 +141,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &108553961068140332
 Light:
@@ -421,7 +421,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 0, a: 1}
       minMaxState: 0
     startSize:
-      scalar: 0.7
+      scalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -446,7 +446,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
-      minMaxState: 3
+      minMaxState: 0
     startSizeY:
       scalar: 0.5
       maxCurve:
@@ -473,7 +473,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
-      minMaxState: 3
+      minMaxState: 0
     startSizeZ:
       scalar: 0.5
       maxCurve:
@@ -500,7 +500,7 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 0
-      minMaxState: 3
+      minMaxState: 0
     startRotationX:
       scalar: 0
       maxCurve:
