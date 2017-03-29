@@ -613,7 +613,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 414efa14b751f384ba42aca459a910f1, type: 2}
+  - {fileID: 2100000, guid: b19917a9021a7704dbdf5fec0b024e65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -980,6 +980,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114491689874653394}
   conduitCrackRenderer: {fileID: 23179918290571722}
   outerRingRenderer: {fileID: 23528029885503764}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23531614813953614}
   - {fileID: 23821009019465014}

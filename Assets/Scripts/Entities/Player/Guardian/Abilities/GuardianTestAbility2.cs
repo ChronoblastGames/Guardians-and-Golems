@@ -9,9 +9,9 @@ public class GuardianTestAbility2 : AbilityCastBase
 
     public float abilityRadius;
     public float ringCount;
-    private int fragmentCountPerRing;
+    public float abilityHeight;
 
-    private List<GameObject> fireballList;
+    private int fragmentCountPerRing;
 
     public override void InitializeAbility()
     {
@@ -42,18 +42,13 @@ public class GuardianTestAbility2 : AbilityCastBase
                 Vector3 shardPos = CalculateCircle(transform.position, newRadius, distanceBetweenShards, i);
                 float shardAngle = distanceBetweenShards * i;
 
-                Quaternion shardRotation = Quaternion.Euler(-60, shardAngle, 0);
-                GameObject newShard = Instantiate(fireballPrefab, shardPos, shardRotation, transform) as GameObject;
-                newShard.layer = gameObject.layer;
+                Quaternion shardRotation = Quaternion.Euler(0, shardAngle, 0);
+                GameObject newFireball = Instantiate(fireballPrefab, shardPos, shardRotation, transform) as GameObject;
+                newFireball.layer = gameObject.layer;
 
-                newShard.GetComponent<BaseProjectileAbility>().abilityValues = abilityValues;
-                fireballList.Add(newShard);
+                newFireball.GetComponent<BaseProjectileAbility>().abilityValues = abilityValues;
+                newFireball.GetComponent<BaseProjectileAbility>().InitializeAbility();
             }
-        }
-
-        foreach (GameObject fireball in fireballList)
-        {
-            fireball.GetComponent<BaseProjectileAbility>().InitializeAbility();
         }
     }
 
@@ -64,7 +59,7 @@ public class GuardianTestAbility2 : AbilityCastBase
 
         positionVec.x = centerVector.x + circleRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
         positionVec.z = centerVector.z + circleRadius * Mathf.Cos(angle * Mathf.Deg2Rad);
-        positionVec.y = 0;
+        positionVec.y = abilityHeight;
 
         return positionVec;
     }

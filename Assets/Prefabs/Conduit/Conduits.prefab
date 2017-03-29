@@ -5902,7 +5902,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 414efa14b751f384ba42aca459a910f1, type: 2}
+  - {fileID: 2100000, guid: b19917a9021a7704dbdf5fec0b024e65, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8950,6 +8950,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114288323611095036}
   conduitCrackRenderer: {fileID: 23528205320230336}
   outerRingRenderer: {fileID: 23450777568801838}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23744702725825314}
   - {fileID: 23101607658331730}
@@ -9002,6 +9004,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114015095540491566}
   conduitCrackRenderer: {fileID: 23297945221982702}
   outerRingRenderer: {fileID: 23656274293476124}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23654875474898242}
   - {fileID: 23555963814830540}
@@ -9209,6 +9213,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114320345784001400}
   conduitCrackRenderer: {fileID: 23313016129063530}
   outerRingRenderer: {fileID: 23769010067744400}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23350374473470252}
   - {fileID: 23728788585176634}
@@ -9283,6 +9289,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114057055887439368}
   conduitCrackRenderer: {fileID: 23118424890380248}
   outerRingRenderer: {fileID: 23754933720492664}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23755368790027762}
   - {fileID: 23058604945593888}
@@ -9314,6 +9322,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114769336410245110}
   conduitCrackRenderer: {fileID: 23149255709461050}
   outerRingRenderer: {fileID: 23035994256101384}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23993417149619080}
   - {fileID: 23701119786667486}
@@ -9345,6 +9355,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114703877840994102}
   conduitCrackRenderer: {fileID: 23876279869813604}
   outerRingRenderer: {fileID: 23491360153006726}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23297528436777268}
   - {fileID: 23994680255426610}
@@ -9392,6 +9404,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114988936475465638}
   conduitCrackRenderer: {fileID: 23035832232044058}
   outerRingRenderer: {fileID: 23356591136879228}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23340452870743352}
   - {fileID: 23113639970624882}
@@ -9423,6 +9437,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114347109358473844}
   conduitCrackRenderer: {fileID: 23512429359644136}
   outerRingRenderer: {fileID: 23751259932030034}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23398468784656832}
   - {fileID: 23795689491041966}
@@ -9619,6 +9635,8 @@ MonoBehaviour:
   orbCaptureIndicator: {fileID: 114268695556859466}
   conduitCrackRenderer: {fileID: 23205610693352662}
   outerRingRenderer: {fileID: 23873341515205008}
+  outerGemRenderer: []
+  innerGemRenderer: []
   gemRenderer:
   - {fileID: 23926080613808888}
   - {fileID: 23178091294169974}

@@ -54,5 +54,6 @@ MonoBehaviour:
   isAbilityActive: 0
   fireballPrefab: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6,
     type: 2}
-  abilityRadius: 10
-  ringCount: 5
+  abilityRadius: 3
+  ringCount: 1
+  abilityHeight: 2
