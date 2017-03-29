@@ -20,6 +20,8 @@ public class GuardianPlayerController : GuardianStats
     private float zAxis;
 
     [Header("Guardian Orb Attributes")]
+    public GameObject guardianModel;
+
     public List<GameObject> orbList;
 
     public PlayerTeam playerTeam;
@@ -69,6 +71,8 @@ public class GuardianPlayerController : GuardianStats
         selectionTimer.ResetTimer(selectionDelay);
 
         playerTeam = guardianInputManager.playerTeam;
+
+        guardianModel.SetActive(false);
     }
 
     void GatherInput()
@@ -119,7 +123,10 @@ public class GuardianPlayerController : GuardianStats
 
     void AttachToOrb(GameObject orb)
     {
+        guardianModel.SetActive(true);
+
         transform.position = orb.transform.position;
+        guardianModel.transform.position = orb.transform.position + new Vector3(0, hoverHeight, 0);
         attachedOrb = orb;
         orbController = attachedOrb.GetComponent<ConduitController>();
         selectionTimer.ResetTimer(selectionDelay);

@@ -863,17 +863,29 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
+    - target: {fileID: 114456075527419618, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962,
+        type: 2}
+    - target: {fileID: 114589121416748290, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
+        type: 2}
+    - target: {fileID: 114776423742069052, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: spellIndicator
       value: 
-      objectReference: {fileID: 394457318}
-    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
+      objectReference: {fileID: 259908043}
+    - target: {fileID: 114571663193474458, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: spellIndicator
       value: 
-      objectReference: {fileID: 886596925}
-    - target: {fileID: 114449424949229006, guid: a0dd775133547fa42941d810b37182d1,
+      objectReference: {fileID: 1469263977}
+    - target: {fileID: 114493824942960942, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: ability
       value: 
@@ -885,49 +897,22 @@ Prefab:
       value: 
       objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
         type: 2}
-    - target: {fileID: 114493824942960942, guid: a0dd775133547fa42941d810b37182d1,
+    - target: {fileID: 114449424949229006, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: ability
       value: 
       objectReference: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8,
         type: 2}
-    - target: {fileID: 114571663193474458, guid: a0dd775133547fa42941d810b37182d1,
+    - target: {fileID: 114923871507058664, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: spellIndicator
       value: 
-      objectReference: {fileID: 1469263977}
-    - target: {fileID: 114776423742069052, guid: a0dd775133547fa42941d810b37182d1,
+      objectReference: {fileID: 886596925}
+    - target: {fileID: 114743948172837518, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
       propertyPath: spellIndicator
       value: 
-      objectReference: {fileID: 259908043}
-    - target: {fileID: 114589121416748290, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
-        type: 2}
-    - target: {fileID: 114456075527419618, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962,
-        type: 2}
-    - target: {fileID: 114205184775950432, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: hoverHeight
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114533035422661628, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: hoverHeight
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114533035422661628, guid: a0dd775133547fa42941d810b37182d1,
-        type: 2}
-      propertyPath: selectionDistance
-      value: 40
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 394457318}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
   m_IsPrefabParent: 0

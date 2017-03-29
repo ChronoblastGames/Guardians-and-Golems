@@ -109,13 +109,8 @@ public class ConduitController : MonoBehaviour
                 {
                     innerRingRenderer.material.color = Color.Lerp(middleRingRenderer.material.color, yellowColor, capturePercentage);
                 }
-                else if (capturePercentage > 75f && capturePercentage < 100f)
+                else if (capturePercentage > 90f && capturePercentage < 100f)
                 {
-                    foreach (Renderer gemRenderer in crystalRenderer)
-                    {
-                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, yellowColor, capturePercentage);
-                    }
-
                     foreach (Renderer gemRenderer in outerGemRenderer)
                     {
                         gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, yellowColor, capturePercentage);
@@ -139,13 +134,8 @@ public class ConduitController : MonoBehaviour
                 {
                     innerRingRenderer.material.color = Color.Lerp(middleRingRenderer.material.color, blueColor, capturePercentage);
                 }
-                else if (capturePercentage > 0.75f && capturePercentage < 1f)
-                {
-                    foreach (Renderer gemRenderer in crystalRenderer)
-                    {
-                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, blueColor, capturePercentage);
-                    }
-
+                else if (capturePercentage > 90f && capturePercentage < 1f)
+                {          
                     foreach (Renderer gemRenderer in outerGemRenderer)
                     {
                         gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, blueColor, capturePercentage);
@@ -296,13 +286,9 @@ public class ConduitController : MonoBehaviour
         switch(teamColor)
         {
             case PlayerTeam.RED:
-        
-
                 PlayRedCaptureParticles();
                 break;
-            case PlayerTeam.BLUE:
-            
-
+            case PlayerTeam.BLUE:       
                 PlayBlueCaptureParticles();
                 break;
         }
@@ -310,6 +296,7 @@ public class ConduitController : MonoBehaviour
         captureSpeed = 0;
         guardianPlayerController.isCapturingOrb = false;
         guardianPlayerController.orbList.Add(gameObject);
+        guardianPlayerController.FinishCapture();
         orbState = OrbState.CONTROLLED;
     }
 

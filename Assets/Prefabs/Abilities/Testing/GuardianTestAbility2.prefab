@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAbilityActive: 0
-  fireballPrefab: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6,
+  fireballPrefab: {fileID: 1021993608531872, guid: d5056c95ff57f1546adb24ae892dd4e7,
     type: 2}
-  abilityRadius: 3
+  abilityRadius: 10
   ringCount: 1
   abilityHeight: 2
