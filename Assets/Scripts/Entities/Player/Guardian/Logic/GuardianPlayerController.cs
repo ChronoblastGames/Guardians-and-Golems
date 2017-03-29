@@ -136,7 +136,14 @@ public class GuardianPlayerController : GuardianStats
         if (attachedOrb != null && !isCapturingOrb)
         {
             orbController.StartOrbCapture(playerTeam, gameObject);
+
+            guardianState.SetTrigger("StartCapture");
         }
+    }
+
+    public void FinishCapture()
+    {
+        guardianState.SetTrigger("EndCapture");
     }
 
     public void UseAbility(int abilityNumber, PlayerTeam teamColor, float holdTime)
@@ -144,6 +151,9 @@ public class GuardianPlayerController : GuardianStats
         if (canUseAbility && attachedOrb != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
         {
             GameObject spawnObj = orbController.orbObjectBase;
+
+            guardianState.SetTrigger("UseAbility");
+            guardianState.SetTrigger("Ability" + (abilityNumber + 1));
 
             guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
             guardianCooldown.QueueGlobalCooldown();
@@ -161,6 +171,9 @@ public class GuardianPlayerController : GuardianStats
 
                 guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
             }
+
+            guardianState.SetTrigger("UseAbility");
+            guardianState.SetTrigger("Ability" + (abilityNumber + 1));
 
             guardianCooldown.QueueGlobalCooldown();
             guardianCooldown.QueueAbilityCooldown(abilityNumber);
