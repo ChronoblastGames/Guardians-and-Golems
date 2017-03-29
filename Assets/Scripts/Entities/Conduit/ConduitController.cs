@@ -42,6 +42,8 @@ public class ConduitController : MonoBehaviour
     [Header("Conduit Renderer Attributes")]
     public Renderer conduitCrackRenderer;
     public Renderer outerRingRenderer;
+    public Renderer[] outerGemRenderer;
+    public Renderer[] innerGemRenderer;
     public Renderer[] gemRenderer;
 
     [Header("Conduit Particles Systems")]
@@ -92,9 +94,26 @@ public class ConduitController : MonoBehaviour
         {
            if (redTeamCaptureAmount > 0)
             {
+                float capturePercentage = (redTeamCaptureAmount / totalCaptureAmount) * 100;
+
                 orbCaptureIndicator.fillAmount = redTeamCaptureAmount / totalCaptureAmount;
 
-                Debug.Log(redTeamCaptureAmount / totalCaptureAmount);
+                if (capturePercentage > 25f && capturePercentage < 50f)
+                {
+                    //25%
+                }
+                else if (capturePercentage > 50f && capturePercentage < 75f)
+                {
+                    //50%
+                }
+                else if (capturePercentage > 75f && capturePercentage < 100f)
+                {
+                    //75%
+                }
+                else
+                {
+                    //100%
+                }
 
                 conduitCrackRenderer.material.color = Color.Lerp(conduitCrackRenderer.material.color, Color.yellow, redTeamCaptureAmount / totalCaptureAmount);
 
@@ -102,10 +121,24 @@ public class ConduitController : MonoBehaviour
                 {
                     gemRender.material.color = Color.Lerp(gemRender.material.color, Color.yellow, redTeamCaptureAmount / totalCaptureAmount);
                 }
-
             }
             else if (blueTeamCaptureAmount > 0)
             {
+                float capturePercentage = blueTeamCaptureAmount / totalCaptureAmount;
+
+                if (capturePercentage > 0.25f && capturePercentage < 0.50f)
+                {
+
+                }
+                else if (capturePercentage > 0.50f && capturePercentage < 0.75f)
+                {
+
+                }
+                else if (capturePercentage > 0.75f && capturePercentage < 1f)
+                {
+
+                }
+          
                 orbCaptureIndicator.fillAmount = blueTeamCaptureAmount / totalCaptureAmount;
 
                 conduitCrackRenderer.material.color = Color.Lerp(conduitCrackRenderer.material.color, Color.blue, blueTeamCaptureAmount / totalCaptureAmount);

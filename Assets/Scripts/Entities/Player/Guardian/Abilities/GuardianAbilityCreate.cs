@@ -127,7 +127,6 @@ public class GuardianAbilityCreate : CreateAbilityBase
         }
 
         newAbility.GetComponent<AbilityCastBase>().abilityValues = abilityInfo;
-        Physics.IgnoreCollision(newAbility.GetComponent<Collider>(), spawnObject.GetComponent<Collider>());
         newAbility.GetComponent<AbilityCastBase>().InitializeAbility();
 
         guardianPlayerController.isUsingAbility = false;

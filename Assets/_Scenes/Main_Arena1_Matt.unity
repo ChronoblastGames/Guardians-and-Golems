@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 33743263}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.19343142, g: 0.64584553, b: 1.2957203, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 112000022, guid: 180f23e4886355f4fa0118520d4b4ed6,
+  m_LightingDataAsset: {fileID: 112000006, guid: 0bf9d56d68d7f8740b9d2d6632f48d79,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!196 &4
@@ -117,13 +117,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 7
   m_Type: 1
-  m_Color: {r: 1, g: 1, b: 0.78431374, a: 1}
-  m_Intensity: 2
+  m_Color: {r: 1, g: 0.9151116, b: 0.77205884, a: 1}
+  m_Intensity: 2.55
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -139,7 +139,7 @@ Light:
     m_Bits: 4294967295
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 3
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &33743264
@@ -148,8 +148,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 33743262}
-  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
-  m_LocalPosition: {x: 0, y: 15, z: 0}
+  m_LocalRotation: {x: 0.5372997, y: -0, z: -0, w: 0.8433914}
+  m_LocalPosition: {x: 0, y: 15, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1553487459}
@@ -1546,7 +1546,7 @@ Prefab:
         type: 2}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962,
+      objectReference: {fileID: 1204274344994918, guid: 4ec30418a2eac264a9d3c5d8e13c13f3,
         type: 2}
     - target: {fileID: 114449424949229006, guid: a0dd775133547fa42941d810b37182d1,
         type: 2}
@@ -1635,6 +1635,28 @@ Prefab:
         type: 2}
       propertyPath: maxHealth
       value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049594650926698, guid: a0dd775133547fa42941d810b37182d1, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049594650926698, guid: a0dd775133547fa42941d810b37182d1, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049594650926698, guid: a0dd775133547fa42941d810b37182d1, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114627193531205934, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: abilityCastTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114627193531205934, guid: a0dd775133547fa42941d810b37182d1,
+        type: 2}
+      propertyPath: abilityType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0dd775133547fa42941d810b37182d1, type: 2}
