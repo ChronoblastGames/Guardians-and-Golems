@@ -24,6 +24,8 @@ public class GuardianPlayerController : GuardianStats
 
     public PlayerTeam playerTeam;
 
+    public float hoverHeight;
+
     [Header("Selection Values")]
     public GameObject attachedOrb;
     private GameObject selectedOrb;
@@ -150,7 +152,7 @@ public class GuardianPlayerController : GuardianStats
     {
         if (canUseAbility && attachedOrb != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
         {
-            GameObject spawnObj = orbController.orbObjectBase;
+            GameObject spawnObj = orbController.centerCrystal;
 
             guardianState.SetTrigger("UseAbility");
             guardianState.SetTrigger("Ability" + (abilityNumber + 1));
@@ -167,7 +169,7 @@ public class GuardianPlayerController : GuardianStats
         {
             for (int i = 0; i < orbList.Count; i++)
             {
-                GameObject spawnObj = orbList[i].GetComponent<ConduitController>().orbObjectBase;
+                GameObject spawnObj = orbList[i].GetComponent<ConduitController>().centerCrystal;
 
                 guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
             }

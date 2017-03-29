@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum OrbState
 {
@@ -16,6 +15,8 @@ public enum OrbState
 public class ConduitController : MonoBehaviour 
 {
     private GuardianPlayerController guardianPlayerController;
+
+    private Animator conduitAnimator;
 
     [Header("Conduit Attributes")]
     public OrbState orbState;
@@ -34,17 +35,21 @@ public class ConduitController : MonoBehaviour
     public bool isBeingAssistedByBlueGolem;
 
     [HideInInspector]
-    public GameObject orbObjectBase;
-
-    [Header("Conduit UI Attributes")]
-    public Image orbCaptureIndicator;
+    public GameObject centerCrystal;
 
     [Header("Conduit Renderer Attributes")]
-    public Renderer conduitCrackRenderer;
-    public Renderer outerRingRenderer;
-    public Renderer[] outerGemRenderer;
+    public Renderer[] crystalRenderer;
+
     public Renderer[] innerGemRenderer;
-    public Renderer[] gemRenderer;
+    public Renderer[] outerGemRenderer;
+
+    public Renderer innerRingRenderer;
+    public Renderer middleRingRenderer;
+    public Renderer outerRingRenderer;
+
+    [Header("Player Colors")]
+    public Color yellowColor;
+    public Color blueColor;
 
     [Header("Conduit Particles Systems")]
     public ParticleSystem redCaptureParticles;
@@ -67,7 +72,7 @@ public class ConduitController : MonoBehaviour
 
     void InitializeOrb()
     {
-        orbObjectBase = gameObject;
+        conduitAnimator = GetComponent<Animator>();
 
         if (orbState == OrbState.HOMEBASE)
         {
@@ -96,30 +101,30 @@ public class ConduitController : MonoBehaviour
             {
                 float capturePercentage = (redTeamCaptureAmount / totalCaptureAmount) * 100;
 
-                orbCaptureIndicator.fillAmount = redTeamCaptureAmount / totalCaptureAmount;
-
                 if (capturePercentage > 25f && capturePercentage < 50f)
                 {
-                    //25%
+                    middleRingRenderer.material.color = Color.Lerp(innerRingRenderer.material.color, yellowColor, capturePercentage);
                 }
                 else if (capturePercentage > 50f && capturePercentage < 75f)
                 {
-                    //50%
+                    innerRingRenderer.material.color = Color.Lerp(middleRingRenderer.material.color, yellowColor, capturePercentage);
                 }
                 else if (capturePercentage > 75f && capturePercentage < 100f)
                 {
-                    //75%
-                }
-                else
-                {
-                    //100%
-                }
+                    foreach (Renderer gemRenderer in crystalRenderer)
+                    {
+                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, yellowColor, capturePercentage);
+                    }
 
-                conduitCrackRenderer.material.color = Color.Lerp(conduitCrackRenderer.material.color, Color.yellow, redTeamCaptureAmount / totalCaptureAmount);
+                    foreach (Renderer gemRenderer in outerGemRenderer)
+                    {
+                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, yellowColor, capturePercentage);
+                    }
 
-                foreach (Renderer gemRender in gemRenderer)
-                {
-                    gemRender.material.color = Color.Lerp(gemRender.material.color, Color.yellow, redTeamCaptureAmount / totalCaptureAmount);
+                    foreach (Renderer gemRenderer in innerGemRenderer)
+                    {
+                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, yellowColor, capturePercentage);
+                    }
                 }
             }
             else if (blueTeamCaptureAmount > 0)
@@ -128,24 +133,28 @@ public class ConduitController : MonoBehaviour
 
                 if (capturePercentage > 0.25f && capturePercentage < 0.50f)
                 {
-
+                    middleRingRenderer.material.color = Color.Lerp(innerRingRenderer.material.color, blueColor, capturePercentage);
                 }
                 else if (capturePercentage > 0.50f && capturePercentage < 0.75f)
                 {
-
+                    innerRingRenderer.material.color = Color.Lerp(middleRingRenderer.material.color, blueColor, capturePercentage);
                 }
                 else if (capturePercentage > 0.75f && capturePercentage < 1f)
                 {
+                    foreach (Renderer gemRenderer in crystalRenderer)
+                    {
+                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, blueColor, capturePercentage);
+                    }
 
-                }
-          
-                orbCaptureIndicator.fillAmount = blueTeamCaptureAmount / totalCaptureAmount;
+                    foreach (Renderer gemRenderer in outerGemRenderer)
+                    {
+                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, blueColor, capturePercentage);
+                    }
 
-                conduitCrackRenderer.material.color = Color.Lerp(conduitCrackRenderer.material.color, Color.blue, blueTeamCaptureAmount / totalCaptureAmount);
-
-                foreach (Renderer gemRender in gemRenderer)
-                {
-                    gemRender.material.color = Color.Lerp(gemRender.material.color, Color.blue, blueTeamCaptureAmount / totalCaptureAmount);
+                    foreach (Renderer gemRenderer in innerGemRenderer)
+                    {
+                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, blueColor, capturePercentage);
+                    }
                 }
             }
         }
@@ -179,8 +188,6 @@ public class ConduitController : MonoBehaviour
             guardianPlayerController.isCapturingOrb = true;
             captureSpeed = guardianPlayerController.captureSpeed;
 
-            orbCaptureIndicator.enabled = true;
-
             orbState = OrbState.IN_PROGRESS;
             orbColor = teamColor;
         }
@@ -195,8 +202,6 @@ public class ConduitController : MonoBehaviour
                     guardianPlayerController = Guardian.GetComponent<GuardianPlayerController>();
                     guardianPlayerController.isCapturingOrb = true;
                     captureSpeed = guardianPlayerController.captureSpeed;
-
-                    orbCaptureIndicator.enabled = true;
 
                     orbColor = teamColor;
                 }
@@ -219,8 +224,6 @@ public class ConduitController : MonoBehaviour
                         }
                         else
                         {
-                            orbCaptureIndicator.color = Color.red;
-
                             redTeamCaptureAmount += captureSpeed * Time.deltaTime;
                             blueTeamCaptureAmount = 0;
 
@@ -256,8 +259,6 @@ public class ConduitController : MonoBehaviour
                         }
                         else
                         {
-                            orbCaptureIndicator.color = Color.blue;
-
                             blueTeamCaptureAmount += captureSpeed * Time.deltaTime;
                             redTeamCaptureAmount = 0;
 
@@ -295,28 +296,17 @@ public class ConduitController : MonoBehaviour
         switch(teamColor)
         {
             case PlayerTeam.RED:
-                conduitCrackRenderer.material.color = Color.yellow;
-
-                foreach (Renderer gemRender in gemRenderer)
-                {
-                    gemRender.material.color = Color.yellow;
-                }
+        
 
                 PlayRedCaptureParticles();
                 break;
             case PlayerTeam.BLUE:
-                conduitCrackRenderer.material.color = Color.blue;
-
-                foreach (Renderer gemRender in gemRenderer)
-                {
-                    gemRender.material.color = Color.blue;
-                }
+            
 
                 PlayBlueCaptureParticles();
                 break;
         }
 
-        orbCaptureIndicator.enabled = false;
         captureSpeed = 0;
         guardianPlayerController.isCapturingOrb = false;
         guardianPlayerController.orbList.Add(gameObject);
@@ -349,12 +339,6 @@ public class ConduitController : MonoBehaviour
         redTeamCaptureAmount = 0;
         blueTeamCaptureAmount = 0;
 
-        foreach (Renderer gemRender in gemRenderer)
-        {
-            gemRender.material.color = Color.black;
-        }
-
-        conduitCrackRenderer.material.color = Color.black;
         orbState = OrbState.EMPTY;
         orbColor = PlayerTeam.NONE;
     }

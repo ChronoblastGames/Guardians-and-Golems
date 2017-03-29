@@ -89,7 +89,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
                 }
                 else
                 {
-                    newSpawnPosition = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityInfo.spawnDistanceFromPlayer);
+                    newSpawnPosition = spawnObject.transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityInfo.spawnDistanceFromPlayer);
                 }
 
                 break;
@@ -99,7 +99,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
                 newSpawnPosition = newAimVector;
                 newSpawnPosition = newSpawnPosition * abilityInfo.spawnDistanceFromPlayer;
 
-                newSpawnPosition = transform.position + newSpawnPosition;
+                newSpawnPosition = spawnObject.transform.position + newSpawnPosition;
 
                 break;
 
@@ -108,7 +108,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
                 newSpawnPosition = newAimVector * abilityInfo.spawnDistanceFromPlayer;
                 newSpawnPosition.y = 0f;
 
-                newSpawnPosition = transform.position + newSpawnPosition;
+                newSpawnPosition = spawnObject.transform.position + newSpawnPosition;
 
                 break;
         }
