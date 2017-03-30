@@ -10,7 +10,7 @@ public class GuardianPlayerController : GuardianStats
     private GuardianResources guardianResources;
     private GuardianCooldownManager guardianCooldown;
 
-    private ConduitController orbController;
+    private ConduitController conduitController;
 
     private TimerClass selectionTimer;
 
@@ -87,7 +87,7 @@ public class GuardianPlayerController : GuardianStats
     {
         if (orbList.Contains(attachedOrb))
         {
-            if (orbController.orbState != OrbState.DISABLED)
+            if (conduitController.orbState != OrbState.DISABLED)
             {
                 canUseAbility = true;
             }
@@ -128,15 +128,15 @@ public class GuardianPlayerController : GuardianStats
         transform.position = orb.transform.position;
         guardianModel.transform.position = orb.transform.position + new Vector3(0, hoverHeight, 0);
         attachedOrb = orb;
-        orbController = attachedOrb.GetComponent<ConduitController>();
+        conduitController = attachedOrb.GetComponent<ConduitController>();
         selectionTimer.ResetTimer(selectionDelay);
-        orbController.attachedGuardianColor.Add(playerTeam);
+        conduitController.attachedGuardianColor.Add(playerTeam);
     }
 
     void DeattachFromOrb()
     {
-        orbController.DeselectOrb(playerTeam);
-        orbController = null;
+        conduitController.DeselectOrb(playerTeam);
+        conduitController = null;
         attachedOrb = null;
     }
 
@@ -144,9 +144,12 @@ public class GuardianPlayerController : GuardianStats
     {
         if (attachedOrb != null && !isCapturingOrb)
         {
-            orbController.StartOrbCapture(playerTeam, gameObject);
+            if (conduitController.CanCaptureOrb())
+            {
+                conduitController.StartOrbCapture(playerTeam, gameObject);
 
-            guardianState.SetTrigger("StartCapture");
+                guardianState.SetTrigger("StartCapture");
+            }
         }
     }
 
@@ -159,7 +162,7 @@ public class GuardianPlayerController : GuardianStats
     {
         if (canUseAbility && attachedOrb != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
         {
-            GameObject spawnObj = orbController.centerCrystal;
+            GameObject spawnObj = conduitController.centerCrystal;
 
             guardianState.SetTrigger("UseAbility");
             guardianState.SetTrigger("Ability" + (abilityNumber + 1));

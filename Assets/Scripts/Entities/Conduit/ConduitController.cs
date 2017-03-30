@@ -34,7 +34,6 @@ public class ConduitController : MonoBehaviour
     public bool isBeingAssistedByRedGolem;
     public bool isBeingAssistedByBlueGolem;
 
-    [HideInInspector]
     public GameObject centerCrystal;
 
     [Header("Conduit Renderer Attributes")]
@@ -43,20 +42,25 @@ public class ConduitController : MonoBehaviour
     public Renderer[] innerGemRenderer;
     public Renderer[] outerGemRenderer;
 
-    public Renderer innerRingRenderer;
-    public Renderer middleRingRenderer;
     public Renderer outerRingRenderer;
 
+    public Renderer crackRenderer;
+
     [Header("Player Colors")]
-    public Color yellowColor;
-    public Color blueColor;
+    public Color yellowCaptureColor;
+    public Color blueCaptureColor;
+
+    [Space(10)]
+
+    public Color yellowSelectionColor;
+    public Color blueSelectionColor;
 
     [Header("Conduit Particles Systems")]
-    public ParticleSystem redCaptureParticles;
-    public ParticleSystem blueCaptureParticles;
+    public ParticleSystem redCapturedParticles;
+    public ParticleSystem blueCapturedParticles;
 
-    public ParticleSystem[] redConstantParticles;
-    public ParticleSystem[] blueConstantParticles;
+    public ParticleSystem[] ringParticlesRed;
+    public ParticleSystem[] ringParticlesBlue;
 
     private void Start()
     {
@@ -101,50 +105,54 @@ public class ConduitController : MonoBehaviour
             {
                 float capturePercentage = (redTeamCaptureAmount / totalCaptureAmount) * 100;
 
-                if (capturePercentage > 25f && capturePercentage < 50f)
+                if (capturePercentage > 25f && capturePercentage < 26f)
                 {
-                    middleRingRenderer.material.color = Color.Lerp(innerRingRenderer.material.color, yellowColor, capturePercentage);
-                }
-                else if (capturePercentage > 50f && capturePercentage < 75f)
-                {
-                    innerRingRenderer.material.color = Color.Lerp(middleRingRenderer.material.color, yellowColor, capturePercentage);
-                }
-                else if (capturePercentage > 90f && capturePercentage < 100f)
-                {
-                    foreach (Renderer gemRenderer in outerGemRenderer)
-                    {
-                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, yellowColor, capturePercentage);
-                    }
+                    ringParticlesRed[0].Play();
 
                     foreach (Renderer gemRenderer in innerGemRenderer)
                     {
-                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, yellowColor, capturePercentage);
+                        gemRenderer.material.color = yellowCaptureColor;
                     }
+                }
+                else if (capturePercentage > 50f && capturePercentage < 51f)
+                {
+                    ringParticlesRed[1].Play();
+
+                    foreach (Renderer gemRenderer in outerGemRenderer)
+                    {
+                        gemRenderer.material.color = yellowCaptureColor;
+                    }
+                }
+                else if (capturePercentage > 90f && capturePercentage < 91f)
+                {
+                    ringParticlesRed[2].Play();
                 }
             }
             else if (blueTeamCaptureAmount > 0)
             {
                 float capturePercentage = blueTeamCaptureAmount / totalCaptureAmount;
 
-                if (capturePercentage > 0.25f && capturePercentage < 0.50f)
+                if (capturePercentage > 25f && capturePercentage < 26f)
                 {
-                    middleRingRenderer.material.color = Color.Lerp(innerRingRenderer.material.color, blueColor, capturePercentage);
-                }
-                else if (capturePercentage > 0.50f && capturePercentage < 0.75f)
-                {
-                    innerRingRenderer.material.color = Color.Lerp(middleRingRenderer.material.color, blueColor, capturePercentage);
-                }
-                else if (capturePercentage > 90f && capturePercentage < 1f)
-                {          
-                    foreach (Renderer gemRenderer in outerGemRenderer)
-                    {
-                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, blueColor, capturePercentage);
-                    }
+                    ringParticlesBlue[0].Play();
 
                     foreach (Renderer gemRenderer in innerGemRenderer)
                     {
-                        gemRenderer.material.color = Color.Lerp(gemRenderer.material.color, blueColor, capturePercentage);
+                        gemRenderer.material.color = blueCaptureColor;
                     }
+                }
+                else if (capturePercentage > 50f && capturePercentage < 51f)
+                {
+                    ringParticlesBlue[1].Play();
+
+                    foreach (Renderer gemRenderer in outerGemRenderer)
+                    {
+                        gemRenderer.material.color = blueCaptureColor;
+                    }
+                }
+                else if (capturePercentage > 90f && capturePercentage < 91f)
+                {
+                    ringParticlesBlue[2].Play();
                 }
             }
         }
@@ -152,21 +160,35 @@ public class ConduitController : MonoBehaviour
 
     public void ManageOrbOutline()
     {
-        if (orbState == OrbState.DISABLED)
+        if (orbState != OrbState.CONTROLLED)
         {
-            outerRingRenderer.material.color = Color.gray;
+            if (orbState == OrbState.DISABLED)
+            {
+                outerRingRenderer.material.color = Color.gray;
+            }
+            else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
+            {
+                outerRingRenderer.material.color = Color.green;
+            }
+            else if (attachedGuardianColor.Contains(PlayerTeam.RED))
+            {
+                outerRingRenderer.material.color = yellowSelectionColor;
+            }
+            else if (attachedGuardianColor.Contains(PlayerTeam.BLUE))
+            {
+                outerRingRenderer.material.color = blueSelectionColor;
+            }
         }
-       else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
+        else if (attachedGuardianColor.Count == 0)
         {
-            outerRingRenderer.material.color = Color.green;
-        }
-        else if (attachedGuardianColor.Contains(PlayerTeam.RED))
-        {
-            outerRingRenderer.material.color = Color.yellow;
-        }
-       else if (attachedGuardianColor.Contains(PlayerTeam.BLUE))
-        {
-            outerRingRenderer.material.color = Color.blue;
+            if (orbColor == PlayerTeam.RED)
+            {
+                outerRingRenderer.material.color = yellowCaptureColor;
+            }
+            else if (orbColor == PlayerTeam.BLUE)
+            {
+                outerRingRenderer.material.color = blueCaptureColor;
+            }
         }
     }
 
@@ -286,9 +308,13 @@ public class ConduitController : MonoBehaviour
         switch(teamColor)
         {
             case PlayerTeam.RED:
+                outerRingRenderer.material.color = yellowCaptureColor;
+
                 PlayRedCaptureParticles();
                 break;
-            case PlayerTeam.BLUE:       
+            case PlayerTeam.BLUE:
+                outerRingRenderer.material.color = blueCaptureColor;
+
                 PlayBlueCaptureParticles();
                 break;
         }
@@ -302,22 +328,12 @@ public class ConduitController : MonoBehaviour
 
     void PlayRedCaptureParticles()
     {
-        redCaptureParticles.Play();
-
-        foreach (ParticleSystem particles in redConstantParticles)
-        {
-            
-        }
+        redCapturedParticles.Play();
     }
 
     void PlayBlueCaptureParticles()
     {
-        blueCaptureParticles.Play();
-
-        foreach (ParticleSystem particles in blueConstantParticles)
-        {
-
-        }
+        blueCapturedParticles.Play(); 
     }
 
     public void ResetOrb()
@@ -366,5 +382,17 @@ public class ConduitController : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    public bool CanCaptureOrb()
+    {
+        if (orbState == OrbState.EMPTY)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

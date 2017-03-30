@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 2f6aecafa9ddeff4b88d64fda4456c47
+timeCreated: 1490830315
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: BigGemCtrl
+    100004: Cracks
+    100006: cube1
+    100008: Diamond_BotLeft
+    100010: Diamond_BotRight1
+    100012: Diamond_TopLeft
+    100014: Diamond_TopRight
+    100016: Hook
+    100018: Hook1
+    100020: Hook2
+    100022: Hook3
+    100024: Hook_Ctrl1
+    100026: Hook_Ctrl2
+    100028: Hook_Ctrl3
+    100030: Hook_Ctrl4
+    100032: Inner_RIng
+    100034: InnerRing_Ctrl
+    100036: MidRing_Ctrl
+    100038: octahedron
+    100040: octahedron1
+    100042: octahedron2
+    100044: octahedron3
+    100046: octahedron4
+    100048: octahedron5
+    100050: OuterRing_Ctrl
+    100052: OvalGem_BotRight
+    100054: OvalGem_RightLeft
+    100056: OvalGem_TopLeft
+    100058: OvalGem_TopRight
+    100060: polymsh18
+    100062: polymsh19
+    100064: TiledFloor
+    400000: //RootNode
+    400002: BigGemCtrl
+    400004: Cracks
+    400006: cube1
+    400008: Diamond_BotLeft
+    400010: Diamond_BotRight1
+    400012: Diamond_TopLeft
+    400014: Diamond_TopRight
+    400016: Hook
+    400018: Hook1
+    400020: Hook2
+    400022: Hook3
+    400024: Hook_Ctrl1
+    400026: Hook_Ctrl2
+    400028: Hook_Ctrl3
+    400030: Hook_Ctrl4
+    400032: Inner_RIng
+    400034: InnerRing_Ctrl
+    400036: MidRing_Ctrl
+    400038: octahedron
+    400040: octahedron1
+    400042: octahedron2
+    400044: octahedron3
+    400046: octahedron4
+    400048: octahedron5
+    400050: OuterRing_Ctrl
+    400052: OvalGem_BotRight
+    400054: OvalGem_RightLeft
+    400056: OvalGem_TopLeft
+    400058: OvalGem_TopRight
+    400060: polymsh18
+    400062: polymsh19
+    400064: TiledFloor
+    2300000: Cracks
+    2300002: cube1
+    2300004: Diamond_BotLeft
+    2300006: Diamond_BotRight1
+    2300008: Diamond_TopLeft
+    2300010: Diamond_TopRight
+    2300012: Hook
+    2300014: Hook1
+    2300016: Hook2
+    2300018: Hook3
+    2300020: Inner_RIng
+    2300022: octahedron
+    2300024: octahedron1
+    2300026: octahedron2
+    2300028: octahedron3
+    2300030: octahedron4
+    2300032: octahedron5
+    2300034: OvalGem_BotRight
+    2300036: OvalGem_RightLeft
+    2300038: OvalGem_TopLeft
+    2300040: OvalGem_TopRight
+    2300042: polymsh18
+    2300044: polymsh19
+    2300046: TiledFloor
+    3300000: Cracks
+    3300002: cube1
+    3300004: Diamond_BotLeft
+    3300006: Diamond_BotRight1
+    3300008: Diamond_TopLeft
+    3300010: Diamond_TopRight
+    3300012: Hook
+    3300014: Hook1
+    3300016: Hook2
+    3300018: Hook3
+    3300020: Inner_RIng
+    3300022: octahedron
+    3300024: octahedron1
+    3300026: octahedron2
+    3300028: octahedron3
+    3300030: octahedron4
+    3300032: octahedron5
+    3300034: OvalGem_BotRight
+    3300036: OvalGem_RightLeft
+    3300038: OvalGem_TopLeft
+    3300040: OvalGem_TopRight
+    3300042: polymsh18
+    3300044: polymsh19
+    3300046: TiledFloor
+    4300000: TiledFloor
+    4300002: Inner_RIng
+    4300004: OvalGem_BotRight
+    4300006: OvalGem_RightLeft
+    4300008: OvalGem_TopLeft
+    4300010: OvalGem_TopRight
+    4300012: polymsh19
+    4300014: Hook
+    4300016: Hook1
+    4300018: Hook2
+    4300020: Hook3
+    4300022: polymsh18
+    4300024: Diamond_TopRight
+    4300026: Diamond_TopLeft
+    4300028: Diamond_BotLeft
+    4300030: Diamond_BotRight1
+    4300032: octahedron1
+    4300034: octahedron2
+    4300036: octahedron
+    4300038: cube1
+    4300040: octahedron3
+    4300042: octahedron4
+    4300044: octahedron5
+    4300046: Cracks
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.4
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
