@@ -2,8 +2,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ReloadOnPress : MonoBehaviour
+public class DebugCommands : MonoBehaviour
 {
+    [Header("Conduits")]
+    public GameObject[] conduitArray;
+
     [Header("UI")]
     public GameObject[] objectsToDisable;
 
@@ -31,5 +34,13 @@ public class ReloadOnPress : MonoBehaviour
     void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }	
+    }
+    
+    void ResetConduits()
+    {
+        foreach (GameObject conduit in conduitArray)
+        {
+            conduit.GetComponent<ConduitController>().ResetConduit();
+        }
+    }
 }

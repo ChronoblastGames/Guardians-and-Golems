@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum OrbState
+public enum ConduitState
 {
     EMPTY,
     IN_PROGRESS,
@@ -19,7 +19,7 @@ public class ConduitController : MonoBehaviour
     private Animator conduitAnimator;
 
     [Header("Conduit Attributes")]
-    public OrbState orbState;
+    public ConduitState conduitState;
     public PlayerTeam orbColor;
 
     public List<PlayerTeam> attachedGuardianColor;
@@ -65,23 +65,23 @@ public class ConduitController : MonoBehaviour
 
     private void Start()
     {
-        InitializeOrb();
+        InitializeConduit();
     }
 
     private void Update()
     {
-        CheckForOrbCapture();
-        ManageOrbOutline();
-        ManageOrbEffects();
+        CheckForConduitCapture();
+        ManageConduitOutline();
+        ManageConduitEffects();
     }
 
-    void InitializeOrb()
+    void InitializeConduit()
     {
         conduitAnimator = GetComponent<Animator>();
 
         outerRingMat = outerRingRenderer.material;
 
-        if (orbState == OrbState.HOMEBASE)
+        if (conduitState == ConduitState.HOMEBASE)
         {
             switch (orbColor)
             {
@@ -95,14 +95,14 @@ public class ConduitController : MonoBehaviour
         }
         else
         {
-            orbState = OrbState.EMPTY;
+            conduitState = ConduitState.EMPTY;
             orbColor = PlayerTeam.NONE;
         }
     }
 
-    void ManageOrbEffects()
+    void ManageConduitEffects()
     {
-        if (orbState == OrbState.IN_PROGRESS)
+        if (conduitState == ConduitState.IN_PROGRESS)
         {
            if (redTeamCaptureAmount > 0)
             {
@@ -161,11 +161,11 @@ public class ConduitController : MonoBehaviour
         }
     }
 
-    public void ManageOrbOutline()
+    public void ManageConduitOutline()
     {
-        if (orbState != OrbState.CONTROLLED)
+        if (conduitState != ConduitState.CONTROLLED)
         {
-            if (orbState == OrbState.DISABLED)
+            if (conduitState == ConduitState.DISABLED)
             {
                 outerRingRenderer.material.color = Color.black;
             }
@@ -195,18 +195,18 @@ public class ConduitController : MonoBehaviour
         }
     }
 
-    public void StartOrbCapture(PlayerTeam teamColor, GameObject Guardian)
+    public void StartConduitCapture(PlayerTeam teamColor, GameObject Guardian)
     {
-        if (orbState == OrbState.EMPTY)
+        if (conduitState == ConduitState.EMPTY)
         {
             guardianPlayerController = Guardian.GetComponent<GuardianPlayerController>();
             guardianPlayerController.isCapturingOrb = true;
             captureSpeed = guardianPlayerController.captureSpeed;
 
-            orbState = OrbState.IN_PROGRESS;
+            conduitState = ConduitState.IN_PROGRESS;
             orbColor = teamColor;
         }
-        else if (orbState == OrbState.IN_PROGRESS)
+        else if (conduitState == ConduitState.IN_PROGRESS)
         {
             if (teamColor != orbColor)
             {
@@ -224,9 +224,9 @@ public class ConduitController : MonoBehaviour
         }
     }
 
-    public void CheckForOrbCapture()
+    public void CheckForConduitCapture()
     {
-        if (orbState == OrbState.IN_PROGRESS)
+        if (conduitState == ConduitState.IN_PROGRESS)
         {
             switch(orbColor)
             {
@@ -260,7 +260,7 @@ public class ConduitController : MonoBehaviour
 
                         if (redTeamCaptureAmount < 0)
                         {
-                            ResetOrb();
+                            ResetConduit();
                         }
                     }         
                     break;
@@ -295,7 +295,7 @@ public class ConduitController : MonoBehaviour
 
                         if (blueTeamCaptureAmount < 0)
                         {
-                            ResetOrb();
+                            ResetConduit();
                         }
                     }                 
                     break;
@@ -326,7 +326,7 @@ public class ConduitController : MonoBehaviour
         guardianPlayerController.isCapturingOrb = false;
         guardianPlayerController.orbList.Add(gameObject);
         guardianPlayerController.FinishCapture();
-        orbState = OrbState.CONTROLLED;
+        conduitState = ConduitState.CONTROLLED;
     }
 
     void PlayRedCaptureParticles()
@@ -339,17 +339,17 @@ public class ConduitController : MonoBehaviour
         blueCapturedParticles.Play(); 
     }
 
-    public void ResetOrb()
+    public void ResetConduit()
     {
         guardianPlayerController.isCapturingOrb = false;
         redTeamCaptureAmount = 0;
         blueTeamCaptureAmount = 0;
 
-        orbState = OrbState.EMPTY;
+        conduitState = ConduitState.EMPTY;
         orbColor = PlayerTeam.NONE;
     }
 
-    public void DeselectOrb(PlayerTeam guardianColor)
+    public void DeselectConduit(PlayerTeam guardianColor)
     {
         attachedGuardianColor.Remove(guardianColor);      
         
@@ -359,17 +359,17 @@ public class ConduitController : MonoBehaviour
         }
     }
 
-    public void DisableOrb (float length, PlayerTeam teamColor)
+    public void DisableConduit (float length, PlayerTeam teamColor)
     {
         if (orbColor != teamColor)
         {
-            OrbDisable(length);
+            ConduitDisable(length);
         }
     }
 
-    private IEnumerator OrbDisable (float disableTime)
+    private IEnumerator ConduitDisable (float disableTime)
     {
-        orbState = OrbState.DISABLED;
+        conduitState = ConduitState.DISABLED;
 
         Debug.Log("Off");
 
@@ -377,19 +377,19 @@ public class ConduitController : MonoBehaviour
 
         if (orbColor == PlayerTeam.RED || orbColor == PlayerTeam.BLUE)
         {
-            orbState = OrbState.CONTROLLED;
+            conduitState = ConduitState.CONTROLLED;
         }
         else
         {
-            orbState = OrbState.EMPTY;
+            conduitState = ConduitState.EMPTY;
         }
 
         yield return null;
     }
 
-    public bool CanCaptureOrb()
+    public bool CanCaptureConduit()
     {
-        if (orbState == OrbState.EMPTY)
+        if (conduitState == ConduitState.EMPTY)
         {
             return true;
         }

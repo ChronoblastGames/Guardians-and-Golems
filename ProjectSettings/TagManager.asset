@@ -8,8 +8,9 @@ TagManager:
   - GolemBlue
   - UIManager
   - GlobalVariables
-  - Variable
   - Conduit
+  - RedTeamManager
+  - BlueTeamManager
   layers:
   - Default
   - TransparentFX

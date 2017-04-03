@@ -87,7 +87,7 @@ public class GuardianPlayerController : GuardianStats
     {
         if (orbList.Contains(attachedOrb))
         {
-            if (conduitController.orbState != OrbState.DISABLED)
+            if (conduitController.conduitState != ConduitState.DISABLED)
             {
                 canUseAbility = true;
             }
@@ -135,7 +135,7 @@ public class GuardianPlayerController : GuardianStats
 
     void DeattachFromOrb()
     {
-        conduitController.DeselectOrb(playerTeam);
+        conduitController.DeselectConduit(playerTeam);
         conduitController = null;
         attachedOrb = null;
     }
@@ -144,9 +144,9 @@ public class GuardianPlayerController : GuardianStats
     {
         if (attachedOrb != null && !isCapturingOrb)
         {
-            if (conduitController.CanCaptureOrb())
+            if (conduitController.CanCaptureConduit())
             {
-                conduitController.StartOrbCapture(playerTeam, gameObject);
+                conduitController.StartConduitCapture(playerTeam, gameObject);
 
                 guardianState.SetTrigger("StartCapture");
             }
