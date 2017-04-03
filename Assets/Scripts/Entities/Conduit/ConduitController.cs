@@ -51,6 +51,7 @@ public class ConduitController : MonoBehaviour
     public Color blueCaptureColor;
 
     [Space(10)]
+    private Material outerRingMat;
 
     public Color yellowSelectionColor;
     public Color blueSelectionColor;
@@ -71,12 +72,14 @@ public class ConduitController : MonoBehaviour
     {
         CheckForOrbCapture();
         ManageOrbOutline();
-        ManageOrbUI();
+        ManageOrbEffects();
     }
 
     void InitializeOrb()
     {
         conduitAnimator = GetComponent<Animator>();
+
+        outerRingMat = outerRingRenderer.material;
 
         if (orbState == OrbState.HOMEBASE)
         {
@@ -97,7 +100,7 @@ public class ConduitController : MonoBehaviour
         }
     }
 
-    void ManageOrbUI()
+    void ManageOrbEffects()
     {
         if (orbState == OrbState.IN_PROGRESS)
         {
@@ -164,7 +167,7 @@ public class ConduitController : MonoBehaviour
         {
             if (orbState == OrbState.DISABLED)
             {
-                outerRingRenderer.material.color = Color.gray;
+                outerRingRenderer.material.color = Color.black;
             }
             else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
             {
@@ -352,7 +355,7 @@ public class ConduitController : MonoBehaviour
         
         if (attachedGuardianColor.Count == 0)
         {
-            outerRingRenderer.material.color = Color.black;
+            outerRingRenderer.material.color = outerRingMat.color;
         }
     }
 

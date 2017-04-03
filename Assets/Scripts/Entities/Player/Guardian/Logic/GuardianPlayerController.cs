@@ -108,7 +108,7 @@ public class GuardianPlayerController : GuardianStats
             {
                 selectedOrb = rayHit.collider.gameObject;
 
-                if (selectionTimer.TimerIsDone())
+                if (selectionTimer.TimerIsDone() && !isUsingAbility)
                 {
                     if (selectedOrb != attachedOrb && attachedOrb != null)
                     {
@@ -170,6 +170,7 @@ public class GuardianPlayerController : GuardianStats
             guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
             guardianCooldown.QueueGlobalCooldown();
             guardianCooldown.QueueAbilityCooldown(abilityNumber);
+            isUsingAbility = true;
         }     
     }
 
@@ -189,6 +190,7 @@ public class GuardianPlayerController : GuardianStats
 
             guardianCooldown.QueueGlobalCooldown();
             guardianCooldown.QueueAbilityCooldown(abilityNumber);
+            isUsingAbility = true;
         }
     }
 }
