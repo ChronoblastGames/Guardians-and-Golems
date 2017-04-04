@@ -8601,7 +8601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
@@ -9026,7 +9026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 2
   playerTeam: 0
   PlayerName: Matt
   PlayerNumber: 0
@@ -9295,8 +9295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c157339caf9599d4a8c53a48fe1f94df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1000000
-  maxHealth: 1000000
+  currentHealth: 100
+  maxHealth: 100
   temporaryHealth: 0
   currentMana: Infinity
   maxMana: Infinity
@@ -9420,8 +9420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c157339caf9599d4a8c53a48fe1f94df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1000000
-  maxHealth: 1000000
+  currentHealth: 100
+  maxHealth: 100
   temporaryHealth: 0
   currentMana: Infinity
   maxMana: Infinity
@@ -9483,11 +9483,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
-  ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
+  ability: {fileID: 1879156958085216, guid: a14c0acc6eeba074b99c9c809ff7b8d0, type: 2}
   abilityCastTime: 0
   damageType: 0
   damageAmount: 10
-  projectileSpeed: 25
+  projectileSpeed: 10
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0

@@ -221,38 +221,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114996735460179544, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
-        type: 2}
-    - target: {fileID: 114994750649921852, guid: 2cc910c8b15959441bd93412f23de693,
+    - target: {fileID: 114120597122192858, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: spellIndicator
       value: 
-      objectReference: {fileID: 394457318}
-    - target: {fileID: 114909512831180230, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 259908043}
-    - target: {fileID: 114898209385239010, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 886596925}
-    - target: {fileID: 114781096506621612, guid: 2cc910c8b15959441bd93412f23de693,
+      objectReference: {fileID: 1469263977}
+    - target: {fileID: 114223523441695250, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
-        type: 2}
-    - target: {fileID: 114681289363000118, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962,
+      objectReference: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8,
         type: 2}
     - target: {fileID: 114282139674183840, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
@@ -260,36 +238,59 @@ Prefab:
       value: 
       objectReference: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8,
         type: 2}
-    - target: {fileID: 114223523441695250, guid: 2cc910c8b15959441bd93412f23de693,
+    - target: {fileID: 114681289363000118, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8,
+      objectReference: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962,
         type: 2}
-    - target: {fileID: 114120597122192858, guid: 2cc910c8b15959441bd93412f23de693,
+    - target: {fileID: 114781096506621612, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
+        type: 2}
+    - target: {fileID: 114898209385239010, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: spellIndicator
       value: 
-      objectReference: {fileID: 1469263977}
-    - target: {fileID: 114478965423092650, guid: 2cc910c8b15959441bd93412f23de693,
+      objectReference: {fileID: 886596925}
+    - target: {fileID: 114909512831180230, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
-      propertyPath: currentHealth
-      value: 100
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 259908043}
+    - target: {fileID: 114994750649921852, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 394457318}
+    - target: {fileID: 114996735460179544, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
+        type: 2}
+    - target: {fileID: 114589205260284584, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: activeTime
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 114567715736809596, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: currentHealth
-      value: 100
+    - target: {fileID: 4096679516658122, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114478965423092650, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: maxHealth
-      value: 100
+    - target: {fileID: 4096679516658122, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114567715736809596, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: maxHealth
-      value: 100
+    - target: {fileID: 4714028359060298, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714028359060298, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
@@ -1930,6 +1931,22 @@ Prefab:
     - target: {fileID: 4238503766681396, guid: 39cfa88b48ed343458a8d9868b9182a5, type: 2}
       propertyPath: m_LocalPosition.y
       value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1568912162840106, guid: 39cfa88b48ed343458a8d9868b9182a5, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1985478283294908, guid: 39cfa88b48ed343458a8d9868b9182a5, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1527481025493642, guid: 39cfa88b48ed343458a8d9868b9182a5, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624243519334736, guid: 39cfa88b48ed343458a8d9868b9182a5, type: 2}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 95853404935714038, guid: 39cfa88b48ed343458a8d9868b9182a5, type: 2}
