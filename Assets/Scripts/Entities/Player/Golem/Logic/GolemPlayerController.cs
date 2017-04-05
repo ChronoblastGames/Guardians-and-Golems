@@ -58,7 +58,6 @@ public class GolemPlayerController : GolemStats
     public bool canAttack = true;
     public bool canBlock = true;
     public bool isDodging = false;
-    public bool isBlocking = false;
     public bool isAttacking = false;
     public bool isCastingAbility = false;
     public bool isSlowed = false;
@@ -239,26 +238,7 @@ public class GolemPlayerController : GolemStats
         canBlock = true;
         isDodging = false;
     }
-
-    public void Block()
-    {
-        if (canBlock)
-        {
-            isBlocking = true;
-            movementSpeed = baseMovementSpeed / 4;
-            golemState.SetBool("isBlocking", true);
-            blockIndicator.SetActive(true);
-        }
-    }
-
-    public void Unblock()
-    {
-        isBlocking = false;
-        movementSpeed = baseMovementSpeed;
-        golemState.SetBool("isBlocking", false);
-        blockIndicator.SetActive(false);
-    }
-    
+  
     public void Stagger()
     {
         canMove = false;

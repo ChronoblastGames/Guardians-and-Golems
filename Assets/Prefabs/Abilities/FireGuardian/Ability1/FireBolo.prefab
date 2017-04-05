@@ -86,8 +86,8 @@ MonoBehaviour:
   fireballHolder: {fileID: 1417350289636178}
   fireballList: []
   fireballCount: 3
-  fireballRadius: 5
+  fireballRadius: 7
   fireballSpawnHeight: 1
-  rotationSpeed: 100
-  canMove: 0
-  canRotate: 0
+  rotationSpeed: 425
+  canMove: 1
+  canRotate: 1

@@ -64,7 +64,6 @@ public class GolemInputManager : MonoBehaviour
     private string inputAimAxisX = "";
     private string inputAimAxisZ = "";
     private string inputModifierAxis = "";
-    private string inputBlockAxis = "";
     private string inputAttackButton = "";
     private string inputDodgeButton = "";
     private string inputAbility1Button = "";
@@ -111,7 +110,6 @@ public class GolemInputManager : MonoBehaviour
         inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "Win";
 
         inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "Win";
-        inputBlockAxis = "BlockAxisPlayer" + PlayerNumber + "Win";
 
         inputAttackButton = "joystick " + PlayerNumber + " button 2";
         inputDodgeButton = "joystick " + PlayerNumber + " button 1";
@@ -152,7 +150,6 @@ public class GolemInputManager : MonoBehaviour
         aimZAxis = Input.GetAxis(inputAimAxisZ);
 
         modifierAxis = Input.GetAxis(inputModifierAxis);
-        blockAxis = Input.GetAxis(inputBlockAxis);
 
         //Use Ability
         if (modifierAxis != 0 && Input.GetKeyUp(inputAbility1Button))
@@ -212,26 +209,6 @@ public class GolemInputManager : MonoBehaviour
         if (Input.GetKeyDown(inputAttackButton))
         {
             golemPlayerController.UseAttack();
-        }
-
-        if (blockAxis != 0)
-        {
-            if (isBlockAxisActive == false)
-            {
-                isBlockAxisActive = true;
-            }
-            else if (isBlockAxisActive)
-            {
-                golemPlayerController.Block();
-            }           
-        }
-        else if (blockAxis == 0)
-        {
-            if (isBlockAxisActive)
-            {
-                golemPlayerController.Unblock();
-                isBlockAxisActive = false;
-            } 
         }
     }
 

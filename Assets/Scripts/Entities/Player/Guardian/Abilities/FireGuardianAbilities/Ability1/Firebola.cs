@@ -10,6 +10,7 @@ public class Firebola : AbilityCastBase
 
     public List<GameObject> fireballList;
 
+    [Space(10)]
     public int fireballCount;
     public float fireballRadius;
     public float fireballSpawnHeight;

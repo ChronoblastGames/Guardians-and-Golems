@@ -112,7 +112,7 @@ public class ConduitController : MonoBehaviour
                 {
                     ringParticlesRed[0].Play();
 
-                    foreach (Renderer gemRenderer in innerGemRenderer)
+                    foreach (Renderer gemRenderer in outerGemRenderer)
                     {
                         gemRenderer.material.color = yellowCaptureColor;
                     }
@@ -121,7 +121,7 @@ public class ConduitController : MonoBehaviour
                 {
                     ringParticlesRed[1].Play();
 
-                    foreach (Renderer gemRenderer in outerGemRenderer)
+                    foreach (Renderer gemRenderer in innerGemRenderer)
                     {
                         gemRenderer.material.color = yellowCaptureColor;
                     }

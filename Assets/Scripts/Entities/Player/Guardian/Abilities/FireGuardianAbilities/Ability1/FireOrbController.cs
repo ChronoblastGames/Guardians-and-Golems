@@ -14,20 +14,15 @@ public class FireOrbController : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Hit Something");
-
-        if (other.gameObject.layer == LayerMask.NameToLayer("Walls"))
-        {
-            fireBola.fireballList.Remove(gameObject);
-            Destroy(gameObject);
-        }
+        fireBola.fireballList.Remove(gameObject);
+        Destroy(gameObject);
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
         {
-            if (other.gameObject.CompareTag("GolemRed"))
+            if (other.gameObject.CompareTag("GolemBlue"))
             {
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(fireballAbilityValues.damageAmount, fireballAbilityValues.damageType, fireballAbilityValues.statusEffect, fireballAbilityValues.effectStrength, fireballAbilityValues.effectTime, gameObject);
                 fireBola.fireballList.Remove(gameObject);
@@ -36,7 +31,7 @@ public class FireOrbController : MonoBehaviour
         }
         else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
         {
-            if (other.gameObject.CompareTag("GolemBlue"))
+            if (other.gameObject.CompareTag("GolemRed"))
             {
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(fireballAbilityValues.damageAmount, fireballAbilityValues.damageType, fireballAbilityValues.statusEffect, fireballAbilityValues.effectStrength, fireballAbilityValues.effectTime, gameObject);
                 fireBola.fireballList.Remove(gameObject);

@@ -70,7 +70,6 @@ public class GolemResources : MonoBehaviour
     void Update()
     {
         DetermineHealthStatus();
-        DetermineManaStatus();
     }
 
     private void FixedUpdate()
@@ -141,11 +140,6 @@ public class GolemResources : MonoBehaviour
         }
     }
 
-    void DetermineManaStatus()
-    {
-
-    }
-
     public bool CanCast(float spellManaCost, float spellHealthCost)
     {
         if (currentMana > spellManaCost && currentHealth > spellHealthCost)
@@ -164,11 +158,6 @@ public class GolemResources : MonoBehaviour
     public void TakeDamage(float damageValue, DamageType damageType, StatusEffect statusEffect, float effectStrength, float effectTime, GameObject damagingObject)
     {
         float baseDefense = golemDefense.baseDefense;
-
-        if (golemPlayerController.isBlocking)
-        {
-            baseDefense *= 2f;
-        }
 
         if (statusEffect != StatusEffect.NONE)
         {
