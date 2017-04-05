@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 33743263}
-  m_IndirectSpecularColor: {r: 0.19343142, g: 0.64584553, b: 1.2957203, a: 1}
+  m_IndirectSpecularColor: {r: 0.19346702, g: 0.64566845, b: 1.2957695, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ LightmapSettings:
     m_PVRFilteringAtrousColorSigma: 1
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
-  m_LightingDataAsset: {fileID: 112000006, guid: 0bf9d56d68d7f8740b9d2d6632f48d79,
+  m_LightingDataAsset: {fileID: 112000012, guid: 01ebaa1f63764c74a94163d27e227347,
     type: 2}
   m_ShadowMaskMode: 2
 --- !u!196 &4
@@ -167551,6 +167551,11 @@ Prefab:
         type: 2}
       propertyPath: m_ClearFlags
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20323717071377634, guid: c37b4f592090913488ef7123e2452891,
+        type: 2}
+      propertyPath: m_AllowMSAA
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114345537397292236, guid: c37b4f592090913488ef7123e2452891, type: 2}
