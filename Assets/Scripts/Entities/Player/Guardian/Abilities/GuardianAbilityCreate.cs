@@ -9,7 +9,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
     private GuardianCooldownManager guardianCooldown;
 
     [Header("Ability Type")]
-    public AbilityType abilityType;
+    public AbilitySubType abilitySubType;
 
     [Header("Ability Mask")]
     public LayerMask redMask;
@@ -79,9 +79,9 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
         Quaternion newSpawnRotation = Quaternion.identity;
 
-        switch (abilityType)
+        switch (abilitySubType)
         {
-            case AbilityType.PROJECTILE:
+            case AbilitySubType.PROJECTILE:
 
                 if (abilityInfo.createPoint != null)
                 {
@@ -89,12 +89,12 @@ public class GuardianAbilityCreate : CreateAbilityBase
                 }
                 else
                 {
-                    newSpawnPosition = spawnObject.transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityInfo.spawnDistanceFromPlayer);
+                    newSpawnPosition = spawnObject.transform.position + Vector3.up + new Vector3(0, 0, abilityInfo.spawnDistanceFromPlayer);
                 }
 
                 break;
 
-            case AbilityType.STATIC:
+            case AbilitySubType.STATIC:
 
                 newSpawnPosition = newAimVector;
                 newSpawnPosition = newSpawnPosition * abilityInfo.spawnDistanceFromPlayer;
@@ -103,7 +103,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
                 break;
 
-            case AbilityType.ZONE:
+            case AbilitySubType.ZONE:
 
                 newSpawnPosition = newAimVector * abilityInfo.spawnDistanceFromPlayer;
                 newSpawnPosition.y = 0f;
@@ -138,6 +138,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
     {
         AbilityValues abilityInfo;
 
+        abilityInfo.abilityType = abilityType;
         abilityInfo.casterGameObject = casterGameObject;
         abilityInfo.createPoint = spawnPos;
         abilityInfo.abilityCastTime = abilityCastTime;

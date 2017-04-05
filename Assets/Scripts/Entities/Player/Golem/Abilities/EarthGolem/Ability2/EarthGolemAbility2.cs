@@ -9,7 +9,7 @@ public class EarthGolemAbility2 : AbilityCastBase
 
     private bool isTimerActive;
 	
-	void Update () 
+	void FixedUpdate () 
     {
         if (isAbilityActive)
         {
@@ -43,7 +43,7 @@ public class EarthGolemAbility2 : AbilityCastBase
 
     void AbilityControl()
     {
-        transform.position += transform.forward * abilityValues.projectileSpeed * Time.deltaTime;
+        transform.position += transform.forward * abilityValues.projectileSpeed * Time.fixedDeltaTime;
     }
 
     private void OnTriggerEnter(Collider other)

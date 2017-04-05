@@ -30,15 +30,8 @@ public class GolemResources : MonoBehaviour
     public float maxHealth;
     public float temporaryHealth;
 
-    [Header("Player Mana Attributes")]
-    public float currentMana;
-    public float maxMana;
-
     [Header("Player Health Regeneration Attributes")]
     public float healthRegenerationSpeed;
-
-    [Header("Player Mana Regeneration Attributes")]
-    public float manaRegenerationSpeed;
 
     [Header("Stagger Attributes")]
     public bool isStaggerTimerActive;
@@ -75,7 +68,6 @@ public class GolemResources : MonoBehaviour
     private void FixedUpdate()
     {
         RegenerateHealth();
-        RegenerateMana();
         ManageStaggerTimer();
     }
 
@@ -92,8 +84,6 @@ public class GolemResources : MonoBehaviour
         hitParticles = GetComponent<ParticleSystem>();
 
         currentHealth = maxHealth;
-
-        currentMana = maxMana;
 
         golemDefense = golemPlayerController.golemDefenseValues;
     }
@@ -115,23 +105,6 @@ public class GolemResources : MonoBehaviour
         }
     }
 
-    void RegenerateMana()
-    {
-        if (currentMana < maxMana)
-        {
-            currentMana += manaRegenerationSpeed * Time.fixedDeltaTime;
-
-            if (currentMana > maxMana)
-            {
-                currentMana = maxMana;
-            }
-            else if (currentMana < 0)
-            {
-                currentMana = 0;
-            }
-        }
-    }
-
     void DetermineHealthStatus()
     {
         if (currentHealth < 0)
@@ -140,19 +113,25 @@ public class GolemResources : MonoBehaviour
         }
     }
 
-    public bool CanCast(float spellManaCost, float spellHealthCost)
+    public bool CanCast(float spellHealthCost)
     {
-        if (currentMana > spellManaCost && currentHealth > spellHealthCost)
+        if (spellHealthCost > 0)
         {
-            currentMana -= spellManaCost;
-            currentHealth -= spellHealthCost;
-            return true;
+            if (currentHealth > spellHealthCost)
+            {
+                currentHealth -= spellHealthCost;
+                return true;
+            }
+            else
+            {
+                Debug.Log(gameObject.name + "can't Cast");
+                return false;
+            }
         }
         else
         {
-            Debug.Log(gameObject.name + "is out of Mana");
-            return false;
-        }
+            return true;
+        }    
     }
 
     public void TakeDamage(float damageValue, DamageType damageType, StatusEffect statusEffect, float effectStrength, float effectTime, GameObject damagingObject)
@@ -257,6 +236,19 @@ public class GolemResources : MonoBehaviour
         }
 
         UIManager.RequestDamageText(damageValue, transform);
+    }
+
+    public void GetHealed(float healAmount, StatusEffect statusEffect, float effectStrength, float effectTime, GameObject healingObject)
+    {
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += healAmount;
+
+            if (statusEffect != StatusEffect.NONE)
+            {
+                InflictStatusEffect(statusEffect, effectStrength, effectTime, healingObject);
+            }
+        }
     }
 
     void ManageStaggerTimer()

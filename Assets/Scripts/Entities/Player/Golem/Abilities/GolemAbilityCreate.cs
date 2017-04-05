@@ -9,7 +9,7 @@ public class GolemAbilityCreate : CreateAbilityBase
     private GolemCooldownManager golemCooldown;
 
     [Header("Ability Type")]
-    public AbilityType abilityType;
+    public AbilitySubType abilitySubType;
 
     [Header("Ability Mask")]
     public LayerMask redMask;
@@ -80,9 +80,9 @@ public class GolemAbilityCreate : CreateAbilityBase
 
         Quaternion newSpawnRotation = Quaternion.identity;
 
-        switch (abilityType)
+        switch (abilitySubType)
         {
-            case AbilityType.PROJECTILE:
+            case AbilitySubType.PROJECTILE:
 
                 if (abilityInfo.createPoint != null)
                 {
@@ -90,12 +90,12 @@ public class GolemAbilityCreate : CreateAbilityBase
                 }
                 else
                 {
-                    newSpawnPosition = transform.position + new Vector3(0, 1, 0) + new Vector3(0, 0, abilityInfo.spawnDistanceFromPlayer);
+                    newSpawnPosition = transform.position + Vector3.up + new Vector3(0, 0, abilityInfo.spawnDistanceFromPlayer);
                 }
 
                 break;
 
-            case AbilityType.STATIC:
+            case AbilitySubType.STATIC:
 
                 newSpawnPosition = newAimVector;
                 newSpawnPosition = newSpawnPosition * abilityInfo.spawnDistanceFromPlayer;
@@ -104,7 +104,7 @@ public class GolemAbilityCreate : CreateAbilityBase
 
                 break;
 
-            case AbilityType.ZONE:
+            case AbilitySubType.ZONE:
 
                 newSpawnPosition = newAimVector * abilityInfo.spawnDistanceFromPlayer;
                 newSpawnPosition.y = 0f;
@@ -139,6 +139,7 @@ public class GolemAbilityCreate : CreateAbilityBase
     {
         AbilityValues abilityInfo;
 
+        abilityInfo.abilityType = abilityType;
         abilityInfo.casterGameObject = casterGameObject;
         abilityInfo.createPoint = spawnPos;
         abilityInfo.abilityCastTime = abilityCastTime;

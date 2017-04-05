@@ -16,6 +16,14 @@ public enum DamageType
 
 public enum AbilityType
 {
+    DAMAGE,
+    HEAL,
+    SUPPORT,
+    UTILITY
+}
+
+public enum AbilitySubType
+{
     PROJECTILE,
     STATIC,
     ZONE,
@@ -26,6 +34,8 @@ public enum AbilityType
 public struct AbilityValues
 {
     [Header("Cast Info")]
+    public AbilityType abilityType;
+    [Space(10)]
     public GameObject createPoint;
     [HideInInspector]
     public GameObject casterGameObject;
@@ -70,6 +80,8 @@ public struct AbilityValues
 public abstract class CreateAbilityBase : MonoBehaviour
 {
     [Header("Cast Info")]
+    public AbilityType abilityType;
+    [Space(10)]
     public GameObject spawnPos;
     [HideInInspector]
     public GameObject casterGameObject;

@@ -56,7 +56,6 @@ public class GolemInputManager : MonoBehaviour
     private float holdMultiplier = 2f;
 
     [Header("Debug Values")]
-    private bool isBlockAxisActive = false;
     public bool isHoldingAbility = false;
 
     private string inputAxisX = "";

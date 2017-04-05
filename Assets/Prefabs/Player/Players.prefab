@@ -8388,7 +8388,7 @@ Light:
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -8418,13 +8418,13 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.07586192, g: 0, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -8529,6 +8529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
@@ -8552,7 +8553,7 @@ MonoBehaviour:
   statusEffect: 2
   effectStrength: 2
   effectTime: 3
-  abilityType: 0
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -8649,6 +8650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 0}
@@ -8672,7 +8674,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 0
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -8722,6 +8724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 0}
@@ -8745,7 +8748,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 0
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -8808,6 +8811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 2
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1204274344994918, guid: 4ec30418a2eac264a9d3c5d8e13c13f3, type: 2}
@@ -8831,7 +8835,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 2
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -8850,6 +8854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
@@ -8873,7 +8878,7 @@ MonoBehaviour:
   statusEffect: 2
   effectStrength: 1
   effectTime: 2
-  abilityType: 2
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -8892,7 +8897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Matt
   PlayerNumber: 0
@@ -9021,6 +9026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 3
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
@@ -9044,7 +9050,7 @@ MonoBehaviour:
   statusEffect: 7
   effectStrength: 35
   effectTime: 1
-  abilityType: 1
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9063,6 +9069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 2
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
@@ -9086,7 +9093,7 @@ MonoBehaviour:
   statusEffect: 2
   effectStrength: 1
   effectTime: 2
-  abilityType: 2
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9105,6 +9112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 1
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
@@ -9128,7 +9136,7 @@ MonoBehaviour:
   statusEffect: 7
   effectStrength: 35
   effectTime: 1
-  abilityType: 1
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9270,7 +9278,6 @@ MonoBehaviour:
   canAttack: 1
   canBlock: 1
   isDodging: 0
-  isBlocking: 0
   isAttacking: 0
   isCastingAbility: 0
   isSlowed: 0
@@ -9347,13 +9354,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1879156958085216, guid: a14c0acc6eeba074b99c9c809ff7b8d0, type: 2}
   abilityCastTime: 0
   damageType: 0
   damageAmount: 10
-  projectileSpeed: 10
+  projectileSpeed: 15
   spawnDistanceFromPlayer: 0
   activeTime: 10
   holdTime: 0
@@ -9370,7 +9378,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 0
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9389,6 +9397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
@@ -9412,7 +9421,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 0
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9431,6 +9440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
@@ -9454,7 +9464,7 @@ MonoBehaviour:
   statusEffect: 2
   effectStrength: 2
   effectTime: 3
-  abilityType: 0
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9473,6 +9483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 2
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
@@ -9496,7 +9507,7 @@ MonoBehaviour:
   statusEffect: 6
   effectStrength: 10
   effectTime: 3
-  abilityType: 2
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9548,6 +9559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 0}
@@ -9571,7 +9583,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 0
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9610,6 +9622,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 0}
@@ -9633,7 +9646,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 0
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9652,6 +9665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 2
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
@@ -9675,7 +9689,7 @@ MonoBehaviour:
   statusEffect: 6
   effectStrength: 10
   effectTime: 3
-  abilityType: 2
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9753,7 +9767,6 @@ MonoBehaviour:
   canAttack: 1
   canBlock: 1
   isDodging: 0
-  isBlocking: 0
   isAttacking: 0
   isCastingAbility: 0
   isSlowed: 0
@@ -10016,6 +10029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   ability: {fileID: 0}
@@ -10039,7 +10053,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilityType: 0
+  abilitySubType: 0
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -18489,7 +18503,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1588352850
+  randomSeed: 1691843408
   InitialModule:
     serializedVersion: 3
     enabled: 1

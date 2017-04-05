@@ -16645,7 +16645,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 14.459901, z: 8}
+  m_Size: {x: 9, y: 15, z: 9}
   m_Center: {x: -0.69266444, y: 7.081016, z: 0}
 --- !u!23 &191396566
 MeshRenderer:
@@ -105956,7 +105956,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 14.459901, z: 8}
+  m_Size: {x: 9, y: 15, z: 9}
   m_Center: {x: -0.69266444, y: 7.081016, z: 0}
 --- !u!23 &1263134136
 MeshRenderer:
@@ -132648,7 +132648,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 14.4599, z: 8}
+  m_Size: {x: 9, y: 15, z: 9}
   m_Center: {x: -0.69266456, y: 7.0810156, z: 0}
 --- !u!23 &1497948767
 MeshRenderer:
@@ -149643,7 +149643,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8, y: 14.459901, z: 8}
+  m_Size: {x: 9, y: 15, z: 9}
   m_Center: {x: -0.6926646, y: 7.081016, z: 0}
 --- !u!23 &1697121981
 MeshRenderer:
@@ -164074,37 +164074,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114996735460179544, guid: 2cc910c8b15959441bd93412f23de693,
+    - target: {fileID: 114120597122192858, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 1469263977}
+    - target: {fileID: 114223523441695250, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
+      objectReference: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8,
         type: 2}
-    - target: {fileID: 114994750649921852, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 394457318}
-    - target: {fileID: 114909512831180230, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 259908043}
-    - target: {fileID: 114898209385239010, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: spellIndicator
-      value: 
-      objectReference: {fileID: 886596925}
-    - target: {fileID: 114827755080281926, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: blockIndicator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114781096506621612, guid: 2cc910c8b15959441bd93412f23de693,
+    - target: {fileID: 114282139674183840, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
+      objectReference: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8,
         type: 2}
     - target: {fileID: 114681289363000118, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
@@ -164112,63 +164097,33 @@ Prefab:
       value: 
       objectReference: {fileID: 1620794945978752, guid: 019fb8cf05840674ca5714a67cfb1962,
         type: 2}
-    - target: {fileID: 114484972694367278, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: blockIndicator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114282139674183840, guid: 2cc910c8b15959441bd93412f23de693,
+    - target: {fileID: 114781096506621612, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8,
+      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
         type: 2}
-    - target: {fileID: 114223523441695250, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: ability
-      value: 
-      objectReference: {fileID: 1171196501589610, guid: 9e06e40528a712f45a97736d8e315fa8,
-        type: 2}
-    - target: {fileID: 114120597122192858, guid: 2cc910c8b15959441bd93412f23de693,
+    - target: {fileID: 114898209385239010, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: spellIndicator
       value: 
-      objectReference: {fileID: 1469263977}
-    - target: {fileID: 114384733559816334, guid: 2cc910c8b15959441bd93412f23de693,
+      objectReference: {fileID: 886596925}
+    - target: {fileID: 114909512831180230, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
-      propertyPath: playerNum
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114589205260284584, guid: 2cc910c8b15959441bd93412f23de693,
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 259908043}
+    - target: {fileID: 114994750649921852, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
-      propertyPath: projectileSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 108964895220867420, guid: 2cc910c8b15959441bd93412f23de693,
+      propertyPath: spellIndicator
+      value: 
+      objectReference: {fileID: 394457318}
+    - target: {fileID: 114996735460179544, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 108646885544186312, guid: 2cc910c8b15959441bd93412f23de693,
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
         type: 2}
-      propertyPath: m_Shadows.m_Type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 108964895220867420, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.07586192
-      objectReference: {fileID: 0}
-    - target: {fileID: 108964895220867420, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 108964895220867420, guid: 2cc910c8b15959441bd93412f23de693,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
   m_IsPrefabParent: 0
