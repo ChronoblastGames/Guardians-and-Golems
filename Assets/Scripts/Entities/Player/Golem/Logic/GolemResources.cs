@@ -243,8 +243,6 @@ public class GolemResources : MonoBehaviour
     {
         if (currentHealth < maxHealth)
         {
-            Debug.Log("I am being healed for " + healAmount + "by " + healingObject);
-
             currentHealth += healAmount;
 
             if (statusEffect != StatusEffect.NONE)
@@ -261,8 +259,6 @@ public class GolemResources : MonoBehaviour
             staggerDamage = 0;
             isStaggerTimerActive = false;
         }
-
-
     }
 
     void DetermineStagger(float damageValue)
@@ -298,6 +294,9 @@ public class GolemResources : MonoBehaviour
         switch(statusEffect)
         {
             case StatusEffect.BLEED:
+                StartCoroutine(Bleed(effectStrength, effectTime));
+
+                statusEffectList.Add(StatusEffect.BLEED);
                 break;
 
             case StatusEffect.MANA_DRAIN:
@@ -328,6 +327,9 @@ public class GolemResources : MonoBehaviour
                 StartCoroutine(Knockback(-interceptVec, knockBackCurve, effectStrength, effectTime));
 
                 statusEffectList.Add(StatusEffect.KNOCKBACK);
+                break;
+
+            case StatusEffect.HEALOVERTIME:
                 break;
 
             default:
@@ -424,6 +426,20 @@ public class GolemResources : MonoBehaviour
         temporaryHealth = 0;
 
         statusEffectList.Remove(StatusEffect.SHIELD);
+    }
+
+    IEnumerator Bleed (float bleedStrength, float bleedTime)
+    {
+        float bleedTimer = 0f;
+
+        while (bleedTimer <= bleedTime)
+        {
+            bleedTimer += Time.deltaTime / bleedTime;
+        }
+
+        currentHealth -= bleedStrength;
+
+        yield return null;
     }
 }
 

@@ -117,14 +117,22 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
         GameObject newAbility = Instantiate(ability, newSpawnPosition, newSpawnRotation) as GameObject;
 
-        if (teamColor == PlayerTeam.RED)
+        if (abilitySubType == AbilitySubType.ZONE)
         {
-            newAbility.layer = LayerMask.NameToLayer("GolemRed");
+            newAbility.layer = LayerMask.NameToLayer("Abilities");
         }
-        else if (teamColor == PlayerTeam.BLUE)
+        else
         {
-            newAbility.layer = LayerMask.NameToLayer("GolemBlue");
+            if (teamColor == PlayerTeam.RED)
+            {
+                newAbility.layer = LayerMask.NameToLayer("GolemRed");
+            }
+            else if (teamColor == PlayerTeam.BLUE)
+            {
+                newAbility.layer = LayerMask.NameToLayer("GolemBlue");
+            }
         }
+        
 
         newAbility.GetComponent<AbilityCastBase>().abilityValues = abilityInfo;
         newAbility.GetComponent<AbilityCastBase>().InitializeAbility();

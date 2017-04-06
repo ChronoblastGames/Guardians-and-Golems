@@ -20,25 +20,25 @@ public class RadiantSunAbility : AbilityCastBase
     {
         if (isAbilityActive)
         {
-            if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
+            if (abilityValues.teamColor == PlayerTeam.RED)
             {
                 if (other.gameObject.CompareTag("GolemRed"))
                 {
                     if (!recentlyHealedList.Contains(other.gameObject))
                     {
                         other.gameObject.GetComponent<GolemResources>().GetHealed(abilityValues.damageAmount, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.casterGameObject);
-                        ManageHealing(other.gameObject, abilityValues.damageFrequency);
+                        StartCoroutine(ManageHealing(other.gameObject, abilityValues.damageFrequency));
                     }
                 }
             }
-            else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
+            else if (abilityValues.teamColor == PlayerTeam.BLUE)
             {
                 if (other.gameObject.CompareTag("GolemBlue"))
                 {
                     if (!recentlyHealedList.Contains(other.gameObject))
                     {
                         other.gameObject.GetComponent<GolemResources>().GetHealed(abilityValues.damageAmount, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.casterGameObject);
-                        ManageHealing(other.gameObject, abilityValues.damageFrequency);
+                        StartCoroutine(ManageHealing(other.gameObject, abilityValues.damageFrequency));
                     }
                 }
             }
@@ -48,7 +48,7 @@ public class RadiantSunAbility : AbilityCastBase
     private IEnumerator ManageHealing(GameObject healedObject, float healFrequency)
     {
         recentlyHealedList.Add(healedObject);
-
+    
         if (healFrequency > 0)
         {
             yield return new WaitForSeconds(healFrequency);
