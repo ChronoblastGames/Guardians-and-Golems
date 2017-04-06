@@ -31,9 +31,11 @@ public class GolemAbilityCreate : CreateAbilityBase
         golemCooldown = golemInputManager.GetComponent<GolemCooldownManager>();
     }
 
-    public override void CastAbility(PlayerTeam teamColor, float heldTime, GameObject casterObject)
+    public override void CastAbility(PlayerTeam newTeamColor, float heldTime, GameObject casterObject)
     {
         AbilityValues newAblityValues = CreateAbilityStruct();
+
+        newAblityValues.teamColor = newTeamColor;
 
         newAblityValues.casterGameObject = casterObject;
 
@@ -44,7 +46,7 @@ public class GolemAbilityCreate : CreateAbilityBase
 
         newAblityValues.holdTime = heldTime;
 
-        StartCoroutine(FireAbility(teamColor, newAblityValues));     
+        StartCoroutine(FireAbility(newTeamColor, newAblityValues));     
     }
 
     private IEnumerator FireAbility(PlayerTeam teamColor, AbilityValues abilityInfo)
@@ -141,19 +143,18 @@ public class GolemAbilityCreate : CreateAbilityBase
 
         abilityInfo.abilityType = abilityType;
         abilityInfo.casterGameObject = casterGameObject;
+        abilityInfo.teamColor = teamColor;
         abilityInfo.createPoint = spawnPos;
         abilityInfo.abilityCastTime = abilityCastTime;
         abilityInfo.damageType = damageType;
         abilityInfo.damageAmount = damageAmount;
+        abilityInfo.damageFrequency = damageFrequency;
         abilityInfo.activeTime = activeTime;
         abilityInfo.holdTime = holdTime;
-        abilityInfo.projectileSpeed = projectileSpeed;
+        abilityInfo.travelSpeed = travelSpeed;
         abilityInfo.spawnDistanceFromPlayer = spawnDistanceFromPlayer;
-        abilityInfo.raiseAmount = raiseAmount;
-        abilityInfo.raiseSpeed = raiseSpeed;
         abilityInfo.zoneRadius = zoneRadius;
         abilityInfo.zoneHeight = zoneHeight;
-        abilityInfo.zoneStrength = zoneStrength;
         abilityInfo.isMelee = isMelee;
         abilityInfo.isRanged = isRanged;
         abilityInfo.isHeld = isHeld;

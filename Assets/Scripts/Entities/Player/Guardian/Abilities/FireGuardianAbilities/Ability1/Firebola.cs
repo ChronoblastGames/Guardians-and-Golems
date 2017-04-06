@@ -48,7 +48,7 @@ public class Firebola : AbilityCastBase
 
         if (canMove)
         {
-            transform.position += transform.forward * abilityValues.projectileSpeed * Time.fixedDeltaTime;
+            transform.position += transform.forward * abilityValues.travelSpeed * Time.fixedDeltaTime;
         }
 
         if (isAbilityActive)

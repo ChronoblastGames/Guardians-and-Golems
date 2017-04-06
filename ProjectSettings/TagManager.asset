@@ -11,6 +11,7 @@ TagManager:
   - Conduit
   - RedTeamManager
   - BlueTeamManager
+  - Variable
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - GolemRed
   - GolemBlue
   - Walls
-  - AbilitiesRed
-  - AbilitiesBlue
+  - Abilities
+  - 
   - Projectiles
   - Ground
   - Guardians

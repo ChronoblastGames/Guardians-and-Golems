@@ -43,7 +43,7 @@ public class EarthGolemAbility2 : AbilityCastBase
 
     void AbilityControl()
     {
-        transform.position += transform.forward * abilityValues.projectileSpeed * Time.fixedDeltaTime;
+        transform.position += transform.forward * abilityValues.travelSpeed * Time.fixedDeltaTime;
     }
 
     private void OnTriggerEnter(Collider other)

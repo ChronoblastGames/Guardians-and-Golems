@@ -11,7 +11,8 @@ public enum StatusEffect
     MANA_DRAIN,
     SILENCE,
     SHIELD,
-    KNOCKBACK
+    KNOCKBACK,
+    HEALOVERTIME
 }
 
 
@@ -242,6 +243,8 @@ public class GolemResources : MonoBehaviour
     {
         if (currentHealth < maxHealth)
         {
+            Debug.Log("I am being healed for " + healAmount + "by " + healingObject);
+
             currentHealth += healAmount;
 
             if (statusEffect != StatusEffect.NONE)

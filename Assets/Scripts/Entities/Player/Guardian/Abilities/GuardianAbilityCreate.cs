@@ -43,7 +43,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
         newAbilityValues.holdTime = holdTime;
 
-        StartCoroutine(FireAbility(teamColor, newAbilityValues, spawnObject));
+        StartCoroutine(FireAbility(teamColor, newAbilityValues, casterObject));
     }
 
     private IEnumerator FireAbility(PlayerTeam teamColor, AbilityValues abilityInfo, GameObject spawnObject)
@@ -140,19 +140,18 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
         abilityInfo.abilityType = abilityType;
         abilityInfo.casterGameObject = casterGameObject;
+        abilityInfo.teamColor = teamColor;
         abilityInfo.createPoint = spawnPos;
         abilityInfo.abilityCastTime = abilityCastTime;
         abilityInfo.damageType = damageType;
         abilityInfo.damageAmount = damageAmount;
+        abilityInfo.damageFrequency = damageFrequency;
         abilityInfo.activeTime = activeTime;
         abilityInfo.holdTime = holdTime;
-        abilityInfo.projectileSpeed = projectileSpeed;
+        abilityInfo.travelSpeed = travelSpeed;
         abilityInfo.spawnDistanceFromPlayer = spawnDistanceFromPlayer;
-        abilityInfo.raiseAmount = raiseAmount;
-        abilityInfo.raiseSpeed = raiseSpeed;
         abilityInfo.zoneRadius = zoneRadius;
         abilityInfo.zoneHeight = zoneHeight;
-        abilityInfo.zoneStrength = zoneStrength;
         abilityInfo.isMelee = isMelee;
         abilityInfo.isRanged = isRanged;
         abilityInfo.isHeld = isHeld;

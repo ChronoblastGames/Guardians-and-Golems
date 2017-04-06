@@ -28,7 +28,6 @@ public class GolemPlayerController : GolemStats
     private float targetSpeed;
     private float speedSmoothVelocity;
     public float characterVelocity;
-    public float idleTime;
 
     [Header("Player Dodge Attributes")]
     public GolemDodgeAbilityBase golemDodge;
@@ -50,7 +49,6 @@ public class GolemPlayerController : GolemStats
     private float velocityY;
 
     [Header("Player Booleans")]
-    public bool isIdle = false;
     public bool canRotate = true;
     public bool canMove = true;
     public bool canDodge = true;
@@ -79,7 +77,6 @@ public class GolemPlayerController : GolemStats
     {
         ManageMovement();
         ManageRotation();
-        ManageIdle();
         ManageRecoveryTime();
     }
 
@@ -97,12 +94,9 @@ public class GolemPlayerController : GolemStats
 
         globalVariables = GameObject.FindGameObjectWithTag("GlobalVariables").GetComponent<GlobalVariables>();
 
-        idleTimer = new TimerClass();
         recoveryTimer = new TimerClass();
 
         golemState = GetComponent<Animator>();
-
-        idleTimer.ResetTimer(idleTime);
 
         movementSpeed = baseMovementSpeed;
     }
@@ -269,24 +263,6 @@ public class GolemPlayerController : GolemStats
         canDodge = true;
         canBlock = true;
         isStaggered = false;
-    }
-
-    void ManageIdle()
-    {
-        if (golemState.GetCurrentAnimatorStateInfo(0).IsName("Base.Stand"))
-        {
-            if (idleTimer.TimerIsDone())
-            {
-                isIdle = true;
-                golemState.SetBool("isIdle", true);
-            }
-        }
-        else if (characterVelocity > 0)
-        {
-            idleTimer.ResetTimer(idleTime);
-            golemState.SetBool("isIdle", false);
-            isIdle = false;
-        }
     }
 
     public void StartMovement()

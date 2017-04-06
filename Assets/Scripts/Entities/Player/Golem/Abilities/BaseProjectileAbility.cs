@@ -47,7 +47,7 @@ public class BaseProjectileAbility : AbilityCastBase
 
     void UseAbility()
     {
-        myRB.AddForce(transform.forward * abilityValues.projectileSpeed, ForceMode.Impulse);
+        myRB.AddForce(transform.forward * abilityValues.travelSpeed, ForceMode.Impulse);
     }
 
     void OnTriggerEnter(Collider other)

@@ -39,6 +39,8 @@ public struct AbilityValues
     public GameObject createPoint;
     [HideInInspector]
     public GameObject casterGameObject;
+    [HideInInspector]
+    public PlayerTeam teamColor;
 
     [Header("Ability Cast Time")]
     public float abilityCastTime;
@@ -46,21 +48,17 @@ public struct AbilityValues
     [Header("Damage Attributes")]
     public DamageType damageType;
     public float damageAmount;
+    public float damageFrequency;
 
     [Header("Range Attributes")]
-    public float projectileSpeed;
+    public float travelSpeed;
     public float spawnDistanceFromPlayer;
     public float activeTime;
     public float holdTime;
 
-    [Header("Wall Attributes")]
-    public float raiseAmount;
-    public float raiseSpeed;
-
     [Header("Zone Attributes")]
     public float zoneRadius;
     public float zoneHeight;
-    public float zoneStrength;
 
     [Header("Use Attributes")]
     public float healthCost;
@@ -85,6 +83,8 @@ public abstract class CreateAbilityBase : MonoBehaviour
     public GameObject spawnPos;
     [HideInInspector]
     public GameObject casterGameObject;
+    [HideInInspector]
+    public PlayerTeam teamColor;
 
     [Header("Ability")]
     public GameObject ability;
@@ -95,21 +95,17 @@ public abstract class CreateAbilityBase : MonoBehaviour
     [Header("Damage Attributes")]
     public DamageType damageType;
     public float damageAmount;
+    public float damageFrequency;
 
     [Header("Range Attributes")]
-    public float projectileSpeed;
+    public float travelSpeed;
     public float spawnDistanceFromPlayer;
     public float activeTime;
     public float holdTime;
 
-    [Header("Wall Attributes")]
-    public float raiseAmount;
-    public float raiseSpeed;
-
     [Header("Zone Attributes")]
     public float zoneRadius;
     public float zoneHeight;
-    public float zoneStrength;
 
     [Header("Use Attributes")]
     public float healthCost;

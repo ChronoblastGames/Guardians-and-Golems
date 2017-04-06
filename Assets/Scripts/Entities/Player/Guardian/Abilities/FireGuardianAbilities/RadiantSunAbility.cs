@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class RadiantSunAbility : AbilityCastBase
 {
-    [Header("Ability Attributes")]
-    public float healStrength;
-    public float healFrequency;
-
-    private List<GameObject> recentlyHealedList;
+    public List<GameObject> recentlyHealedList;
 
     public override void InitializeAbility()
     {
@@ -31,7 +27,7 @@ public class RadiantSunAbility : AbilityCastBase
                     if (!recentlyHealedList.Contains(other.gameObject))
                     {
                         other.gameObject.GetComponent<GolemResources>().GetHealed(abilityValues.damageAmount, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.casterGameObject);
-                        ManageHealing(other.gameObject, healFrequency);
+                        ManageHealing(other.gameObject, abilityValues.damageFrequency);
                     }
                 }
             }
@@ -42,7 +38,7 @@ public class RadiantSunAbility : AbilityCastBase
                     if (!recentlyHealedList.Contains(other.gameObject))
                     {
                         other.gameObject.GetComponent<GolemResources>().GetHealed(abilityValues.damageAmount, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.casterGameObject);
-                        ManageHealing(other.gameObject, healFrequency);
+                        ManageHealing(other.gameObject, abilityValues.damageFrequency);
                     }
                 }
             }

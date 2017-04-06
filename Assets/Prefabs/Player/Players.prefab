@@ -8532,19 +8532,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
   abilityCastTime: 0.6
   damageType: 3
   damageAmount: 15
-  projectileSpeed: 60
+  damageFrequency: 0
+  travelSpeed: 75
   spawnDistanceFromPlayer: 0
   activeTime: 5
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -8589,17 +8588,11 @@ MonoBehaviour:
       outSlope: 0.02797422
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.55
-      value: 0.75
+      time: 0.75
+      value: 0
       inSlope: -2.1505675
       outSlope: -2.1505675
       tangentMode: 0
-    - serializedVersion: 2
-      time: 0.75
-      value: 0
-      inSlope: -3.7500002
-      outSlope: -3.7500002
-      tangentMode: 34
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -8653,19 +8646,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 0}
   abilityCastTime: 0
   damageType: 3
   damageAmount: 20
-  projectileSpeed: 35
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -8727,19 +8719,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 0}
   abilityCastTime: 0
   damageType: 3
   damageAmount: 20
-  projectileSpeed: 35
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -8814,19 +8805,18 @@ MonoBehaviour:
   abilityType: 2
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
-  ability: {fileID: 1204274344994918, guid: 4ec30418a2eac264a9d3c5d8e13c13f3, type: 2}
+  teamColor: 0
+  ability: {fileID: 1041677828617672, guid: d7e5dff1cbb152048a06f50acb33bcb2, type: 2}
   abilityCastTime: 2
   damageType: 0
-  damageAmount: 15
-  projectileSpeed: 30
+  damageAmount: 5
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 0
+  activeTime: 5
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
-  zoneRadius: 0
+  zoneRadius: 10
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -8835,7 +8825,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
-  abilitySubType: 0
+  abilitySubType: 2
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -8857,19 +8847,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
   abilityCastTime: 1.25
   damageType: 3
   damageAmount: 2
-  projectileSpeed: 0
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 5
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 50
   isMelee: 0
@@ -9029,19 +9018,18 @@ MonoBehaviour:
   abilityType: 3
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
   abilityCastTime: 0.7
   damageType: 3
   damageAmount: 5
-  projectileSpeed: 0
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 2
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -9072,19 +9060,18 @@ MonoBehaviour:
   abilityType: 2
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
   abilityCastTime: 1.25
   damageType: 3
   damageAmount: 2
-  projectileSpeed: 0
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 5
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 50
   isMelee: 0
@@ -9115,19 +9102,18 @@ MonoBehaviour:
   abilityType: 1
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
   abilityCastTime: 0.7
   damageType: 3
   damageAmount: 5
-  projectileSpeed: 0
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 2
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -9172,10 +9158,7 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   temporaryHealth: 0
-  currentMana: Infinity
-  maxMana: Infinity
   healthRegenerationSpeed: 0.5
-  manaRegenerationSpeed: 0.5
   isStaggerTimerActive: 0
   statusEffectList: 
   knockBackCurve:
@@ -9263,14 +9246,12 @@ MonoBehaviour:
   currentSpeed: 0
   speedSmoothTime: 0.1
   characterVelocity: 0
-  idleTime: 10
   golemDodge: {fileID: 114857373994876976}
   isStaggered: 0
   abilitySmoothTime: 0.1
   turnSmoothTime: 0.05
   attackTurnSmoothTime: 0.3
   gravity: -12
-  isIdle: 0
   canRotate: 1
   canMove: 1
   canDodge: 1
@@ -9296,10 +9277,7 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   temporaryHealth: 0
-  currentMana: Infinity
-  maxMana: Infinity
   healthRegenerationSpeed: 0.5
-  manaRegenerationSpeed: 0.5
   isStaggerTimerActive: 0
   statusEffectList: 
   knockBackCurve:
@@ -9357,19 +9335,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1879156958085216, guid: a14c0acc6eeba074b99c9c809ff7b8d0, type: 2}
   abilityCastTime: 0
   damageType: 0
   damageAmount: 10
-  projectileSpeed: 15
+  damageFrequency: 0
+  travelSpeed: 20
   spawnDistanceFromPlayer: 0
   activeTime: 10
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -9400,19 +9377,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
   abilityCastTime: 0
   damageType: 0
   damageAmount: 10
-  projectileSpeed: 25
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -9443,19 +9419,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
   abilityCastTime: 0.6
   damageType: 3
   damageAmount: 15
-  projectileSpeed: 60
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 5
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -9486,19 +9461,18 @@ MonoBehaviour:
   abilityType: 2
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
   abilityCastTime: 0.5
   damageType: 8
   damageAmount: 0
-  projectileSpeed: 0
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 1.25
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 100
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -9562,19 +9536,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 0}
   abilityCastTime: 0
   damageType: 0
   damageAmount: 15
-  projectileSpeed: 30
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -9625,19 +9598,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 0}
   abilityCastTime: 0
   damageType: 2
   damageAmount: 25
-  projectileSpeed: 40
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -9668,19 +9640,18 @@ MonoBehaviour:
   abilityType: 2
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
   abilityCastTime: 0.5
   damageType: 8
   damageAmount: 0
-  projectileSpeed: 0
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 1.25
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 100
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -9752,14 +9723,12 @@ MonoBehaviour:
   currentSpeed: 0
   speedSmoothTime: 0.1
   characterVelocity: 0
-  idleTime: 10
   golemDodge: {fileID: 114127029990510360}
   isStaggered: 0
   abilitySmoothTime: 0.1
   turnSmoothTime: 0.05
   attackTurnSmoothTime: 0.3
   gravity: -12
-  isIdle: 0
   canRotate: 1
   canMove: 1
   canDodge: 1
@@ -9799,17 +9768,11 @@ MonoBehaviour:
       outSlope: 0.02797422
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.55
-      value: 0.75
+      time: 0.75
+      value: 0
       inSlope: -2.1505675
       outSlope: -2.1505675
       tangentMode: 0
-    - serializedVersion: 2
-      time: 0.75
-      value: 0
-      inSlope: -3.7500002
-      outSlope: -3.7500002
-      tangentMode: 34
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
@@ -10032,19 +9995,18 @@ MonoBehaviour:
   abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  teamColor: 0
   ability: {fileID: 0}
   abilityCastTime: 0
   damageType: 2
   damageAmount: 25
-  projectileSpeed: 40
+  damageFrequency: 0
+  travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 0
   holdTime: 0
-  raiseAmount: 0
-  raiseSpeed: 0
   zoneRadius: 0
   zoneHeight: 0
-  zoneStrength: 0
   healthCost: 0
   manaCost: 25
   isMelee: 0
