@@ -75986,48 +75986,6 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
---- !u!1001 &848652555
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4222413198650030, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222413198650030, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222413198650030, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222413198650030, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222413198650030, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222413198650030, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222413198650030, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222413198650030, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &853895927
 GameObject:
   m_ObjectHideFlags: 0
@@ -164128,7 +164086,7 @@ Prefab:
         type: 2}
       propertyPath: ability
       value: 
-      objectReference: {fileID: 1828343831747796, guid: 82b3402b6da7de446b8fc2bbff7f0710,
+      objectReference: {fileID: 1000095144429562, guid: 39b3dad7bb1e96f45966f9b58f1a2162,
         type: 2}
     - target: {fileID: 114681289363000118, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
@@ -164172,6 +164130,26 @@ Prefab:
         type: 2}
       propertyPath: activeTime
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114781096506621612, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: abilityCastTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114781096506621612, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: damageType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114781096506621612, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: damageFrequency
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114781096506621612, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: activeTime
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc910c8b15959441bd93412f23de693, type: 2}

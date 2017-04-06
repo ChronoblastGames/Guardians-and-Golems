@@ -18,18 +18,29 @@ public class FirenatoController : AbilityCastBase
 
     public float maxProjectorSize = 10f;
 
-    public bool isMaxProjectorSize = false;
-
-    private void Start()
-    {
-        InitializeAbility();
-    }
+    public bool canIncreaseProjectorSize = false;
 
     public override void InitializeAbility()
     {
         spellAreaProjector = transform.GetChild(0).GetComponent<Projector>();
 
+        if (abilityValues.teamColor == PlayerTeam.RED)
+        {
+            spellAreaProjector.material.color = Color.yellow;
+        }
+        else if (abilityValues.teamColor == PlayerTeam.BLUE)
+        {
+            spellAreaProjector.material.color = Color.blue;
+        }
+
+        if (abilityValues.activeTime > 0)
+        {
+            Destroy(gameObject, abilityValues.activeTime);
+        }
+
         isAbilityActive = true;
+
+        canIncreaseProjectorSize = true;
     }
 
     private void FixedUpdate()
@@ -49,7 +60,7 @@ public class FirenatoController : AbilityCastBase
 
     void LerpProjector()
     {
-        if (!isMaxProjectorSize)
+        if (canIncreaseProjectorSize)
         {
             float currentSize = spellAreaProjector.orthographicSize;
 
@@ -59,7 +70,7 @@ public class FirenatoController : AbilityCastBase
 
             if (spellAreaProjector.orthographicSize == maxProjectorSize)
             {
-                isMaxProjectorSize = true;
+                canIncreaseProjectorSize = false;
             }
         }
     }
