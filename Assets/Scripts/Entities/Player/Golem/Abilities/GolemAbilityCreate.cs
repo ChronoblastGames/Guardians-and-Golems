@@ -142,6 +142,7 @@ public class GolemAbilityCreate : CreateAbilityBase
         AbilityValues abilityInfo;
 
         abilityInfo.abilityType = abilityType;
+        abilityInfo.indicatorType = indicatorType;
         abilityInfo.casterGameObject = casterGameObject;
         abilityInfo.teamColor = teamColor;
         abilityInfo.createPoint = spawnPos;

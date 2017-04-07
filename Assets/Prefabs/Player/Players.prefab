@@ -669,6 +669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4562381386981886}
   - component: {fileID: 114127029990510360}
+  - component: {fileID: 65763860309484176}
   m_Layer: 8
   m_Name: DodgeAbility
   m_TagString: Untagged
@@ -1442,6 +1443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4696313180278342}
   - component: {fileID: 114857373994876976}
+  - component: {fileID: 65062158269166028}
   m_Layer: 9
   m_Name: DodgeAbility
   m_TagString: Untagged
@@ -7506,7 +7508,7 @@ Transform:
   m_GameObject: {fileID: 1371271265770318}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 45, y: 1, z: 0}
-  m_LocalScale: {x: 2.000001, y: 2, z: 2.000001}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4138963063737136}
   - {fileID: 4309725463281122}
@@ -8233,6 +8235,18 @@ Transform:
   m_Father: {fileID: 4761461709006370}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65062158269166028
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345836874621438}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 2, z: 1}
 --- !u!65 &65269421848150332
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -8293,6 +8307,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65763860309484176
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166764626389320}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 2, z: 1}
 --- !u!65 &65791186147655770
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -8467,7 +8493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
@@ -8490,10 +8516,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dodgeCooldownTime: 3
-  ability1Time: 2
-  ability2Time: 1
-  ability3Time: 2
-  ability4Time: 2
+  ability1Time: 3
+  ability2Time: 4
+  ability3Time: 5
+  ability4Time: 10
   isGlobalCooldownReady: 1
   isDodgeCooldownReady: 1
   isAbility1Ready: 1
@@ -8573,6 +8599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemPlayerController: {fileID: 0}
+  dodgeCollider: {fileID: 0}
   dodgeCurve:
     serializedVersion: 2
     m_Curve:
@@ -8599,8 +8626,12 @@ MonoBehaviour:
     m_RotationOrder: 0
   dodgeTime: 0.75
   dodgeSpeed: 50
+  dodgeDamageType: 0
   dodgeDamage: 0
-  dodgeEffect: 0
+  effectStrength: 0
+  effectTime: 0
+  effectFrequency: 0
+  dodgeEffect: 1
 --- !u!114 &114214877838828300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8773,10 +8804,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dodgeCooldownTime: 3
-  ability1Time: 2
-  ability2Time: 1
-  ability3Time: 2
-  ability4Time: 2
+  ability1Time: 3
+  ability2Time: 4
+  ability3Time: 5
+  ability4Time: 10
   isGlobalCooldownReady: 1
   isDodgeCooldownReady: 1
   isAbility1Ready: 1
@@ -8855,7 +8886,7 @@ MonoBehaviour:
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
   abilityCastTime: 1.25
   damageType: 3
-  damageAmount: 2
+  damageAmount: 3
   damageFrequency: 0
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
@@ -8891,7 +8922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 2
   playerTeam: 0
   PlayerName: Matt
   PlayerNumber: 0
@@ -9027,7 +9058,7 @@ MonoBehaviour:
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
   abilityCastTime: 0.7
   damageType: 3
-  damageAmount: 5
+  damageAmount: 20
   damageFrequency: 0
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
@@ -9070,7 +9101,7 @@ MonoBehaviour:
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
   abilityCastTime: 1.25
   damageType: 3
-  damageAmount: 2
+  damageAmount: 3
   damageFrequency: 0
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
@@ -9113,7 +9144,7 @@ MonoBehaviour:
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
   abilityCastTime: 0.7
   damageType: 3
-  damageAmount: 5
+  damageAmount: 20
   damageFrequency: 0
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
@@ -9250,6 +9281,7 @@ MonoBehaviour:
   - {fileID: 114619657936168240}
   - {fileID: 114423071830375860}
   characterController: {fileID: 0}
+  playerColor: 2
   movementSpeed: 0
   currentSpeed: 0
   speedSmoothTime: 0.1
@@ -9265,7 +9297,6 @@ MonoBehaviour:
   canDodge: 1
   canUseAbilities: 1
   canAttack: 1
-  canBlock: 1
   isDodging: 0
   isAttacking: 0
   isCastingAbility: 0
@@ -9734,6 +9765,7 @@ MonoBehaviour:
   - {fileID: 114802910185896686}
   - {fileID: 114369366021530706}
   characterController: {fileID: 0}
+  playerColor: 2
   movementSpeed: 0
   currentSpeed: 0
   speedSmoothTime: 0.1
@@ -9749,7 +9781,6 @@ MonoBehaviour:
   canDodge: 1
   canUseAbilities: 1
   canAttack: 1
-  canBlock: 1
   isDodging: 0
   isAttacking: 0
   isCastingAbility: 0
@@ -9767,6 +9798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   golemPlayerController: {fileID: 0}
+  dodgeCollider: {fileID: 0}
   dodgeCurve:
     serializedVersion: 2
     m_Curve:
@@ -9793,8 +9825,12 @@ MonoBehaviour:
     m_RotationOrder: 0
   dodgeTime: 0.75
   dodgeSpeed: 50
+  dodgeDamageType: 0
   dodgeDamage: 0
-  dodgeEffect: 0
+  effectStrength: 0
+  effectTime: 0
+  effectFrequency: 0
+  dodgeEffect: 1
 --- !u!114 &114866543519631650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15483,8 +15519,8 @@ ParticleSystem:
       m_RotationOrder: 4
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
-  scalingMode: 1
-  randomSeed: -766787032
+  scalingMode: 0
+  randomSeed: -723492591
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -18481,7 +18517,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1179609071
+  randomSeed: 192930341
   InitialModule:
     serializedVersion: 3
     enabled: 1

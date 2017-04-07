@@ -7,6 +7,8 @@ public class EarthGolemDodgeAbility : GolemDodgeAbilityBase
     {
         float dodgeTimer = 0;
 
+        dodgeCollider.enabled = true;
+
         while (dodgeTimer <= dodgeTime)
         {
             dodgeTimer += Time.deltaTime / dodgeTime;
@@ -18,6 +20,28 @@ public class EarthGolemDodgeAbility : GolemDodgeAbilityBase
             yield return null;
         }
 
+        dodgeCollider.enabled = false;
+
         golemPlayerController.StopDodge();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (golemPlayerController.playerColor == PlayerTeam.RED)
+        {
+            if (other.gameObject.CompareTag("GolemBlue"))
+            {
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(dodgeDamage, dodgeDamageType, dodgeEffect, effectStrength, effectTime, effectFrequency, gameObject);
+                dodgeCollider.enabled = false;
+            }
+        }
+        else if (golemPlayerController.playerColor == PlayerTeam.BLUE)
+        {
+            if (other.gameObject.CompareTag("GolemRed"))
+            {
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(dodgeDamage, dodgeDamageType, dodgeEffect, effectStrength, effectTime, effectFrequency, gameObject);
+                dodgeCollider.enabled = false;
+            }
+        }
     }
 }

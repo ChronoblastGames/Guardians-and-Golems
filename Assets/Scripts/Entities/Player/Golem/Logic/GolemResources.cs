@@ -343,8 +343,7 @@ public class GolemResources : MonoBehaviour
 
     void Die()
     {
-        Debug.Log(gameObject.name + " is Dead!");
-        gameObject.SetActive(false);
+        golemPlayerController.Die();
     }
 
 
@@ -358,7 +357,6 @@ public class GolemResources : MonoBehaviour
 
         golemPlayerController.canRotate = false;
         golemPlayerController.canUseAbilities = false;
-        golemPlayerController.canBlock = false;
         golemPlayerController.canAttack = false;
 
         isKnockedBack = true;
@@ -383,7 +381,6 @@ public class GolemResources : MonoBehaviour
 
         golemPlayerController.canRotate = true;
         golemPlayerController.canUseAbilities = true;
-        golemPlayerController.canBlock = true;
         golemPlayerController.canAttack = true;
 
         isKnockedBack = false;

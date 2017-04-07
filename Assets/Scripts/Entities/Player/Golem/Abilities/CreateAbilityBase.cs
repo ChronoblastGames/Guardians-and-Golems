@@ -36,6 +36,8 @@ public struct AbilityValues
     [Header("Cast Info")]
     public AbilityType abilityType;
     [Space(10)]
+    public IndicatorType indicatorType;
+    [Space(10)]
     public GameObject createPoint;
     [HideInInspector]
     public GameObject casterGameObject;
@@ -80,6 +82,8 @@ public abstract class CreateAbilityBase : MonoBehaviour
 {
     [Header("Cast Info")]
     public AbilityType abilityType;
+    [Space(10)]
+    public IndicatorType indicatorType;
     [Space(10)]
     public GameObject spawnPos;
     [HideInInspector]

@@ -22,6 +22,8 @@ public class GolemPlayerController : GolemStats
     private TimerClass recoveryTimer;
 
     [Header("Player Movement Attributes")]
+    public PlayerTeam playerColor = PlayerTeam.NONE;
+
     public float movementSpeed = 0.0f;
     public float currentSpeed;
     public float speedSmoothTime = 0.1f;
@@ -54,14 +56,10 @@ public class GolemPlayerController : GolemStats
     public bool canDodge = true;
     public bool canUseAbilities = true;
     public bool canAttack = true;
-    public bool canBlock = true;
     public bool isDodging = false;
     public bool isAttacking = false;
     public bool isCastingAbility = false;
     public bool isSlowed = false;
-
-    [Header("Debugging Values")]
-    public GameObject blockIndicator;
 
 	void Start () 
     {
@@ -97,6 +95,8 @@ public class GolemPlayerController : GolemStats
         recoveryTimer = new TimerClass();
 
         golemState = GetComponent<Animator>();
+
+        playerColor = golemInputManager.playerTeam;
 
         movementSpeed = baseMovementSpeed;
     }
@@ -229,7 +229,6 @@ public class GolemPlayerController : GolemStats
         canRotate = true;
         canUseAbilities = true;
         canAttack = true;
-        canBlock = true;
         isDodging = false;
     }
   
@@ -261,7 +260,6 @@ public class GolemPlayerController : GolemStats
         canAttack = true;
         canUseAbilities = true;
         canDodge = true;
-        canBlock = true;
         isStaggered = false;
     }
 
@@ -277,5 +275,16 @@ public class GolemPlayerController : GolemStats
         canMove = false;
         canRotate = false;
         golemState.SetBool("canMove", false);
+    }
+
+    public void Die()
+    {
+        golemState.SetTrigger("isDead");
+
+        canAttack = false;
+        canDodge = false;
+        canMove = false;
+        canRotate = false;
+        canUseAbilities = false;       
     }
 }

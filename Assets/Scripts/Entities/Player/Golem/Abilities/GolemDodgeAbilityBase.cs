@@ -5,8 +5,8 @@ public class GolemDodgeAbilityBase : MonoBehaviour
 {
     [HideInInspector]
     public GolemPlayerController golemPlayerController;
-
-    private Collider dodgeCollider;
+    [HideInInspector]
+    public Collider dodgeCollider;
 
     [Header("Player Dodge Attributes")]
     public AnimationCurve dodgeCurve;
@@ -18,6 +18,8 @@ public class GolemDodgeAbilityBase : MonoBehaviour
     public float dodgeSpeed;
 
     [Header("Player Dodge Damage Attributes")]
+    public DamageType dodgeDamageType;
+
     public float dodgeDamage;
 
     public float effectStrength;
