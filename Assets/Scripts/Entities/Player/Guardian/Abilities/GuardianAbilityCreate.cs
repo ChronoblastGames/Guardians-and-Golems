@@ -168,6 +168,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
         abilityInfo.statusEffect = statusEffect;
         abilityInfo.effectStrength = effectStrength;
         abilityInfo.effectTime = effectTime;
+        abilityInfo.effectFrequency = effectFrequency;
 
         return abilityInfo;
     }

@@ -8467,7 +8467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 2
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
@@ -8552,6 +8552,7 @@ MonoBehaviour:
   statusEffect: 2
   effectStrength: 2
   effectTime: 3
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -8666,6 +8667,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -8739,6 +8741,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -8810,13 +8813,13 @@ MonoBehaviour:
   abilityCastTime: 2
   damageType: 0
   damageAmount: 5
-  damageFrequency: 0
+  damageFrequency: 0.5
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
   activeTime: 5
   holdTime: 0
   zoneRadius: 10
-  zoneHeight: 0
+  zoneHeight: 2
   healthCost: 0
   manaCost: 25
   isMelee: 0
@@ -8825,6 +8828,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
+  effectFrequency: 0
   abilitySubType: 2
   redMask:
     serializedVersion: 2
@@ -8867,6 +8871,7 @@ MonoBehaviour:
   statusEffect: 2
   effectStrength: 1
   effectTime: 2
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9038,6 +9043,7 @@ MonoBehaviour:
   statusEffect: 7
   effectStrength: 35
   effectTime: 1
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9057,7 +9063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityType: 2
+  abilityType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9080,6 +9086,7 @@ MonoBehaviour:
   statusEffect: 2
   effectStrength: 1
   effectTime: 2
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9099,7 +9106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7197be13a3252d459049d51a0f504d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityType: 1
+  abilityType: 3
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9122,6 +9129,7 @@ MonoBehaviour:
   statusEffect: 7
   effectStrength: 35
   effectTime: 1
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9355,6 +9363,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9397,6 +9406,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9425,7 +9435,7 @@ MonoBehaviour:
   damageType: 3
   damageAmount: 15
   damageFrequency: 0
-  travelSpeed: 0
+  travelSpeed: 75
   spawnDistanceFromPlayer: 0
   activeTime: 5
   holdTime: 0
@@ -9439,6 +9449,7 @@ MonoBehaviour:
   statusEffect: 2
   effectStrength: 2
   effectTime: 3
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9481,6 +9492,7 @@ MonoBehaviour:
   statusEffect: 6
   effectStrength: 10
   effectTime: 3
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9556,6 +9568,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9599,14 +9612,14 @@ MonoBehaviour:
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
-  ability: {fileID: 0}
-  abilityCastTime: 0
-  damageType: 2
+  ability: {fileID: 1000095144429562, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
+  abilityCastTime: 3
+  damageType: 0
   damageAmount: 25
-  damageFrequency: 0
+  damageFrequency: 0.5
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 0
+  activeTime: 7
   holdTime: 0
   zoneRadius: 0
   zoneHeight: 0
@@ -9618,6 +9631,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -9660,6 +9674,7 @@ MonoBehaviour:
   statusEffect: 6
   effectStrength: 10
   effectTime: 3
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -10015,6 +10030,7 @@ MonoBehaviour:
   statusEffect: 0
   effectStrength: 0
   effectTime: 0
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -15468,7 +15484,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -68128535
+  randomSeed: -766787032
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -18465,7 +18481,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1691843408
+  randomSeed: -1179609071
   InitialModule:
     serializedVersion: 3
     enabled: 1

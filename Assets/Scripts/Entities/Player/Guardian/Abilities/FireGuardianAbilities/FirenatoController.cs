@@ -85,7 +85,7 @@ public class FirenatoController : AbilityCastBase
                 {
                     if (!hitObjectList.Contains(other.gameObject))
                     {
-                        other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
+                        other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject);
                         StartCoroutine(ManageDamage(abilityValues.damageFrequency, other.gameObject));
                     }
                 }        
@@ -96,7 +96,7 @@ public class FirenatoController : AbilityCastBase
                 {
                     if (!hitObjectList.Contains(other.gameObject))
                     {
-                        other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
+                        other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject);
                         StartCoroutine(ManageDamage(abilityValues.damageFrequency, other.gameObject));
                     }
                 }       

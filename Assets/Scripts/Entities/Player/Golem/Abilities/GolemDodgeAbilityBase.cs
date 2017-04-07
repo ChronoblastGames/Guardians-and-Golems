@@ -6,6 +6,8 @@ public class GolemDodgeAbilityBase : MonoBehaviour
     [HideInInspector]
     public GolemPlayerController golemPlayerController;
 
+    private Collider dodgeCollider;
+
     [Header("Player Dodge Attributes")]
     public AnimationCurve dodgeCurve;
 
@@ -18,11 +20,17 @@ public class GolemDodgeAbilityBase : MonoBehaviour
     [Header("Player Dodge Damage Attributes")]
     public float dodgeDamage;
 
+    public float effectStrength;
+    public float effectTime;
+    public float effectFrequency;
+
     public StatusEffect dodgeEffect;
 
     private void Start()
     {
         golemPlayerController = transform.parent.parent.GetComponent<GolemPlayerController>();
+
+        dodgeCollider = GetComponent<Collider>();
     }
 
     public virtual void StartDodge(Vector3 interceptVec)

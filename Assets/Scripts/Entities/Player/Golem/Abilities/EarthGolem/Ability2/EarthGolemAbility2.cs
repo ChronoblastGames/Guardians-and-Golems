@@ -56,7 +56,7 @@ public class EarthGolemAbility2 : AbilityCastBase
                 {
                     boulderAnimator.SetTrigger("isShatter");
 
-                    other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
+                    other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject);
 
                     Destroy(gameObject, 2f);
                     isAbilityActive = false;
@@ -68,7 +68,7 @@ public class EarthGolemAbility2 : AbilityCastBase
                 {
                     boulderAnimator.SetTrigger("isShatter");
 
-                    other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
+                    other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject);
 
                     Destroy(gameObject, 2f);
                     isAbilityActive = false;

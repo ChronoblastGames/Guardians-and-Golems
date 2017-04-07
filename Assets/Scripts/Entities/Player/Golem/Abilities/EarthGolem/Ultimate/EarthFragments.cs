@@ -11,7 +11,7 @@ public class EarthFragments : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemBlue"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(ablityValues.damageAmount, ablityValues.damageType, ablityValues.statusEffect, ablityValues.effectStrength, ablityValues.effectTime, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(ablityValues.damageAmount, ablityValues.damageType, ablityValues.statusEffect, ablityValues.effectStrength, ablityValues.effectTime, ablityValues.effectFrequency, gameObject);
                 Destroy(gameObject);
             }
         }
@@ -19,7 +19,7 @@ public class EarthFragments : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemRed"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(ablityValues.damageAmount, ablityValues.damageType, ablityValues.statusEffect, ablityValues.effectStrength, ablityValues.effectTime, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(ablityValues.damageAmount, ablityValues.damageType, ablityValues.statusEffect, ablityValues.effectStrength, ablityValues.effectTime, ablityValues.effectFrequency, gameObject);
                 Destroy(gameObject);
             }
         }

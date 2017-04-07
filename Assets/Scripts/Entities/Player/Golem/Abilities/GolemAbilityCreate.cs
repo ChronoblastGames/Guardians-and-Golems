@@ -163,6 +163,7 @@ public class GolemAbilityCreate : CreateAbilityBase
         abilityInfo.statusEffect = statusEffect;
         abilityInfo.effectStrength = effectStrength;
         abilityInfo.effectTime = effectTime;
+        abilityInfo.effectFrequency = effectFrequency;
 
         return abilityInfo;
     }

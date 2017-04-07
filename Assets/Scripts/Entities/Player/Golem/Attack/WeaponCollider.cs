@@ -11,6 +11,7 @@ public class WeaponCollider : MonoBehaviour
     private StatusEffect statusEffect;
     private float statusEffectStrength;
     private float statusEffectTime;
+    private float statusEffectFrequency;
 
     private Collider weaponCol;
 
@@ -39,7 +40,7 @@ public class WeaponCollider : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemBlue"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, statusEffectFrequency, gameObject);
                 weaponCol.enabled = false;
             }
         }
@@ -47,7 +48,7 @@ public class WeaponCollider : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemRed"))
             { 
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, statusEffectFrequency, gameObject);
                 weaponCol.enabled = false;
             }
         } 

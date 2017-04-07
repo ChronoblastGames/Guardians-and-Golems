@@ -17,7 +17,7 @@ public class EarthGolemAbility3 : AbilityCastBase
 
     void GiveShield()
     {
-        abilityValues.casterGameObject.GetComponent<GolemResources>().InflictStatusEffect(abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, gameObject);
+        abilityValues.casterGameObject.GetComponent<GolemResources>().InflictStatusEffect(abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject);
     }
 
     void CheckArea()

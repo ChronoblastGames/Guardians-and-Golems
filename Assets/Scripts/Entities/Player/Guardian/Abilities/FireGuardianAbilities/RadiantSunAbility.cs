@@ -26,7 +26,7 @@ public class RadiantSunAbility : AbilityCastBase
                 {
                     if (!recentlyHealedList.Contains(other.gameObject))
                     {
-                        other.gameObject.GetComponent<GolemResources>().GetHealed(abilityValues.damageAmount, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.casterGameObject);
+                        other.gameObject.GetComponent<GolemResources>().GetHealed(abilityValues.damageAmount, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, abilityValues.casterGameObject);
                         StartCoroutine(ManageHealing(other.gameObject, abilityValues.damageFrequency));
                     }
                 }
@@ -37,7 +37,7 @@ public class RadiantSunAbility : AbilityCastBase
                 {
                     if (!recentlyHealedList.Contains(other.gameObject))
                     {
-                        other.gameObject.GetComponent<GolemResources>().GetHealed(abilityValues.damageAmount, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.casterGameObject);
+                        other.gameObject.GetComponent<GolemResources>().GetHealed(abilityValues.damageAmount, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, abilityValues.casterGameObject);
                         StartCoroutine(ManageHealing(other.gameObject, abilityValues.damageFrequency));
                     }
                 }

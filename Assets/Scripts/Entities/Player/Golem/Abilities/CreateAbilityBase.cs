@@ -73,6 +73,7 @@ public struct AbilityValues
 
     public float effectStrength;
     public float effectTime;
+    public float effectFrequency;
 }
 
 public abstract class CreateAbilityBase : MonoBehaviour
@@ -120,6 +121,7 @@ public abstract class CreateAbilityBase : MonoBehaviour
 
     public float effectStrength;
     public float effectTime;
+    public float effectFrequency;
 
     [Header("Ability Info")]
     public AbilityValues abilityValues;
