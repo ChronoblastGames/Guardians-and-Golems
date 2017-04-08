@@ -35,10 +35,11 @@ public class GolemInputManager : MonoBehaviour
     public float zAxis;
     [HideInInspector]
     public float aimZAxis;
-    private float modifierAxis;
-
+    //private float modifierAxis;
     [HideInInspector]
-    public float blockAxis;
+    public float leftTriggerAxis;
+    [HideInInspector]
+    public float rightTriggerAxis;
 
     [HideInInspector]
     public Vector2 moveVec;
@@ -62,11 +63,16 @@ public class GolemInputManager : MonoBehaviour
     private string inputAxisZ = "";
     private string inputAimAxisX = "";
     private string inputAimAxisZ = "";
-    private string inputModifierAxis = "";
+    //private string inputModifierAxis = "";
+    private string inputLeftTriggerAxis = "";
+    private string inputRightTriggerAxis = "";
     private string inputAttackButton = "";
     private string inputDodgeButton = "";
     private string inputAbility1Button = "";
     private string inputAbility2Button = "";
+
+    public bool isLeftTriggerPressed = false;
+    public bool isRightTriggerPressed = false;
 
     private void Start()
     {
@@ -108,7 +114,9 @@ public class GolemInputManager : MonoBehaviour
         inputAimAxisX = "HorizontalAimPlayer" + PlayerNumber + "Win";
         inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "Win";
 
-        inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "Win";
+        //inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "Win";
+        inputLeftTriggerAxis = "LeftTriggerAxisPlayer" + PlayerNumber + "Win";
+        inputRightTriggerAxis = "RightTriggerAxisPlayer" + PlayerNumber + "Win";
 
         inputAttackButton = "joystick " + PlayerNumber + " button 2";
         inputDodgeButton = "joystick " + PlayerNumber + " button 1";
@@ -125,8 +133,9 @@ public class GolemInputManager : MonoBehaviour
         inputAimAxisX = "HorizontalAimPlayer" + PlayerNumber + "OSX";
         inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "OSX";
 
-        inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "OSX";
-        inputBlockAxis = "BlockAxisPlayer" + PlayerNumber + "OSX";
+        //inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "OSX";
+        inputLeftTriggerAxis = "LeftTriggerAxisPlayer" + PlayerNumber + "OSX";
+        inputRightTriggerAxis = "RightTriggerAxisPlayer" + PlayerNumber + "OSX";
             
         inputAttackButton = "joystick " + PlayerNumber + " button 18";
         inputDodgeButton = "joystick " + PlayerNumber + " button 17";
@@ -148,49 +157,62 @@ public class GolemInputManager : MonoBehaviour
         aimXAxis = Input.GetAxis(inputAimAxisX);
         aimZAxis = Input.GetAxis(inputAimAxisZ);
 
-        modifierAxis = Input.GetAxis(inputModifierAxis);
+        //modifierAxis = Input.GetAxis(inputModifierAxis);
+        leftTriggerAxis = Input.GetAxis(inputLeftTriggerAxis);
+        rightTriggerAxis = Input.GetAxis(inputRightTriggerAxis);
 
         //Use Ability
-        if (modifierAxis != 0 && Input.GetKeyUp(inputAbility1Button))
+        if (!isLeftTriggerPressed && leftTriggerAxis != 0)
         {
+            isLeftTriggerPressed = true;
+        }
+        else if (isLeftTriggerPressed && leftTriggerAxis != 0)
+        {
+            holdTime += Time.deltaTime * holdMultiplier;
+            isHoldingAbility = true;
+        }
+        else if (isLeftTriggerPressed && leftTriggerAxis == 0)
+        {
+            isLeftTriggerPressed = false;
             golemPlayerController.UseAbility(2, playerTeam, holdTime);
             holdTime = 0;
         }
-        else if (Input.GetKeyUp(inputAbility1Button))
+
+        if (!isRightTriggerPressed && rightTriggerAxis != 0)
+        {
+            isRightTriggerPressed = true;
+        }
+        else if (isRightTriggerPressed && rightTriggerAxis != 0)
+        {
+            holdTime += Time.deltaTime * holdMultiplier;
+            isHoldingAbility = true;
+        }
+        else if (isRightTriggerPressed && rightTriggerAxis == 0)
+        {
+            isRightTriggerPressed = false;
+            golemPlayerController.UseAbility(3, playerTeam, holdTime);
+            holdTime = 0;
+        }
+
+        if (Input.GetKeyUp(inputAbility1Button))
         {
             golemPlayerController.UseAbility(0, playerTeam, holdTime);
             holdTime = 0;
         }
-
-        if (modifierAxis != 0 && Input.GetKeyUp(inputAbility2Button))
-        {
-            golemPlayerController.UseAbility(3, playerTeam, holdTime);
-            holdTime = 0;
-        }
-        else if (Input.GetKeyUp(inputAbility2Button))
+        
+        if (Input.GetKeyUp(inputAbility2Button))
         {
             golemPlayerController.UseAbility(1, playerTeam, holdTime);
             holdTime = 0;
         }
 
-        //Hold Down
-        if (modifierAxis != 0 && Input.GetKey(inputAbility1Button))
-        {
-            holdTime += Time.deltaTime * holdMultiplier;
-            isHoldingAbility = true;
-        }
-        else if (Input.GetKey(inputAbility1Button))
+        if (Input.GetKey(inputAbility1Button))
         {
             holdTime += Time.deltaTime * holdMultiplier;
             isHoldingAbility = true;
         }
 
-        if (modifierAxis != 0 && Input.GetKey(inputAbility2Button))
-        {
-            holdTime += Time.deltaTime * holdMultiplier;
-            isHoldingAbility = true;
-        }
-        else if (Input.GetKey(inputAbility2Button))
+        if (Input.GetKey(inputAbility2Button))
         {
             holdTime += Time.deltaTime * holdMultiplier;
             isHoldingAbility = true;

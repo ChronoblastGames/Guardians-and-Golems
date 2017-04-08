@@ -2,6 +2,15 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum FloatingDamageTextType
+{
+    DAMAGE,
+    HEAL,
+    CRITICAL,
+    SHIELD,
+    NONE
+}
+
 public class UIManager : MonoBehaviour
 {
     private FloatingTextManager floatingTextManager;
@@ -55,10 +64,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void RequestDamageText(float damageValue, Transform textPosition)
+    public void RequestDamageText(float textValue, Transform textPosition, FloatingDamageTextType effectType)
     {
-        int damageAmount = (int)damageValue;
+        if (textValue > 0)
+        {
+            int displayValue = (int)textValue;
 
-        floatingTextManager.CreateDamageText(damageAmount, textPosition);
+            floatingTextManager.CreateDamageText(displayValue, textPosition, effectType);
+        }     
+    }
+
+    public void RequestStatusText(float effectStrength, Transform textPos, StatusEffect statusEffect)
+    {
+        floatingTextManager.CreateStatusText(effectStrength, textPos, statusEffect);
     }
 }

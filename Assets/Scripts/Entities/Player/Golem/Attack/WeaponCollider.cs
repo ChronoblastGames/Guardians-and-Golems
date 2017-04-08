@@ -25,13 +25,14 @@ public class WeaponCollider : MonoBehaviour
         weaponCol = GetComponent<Collider>();
     }
 
-    public void SetValues(DamageType attackType, float attackDamage, StatusEffect attackEffect, float effectStrength, float effectTime)
+    public void SetValues(DamageType attackType, float attackDamage, StatusEffect attackEffect, float effectStrength, float effectTime, float effectFrequency)
     {
         damageType = attackType;
         damageValue = attackDamage;
         statusEffect = attackEffect;
         statusEffectStrength = effectStrength;
         statusEffectTime = effectTime;
+        statusEffectFrequency = effectFrequency;
     }
 
     void OnTriggerEnter(Collider other)

@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class FloatingTextController : MonoBehaviour 
 {
+    public FloatingTextType textType;
+
     private TimerClass textTimer;
     private FloatingTextManager textPool;
 
@@ -53,6 +55,6 @@ public class FloatingTextController : MonoBehaviour
 
         gameObject.SetActive(false);
 
-        textPool.ReturnToPool(gameObject);      
+        textPool.ReturnToDamagePool(gameObject, textType);      
     }
 }

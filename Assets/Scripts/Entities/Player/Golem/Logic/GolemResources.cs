@@ -34,6 +34,8 @@ public class GolemResources : MonoBehaviour
     [Header("Player Health Regeneration Attributes")]
     public float healthRegenerationSpeed;
 
+    public bool canRegenerateHealth = true;
+
     [Header("Stagger Attributes")]
     public bool isStaggerTimerActive;
 
@@ -52,6 +54,7 @@ public class GolemResources : MonoBehaviour
     public bool isShielded = false;
     public bool isStunned = false;
     public bool isSilenced = false;
+    public bool isHealingOverTime = false;
 
     [HideInInspector]
     public GolemDefense golemDefense;
@@ -91,7 +94,7 @@ public class GolemResources : MonoBehaviour
 
     void RegenerateHealth()
     {
-        if (currentHealth < maxHealth)
+        if (currentHealth < maxHealth && canRegenerateHealth)
         {
             currentHealth += healthRegenerationSpeed * Time.fixedDeltaTime;
 
@@ -233,10 +236,11 @@ public class GolemResources : MonoBehaviour
         }
         else
         {
+            currentHealth = 0;
             Die();
         }
 
-        UIManager.RequestDamageText(damageValue, transform);
+        UIManager.RequestDamageText(damageValue, transform, FloatingDamageTextType.DAMAGE);
     }
 
     public void GetHealed(float healAmount, StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject healingObject)
@@ -244,11 +248,14 @@ public class GolemResources : MonoBehaviour
         if (currentHealth < maxHealth)
         {
             currentHealth += healAmount;
+            UIManager.RequestDamageText(healAmount, transform, FloatingDamageTextType.HEAL);
 
-            if (statusEffect != StatusEffect.NONE)
-            {
-                InflictStatusEffect(statusEffect, effectStrength, effectTime, effectFrequency, healingObject);
-            }
+            Debug.Log("Direct Heal");         
+        }
+
+        if (statusEffect != StatusEffect.NONE)
+        {
+            InflictStatusEffect(statusEffect, effectStrength, effectTime, effectFrequency, healingObject);
         }
     }
 
@@ -289,23 +296,34 @@ public class GolemResources : MonoBehaviour
         golemPlayerController.Stagger();
     }
 
+    void Die()
+    {
+        golemPlayerController.Die();
+
+        canRegenerateHealth = false;
+    }
+
     public void InflictStatusEffect(StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject damagingObject)
     {
         switch(statusEffect)
         {
             case StatusEffect.BLEED:
-                StartCoroutine(Bleed(effectStrength, effectTime));
+                StartCoroutine(Bleed(effectStrength, effectTime, effectFrequency));
 
                 statusEffectList.Add(StatusEffect.BLEED);
+
+                UIManager.RequestStatusText(effectStrength, transform, StatusEffect.BLEED);
                 break;
 
             case StatusEffect.MANA_DRAIN:
                 break;
 
             case StatusEffect.SHIELD:
-                StartCoroutine(Shield(effectStrength, effectTime));
+                StartCoroutine(Shield(effectStrength, effectTime, effectFrequency));
 
                 statusEffectList.Add(StatusEffect.SHIELD);
+
+                UIManager.RequestStatusText(effectStrength, transform, StatusEffect.SHIELD);
                 break;
 
             case StatusEffect.SILENCE:
@@ -315,12 +333,16 @@ public class GolemResources : MonoBehaviour
                 StartCoroutine(Stun(effectTime));
 
                 statusEffectList.Add(StatusEffect.STUN);
+
+                UIManager.RequestStatusText(effectStrength, transform, StatusEffect.STUN);
                 break;
 
             case StatusEffect.SLOW:
                 StartCoroutine(Slow(effectStrength, effectTime));
 
                 statusEffectList.Add(StatusEffect.SLOW);
+
+                UIManager.RequestStatusText(effectStrength, transform, StatusEffect.SLOW);
                 break;
 
             case StatusEffect.KNOCKBACK:
@@ -330,9 +352,16 @@ public class GolemResources : MonoBehaviour
                 StartCoroutine(Knockback(-interceptVec, knockBackCurve, effectStrength, effectTime));
 
                 statusEffectList.Add(StatusEffect.KNOCKBACK);
+
+                UIManager.RequestStatusText(effectStrength, transform, StatusEffect.KNOCKBACK);
                 break;
 
             case StatusEffect.HEALOVERTIME:
+                StartCoroutine(HealOverTime(effectStrength, effectTime, effectFrequency));
+
+                statusEffectList.Add(StatusEffect.HEALOVERTIME);
+
+                UIManager.RequestStatusText(effectStrength, transform, StatusEffect.HEALOVERTIME);
                 break;
 
             default:
@@ -340,12 +369,6 @@ public class GolemResources : MonoBehaviour
                 break;
         }
     }
-
-    void Die()
-    {
-        golemPlayerController.Die();
-    }
-
 
     IEnumerator Knockback(Vector3 interceptVec, AnimationCurve knockbackCurve, float knockbackStrength, float knockbackTime)
     {      
@@ -408,7 +431,7 @@ public class GolemResources : MonoBehaviour
         statusEffectList.Remove(StatusEffect.SLOW);
     }
 
-    IEnumerator Shield (float shieldStrength, float shieldTime)
+    IEnumerator Shield (float shieldStrength, float shieldTime, float shieldFrequency)
     {
         isShielded = true;
 
@@ -428,16 +451,24 @@ public class GolemResources : MonoBehaviour
         statusEffectList.Remove(StatusEffect.SHIELD);
     }
 
-    IEnumerator Bleed (float bleedStrength, float bleedTime)
+    IEnumerator Bleed (float bleedStrength, float bleedTime, float bleedFrequency)
     {
         float totalBleedTime = Time.time + bleedTime;
+        float bleedCounts = (int)(bleedTime / bleedFrequency);
 
-        isBleeding = true;
-
-        while (Time.time <= totalBleedTime)
+        if (Time.time < totalBleedTime)
         {
-            currentHealth -= bleedStrength;
+            for (int i = 0; i < bleedCounts; i++)
+            {
+                currentHealth -= bleedStrength;
+
+                UIManager.RequestDamageText(bleedStrength, transform, FloatingDamageTextType.DAMAGE);
+
+                yield return new WaitForSeconds(bleedFrequency);
+            }
         }
+
+        StopBleed();
 
         yield return null;
     }
@@ -447,6 +478,38 @@ public class GolemResources : MonoBehaviour
         isBleeding = false;
 
         statusEffectList.Remove(StatusEffect.BLEED);
+    }
+
+    IEnumerator HealOverTime(float healStrength, float healTime, float healFrequency)
+    {
+        float totalHealTime = Time.time + healTime;
+        int healCounts = (int)(healTime / healFrequency);
+
+        if (Time.time < totalHealTime)
+        {
+            for (int i = 0; i < healCounts; i++)
+            {
+                if (currentHealth < maxHealth)
+                {
+                    currentHealth += healStrength;
+
+                    UIManager.RequestDamageText(healStrength, transform, FloatingDamageTextType.HEAL);
+                }
+          
+                yield return new WaitForSeconds(healFrequency);
+            }
+        }
+
+        StopHealingOverTime();
+
+        yield return null;
+    }
+
+    void StopHealingOverTime()
+    {
+        isHealingOverTime = false;
+
+        statusEffectList.Remove(StatusEffect.HEALOVERTIME);
     }
 
     IEnumerator Stun(float stunTime)

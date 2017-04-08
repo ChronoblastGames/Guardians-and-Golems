@@ -25,8 +25,13 @@ public class GuardianInputManager : MonoBehaviour
     [HideInInspector]
     public float aimZAxis;
 
-    private float modifierAxis;
-    private float multicastAxis;
+    [HideInInspector]
+    public float leftTriggerAxis;
+    [HideInInspector]
+    public float rightTriggerAxis;
+
+    //private float modifierAxis;
+    //private float multicastAxis;
 
     [HideInInspector]
     public Vector3 aimVec;
@@ -35,11 +40,17 @@ public class GuardianInputManager : MonoBehaviour
     private string inputAxisZ = "";
     private string inputAimAxisX = "";
     private string inputAimAxisZ = "";
-    private string inputModifierAxis = "";
-    private string inputMulticastAxis = "";
+    //private string inputModifierAxis = "";
+    //private string inputMulticastAxis = "";
+    private string inputLeftTriggerAxis = "";
+    private string inputRightTriggerAxis = "";
     private string inputCaptureButton = "";
     private string inputAbility1Button = "";
     private string inputAbility2Button = "";
+
+    private bool isHoldingAbility = false;
+    private bool isLeftTriggerPressed = false;
+    private bool isRightTriggerPressed = false;
 
     private void Start()
     {
@@ -81,8 +92,11 @@ public class GuardianInputManager : MonoBehaviour
         inputAimAxisX = "HorizontalAimPlayer" + PlayerNumber + "Win";
         inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "Win";
 
-        inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "Win";
-        inputMulticastAxis = "BlockAxisPlayer" + PlayerNumber + "Win";
+        //inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "Win";
+        //inputMulticastAxis = "BlockAxisPlayer" + PlayerNumber + "Win";
+
+        inputLeftTriggerAxis = "LeftTriggerAxisPlayer" + PlayerNumber + "Win";
+        inputRightTriggerAxis = "RightTriggerAxisPlayer" + PlayerNumber + "Win";
 
         inputCaptureButton = "joystick " + PlayerNumber + " button 2";
 
@@ -98,8 +112,11 @@ public class GuardianInputManager : MonoBehaviour
         inputAimAxisX = "HorizontalAimPlayer" + PlayerNumber + "OSX";
         inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "OSX";
 
-        inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "OSX";
-        inputMulticastAxis = "BlockAxisPlayer" + PlayerNumber + "OSX";
+        //inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "OSX";
+        //inputMulticastAxis = "BlockAxisPlayer" + PlayerNumber + "OSX";
+
+        inputLeftTriggerAxis = "LeftTriggerAxisPlayer" + PlayerNumber + "OSX";
+        inputRightTriggerAxis = "RightTriggerAxisPlayer" + PlayerNumber + "OSX";
 
         inputCaptureButton = "joystick " + PlayerNumber + " button 18";
 
@@ -118,71 +135,70 @@ public class GuardianInputManager : MonoBehaviour
         aimXAxis = Input.GetAxis(inputAimAxisX);
         aimZAxis = Input.GetAxis(inputAimAxisZ);
 
-        modifierAxis = Input.GetAxis(inputModifierAxis);
-        multicastAxis = Input.GetAxis(inputMulticastAxis);
+        //modifierAxis = Input.GetAxis(inputModifierAxis);
+        //multicastAxis = Input.GetAxis(inputMulticastAxis);
+        leftTriggerAxis = Input.GetAxis(inputLeftTriggerAxis);
+        rightTriggerAxis = Input.GetAxis(inputRightTriggerAxis);
 
         if (Input.GetKeyDown(inputCaptureButton))
         {
             guardianController.CaptureOrb();
         }
 
-        if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp(inputAbility1Button))
+        if (!isLeftTriggerPressed && leftTriggerAxis != 0)
         {
-            guardianController.UseAbilityFromAllOrbs(2, playerTeam, holdTime);
-            holdTime = 0;
+            isLeftTriggerPressed = true;
         }
-        else if (modifierAxis != 0 && Input.GetKeyUp(inputAbility1Button))
+        else if (isLeftTriggerPressed && leftTriggerAxis != 0)
         {
+            holdTime += Time.deltaTime * holdTimeMultiplier;
+            isHoldingAbility = true;
+        }
+        else if (isLeftTriggerPressed && leftTriggerAxis == 0)
+        {
+            isLeftTriggerPressed = false;
             guardianController.UseAbility(2, playerTeam, holdTime);
             holdTime = 0;
         }
-        else if (multicastAxis != 0 && Input.GetKeyUp(inputAbility1Button))
+
+        if (!isRightTriggerPressed && rightTriggerAxis != 0)
         {
-            guardianController.UseAbilityFromAllOrbs(0, playerTeam, holdTime);
+            isRightTriggerPressed = true;
+        }
+        else if (isRightTriggerPressed && rightTriggerAxis != 0)
+        {
+            holdTime += Time.deltaTime * holdTimeMultiplier;
+            isHoldingAbility = true;
+        }
+        else if (isRightTriggerPressed && rightTriggerAxis == 0)
+        {
+            isRightTriggerPressed = false;
+            guardianController.UseAbility(3, playerTeam, holdTime);
             holdTime = 0;
         }
-        else if (Input.GetKeyUp(inputAbility1Button))
+
+        if (Input.GetKeyUp(inputAbility1Button))
         {
             guardianController.UseAbility(0, playerTeam, holdTime);
             holdTime = 0;
         }
-
-        if (modifierAxis != 0 && multicastAxis != 0 && Input.GetKeyUp(inputAbility2Button))
-        {
-            guardianController.UseAbilityFromAllOrbs(3, playerTeam, holdTime);
-            holdTime = 0;
-        }
-        else if (modifierAxis != 0 && Input.GetKeyUp(inputAbility2Button))
-        {
-            guardianController.UseAbility(3, playerTeam, holdTime);
-            holdTime = 0;
-        }
-        else if (multicastAxis != 0 && Input.GetKeyUp(inputAbility2Button))
-        {
-            guardianController.UseAbilityFromAllOrbs(1, playerTeam, holdTime);
-            holdTime = 0;
-        }
-        else if (Input.GetKeyUp(inputAbility2Button))
+      
+        if (Input.GetKeyUp(inputAbility2Button))
         {
             guardianController.UseAbility(1, playerTeam, holdTime);
             holdTime = 0;
         }
 
-        if (Input.GetKeyDown(inputAbility1Button))
+        if (Input.GetKey(inputAbility1Button))
         {
             holdTime += Time.deltaTime * holdTimeMultiplier;
+            isHoldingAbility = true;
         }
-        else if (modifierAxis != 0 && Input.GetKeyDown(inputAbility1Button))
+        
+        if (Input.GetKey(inputAbility2Button))
         {
             holdTime += Time.deltaTime * holdTimeMultiplier;
-        }
-        else if (Input.GetKeyDown(inputAbility2Button))
-        {
-            holdTime += Time.deltaTime * holdTimeMultiplier;
-        }
-        else if (modifierAxis != 0 && Input.GetKeyDown(inputAbility2Button))
-        {
-            holdTime += Time.deltaTime * holdTimeMultiplier;
+            isHoldingAbility = true;
         }
     }
 

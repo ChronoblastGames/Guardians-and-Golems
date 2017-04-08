@@ -8493,7 +8493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 2
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
@@ -8503,6 +8503,8 @@ MonoBehaviour:
   holdTimeMultiplier: 2
   aimXAxis: 0
   aimZAxis: 0
+  leftTriggerAxis: 0
+  rightTriggerAxis: 0
   aimVec: {x: 0, y: 0, z: 0}
 --- !u!114 &114098945095900492
 MonoBehaviour:
@@ -8556,6 +8558,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -8628,8 +8631,8 @@ MonoBehaviour:
   dodgeSpeed: 50
   dodgeDamageType: 0
   dodgeDamage: 0
-  effectStrength: 0
-  effectTime: 0
+  effectStrength: 3
+  effectTime: 2
   effectFrequency: 0
   dodgeEffect: 1
 --- !u!114 &114214877838828300
@@ -8676,6 +8679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -8750,6 +8754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -8837,6 +8842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 2
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -8880,6 +8886,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -8922,20 +8929,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Matt
   PlayerNumber: 0
   xAxis: 0
   zAxis: 0
   aimZAxis: 0
-  blockAxis: 0
+  leftTriggerAxis: 0
+  rightTriggerAxis: 0
   moveVec: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0}
   aimVec: {x: 0, y: 0, z: 0}
   aimXAxis: 0
   holdTime: 0
   isHoldingAbility: 0
+  isLeftTriggerPressed: 0
+  isRightTriggerPressed: 0
 --- !u!114 &114402258738493094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8956,19 +8966,20 @@ MonoBehaviour:
   - 8
   - 10
   - 12
-  attackEffects: 000000000000000000000000
+  attackEffects: 070000000700000007000000
   effectStrength:
-  - 0
-  - 0
-  - 0
+  - 1
+  - 1
+  - 3
   effectTimes:
-  - 0
-  - 0
-  - 0
+  - 0.5
+  - 1
+  - 3
+  effectFrequency: []
   attackMovementSpeed:
+  - 0.1
   - 0.2
   - 0.3
-  - 0.2
   attackMovementCurves:
   - serializedVersion: 2
     m_Curve:
@@ -9052,6 +9063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 3
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9095,6 +9107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9138,6 +9151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 3
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9198,6 +9212,7 @@ MonoBehaviour:
   maxHealth: 100
   temporaryHealth: 0
   healthRegenerationSpeed: 0.5
+  canRegenerateHealth: 1
   isStaggerTimerActive: 0
   statusEffectList: 
   knockBackCurve:
@@ -9230,6 +9245,7 @@ MonoBehaviour:
   isShielded: 0
   isStunned: 0
   isSilenced: 0
+  isHealingOverTime: 0
   golemDefense:
     baseDefense: 0
     slashDefense: 0
@@ -9301,7 +9317,6 @@ MonoBehaviour:
   isAttacking: 0
   isCastingAbility: 0
   isSlowed: 0
-  blockIndicator: {fileID: 0}
 --- !u!114 &114567715736809596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9317,6 +9332,7 @@ MonoBehaviour:
   maxHealth: 100
   temporaryHealth: 0
   healthRegenerationSpeed: 0.5
+  canRegenerateHealth: 1
   isStaggerTimerActive: 0
   statusEffectList: 
   knockBackCurve:
@@ -9349,6 +9365,7 @@ MonoBehaviour:
   isShielded: 0
   isStunned: 0
   isSilenced: 0
+  isHealingOverTime: 0
   golemDefense:
     baseDefense: 0
     slashDefense: 0
@@ -9372,6 +9389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9415,6 +9433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9458,6 +9477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9501,6 +9521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 2
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9564,6 +9585,8 @@ MonoBehaviour:
   holdTimeMultiplier: 2
   aimXAxis: 0
   aimZAxis: 0
+  leftTriggerAxis: 0
+  rightTriggerAxis: 0
   aimVec: {x: 0, y: 0, z: 0}
 --- !u!114 &114681289363000118
 MonoBehaviour:
@@ -9577,6 +9600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9640,6 +9664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9683,6 +9708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 2
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9785,7 +9811,6 @@ MonoBehaviour:
   isAttacking: 0
   isCastingAbility: 0
   isSlowed: 0
-  blockIndicator: {fileID: 0}
 --- !u!114 &114857373994876976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9827,8 +9852,8 @@ MonoBehaviour:
   dodgeSpeed: 50
   dodgeDamageType: 0
   dodgeDamage: 0
-  effectStrength: 0
-  effectTime: 0
+  effectStrength: 3
+  effectTime: 2
   effectFrequency: 0
   dodgeEffect: 1
 --- !u!114 &114866543519631650
@@ -9851,19 +9876,23 @@ MonoBehaviour:
   - 8
   - 10
   - 12
-  attackEffects: 000000000000000000000000
+  attackEffects: 000000000000000007000000
   effectStrength:
   - 0
   - 0
-  - 0
+  - 3
   effectTimes:
+  - 0
+  - 0
+  - 2
+  effectFrequency:
   - 0
   - 0
   - 0
   attackMovementSpeed:
+  - 0.1
   - 0.2
   - 0.3
-  - 0.2
   attackMovementCurves:
   - serializedVersion: 2
     m_Curve:
@@ -10007,13 +10036,16 @@ MonoBehaviour:
   xAxis: 0
   zAxis: 0
   aimZAxis: 0
-  blockAxis: 0
+  leftTriggerAxis: 0
+  rightTriggerAxis: 0
   moveVec: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0}
   aimVec: {x: 0, y: 0, z: 0}
   aimXAxis: 0
   holdTime: 0
   isHoldingAbility: 0
+  isLeftTriggerPressed: 0
+  isRightTriggerPressed: 0
 --- !u!114 &114994750649921852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10044,6 +10076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
+  indicatorType: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -15520,7 +15553,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -723492591
+  randomSeed: -1861395237
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -18517,7 +18550,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 192930341
+  randomSeed: -903530562
   InitialModule:
     serializedVersion: 3
     enabled: 1
