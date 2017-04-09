@@ -165,7 +165,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
         abilityInfo.isRanged = isRanged;
         abilityInfo.isHeld = isHeld;
         abilityInfo.healthCost = healthCost;
-        abilityInfo.manaCost = manaCost;
+        abilityInfo.crystalCost = crystalCost;
         abilityInfo.statusEffect = statusEffect;
         abilityInfo.effectStrength = effectStrength;
         abilityInfo.effectTime = effectTime;

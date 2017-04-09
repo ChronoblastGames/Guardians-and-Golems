@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class OutOfBounds : MonoBehaviour
 {
-    public Vector3 resetPos;
-
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("GolemRed") || other.CompareTag("GolemBlue"))
         {
+            Vector3 resetPos = other.transform.position;
+            resetPos.y = 0;
+           
             other.transform.position = resetPos;
         }
     }

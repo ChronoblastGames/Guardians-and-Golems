@@ -64,7 +64,7 @@ public struct AbilityValues
 
     [Header("Use Attributes")]
     public float healthCost;
-    public float manaCost;
+    public int crystalCost;
 
     public bool isMelee;
     public bool isRanged;
@@ -114,7 +114,7 @@ public abstract class CreateAbilityBase : MonoBehaviour
 
     [Header("Use Attributes")]
     public float healthCost;
-    public float manaCost;
+    public int crystalCost;
 
     public bool isMelee;
     public bool isRanged;

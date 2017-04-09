@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GolemAbilityCreate : CreateAbilityBase 
 {
+    private CrystalManager crystalManager;
+
     private GolemInputManager golemInputManager;
     private GolemPlayerController golemPlayerController;
     private GolemResources golemResources;
@@ -25,6 +27,8 @@ public class GolemAbilityCreate : CreateAbilityBase
 
     void Initialize()
     {
+        crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
+
         golemInputManager = transform.parent.parent.GetComponent<GolemInputManager>();
         golemPlayerController = golemInputManager.GetComponent<GolemPlayerController>();
         golemResources = golemInputManager.GetComponent<GolemResources>();
@@ -118,23 +122,26 @@ public class GolemAbilityCreate : CreateAbilityBase
 
         newSpawnRotation = Quaternion.LookRotation(newAimVector);
 
-        GameObject newAbility = Instantiate(ability, newSpawnPosition, newSpawnRotation) as GameObject;
-  
-        if (teamColor == PlayerTeam.RED)
+        if (crystalManager.UseCrystals(abilityInfo.crystalCost, abilityInfo.teamColor))
         {
-            newAbility.layer = LayerMask.NameToLayer("GolemRed");
-        }
-        else if (teamColor == PlayerTeam.BLUE)
-        {
-            newAbility.layer = LayerMask.NameToLayer("GolemBlue");
-        }
+            GameObject newAbility = Instantiate(ability, newSpawnPosition, newSpawnRotation) as GameObject;
 
-        newAbility.GetComponent<AbilityCastBase>().abilityValues = abilityInfo;
-        newAbility.GetComponent<AbilityCastBase>().InitializeAbility();
+            if (teamColor == PlayerTeam.RED)
+            {
+                newAbility.layer = LayerMask.NameToLayer("GolemRed");
+            }
+            else if (teamColor == PlayerTeam.BLUE)
+            {
+                newAbility.layer = LayerMask.NameToLayer("GolemBlue");
+            }
 
-        golemPlayerController.isCastingAbility = false;
+            newAbility.GetComponent<AbilityCastBase>().abilityValues = abilityInfo;
+            newAbility.GetComponent<AbilityCastBase>().InitializeAbility();
 
-        golemCooldown.QueueGlobalCooldown();
+            golemPlayerController.isCastingAbility = false;
+
+            golemCooldown.QueueGlobalCooldown();
+        }     
     }
 
     public AbilityValues CreateAbilityStruct()
@@ -160,7 +167,7 @@ public class GolemAbilityCreate : CreateAbilityBase
         abilityInfo.isRanged = isRanged;
         abilityInfo.isHeld = isHeld;
         abilityInfo.healthCost = healthCost;
-        abilityInfo.manaCost = manaCost;
+        abilityInfo.crystalCost = crystalCost;
         abilityInfo.statusEffect = statusEffect;
         abilityInfo.effectStrength = effectStrength;
         abilityInfo.effectTime = effectTime;

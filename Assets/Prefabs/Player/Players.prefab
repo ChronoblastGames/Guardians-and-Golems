@@ -8574,7 +8574,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 2
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -8695,7 +8695,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -8770,7 +8770,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -8858,7 +8858,7 @@ MonoBehaviour:
   zoneRadius: 10
   zoneHeight: 2
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -8902,7 +8902,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 50
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9079,7 +9079,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 1
   isMelee: 0
   isRanged: 1
   isHeld: 1
@@ -9123,7 +9123,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 50
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9167,7 +9167,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 1
@@ -9405,7 +9405,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9449,7 +9449,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9493,7 +9493,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9537,7 +9537,7 @@ MonoBehaviour:
   zoneRadius: 100
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9616,7 +9616,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9680,7 +9680,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9724,7 +9724,7 @@ MonoBehaviour:
   zoneRadius: 100
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -10092,7 +10092,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  manaCost: 25
+  crystalCost: 0
   isMelee: 0
   isRanged: 1
   isHeld: 0

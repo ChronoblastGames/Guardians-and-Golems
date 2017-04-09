@@ -6,16 +6,6 @@ public class TeamResources : MonoBehaviour
     [Header("Team Resources")]
     public PlayerTeam teamColor;
 
-    [Header("Crystal Attributes")]
-    public int minCrystals;
-    public int currentCrystal;
-    public int maxCrystals;
-
-    public float crystalRegenerationRate;
-
-    public bool canRegenerateCrystals = false;
-    public bool canUseCrystals = true;
-
     [Header("Command Attributes")]
     public float currentCommand;
     public float minCommand;
@@ -24,32 +14,18 @@ public class TeamResources : MonoBehaviour
     private void Update()
     {
         ManageCommand();
-
-        ManageCrystals();
     }
 
     void ManageCommand()
     {
-        if (currentCommand < minCommand)
+        if (currentCommand <= 0)
         {
-            currentCommand = minCommand;
+            Lose();
         }
     }
 
-    void ManageCrystals()
+    void Lose()
     {
 
-    }
-
-    public bool UseCrystal(int crystalAmount)
-    {
-        if (currentCrystal >= crystalAmount)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
     }
 }

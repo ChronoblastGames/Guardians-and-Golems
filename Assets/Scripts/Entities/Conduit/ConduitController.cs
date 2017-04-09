@@ -14,13 +14,15 @@ public enum ConduitState
 
 public class ConduitController : MonoBehaviour 
 {
+    private CrystalManager crystalManager;
+
     private GuardianPlayerController guardianPlayerController;
 
     private Animator conduitAnimator;
 
     [Header("Conduit Attributes")]
     public ConduitState conduitState;
-    public PlayerTeam orbColor;
+    public PlayerTeam conduitColor;
 
     public List<PlayerTeam> attachedGuardianColor;
 
@@ -77,13 +79,15 @@ public class ConduitController : MonoBehaviour
 
     void InitializeConduit()
     {
+        crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
+
         conduitAnimator = GetComponent<Animator>();
 
         outerRingMat = outerRingRenderer.material;
 
         if (conduitState == ConduitState.HOMEBASE)
         {
-            switch (orbColor)
+            switch (conduitColor)
             {
                 case PlayerTeam.RED:
                     CompleteCapture(PlayerTeam.RED);
@@ -96,7 +100,7 @@ public class ConduitController : MonoBehaviour
         else
         {
             conduitState = ConduitState.EMPTY;
-            orbColor = PlayerTeam.NONE;
+            conduitColor = PlayerTeam.NONE;
         }
     }
 
@@ -184,11 +188,11 @@ public class ConduitController : MonoBehaviour
         }
         else if (attachedGuardianColor.Count == 0)
         {
-            if (orbColor == PlayerTeam.RED)
+            if (conduitColor == PlayerTeam.RED)
             {
                 outerRingRenderer.material.color = yellowCaptureColor;
             }
-            else if (orbColor == PlayerTeam.BLUE)
+            else if (conduitColor == PlayerTeam.BLUE)
             {
                 outerRingRenderer.material.color = blueCaptureColor;
             }
@@ -204,13 +208,13 @@ public class ConduitController : MonoBehaviour
             captureSpeed = guardianPlayerController.captureSpeed;
 
             conduitState = ConduitState.IN_PROGRESS;
-            orbColor = teamColor;
+            conduitColor = teamColor;
         }
         else if (conduitState == ConduitState.IN_PROGRESS)
         {
-            if (teamColor != orbColor)
+            if (teamColor != conduitColor)
             {
-                if (!attachedGuardianColor.Contains(orbColor))
+                if (!attachedGuardianColor.Contains(conduitColor))
                 {
                     guardianPlayerController.isCapturingOrb = false;
 
@@ -218,7 +222,7 @@ public class ConduitController : MonoBehaviour
                     guardianPlayerController.isCapturingOrb = true;
                     captureSpeed = guardianPlayerController.captureSpeed;
 
-                    orbColor = teamColor;
+                    conduitColor = teamColor;
                 }
             }
         }
@@ -228,7 +232,7 @@ public class ConduitController : MonoBehaviour
     {
         if (conduitState == ConduitState.IN_PROGRESS)
         {
-            switch(orbColor)
+            switch(conduitColor)
             {
                 case PlayerTeam.RED:
                     if (attachedGuardianColor.Contains(PlayerTeam.RED) && !attachedGuardianColor.Contains(PlayerTeam.BLUE))
@@ -300,7 +304,18 @@ public class ConduitController : MonoBehaviour
                     }                 
                     break;
                 default:
-                    Debug.Log("Something wrong passed through CheckForOrbCapture, was " + orbColor);
+                    Debug.Log("Something wrong passed through CheckForOrbCapture, was " + conduitColor);
+                    break;
+            }
+        }
+        else if (conduitState == ConduitState.CONTROLLED)
+        {
+            switch (conduitColor)
+            {
+                case PlayerTeam.RED:
+                    break;
+
+                case PlayerTeam.BLUE:
                     break;
             }
         }
@@ -311,11 +326,15 @@ public class ConduitController : MonoBehaviour
         switch(teamColor)
         {
             case PlayerTeam.RED:
+                crystalManager.CaptureCrystal(PlayerTeam.RED, gameObject);
+
                 outerRingRenderer.material.color = yellowCaptureColor;
 
                 PlayRedCaptureParticles();
                 break;
             case PlayerTeam.BLUE:
+                crystalManager.CaptureCrystal(PlayerTeam.BLUE, gameObject);
+
                 outerRingRenderer.material.color = blueCaptureColor;
 
                 PlayBlueCaptureParticles();
@@ -346,7 +365,7 @@ public class ConduitController : MonoBehaviour
         blueTeamCaptureAmount = 0;
 
         conduitState = ConduitState.EMPTY;
-        orbColor = PlayerTeam.NONE;
+        conduitColor = PlayerTeam.NONE;
     }
 
     public void DeselectConduit(PlayerTeam guardianColor)
@@ -361,7 +380,7 @@ public class ConduitController : MonoBehaviour
 
     public void DisableConduit (float length, PlayerTeam teamColor)
     {
-        if (orbColor != teamColor)
+        if (conduitColor != teamColor)
         {
             ConduitDisable(length);
         }
@@ -375,7 +394,7 @@ public class ConduitController : MonoBehaviour
 
         yield return new WaitForSeconds(disableTime);
 
-        if (orbColor == PlayerTeam.RED || orbColor == PlayerTeam.BLUE)
+        if (conduitColor == PlayerTeam.RED || conduitColor == PlayerTeam.BLUE)
         {
             conduitState = ConduitState.CONTROLLED;
         }

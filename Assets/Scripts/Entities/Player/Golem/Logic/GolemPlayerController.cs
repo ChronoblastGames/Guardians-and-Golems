@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class GolemPlayerController : GolemStats 
 {
+    private CrystalManager crystalManager;
+
     [HideInInspector]
     public CharacterController characterController;
 
@@ -81,6 +83,8 @@ public class GolemPlayerController : GolemStats
     void PlayerSetup()
     {
         characterController = GetComponent<CharacterController>();
+
+        crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
 
         golemInputManager = GetComponent<GolemInputManager>();
 
@@ -169,7 +173,7 @@ public class GolemPlayerController : GolemStats
     {
         if (canUseAbilities && golemCooldown.GlobalCooldownReady() && golemCooldown.CanUseAbility(abilityNumber))
         {
-            if (golemResources.CanCast(golemAbilities[abilityNumber].GetComponent<GolemAbilityCreate>().healthCost))
+            if (golemResources.CanCast(golemAbilities[abilityNumber].GetComponent<GolemAbilityCreate>().healthCost) && crystalManager.TryCast(golemAbilities[abilityNumber].GetComponent<GolemAbilityCreate>().crystalCost, teamColor))
             {
                 golemState.SetTrigger("UseAbility");
                 golemState.SetTrigger("Ability" + (abilityNumber + 1));
