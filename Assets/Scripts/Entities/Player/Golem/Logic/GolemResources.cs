@@ -249,8 +249,6 @@ public class GolemResources : MonoBehaviour
         {
             currentHealth += healAmount;
             UIManager.RequestDamageText(healAmount, transform, FloatingDamageTextType.HEAL);
-
-            Debug.Log("Direct Heal");         
         }
 
         if (statusEffect != StatusEffect.NONE)

@@ -100,8 +100,6 @@ public class UIManager : MonoBehaviour
 
     public void ResetCrystalUI(int crystalNumber, PlayerTeam teamColor)
     {
-        Debug.Log("Demon");
-
         switch(teamColor)
         {
             case PlayerTeam.RED:
