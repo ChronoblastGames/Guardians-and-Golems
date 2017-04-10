@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CrystalManager : MonoBehaviour
 {
+    private UIManager UI;
+
     [Header("Crystal Attributes")]
     public int totalMapCrystalCount = 0;
 
@@ -42,6 +44,8 @@ public class CrystalManager : MonoBehaviour
 
     void Initialize()
     {
+        UI = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+
         redTeamTotalCrystalCount = startingCrystalCount;
         blueTeamTotalCrystalCount = startingCrystalCount;
     }
@@ -107,6 +111,7 @@ public class CrystalManager : MonoBehaviour
                 if (redTeamCurrentCrystalCount >= crystalAmount)
                 {
                     redTeamCurrentCrystalCount -= crystalAmount;
+
                     return true;
                 } 
                 break;
@@ -115,6 +120,7 @@ public class CrystalManager : MonoBehaviour
                 if (blueTeamCurrentCrystalCount >= crystalAmount)
                 {
                     blueTeamCurrentCrystalCount -= crystalAmount;
+
                     return true;
                 }
                 break;

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,8 @@ public class UIManager : MonoBehaviour
 {
     private FloatingTextManager floatingTextManager;
 
+    private CrystalManager crystalManager;
+
     private GolemResources redGolemResources;
     private GolemResources blueGolemResources;
 
@@ -22,7 +25,11 @@ public class UIManager : MonoBehaviour
     public Image redGolemHealthBar;
     public Image blueGolemHealthBar;
 
-    [Header("Ingame Time")]
+    [Header("Crystal UI")]
+    public List<Image> crystalLeftTeam;
+    public List<Image> crystalRightTeam;
+
+    [Header("UI Clock")]
     public Text timeText;
     public bool isCountingDown = true;
     public bool isCountingUp = false;
@@ -34,6 +41,8 @@ public class UIManager : MonoBehaviour
 
     void UISetup()
     {
+        crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
+
         redGolemResources = GameObject.FindGameObjectWithTag("GolemRed").GetComponent<GolemResources>();
         blueGolemResources = GameObject.FindGameObjectWithTag("GolemBlue").GetComponent<GolemResources>();
 
@@ -44,12 +53,22 @@ public class UIManager : MonoBehaviour
     {
         ManageHealthBars();
         ManageClock();
+        ManageCrystals();
     }
 
     void ManageHealthBars()
     {
         redGolemHealthBar.fillAmount = redGolemResources.currentHealth / redGolemResources.maxHealth;
         blueGolemHealthBar.fillAmount = blueGolemResources.currentHealth / blueGolemResources.maxHealth;
+    }
+
+    void ManageCrystals()
+    {
+        int redTeamCurrentCrystal = crystalManager.redTeamCurrentCrystalCount;
+        int blueTeamCurrentCrystal = crystalManager.blueTeamCurrentCrystalCount;
+
+        crystalLeftTeam[redTeamCurrentCrystal].fillAmount = crystalManager.redTeamRefill / 1;
+        crystalRightTeam[blueTeamCurrentCrystal].fillAmount = crystalManager.blueTeamRefill / 1;
     }
 
     void ManageClock()
@@ -77,5 +96,21 @@ public class UIManager : MonoBehaviour
     public void RequestStatusText(float effectStrength, Transform textPos, StatusEffect statusEffect)
     {
         floatingTextManager.CreateStatusText(effectStrength, textPos, statusEffect);
+    }
+
+    public void ResetCrystalUI(int crystalNumber, PlayerTeam teamColor)
+    {
+        Debug.Log("Demon");
+
+        switch(teamColor)
+        {
+            case PlayerTeam.RED:
+                crystalLeftTeam[crystalNumber].fillAmount = 0;
+                break;
+
+            case PlayerTeam.BLUE:
+                crystalRightTeam[crystalNumber].fillAmount = 0;
+                break;
+        }
     }
 }
