@@ -5182,7 +5182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redGolemHealthBar: {fileID: 114894881986634284}
   blueGolemHealthBar: {fileID: 114512084101537592}
-  crystalLeftTeam:
+  guardianCrystalLeft:
   - {fileID: 114257917591877980}
   - {fileID: 114847413844179986}
   - {fileID: 114349152162532908}
@@ -5190,7 +5190,7 @@ MonoBehaviour:
   - {fileID: 114218958544530174}
   - {fileID: 114701650988820830}
   - {fileID: 114805000096935070}
-  crystalRightTeam:
+  guardianCrystalRight:
   - {fileID: 114805000096935070}
   - {fileID: 114701650988820830}
   - {fileID: 114218958544530174}
@@ -5198,6 +5198,24 @@ MonoBehaviour:
   - {fileID: 114349152162532908}
   - {fileID: 114847413844179986}
   - {fileID: 114257917591877980}
+  golemCrystalRed:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  golemCrystalBlue:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   timeText: {fileID: 0}
   isCountingDown: 1
   isCountingUp: 0

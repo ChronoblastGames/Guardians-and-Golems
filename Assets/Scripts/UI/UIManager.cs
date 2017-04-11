@@ -68,11 +68,17 @@ public class UIManager : MonoBehaviour
 
     void ManageCrystals()
     {
-        int redTeamCurrentCrystal = crystalManager.redTeamGuardianCurrentCrystalCount;
-        int blueTeamCurrentCrystal = crystalManager.blueTeamGuardianCurrentCrystalCount;
+        int redTeamGuardianCrystal = crystalManager.redTeamGuardianCurrentCrystalCount;
+        int blueTeamGuardianCrystal = crystalManager.blueTeamGuardianCurrentCrystalCount;
 
-        guardianCrystalLeft[redTeamCurrentCrystal].fillAmount = crystalManager.redTeamGuardianRefill / 1;
-        guardianCrystalRight[blueTeamCurrentCrystal].fillAmount = crystalManager.blueTeamGuardianRefill / 1;
+        guardianCrystalLeft[redTeamGuardianCrystal].fillAmount = crystalManager.redTeamGuardianRefill / 1;
+        guardianCrystalRight[blueTeamGuardianCrystal].fillAmount = crystalManager.blueTeamGuardianRefill / 1;
+
+        int redTeamGolemCrystal = crystalManager.redTeamGolemCurrentCrystalCount;
+        int blueTeamGolemCrystal = crystalManager.blueTeamGolemCurrentCrystalCount;
+
+        golemCrystalRed[redTeamGolemCrystal].fillAmount = crystalManager.redTeamGolemRefill / 1;
+        golemCrystalBlue[blueTeamGolemCrystal].fillAmount = crystalManager.blueTeamGolemRefill / 1;
     }
 
     void ManageClock()
@@ -109,7 +115,7 @@ public class UIManager : MonoBehaviour
             case PlayerTeam.RED:
                 if (playerType == PlayerType.GOLEM)
                 {
-
+                    golemCrystalRed[crystalNumber].fillAmount = 0;
                 }
                 else if (playerType == PlayerType.GUARDIAN)
                 {
@@ -120,7 +126,7 @@ public class UIManager : MonoBehaviour
             case PlayerTeam.BLUE:
                 if (playerType == PlayerType.GOLEM)
                 {
-
+                    golemCrystalBlue[crystalNumber].fillAmount = 0;
                 }
                 else if (playerType == PlayerType.GUARDIAN)
                 {
