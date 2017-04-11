@@ -122,17 +122,24 @@ public class GolemAbilityCreate : CreateAbilityBase
 
         newSpawnRotation = Quaternion.LookRotation(newAimVector);
 
-        if (crystalManager.UseCrystals(abilityInfo.crystalCost, abilityInfo.teamColor))
+        if (crystalManager.UseCrystals(abilityInfo.crystalCost, abilityInfo.teamColor, PlayerType.GOLEM))
         {
             GameObject newAbility = Instantiate(ability, newSpawnPosition, newSpawnRotation) as GameObject;
 
-            if (teamColor == PlayerTeam.RED)
+            if (abilitySubType == AbilitySubType.ZONE)
             {
-                newAbility.layer = LayerMask.NameToLayer("GolemRed");
+                newAbility.layer = LayerMask.NameToLayer("Abilities");
             }
-            else if (teamColor == PlayerTeam.BLUE)
+            else
             {
-                newAbility.layer = LayerMask.NameToLayer("GolemBlue");
+                if (teamColor == PlayerTeam.RED)
+                {
+                    newAbility.layer = LayerMask.NameToLayer("GolemRed");
+                }
+                else if (teamColor == PlayerTeam.BLUE)
+                {
+                    newAbility.layer = LayerMask.NameToLayer("GolemBlue");
+                }
             }
 
             newAbility.GetComponent<AbilityCastBase>().abilityValues = abilityInfo;

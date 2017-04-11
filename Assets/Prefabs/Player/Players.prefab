@@ -8493,7 +8493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
@@ -9876,14 +9876,14 @@ MonoBehaviour:
   - 8
   - 10
   - 12
-  attackEffects: 000000000000000007000000
+  attackEffects: 020000000200000007000000
   effectStrength:
-  - 0
-  - 0
-  - 3
+  - 1
+  - 1
+  - 1
   effectTimes:
-  - 0
-  - 0
+  - 1
+  - 1
   - 2
   effectFrequency:
   - 0
@@ -18550,7 +18550,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -903530562
+  randomSeed: -651661324
   InitialModule:
     serializedVersion: 3
     enabled: 1

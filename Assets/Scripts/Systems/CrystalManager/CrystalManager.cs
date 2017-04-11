@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PlayerType
+{
+    GOLEM,
+    GUARDIAN
+}
+
+
 public class CrystalManager : MonoBehaviour
 {
     private UIManager UI;
@@ -10,27 +17,39 @@ public class CrystalManager : MonoBehaviour
     public int totalMapCrystalCount = 0;
 
     [Header("Team Crystal Attributes")]
-    public int startingCrystalCount = 2;
+    public List<GameObject> redTeamCapturedCrystals;
+    public List<GameObject> blueTeamCapturedCrystals;
 
-    public float redTeamRefill = 0f;
-    public float blueTeamRefill = 0f;
+    public int startingCrystalCount = 2;
+    [Space(10)]
+    public float redTeamGuardianRefill = 0f;
+    public float blueTeamGuardianRefill = 0f;
+    [Space(10)]
+    public float redTeamGolemRefill = 0f;
+    public float blueTeamGolemRefill = 0f;
 
     [Space(20)]
-    public int redTeamCurrentCrystalCount = 0;
-    public int blueTeamCurrentCrystalCount = 0;
-
+    public int redTeamGuardianCurrentCrystalCount = 0;
+    public int blueTeamGuardianCurrentCrystalCount = 0;
+    [Space(10)]
+    public int redTeamGolemCurrentCrystalCount = 0;
+    public int blueTeamGolemCurrentCrystalCount = 0;
+    [Space(10)]
     public int redTeamTotalCrystalCount = 0;
     public int blueTeamTotalCrystalCount = 0;
 
     [Space(10)]
-    public List<GameObject> redTeamCapturedCrystals;
-    public List<GameObject> blueTeamCapturedCrystals;
+    public float redTeamGuardianCrystalRegenerationRate = 0f;
+    public float blueTeamGuardianCrystalRegenerationRate = 0f;
     [Space(10)]
-    public float redTeamCrystalRegenerationRate = 0f;
-    public float blueTeamCrystalRegenerationRate = 0f;
-
-    public bool canRedTeamRegenerate = true;
-    public bool canBlueTeamRegenerate = true;
+    public float redTeamGolemCrystalRegenerationRate = 0;
+    public float blueTeamGolemCrystalRegenerationRate = 0;
+    [Space(10)]
+    public bool canRedTeamGuardianRegenerate = true;
+    public bool canBlueTeamGuardianRegenerate = true;
+    [Space(10)]
+    public bool canRedTeamGolemRegenerate = true;
+    public bool canBlueTeamGolemRegenerate = true;
 
     private void Start()
     {
@@ -52,107 +71,206 @@ public class CrystalManager : MonoBehaviour
 
     void RegenerateCrystals()
     {
-        if (redTeamCurrentCrystalCount != redTeamTotalCrystalCount)
+        if (redTeamGuardianCurrentCrystalCount != redTeamTotalCrystalCount)
         {
-            if (canRedTeamRegenerate)
+            if (canRedTeamGuardianRegenerate)
             {
-                redTeamRefill += redTeamCrystalRegenerationRate * Time.fixedDeltaTime;
+                redTeamGuardianRefill += redTeamGuardianCrystalRegenerationRate * Time.fixedDeltaTime;
 
-                if (redTeamRefill >= 1)
+                if (redTeamGuardianRefill >= 1)
                 {
-                    RefillCrystal(PlayerTeam.RED);
-                    redTeamRefill = 0;
+                    RefillCrystal(PlayerTeam.RED, PlayerType.GUARDIAN);
+                    redTeamGuardianRefill = 0;
                 }
             }
         }
 
-        if (blueTeamCurrentCrystalCount != blueTeamTotalCrystalCount)
+        if (redTeamGolemCurrentCrystalCount != redTeamTotalCrystalCount)
         {
-            if (canBlueTeamRegenerate)
+            if (canRedTeamGolemRegenerate)
             {
-                blueTeamRefill += blueTeamCrystalRegenerationRate * Time.fixedDeltaTime;
+                redTeamGolemRefill += redTeamGolemCrystalRegenerationRate * Time.fixedDeltaTime;
 
-                if (blueTeamRefill >= 1)
+                if (redTeamGolemRefill >= 1)
                 {
-                    RefillCrystal(PlayerTeam.BLUE);
-                    blueTeamRefill = 0;
+                    RefillCrystal(PlayerTeam.RED, PlayerType.GOLEM);
+                    redTeamGolemRefill = 0;
                 }
             }
-        }     
+        }
+
+        if (blueTeamGuardianCurrentCrystalCount != blueTeamTotalCrystalCount)
+        {
+            if (canBlueTeamGuardianRegenerate)
+            {
+                blueTeamGuardianRefill += blueTeamGuardianCrystalRegenerationRate * Time.fixedDeltaTime;
+
+                if (blueTeamGuardianRefill >= 1)
+                {
+                    RefillCrystal(PlayerTeam.BLUE, PlayerType.GUARDIAN);
+                    blueTeamGuardianRefill = 0;
+                }
+            }
+        }   
+        
+        if (blueTeamGolemCurrentCrystalCount != blueTeamTotalCrystalCount)
+        {
+            if (canBlueTeamGolemRegenerate)
+            {
+                blueTeamGolemRefill += blueTeamGolemCrystalRegenerationRate * Time.fixedDeltaTime;
+
+                if (blueTeamGolemRefill >= 1)
+                {
+                    RefillCrystal(PlayerTeam.BLUE, PlayerType.GOLEM);
+                    blueTeamGolemRefill = 0;
+                }
+            }
+        }
     }
 
-    public bool TryCast(int crystalAmount, PlayerTeam teamColor)
+    public bool TryCast(int crystalAmount, PlayerTeam teamColor, PlayerType playerType)
     {
         switch (teamColor)
         {
             case PlayerTeam.RED:
-                if (redTeamCurrentCrystalCount >= crystalAmount)
+                if (playerType == PlayerType.GOLEM)
                 {
-                    return true;
+                    if (redTeamGolemCurrentCrystalCount >= crystalAmount)
+                    {
+                        return true;
+                    }
                 }
+                else if (playerType == PlayerType.GUARDIAN)
+                {
+                    if (redTeamGuardianCurrentCrystalCount >= crystalAmount)
+                    {
+                        return true;
+                    }
+                }
+                
                 break;
 
             case PlayerTeam.BLUE:
-                if (blueTeamCurrentCrystalCount >= crystalAmount)
+                if (playerType == PlayerType.GOLEM)
                 {
-                    return true;
+                    if (blueTeamGolemCurrentCrystalCount >= crystalAmount)
+                    {
+                        return true;
+                    }
                 }
+                else if (playerType == PlayerType.GUARDIAN)
+                {
+                    if (blueTeamGuardianCurrentCrystalCount >= crystalAmount)
+                    {
+                        return true;
+                    }
+                }       
                 break;
         }
 
         return false;
     }
 
-    public bool UseCrystals(int crystalAmount, PlayerTeam teamColor)
+    public bool UseCrystals(int crystalAmount, PlayerTeam teamColor, PlayerType playerType)
     {
         switch(teamColor)
         {
             case PlayerTeam.RED:
-                if (redTeamCurrentCrystalCount >= crystalAmount)
+                if (playerType == PlayerType.GUARDIAN)
                 {
-                    int count = redTeamCurrentCrystalCount - crystalAmount;
-
-                    for (int i = redTeamCurrentCrystalCount - 1; i >= count; i--)
+                    if (redTeamGuardianCurrentCrystalCount >= crystalAmount)
                     {
-                        UI.ResetCrystalUI(i, PlayerTeam.RED);
+                        int count = redTeamGuardianCurrentCrystalCount - crystalAmount;
+
+                        for (int i = redTeamGuardianCurrentCrystalCount; i >= count; i--)
+                        {
+                            UI.ResetCrystalUI(i, PlayerTeam.RED, PlayerType.GUARDIAN);
+                        }
+
+                        redTeamGuardianCurrentCrystalCount -= crystalAmount;
+
+                        return true;
                     }
+                }
+                else if (playerType == PlayerType.GOLEM)
+                {
+                    if (redTeamGolemCurrentCrystalCount >= crystalAmount)
+                    {
+                        int count = redTeamGolemCurrentCrystalCount - crystalAmount;
 
-                    redTeamCurrentCrystalCount -= crystalAmount;
+                        for (int i = redTeamGolemCurrentCrystalCount; i >= count; i--)
+                        {
+                            UI.ResetCrystalUI(i, PlayerTeam.RED, PlayerType.GOLEM);
+                        }
 
-                    return true;
-                } 
+                        redTeamGolemCurrentCrystalCount -= crystalAmount;
+
+                        return true;
+                    }
+                }             
                 break;
 
             case PlayerTeam.BLUE:
-                if (blueTeamCurrentCrystalCount >= crystalAmount)
+                if (playerType == PlayerType.GUARDIAN)
                 {
-                    int count = blueTeamCurrentCrystalCount - crystalAmount;
-
-                    for (int i = blueTeamCurrentCrystalCount - 1; i >= count; i--)
+                    if (blueTeamGuardianCurrentCrystalCount >= crystalAmount)
                     {
-                        UI.ResetCrystalUI(i, PlayerTeam.BLUE);
+                        int count = blueTeamGuardianCurrentCrystalCount - crystalAmount;
+
+                        for (int i = blueTeamGuardianCurrentCrystalCount; i >= count; i--)
+                        {
+                            UI.ResetCrystalUI(i, PlayerTeam.BLUE, PlayerType.GUARDIAN);
+                        }
+
+                        blueTeamGuardianCurrentCrystalCount -= crystalAmount;
+
+                        return true;
                     }
-
-                    blueTeamCurrentCrystalCount -= crystalAmount;
-
-                    return true;
                 }
+                else if (playerType == PlayerType.GOLEM)
+                {
+                    if (blueTeamGolemCurrentCrystalCount >= crystalAmount)
+                    {
+                        int count = blueTeamGolemCurrentCrystalCount - crystalAmount;
+
+                        for (int i = blueTeamGolemCurrentCrystalCount; i >= count; i--)
+                        {
+                            UI.ResetCrystalUI(i, PlayerTeam.BLUE, PlayerType.GOLEM);
+                        }
+
+                        blueTeamGolemCurrentCrystalCount -= crystalAmount;
+                    }
+                }              
                 break;
         }
 
         return false;
     }
 
-    void RefillCrystal(PlayerTeam teamColor)
+    void RefillCrystal(PlayerTeam teamColor, PlayerType playerType)
     {
         switch (teamColor)
         {
             case PlayerTeam.RED:
-                redTeamCurrentCrystalCount++;
+                if (playerType == PlayerType.GOLEM)
+                {
+                    redTeamGolemCurrentCrystalCount++;
+                }
+                else if (playerType == PlayerType.GUARDIAN)
+                {
+                    redTeamGuardianCurrentCrystalCount++;
+                }
                 break;
 
             case PlayerTeam.BLUE:
-                blueTeamCurrentCrystalCount++;
+                if (playerType == PlayerType.GOLEM)
+                {
+                    blueTeamGolemCurrentCrystalCount++;
+                }
+                else if (playerType == PlayerType.GUARDIAN)
+                {
+                    blueTeamGuardianCurrentCrystalCount++;
+                }
                 break;
         }
     }
@@ -162,7 +280,7 @@ public class CrystalManager : MonoBehaviour
         switch (teamColor)
         {
             case PlayerTeam.RED:
-                redTeamTotalCrystalCount++;
+                redTeamTotalCrystalCount++;               
                 redTeamCapturedCrystals.Add(conduit);
                 break;
 

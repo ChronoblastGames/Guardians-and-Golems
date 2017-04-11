@@ -26,8 +26,12 @@ public class UIManager : MonoBehaviour
     public Image blueGolemHealthBar;
 
     [Header("Crystal UI")]
-    public List<Image> crystalLeftTeam;
-    public List<Image> crystalRightTeam;
+    public List<Image> guardianCrystalLeft;
+    public List<Image> guardianCrystalRight;
+    [Space(10)]
+    public List<Image> golemCrystalRed;
+    public List<Image> golemCrystalBlue;
+    
 
     [Header("UI Clock")]
     public Text timeText;
@@ -64,11 +68,11 @@ public class UIManager : MonoBehaviour
 
     void ManageCrystals()
     {
-        int redTeamCurrentCrystal = crystalManager.redTeamCurrentCrystalCount;
-        int blueTeamCurrentCrystal = crystalManager.blueTeamCurrentCrystalCount;
+        int redTeamCurrentCrystal = crystalManager.redTeamGuardianCurrentCrystalCount;
+        int blueTeamCurrentCrystal = crystalManager.blueTeamGuardianCurrentCrystalCount;
 
-        crystalLeftTeam[redTeamCurrentCrystal].fillAmount = crystalManager.redTeamRefill / 1;
-        crystalRightTeam[blueTeamCurrentCrystal].fillAmount = crystalManager.blueTeamRefill / 1;
+        guardianCrystalLeft[redTeamCurrentCrystal].fillAmount = crystalManager.redTeamGuardianRefill / 1;
+        guardianCrystalRight[blueTeamCurrentCrystal].fillAmount = crystalManager.blueTeamGuardianRefill / 1;
     }
 
     void ManageClock()
@@ -98,16 +102,30 @@ public class UIManager : MonoBehaviour
         floatingTextManager.CreateStatusText(effectStrength, textPos, statusEffect);
     }
 
-    public void ResetCrystalUI(int crystalNumber, PlayerTeam teamColor)
+    public void ResetCrystalUI(int crystalNumber, PlayerTeam teamColor, PlayerType playerType)
     {
         switch(teamColor)
         {
             case PlayerTeam.RED:
-                crystalLeftTeam[crystalNumber].fillAmount = 0;
+                if (playerType == PlayerType.GOLEM)
+                {
+
+                }
+                else if (playerType == PlayerType.GUARDIAN)
+                {
+                    guardianCrystalLeft[crystalNumber].fillAmount = 0;
+                }
                 break;
 
             case PlayerTeam.BLUE:
-                crystalRightTeam[crystalNumber].fillAmount = 0;
+                if (playerType == PlayerType.GOLEM)
+                {
+
+                }
+                else if (playerType == PlayerType.GUARDIAN)
+                {
+                    guardianCrystalRight[crystalNumber].fillAmount = 0;
+                }
                 break;
         }
     }

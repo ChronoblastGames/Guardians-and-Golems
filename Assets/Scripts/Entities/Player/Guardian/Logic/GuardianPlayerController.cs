@@ -6,6 +6,8 @@ using UnityEngine;
 [System.Serializable]
 public class GuardianPlayerController : GuardianStats 
 {
+    private CrystalManager crystalManager;
+
     private GuardianInputManager guardianInputManager;
     private GuardianResources guardianResources;
     private GuardianCooldownManager guardianCooldown;
@@ -18,6 +20,9 @@ public class GuardianPlayerController : GuardianStats
 
     private float xAxis;
     private float zAxis;
+
+    [Header("Guardian Attributes")]
+    public PlayerTeam teamColor;
 
     [Header("Guardian Orb Attributes")]
     public GameObject guardianModel;
@@ -60,6 +65,8 @@ public class GuardianPlayerController : GuardianStats
 
     void PlayerSetup()
     {
+        crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
+
         guardianInputManager = GetComponent<GuardianInputManager>();
         guardianResources = GetComponent<GuardianResources>();
         guardianCooldown = GetComponent<GuardianCooldownManager>();
@@ -162,15 +169,18 @@ public class GuardianPlayerController : GuardianStats
     {
         if (canUseAbility && attachedOrb != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
         {
-            GameObject spawnObj = conduitController.centerCrystal;
+            if (crystalManager.TryCast(guardianAbilites[abilityNumber].crystalCost, teamColor, PlayerType.GUARDIAN))
+            {
+                GameObject spawnObj = conduitController.centerCrystal;
 
-            guardianState.SetTrigger("UseAbility");
-            guardianState.SetTrigger("Ability" + (abilityNumber + 1));
+                guardianState.SetTrigger("UseAbility");
+                guardianState.SetTrigger("Ability" + (abilityNumber + 1));
 
-            guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
-            guardianCooldown.QueueGlobalCooldown();
-            guardianCooldown.QueueAbilityCooldown(abilityNumber);
-            isUsingAbility = true;
+                guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
+                guardianCooldown.QueueGlobalCooldown();
+                guardianCooldown.QueueAbilityCooldown(abilityNumber);
+                isUsingAbility = true;
+            }
         }     
     }
 

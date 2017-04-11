@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GuardianAbilityCreate : CreateAbilityBase
 {
+    private CrystalManager crystalManager;
+
     private GuardianInputManager guardianInputManager;
     private GuardianPlayerController guardianPlayerController;
     private GuardianResources guardianResources;
@@ -24,6 +26,8 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
     void Initialize()
     {
+        crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
+
         guardianInputManager = transform.parent.parent.GetComponent<GuardianInputManager>();
         guardianPlayerController = guardianInputManager.GetComponent<GuardianPlayerController>();    
         guardianResources = guardianInputManager.GetComponent<GuardianResources>();
@@ -115,31 +119,33 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
         newSpawnRotation = Quaternion.LookRotation(newAimVector);
 
-        GameObject newAbility = Instantiate(ability, newSpawnPosition, newSpawnRotation) as GameObject;
-
-        if (abilitySubType == AbilitySubType.ZONE)
+        if (crystalManager.UseCrystals(abilityInfo.crystalCost, abilityInfo.teamColor, PlayerType.GUARDIAN))
         {
-            newAbility.layer = LayerMask.NameToLayer("Abilities");
-        }
-        else
-        {
-            if (teamColor == PlayerTeam.RED)
+            GameObject newAbility = Instantiate(ability, newSpawnPosition, newSpawnRotation) as GameObject;
+
+            if (abilitySubType == AbilitySubType.ZONE)
             {
-                newAbility.layer = LayerMask.NameToLayer("GolemRed");
+                newAbility.layer = LayerMask.NameToLayer("Abilities");
             }
-            else if (teamColor == PlayerTeam.BLUE)
+            else
             {
-                newAbility.layer = LayerMask.NameToLayer("GolemBlue");
+                if (teamColor == PlayerTeam.RED)
+                {
+                    newAbility.layer = LayerMask.NameToLayer("GolemRed");
+                }
+                else if (teamColor == PlayerTeam.BLUE)
+                {
+                    newAbility.layer = LayerMask.NameToLayer("GolemBlue");
+                }
             }
-        }
-        
 
-        newAbility.GetComponent<AbilityCastBase>().abilityValues = abilityInfo;
-        newAbility.GetComponent<AbilityCastBase>().InitializeAbility();
+            newAbility.GetComponent<AbilityCastBase>().abilityValues = abilityInfo;
+            newAbility.GetComponent<AbilityCastBase>().InitializeAbility();
 
-        guardianPlayerController.isUsingAbility = false;
+            guardianPlayerController.isUsingAbility = false;
 
-        guardianCooldown.QueueGlobalCooldown();
+            guardianCooldown.QueueGlobalCooldown();
+        }     
     }
 
     public AbilityValues CreateAbilityStruct()

@@ -19,6 +19,7 @@ public class GolemMelee : MonoBehaviour
 
     public StatusEffect[] attackEffects;
 
+    [Range (0,1)]
     public float[] effectStrength;
     public float[] effectTimes;
     public float[] effectFrequency;
