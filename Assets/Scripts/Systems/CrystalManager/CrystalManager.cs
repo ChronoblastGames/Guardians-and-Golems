@@ -280,7 +280,7 @@ public class CrystalManager : MonoBehaviour
         switch (teamColor)
         {
             case PlayerTeam.RED:
-                redTeamTotalCrystalCount++;               
+                redTeamTotalCrystalCount++;                       
                 redTeamCapturedCrystals.Add(conduit);
                 break;
 

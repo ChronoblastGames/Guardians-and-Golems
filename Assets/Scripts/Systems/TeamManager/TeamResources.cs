@@ -10,6 +10,17 @@ public class TeamResources : MonoBehaviour
     public float currentCommand;
     public float minCommand;
     public float maxCommand;
+    public float startingCommand;
+
+    private void Start()
+    {
+        Initialize();
+    }
+
+    void Initialize()
+    {
+        currentCommand = startingCommand;
+    }
 
     private void Update()
     {
@@ -22,10 +33,35 @@ public class TeamResources : MonoBehaviour
         {
             Lose();
         }
+
+        if (currentCommand > maxCommand)
+        {
+            currentCommand = maxCommand;
+        }
     }
 
     void Lose()
     {
+        Debug.Log(teamColor + " is out of Command!");
+    }
 
+    public void LoseCommand(float commandValue)
+    {
+        currentCommand -= commandValue;
+
+        if (currentCommand <= 0)
+        {
+            Lose();
+        }
+    }
+
+    public void GainCommand(float commandValue)
+    {
+        currentCommand += commandValue;
+
+        if (currentCommand > maxCommand)
+        {
+            currentCommand = maxCommand;
+        }
     }
 }

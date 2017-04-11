@@ -108,6 +108,11 @@ public class UIManager : MonoBehaviour
         floatingTextManager.CreateStatusText(effectStrength, textPos, statusEffect);
     }
 
+    public void SetCrystalColor(int crystalNumber, PlayerTeam playerTeam)
+    {
+        //Set New Crystal Color of Team
+    }
+
     public void ResetCrystalUI(int crystalNumber, PlayerTeam teamColor, PlayerType playerType)
     {
         switch(teamColor)
