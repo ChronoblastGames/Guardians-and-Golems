@@ -5015,7 +5015,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1624555655337604}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -45, y: 1, z: 0}
+  m_LocalPosition: {x: -60, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4842550406030252}
@@ -8089,7 +8089,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1371271265770318}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 45, y: 1, z: 0}
+  m_LocalPosition: {x: 60, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4138963063737136}
@@ -9211,7 +9211,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 2
+  crystalCost: 1
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9862,7 +9862,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 3
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -10069,7 +10069,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 1
+  crystalCost: 2
   isMelee: 0
   isRanged: 1
   isHeld: 1
@@ -10113,7 +10113,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 3
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -10205,7 +10205,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 1
+  crystalCost: 2
   isMelee: 0
   isRanged: 1
   isHeld: 1
@@ -10736,7 +10736,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 2
+  crystalCost: 1
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -10780,7 +10780,7 @@ MonoBehaviour:
   zoneRadius: 100
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 1
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -11075,7 +11075,7 @@ MonoBehaviour:
   zoneRadius: 100
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 1
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -20091,7 +20091,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 427708410
+  randomSeed: 223061292
   InitialModule:
     serializedVersion: 3
     enabled: 1

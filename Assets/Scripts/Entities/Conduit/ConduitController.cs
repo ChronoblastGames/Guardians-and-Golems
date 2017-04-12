@@ -326,14 +326,14 @@ public class ConduitController : MonoBehaviour
         switch(teamColor)
         {
             case PlayerTeam.RED:
-                crystalManager.CaptureCrystal(PlayerTeam.RED, gameObject);
+                crystalManager.CaptureCrystal(PlayerTeam.RED);
 
                 outerRingRenderer.material.color = yellowCaptureColor;
 
                 PlayRedCaptureParticles();
                 break;
             case PlayerTeam.BLUE:
-                crystalManager.CaptureCrystal(PlayerTeam.BLUE, gameObject);
+                crystalManager.CaptureCrystal(PlayerTeam.BLUE);
 
                 outerRingRenderer.material.color = blueCaptureColor;
 

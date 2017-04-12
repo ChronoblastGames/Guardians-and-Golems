@@ -65,8 +65,16 @@ public class CrystalManager : MonoBehaviour
     {
         UI = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
-        redTeamTotalCrystalCount = startingCrystalCount;
-        blueTeamTotalCrystalCount = startingCrystalCount;
+        SetupStartingCrystals();
+    }
+
+    void SetupStartingCrystals()
+    {
+        for (int i = -1; i < startingCrystalCount; i++)
+        {
+            CaptureCrystal(PlayerTeam.RED);
+            CaptureCrystal(PlayerTeam.BLUE);
+        }
     }
 
     void RegenerateCrystals()
@@ -277,34 +285,32 @@ public class CrystalManager : MonoBehaviour
         }
     }
 
-    public void CaptureCrystal(PlayerTeam teamColor, GameObject conduit)
+    public void CaptureCrystal(PlayerTeam teamColor)
     {
         switch (teamColor)
         {
             case PlayerTeam.RED:
                 redTeamTotalCrystalCount++;                       
-                redTeamCapturedCrystals.Add(conduit);
+                UI.SetCrystalColor(redTeamTotalCrystalCount, PlayerTeam.RED);
                 break;
 
             case PlayerTeam.BLUE:
                 blueTeamTotalCrystalCount++;
-                blueTeamCapturedCrystals.Add(conduit);
+                UI.SetCrystalColor(blueTeamTotalCrystalCount, PlayerTeam.RED);
                 break;
         }
     }
 
-    public void RemoveCrystal(PlayerTeam teamColor, GameObject conduit)
+    public void RemoveCrystal(PlayerTeam teamColor)
     {
         switch (teamColor)
         {
             case PlayerTeam.RED:
                 redTeamTotalCrystalCount--;
-                redTeamCapturedCrystals.Remove(conduit);
                 break;
 
             case PlayerTeam.BLUE:
                 blueTeamTotalCrystalCount--;
-                blueTeamCapturedCrystals.Remove(conduit);
                 break;
         }
     }

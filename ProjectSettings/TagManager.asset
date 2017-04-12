@@ -13,6 +13,7 @@ TagManager:
   - RedTeamCommand
   - BlueTeamCommand
   - Variable
+  - CommandManager
   layers:
   - Default
   - TransparentFX

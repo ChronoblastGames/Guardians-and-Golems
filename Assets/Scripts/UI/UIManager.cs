@@ -14,9 +14,11 @@ public enum FloatingDamageTextType
 
 public class UIManager : MonoBehaviour
 {
+
     private FloatingTextManager floatingTextManager;
 
     private CrystalManager crystalManager;
+    private CommandManager commandManager;
 
     private GolemResources redGolemResources;
     private GolemResources blueGolemResources;
@@ -24,6 +26,10 @@ public class UIManager : MonoBehaviour
     [Header("Golem HealthBar")]
     public Image redGolemHealthBar;
     public Image blueGolemHealthBar;
+
+    [Header("Command UI")]
+    public Image redTeamCommandImage;
+    public Image blueTeamCommandImage;
 
     [Header("Crystal UI")]
     public List<Image> guardianCrystalLeft;
@@ -47,6 +53,8 @@ public class UIManager : MonoBehaviour
     {
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
 
+        commandManager = GameObject.FindGameObjectWithTag("CommandManager").GetComponent<CommandManager>();
+
         redGolemResources = GameObject.FindGameObjectWithTag("GolemRed").GetComponent<GolemResources>();
         blueGolemResources = GameObject.FindGameObjectWithTag("GolemBlue").GetComponent<GolemResources>();
 
@@ -58,6 +66,7 @@ public class UIManager : MonoBehaviour
         ManageHealthBars();
         ManageClock();
         ManageCrystals();
+        ManageCommand();
     }
 
     void ManageHealthBars()
@@ -93,6 +102,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    void ManageCommand()
+    {
+        redTeamCommandImage.fillAmount = commandManager.redTeamCurrentCommand / commandManager.maxCommand;
+
+        blueTeamCommandImage.fillAmount = commandManager.blueTeamCurrentCommand / commandManager.maxCommand;
+    }
+
     public void RequestDamageText(float textValue, Transform textPosition, FloatingDamageTextType effectType)
     {
         if (textValue > 0)
@@ -110,7 +126,14 @@ public class UIManager : MonoBehaviour
 
     public void SetCrystalColor(int crystalNumber, PlayerTeam playerTeam)
     {
-        //Set New Crystal Color of Team
+        if (playerTeam == PlayerTeam.RED)
+        {
+            guardianCrystalLeft[crystalNumber].color = Color.yellow;
+        }
+        else if (playerTeam == PlayerTeam.BLUE)
+        {
+            guardianCrystalRight[crystalNumber].color = Color.blue;
+        }
     }
 
     public void ResetCrystalUI(int crystalNumber, PlayerTeam teamColor, PlayerType playerType)

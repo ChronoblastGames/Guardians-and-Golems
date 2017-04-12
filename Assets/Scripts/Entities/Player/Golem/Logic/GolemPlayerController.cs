@@ -65,6 +65,8 @@ public class GolemPlayerController : GolemStats
     public bool isCastingAbility = false;
     public bool isSlowed = false;
 
+    public bool isDead = false;
+
 	void Start () 
     {
         PlayerSetup();
@@ -287,6 +289,8 @@ public class GolemPlayerController : GolemStats
 
     public void Die()
     {
+        isDead = true;
+
         golemState.SetTrigger("isDead");
 
         canAttack = false;
@@ -294,5 +298,17 @@ public class GolemPlayerController : GolemStats
         canMove = false;
         canRotate = false;
         canUseAbilities = false;       
+    } 
+
+    private IEnumerator Respawn (float respawnTime)
+    {
+        if (respawnTime > 0)
+        {
+            yield return new WaitForSeconds(respawnTime);
+        }
+        
+        //Rise my Son
+
+        yield return null;
     }
 }

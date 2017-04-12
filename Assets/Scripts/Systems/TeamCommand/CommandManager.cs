@@ -34,7 +34,14 @@ public class CommandManager : MonoBehaviour
 
     void ManageCommand()
     {
-    
+        if (redTeamCurrentCommand <= 0)
+        {
+            Lose(PlayerTeam.RED);
+        }
+        else if (blueTeamCurrentCommand <= 0)
+        {
+            Lose(PlayerTeam.BLUE);
+        }
     }
 
     void Lose(PlayerTeam teamColor)
@@ -42,27 +49,27 @@ public class CommandManager : MonoBehaviour
         Debug.Log(teamColor + " is out of Command!");
     }
 
-    public void LoseCommand(float commandValue, PlayerTeam teamColor)
-    {
-        if (teamColor == PlayerTeam.RED)
-        {
-
-        }
-        else if (teamColor == PlayerTeam.BLUE)
-        {
-
-        }
-    }
-
     public void GainCommand(float commandValue, PlayerTeam teamColor)
     {
         if (teamColor == PlayerTeam.RED)
         {
-
+            redTeamCurrentCommand += commandValue;
         }
         else if (teamColor == PlayerTeam.BLUE)
         {
+            blueTeamCurrentCommand += commandValue;
+        }
+    }
 
+    public void LoseCommand(float commandValue, PlayerTeam teamColor)
+    {
+        if (teamColor == PlayerTeam.RED)
+        {
+            redTeamCurrentCommand -= commandValue;
+        }
+        else if (teamColor == PlayerTeam.BLUE)
+        {
+            blueTeamCurrentCommand -= commandValue;
         }
     }
 
