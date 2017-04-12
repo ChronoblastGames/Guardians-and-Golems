@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class GolemPlayerController : GolemStats 
 {
+    private CommandManager commandManager;
+
     private CrystalManager crystalManager;
 
     [HideInInspector]
@@ -82,9 +84,11 @@ public class GolemPlayerController : GolemStats
 
     void PlayerSetup()
     {
-        characterController = GetComponent<CharacterController>();
+        commandManager = GameObject.FindGameObjectWithTag("CommandManager").GetComponent<CommandManager>();
 
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
+
+        characterController = GetComponent<CharacterController>();
 
         golemInputManager = GetComponent<GolemInputManager>();
 

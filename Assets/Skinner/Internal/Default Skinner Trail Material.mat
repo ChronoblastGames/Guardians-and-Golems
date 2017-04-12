@@ -10,37 +10,52 @@ Material:
   m_Shader: {fileID: 4800000, guid: f373ef08fa398b34cb94ff13a62ef134, type: 3}
   m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
+  disabledShaderPasses: []
   m_SavedProperties:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TexEnvs:
-    - first:
-        name: _BasisBuffer
-      second:
+    - _BasisBuffer:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _PositionBuffer
-      second:
+    - _OrthnormBuffer:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - first:
-        name: _VelocityTex
-      second:
+    - _PositionBuffer:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PreviousOrthnormBuffer:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PreviousPositionBuffer:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VelocityBuffer:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VelocityTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - first:
-        name: _Metallic
-      second: 0
-    - first:
-        name: _Smoothness
-      second: 0.5
+    - _BaseHue: 0.95
+    - _Brightness: 6
+    - _BrightnessOffs: 2
+    - _CutoffSpeed: 0.5
+    - _EmissionProb: 0.351
+    - _HueRandomness: 0
+    - _HueShift: 0.107
+    - _Metallic: 0
+    - _Saturation: 1
+    - _Smoothness: 0
+    - _SpeedToIntensity: 1
     m_Colors:
-    - first:
-        name: _Albedo
-      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _Albedo: {r: 1, g: 0.062068954, b: 0, a: 1}

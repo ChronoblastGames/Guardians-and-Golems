@@ -239,6 +239,8 @@ public class CrystalManager : MonoBehaviour
                         }
 
                         blueTeamGolemCurrentCrystalCount -= crystalAmount;
+
+                        return true;
                     }
                 }              
                 break;

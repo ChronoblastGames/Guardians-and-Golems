@@ -148,7 +148,7 @@ public class GolemAbilityCreate : CreateAbilityBase
             golemPlayerController.isCastingAbility = false;
 
             golemCooldown.QueueGlobalCooldown();
-        }     
+        }
     }
 
     public AbilityValues CreateAbilityStruct()

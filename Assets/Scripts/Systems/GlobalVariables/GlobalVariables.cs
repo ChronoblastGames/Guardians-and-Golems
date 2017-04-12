@@ -4,14 +4,15 @@ using UnityEngine;
 public class GlobalVariables : MonoBehaviour
 {
     [Header("General Global Variables")]
-    public float spawnDelayTimer;
+    public float gameStartDelay;
 
     [Header("Golem Global Variables")]
 	public float golemGlobalCooldown;
-
+    [Space(10)]
     public float golemAttackFollowUpTime;
-
+    [Space(10)]
     public float golemStaggerTime;
+    [Space(10)]
     public float golemRecoveryTime;
 
     [Header("Guardian Global Variables")]
@@ -19,4 +20,12 @@ public class GlobalVariables : MonoBehaviour
 
     [Header("Orb Global Variables")]
     public float spellOrbCoolDown;
+
+
+    [Header("Command Values")]
+    public float loseConduitCommandCost;
+    public float winConduitCommandCost;
+    [Space(10)]
+    public float golemDeathCommandCost;
+    public float golemKillCommandCost;
 }

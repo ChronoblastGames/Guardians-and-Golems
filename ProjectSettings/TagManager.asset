@@ -9,10 +9,10 @@ TagManager:
   - UIManager
   - GlobalVariables
   - Conduit
-  - RedTeamManager
-  - BlueTeamManager
-  - Variable
   - CrystalManager
+  - RedTeamCommand
+  - BlueTeamCommand
+  - Variable
   layers:
   - Default
   - TransparentFX
