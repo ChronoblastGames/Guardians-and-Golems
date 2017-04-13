@@ -10,9 +10,6 @@ public class EarthGolemUltimate : AbilityCastBase
     public float ringCount;
     private int fragmentCountPerRing;
 
-    [Header("Projector Attributes")]
-    private Projector abilityProjector;
-
     private void Start()
     {
         InitializeAbility();
@@ -25,13 +22,9 @@ public class EarthGolemUltimate : AbilityCastBase
             Destroy(gameObject, abilityValues.activeTime);
         }
 
-        abilityProjector = transform.GetChild(0).GetComponent<Projector>();
-
         fragmentCountPerRing = (int)abilityRadius * 2;
 
         SpawnShards();
-
-        EnableProjector();
 
         isAbilityActive = true;
     }
@@ -71,23 +64,4 @@ public class EarthGolemUltimate : AbilityCastBase
 
         return positionVec;
     }
-
-    void EnableProjector()
-    {
-        if (abilityValues.teamColor == PlayerTeam.RED)
-        {
-            abilityProjector.orthographicSize = abilityRadius * 5;
-
-            abilityProjector.material.color = Color.yellow;
-            abilityProjector.enabled = true;
-        }
-        else if (abilityValues.teamColor == PlayerTeam.BLUE)
-        {
-            abilityProjector.orthographicSize = abilityRadius * 5;
-
-            abilityProjector.material.color = Color.blue;
-            abilityProjector.enabled = true;
-        }
-    }
-
 }

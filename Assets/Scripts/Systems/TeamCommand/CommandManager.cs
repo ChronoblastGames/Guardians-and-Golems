@@ -97,28 +97,17 @@ public class CommandManager : MonoBehaviour
         }
     }
 
-    public void KillGolem(PlayerTeam teamColor)
-    {
-        if (teamColor == PlayerTeam.RED)
-        {
-            GainCommand(globalVariables.golemKillCommandCost, teamColor);
-        }
-        else if (teamColor == PlayerTeam.BLUE)
-        {
-            GainCommand(globalVariables.golemKillCommandCost, teamColor);
-        }
-    }
-
     public void GolemDeath(PlayerTeam teamColor)
     {
         if (teamColor == PlayerTeam.RED)
         {
             LoseCommand(globalVariables.golemDeathCommandCost, teamColor);
-
+            GainCommand(globalVariables.golemKillCommandCost, PlayerTeam.BLUE);
         }
         else if (teamColor == PlayerTeam.BLUE)
         {
             LoseCommand(globalVariables.golemDeathCommandCost, teamColor);
+            GainCommand(globalVariables.golemKillCommandCost, PlayerTeam.RED);
         }
     }
 }

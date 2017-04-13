@@ -129,7 +129,7 @@ public class GolemPlayerController : GolemStats
 
         Vector3 moveVel = transform.forward * currentSpeed + Vector3.up * velocityY;
 
-        if (canMove)
+        if (canMove && !isDead)
         {
             characterController.Move(moveVel * Time.fixedDeltaTime);
         }
@@ -150,7 +150,7 @@ public class GolemPlayerController : GolemStats
 
     void ManageRotation()
     {
-        if (directionVec != Vector2.zero && canRotate)
+        if (directionVec != Vector2.zero && canRotate && !isDead)
         {
             if (isAttacking)
             {
@@ -181,7 +181,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseAbility(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
-        if (canUseAbilities && golemCooldown.GlobalCooldownReady() && golemCooldown.CanUseAbility(abilityNumber))
+        if (canUseAbilities && golemCooldown.GlobalCooldownReady() && golemCooldown.CanUseAbility(abilityNumber) && !isDead)
         {
             if (golemResources.CanCast(golemAbilities[abilityNumber].GetComponent<GolemAbilityCreate>().healthCost) && crystalManager.TryCast(golemAbilities[abilityNumber].GetComponent<GolemAbilityCreate>().crystalCost, teamColor, PlayerType.GOLEM))
             {
@@ -196,7 +196,7 @@ public class GolemPlayerController : GolemStats
 
     public void UseAttack()
     {
-        if (canAttack)
+        if (canAttack && !isDead)
         {
             golemMelee.QueueAttack();
 
@@ -206,7 +206,7 @@ public class GolemPlayerController : GolemStats
 
     public void DodgeSetup()
     {
-        if (!isDodging && canDodge && golemCooldown.GlobalCooldownReady() && golemCooldown.DodgeCooldownReady())
+        if (!isDodging && canDodge && golemCooldown.GlobalCooldownReady() && golemCooldown.DodgeCooldownReady() && !isDead)
         {
             Vector3 dodgeDirectionVec;
 
@@ -297,13 +297,15 @@ public class GolemPlayerController : GolemStats
 
         golemState.SetTrigger("isDead");
 
+        StopMovement();
+
         canAttack = false;
         canDodge = false;
-        canMove = false;
-        canRotate = false;
         canUseAbilities = false;
 
         StartCoroutine(Respawn(globalVariables.golemRespawnTime));
+
+        commandManager.GolemDeath(playerColor);
     } 
 
     private IEnumerator Respawn (float respawnTime)
@@ -323,13 +325,17 @@ public class GolemPlayerController : GolemStats
             transform.position = mapManager.blueTeamGolemSpawn.position;
             transform.rotation = mapManager.blueTeamGolemSpawn.rotation;
         }
-        
+
+        ResetGolem();
+
         yield return null;
     }
 
     void ResetGolem()
     {
         golemResources.currentHealth = golemResources.maxHealth;
+
+        golemState.SetTrigger("Reset");
 
         isDead = false;
     }

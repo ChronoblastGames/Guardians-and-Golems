@@ -237,6 +237,7 @@ MonoBehaviour:
   golemAttackFollowUpTime: 2
   golemStaggerTime: 3
   golemRecoveryTime: 1.5
+  golemRespawnTime: 4
   guardianGlobalCooldown: 1
   spellOrbCoolDown: 2
   loseConduitCommandCost: 0

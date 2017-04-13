@@ -18,6 +18,8 @@ public enum PlayerTeam
 
 public class GolemInputManager : MonoBehaviour 
 {
+    private GolemSpellIndicatorController golemSpellIndicator;
+
     private GolemPlayerController golemPlayerController;
 
     [Header("Golem Player Values")]
@@ -65,7 +67,6 @@ public class GolemInputManager : MonoBehaviour
     private string inputAxisZ = "";
     private string inputAimAxisX = "";
     private string inputAimAxisZ = "";
-    //private string inputModifierAxis = "";
     private string inputLeftTriggerAxis = "";
     private string inputRightTriggerAxis = "";
     private string inputAttackButton = "";
@@ -90,6 +91,8 @@ public class GolemInputManager : MonoBehaviour
 
     void PlayerSetup()
     {
+        golemSpellIndicator = GetComponent<GolemSpellIndicatorController>();
+
         golemPlayerController = GetComponent<GolemPlayerController>();    
 
         switch(playerNum)
@@ -116,7 +119,6 @@ public class GolemInputManager : MonoBehaviour
         inputAimAxisX = "HorizontalAimPlayer" + PlayerNumber + "Win";
         inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "Win";
 
-        //inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "Win";
         inputLeftTriggerAxis = "LeftTriggerAxisPlayer" + PlayerNumber + "Win";
         inputRightTriggerAxis = "RightTriggerAxisPlayer" + PlayerNumber + "Win";
 
@@ -135,7 +137,6 @@ public class GolemInputManager : MonoBehaviour
         inputAimAxisX = "HorizontalAimPlayer" + PlayerNumber + "OSX";
         inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "OSX";
 
-        //inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "OSX";
         inputLeftTriggerAxis = "LeftTriggerAxisPlayer" + PlayerNumber + "OSX";
         inputRightTriggerAxis = "RightTriggerAxisPlayer" + PlayerNumber + "OSX";
             
@@ -159,7 +160,6 @@ public class GolemInputManager : MonoBehaviour
         aimXAxis = Input.GetAxis(inputAimAxisX);
         aimZAxis = Input.GetAxis(inputAimAxisZ);
 
-        //modifierAxis = Input.GetAxis(inputModifierAxis);
         leftTriggerAxis = Input.GetAxis(inputLeftTriggerAxis);
         rightTriggerAxis = Input.GetAxis(inputRightTriggerAxis);
 
@@ -170,6 +170,8 @@ public class GolemInputManager : MonoBehaviour
         }
         else if (isLeftTriggerPressed && leftTriggerAxis != 0)
         {
+            golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[2].indicatorType);
+
             if (holdTime < maxHoldTime)
             {
                 holdTime += Time.deltaTime * holdMultiplier;
@@ -182,6 +184,8 @@ public class GolemInputManager : MonoBehaviour
             isLeftTriggerPressed = false;
             golemPlayerController.UseAbility(2, playerTeam, holdTime);
             holdTime = 0;
+
+            golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW);
         }
 
         if (!isRightTriggerPressed && rightTriggerAxis != 0)
@@ -190,6 +194,8 @@ public class GolemInputManager : MonoBehaviour
         }
         else if (isRightTriggerPressed && rightTriggerAxis != 0)
         {
+            golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[3].indicatorType);
+
             if (holdTime < maxHoldTime)
             {
                 holdTime += Time.deltaTime * holdMultiplier;
@@ -201,22 +207,14 @@ public class GolemInputManager : MonoBehaviour
             isRightTriggerPressed = false;
             golemPlayerController.UseAbility(3, playerTeam, holdTime);
             holdTime = 0;
-        }
 
-        if (Input.GetKeyUp(inputAbility1Button))
-        {
-            golemPlayerController.UseAbility(0, playerTeam, holdTime);
-            holdTime = 0;
-        }
-        
-        if (Input.GetKeyUp(inputAbility2Button))
-        {
-            golemPlayerController.UseAbility(1, playerTeam, holdTime);
-            holdTime = 0;
+            golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW);
         }
 
         if (Input.GetKey(inputAbility1Button))
         {
+            golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[0].indicatorType);
+
             if (holdTime < maxHoldTime)
             {
                 holdTime += Time.deltaTime * holdMultiplier;
@@ -226,6 +224,8 @@ public class GolemInputManager : MonoBehaviour
 
         if (Input.GetKey(inputAbility2Button))
         {
+            golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[1].indicatorType);
+
             if (holdTime < maxHoldTime)
             {
                 holdTime += Time.deltaTime * holdMultiplier;
@@ -235,6 +235,22 @@ public class GolemInputManager : MonoBehaviour
         else
         {
             isHoldingAbility = false;
+        }
+
+        if (Input.GetKeyUp(inputAbility1Button))
+        {
+            golemPlayerController.UseAbility(0, playerTeam, holdTime);
+            holdTime = 0;
+
+            golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW);
+        }
+        
+        if (Input.GetKeyUp(inputAbility2Button))
+        {
+            golemPlayerController.UseAbility(1, playerTeam, holdTime);
+            holdTime = 0;
+
+            golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW);
         }
 
         if (Input.GetKeyDown(inputDodgeButton))

@@ -10,6 +10,8 @@ public class EarthGolemAbility1 : AbilityCastBase
 
     private SphereCollider abilityTrigger;
 
+    public float activeTime;
+
     public int shardCount;
     public int ringCount;
 
@@ -61,6 +63,8 @@ public class EarthGolemAbility1 : AbilityCastBase
         shardCount = (int)abilityRadius * 2;
 
         SpawnShards();
+
+        StartCoroutine(ActiveTimer(activeTime));
     }
 
     void SpawnShards()
@@ -124,5 +128,14 @@ public class EarthGolemAbility1 : AbilityCastBase
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject);
             }
         }
+    }
+
+    private IEnumerator ActiveTimer(float timeActive)
+    {
+        yield return new WaitForSeconds(timeActive);
+
+        abilityTrigger.enabled = false;
+
+        yield return null;
     }
 }
