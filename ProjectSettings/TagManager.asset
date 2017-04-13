@@ -12,8 +12,8 @@ TagManager:
   - CrystalManager
   - RedTeamCommand
   - BlueTeamCommand
-  - Variable
   - CommandManager
+  - MapManager
   layers:
   - Default
   - TransparentFX

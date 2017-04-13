@@ -111,7 +111,7 @@ public class GolemResources : MonoBehaviour
 
     void DetermineHealthStatus()
     {
-        if (currentHealth < 0)
+        if (currentHealth < 0 && !golemPlayerController.isDead)
         {
             Die();
         }
@@ -140,72 +140,75 @@ public class GolemResources : MonoBehaviour
 
     public void TakeDamage(float damageValue, DamageType damageType, StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject damagingObject)
     {
-        float baseDefense = golemDefense.baseDefense;
-
-        if (statusEffect != StatusEffect.NONE)
+        if (!golemPlayerController.isDead)
         {
-            InflictStatusEffect(statusEffect, effectStrength, effectTime, effectFrequency, damagingObject);
-        }
+            float baseDefense = golemDefense.baseDefense;
 
-        float calculatedResistance;
-        float calculatedDamage;
+            if (statusEffect != StatusEffect.NONE)
+            {
+                InflictStatusEffect(statusEffect, effectStrength, effectTime, effectFrequency, damagingObject);
+            }
 
-        DetermineStagger(damageValue);
+            float calculatedResistance;
+            float calculatedDamage;
 
-        switch(damageType)
-        {
-            case DamageType.EARTH:
-                calculatedResistance = baseDefense * golemDefense.earthDefense;
-                calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject, DamageType.EARTH);
-                break;
+            DetermineStagger(damageValue);
 
-            case DamageType.FIRE:
-                calculatedResistance = baseDefense * golemDefense.fireDefense;
-                calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject, DamageType.FIRE);
-                break;
+            switch (damageType)
+            {
+                case DamageType.EARTH:
+                    calculatedResistance = baseDefense * golemDefense.earthDefense;
+                    calculatedDamage = damageValue / calculatedResistance;
+                    DealDamage(calculatedDamage, damagingObject, DamageType.EARTH);
+                    break;
 
-            case DamageType.ICE:
-                calculatedResistance = baseDefense * golemDefense.waterDefense;
-                calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject, DamageType.ICE);
-                break;
+                case DamageType.FIRE:
+                    calculatedResistance = baseDefense * golemDefense.fireDefense;
+                    calculatedDamage = damageValue / calculatedResistance;
+                    DealDamage(calculatedDamage, damagingObject, DamageType.FIRE);
+                    break;
 
-            case DamageType.WIND:
-                calculatedResistance = baseDefense * golemDefense.windDefense;
-                calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject, DamageType.WIND);
-                break;
+                case DamageType.ICE:
+                    calculatedResistance = baseDefense * golemDefense.waterDefense;
+                    calculatedDamage = damageValue / calculatedResistance;
+                    DealDamage(calculatedDamage, damagingObject, DamageType.ICE);
+                    break;
 
-            case DamageType.PIERCE:
-                calculatedResistance = baseDefense * golemDefense.pierceDefense;
-                calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject, DamageType.PIERCE);
-                break;
+                case DamageType.WIND:
+                    calculatedResistance = baseDefense * golemDefense.windDefense;
+                    calculatedDamage = damageValue / calculatedResistance;
+                    DealDamage(calculatedDamage, damagingObject, DamageType.WIND);
+                    break;
 
-            case DamageType.SLASH:
-                calculatedResistance = baseDefense * golemDefense.slashDefense;
-                calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject, DamageType.SLASH);
-                break;
+                case DamageType.PIERCE:
+                    calculatedResistance = baseDefense * golemDefense.pierceDefense;
+                    calculatedDamage = damageValue / calculatedResistance;
+                    DealDamage(calculatedDamage, damagingObject, DamageType.PIERCE);
+                    break;
 
-            case DamageType.SMASH:
-                calculatedResistance = baseDefense * golemDefense.smashDefense;
-                calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject, DamageType.SMASH);
-                break;
+                case DamageType.SLASH:
+                    calculatedResistance = baseDefense * golemDefense.slashDefense;
+                    calculatedDamage = damageValue / calculatedResistance;
+                    DealDamage(calculatedDamage, damagingObject, DamageType.SLASH);
+                    break;
 
-            case DamageType.PURE:
-                calculatedResistance = baseDefense;
-                calculatedDamage = damageValue / calculatedResistance;
-                DealDamage(calculatedDamage, damagingObject, DamageType.PURE);
-                break;
+                case DamageType.SMASH:
+                    calculatedResistance = baseDefense * golemDefense.smashDefense;
+                    calculatedDamage = damageValue / calculatedResistance;
+                    DealDamage(calculatedDamage, damagingObject, DamageType.SMASH);
+                    break;
 
-            default:
-                Debug.Log("Something went wrong in TakeDamage, wrong argument passed, was: " + damageType);
-                break;
-        }
+                case DamageType.PURE:
+                    calculatedResistance = baseDefense;
+                    calculatedDamage = damageValue / calculatedResistance;
+                    DealDamage(calculatedDamage, damagingObject, DamageType.PURE);
+                    break;
+
+                default:
+                    Debug.Log("Something went wrong in TakeDamage, wrong argument passed, was: " + damageType);
+                    break;
+            }
+        }      
     }
 
     public void DealDamage(float damageValue, GameObject damagingObject, DamageType damageType)

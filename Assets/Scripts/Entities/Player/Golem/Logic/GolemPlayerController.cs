@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class GolemPlayerController : GolemStats 
 {
+    private MapManager mapManager;
+
     private CommandManager commandManager;
 
     private CrystalManager crystalManager;
@@ -89,6 +91,8 @@ public class GolemPlayerController : GolemStats
         commandManager = GameObject.FindGameObjectWithTag("CommandManager").GetComponent<CommandManager>();
 
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
+
+        mapManager = GameObject.FindGameObjectWithTag("MapManager").GetComponent<MapManager>();
 
         characterController = GetComponent<CharacterController>();
 
@@ -297,7 +301,9 @@ public class GolemPlayerController : GolemStats
         canDodge = false;
         canMove = false;
         canRotate = false;
-        canUseAbilities = false;       
+        canUseAbilities = false;
+
+        StartCoroutine(Respawn(globalVariables.golemRespawnTime));
     } 
 
     private IEnumerator Respawn (float respawnTime)
@@ -306,9 +312,25 @@ public class GolemPlayerController : GolemStats
         {
             yield return new WaitForSeconds(respawnTime);
         }
-        
-        //Rise my Son
 
+        if (playerColor == PlayerTeam.RED)
+        {
+            transform.position = mapManager.yellowTeamGolemSpawn.position;
+            transform.rotation = mapManager.yellowTeamGolemSpawn.rotation;
+        }
+        else if (playerColor == PlayerTeam.BLUE)
+        {
+            transform.position = mapManager.blueTeamGolemSpawn.position;
+            transform.rotation = mapManager.blueTeamGolemSpawn.rotation;
+        }
+        
         yield return null;
+    }
+
+    void ResetGolem()
+    {
+        golemResources.currentHealth = golemResources.maxHealth;
+
+        isDead = false;
     }
 }

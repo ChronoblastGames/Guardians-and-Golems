@@ -14,6 +14,8 @@ public class GlobalVariables : MonoBehaviour
     public float golemStaggerTime;
     [Space(10)]
     public float golemRecoveryTime;
+    [Space(10)]
+    public float golemRespawnTime;
 
     [Header("Guardian Global Variables")]
     public float guardianGlobalCooldown;

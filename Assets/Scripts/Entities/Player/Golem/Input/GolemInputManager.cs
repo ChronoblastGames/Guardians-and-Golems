@@ -56,6 +56,8 @@ public class GolemInputManager : MonoBehaviour
     public float holdTime;
     private float holdMultiplier = 2f;
 
+    private float maxHoldTime = 10f;
+
     [Header("Debug Values")]
     public bool isHoldingAbility = false;
 
@@ -168,7 +170,11 @@ public class GolemInputManager : MonoBehaviour
         }
         else if (isLeftTriggerPressed && leftTriggerAxis != 0)
         {
-            holdTime += Time.deltaTime * holdMultiplier;
+            if (holdTime < maxHoldTime)
+            {
+                holdTime += Time.deltaTime * holdMultiplier;
+            }
+
             isHoldingAbility = true;
         }
         else if (isLeftTriggerPressed && leftTriggerAxis == 0)
@@ -184,7 +190,10 @@ public class GolemInputManager : MonoBehaviour
         }
         else if (isRightTriggerPressed && rightTriggerAxis != 0)
         {
-            holdTime += Time.deltaTime * holdMultiplier;
+            if (holdTime < maxHoldTime)
+            {
+                holdTime += Time.deltaTime * holdMultiplier;
+            }
             isHoldingAbility = true;
         }
         else if (isRightTriggerPressed && rightTriggerAxis == 0)
@@ -208,13 +217,19 @@ public class GolemInputManager : MonoBehaviour
 
         if (Input.GetKey(inputAbility1Button))
         {
-            holdTime += Time.deltaTime * holdMultiplier;
+            if (holdTime < maxHoldTime)
+            {
+                holdTime += Time.deltaTime * holdMultiplier;
+            }
             isHoldingAbility = true;
         }
 
         if (Input.GetKey(inputAbility2Button))
         {
-            holdTime += Time.deltaTime * holdMultiplier;
+            if (holdTime < maxHoldTime)
+            {
+                holdTime += Time.deltaTime * holdMultiplier;
+            }
             isHoldingAbility = true;
         }
         else
