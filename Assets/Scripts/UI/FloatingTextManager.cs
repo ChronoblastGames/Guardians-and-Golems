@@ -103,7 +103,12 @@ public class FloatingTextManager : MonoBehaviour
             case StatusEffect.STUN:
                 newText.transform.GetChild(0).GetComponent<Text>().text = "Stunned";
                 newText.transform.GetChild(0).GetComponent<Text>().color = Color.yellow;
-                break;                   
+                break;
+
+            case StatusEffect.STAGGER:
+                newText.transform.GetChild(0).GetComponent<Text>().text = "Stagger";
+                newText.transform.GetChild(0).GetComponent<Text>().color = Color.gray;
+                break;
         }
 
         newText.transform.SetParent(transform, false);

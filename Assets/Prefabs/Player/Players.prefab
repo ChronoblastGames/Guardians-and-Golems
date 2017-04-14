@@ -9076,7 +9076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 2
+  playerNum: 0
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
@@ -9176,13 +9176,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062c416258928cc41be0f480c7058579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellIndicatorType: 1
-  spellIndicator: {fileID: 0}
-  isSpellIndicatorEnabled: 1
-  spellIndicatorCircle: {fileID: 0}
-  spellIndicatorPoint: {fileID: 0}
-  spellIndicatorArrow: {fileID: 0}
-  spellIndicatorCone: {fileID: 0}
+  holderObject: {fileID: 0}
+  aimIndicatorArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114124674610070578
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9196,6 +9194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 0
   indicatorType: 1
+  indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9499,7 +9498,7 @@ MonoBehaviour:
   - {fileID: 114681289363000118}
   - {fileID: 114282139674183840}
   - {fileID: 114996735460179544}
-  teamColor: 0
+  teamColor: 1
   guardianModel: {fileID: 1244940507768070}
   orbList: []
   playerTeam: 1
@@ -9527,7 +9526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
-  indicatorType: 0
+  indicatorType: 2
+  indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9671,7 +9671,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
-  indicatorType: 0
+  indicatorType: 2
+  indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9801,8 +9802,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityType: 2
-  indicatorType: 0
+  abilityType: 1
+  indicatorType: 3
+  indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9846,7 +9848,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
-  indicatorType: 4
+  indicatorType: 3
+  indicatorSize: 25
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -9945,9 +9948,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponCollider:
-  - {fileID: 65269421848150332}
-  - {fileID: 65791186147655770}
-  - {fileID: 65457941292797618}
+  - {fileID: 65756531916018510}
+  - {fileID: 65605842189867760}
+  - {fileID: 65762701834883718}
   meleeDamageType: 050000000500000005000000
   attackDamage:
   - 8
@@ -10054,6 +10057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 3
   indicatorType: 3
+  indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -10097,7 +10101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
-  indicatorType: 4
+  indicatorType: 3
+  indicatorSize: 25
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -10190,6 +10195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 3
   indicatorType: 3
+  indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -10606,7 +10612,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
-  indicatorType: 0
+  indicatorType: 1
+  indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -10677,18 +10684,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
-  indicatorType: 0
+  indicatorType: 1
+  indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
-  ability: {fileID: 1021993608531872, guid: c97e3203d369c534a860e721e732bbc6, type: 2}
+  ability: {fileID: 1879156958085216, guid: a14c0acc6eeba074b99c9c809ff7b8d0, type: 2}
   abilityCastTime: 0
   damageType: 0
   damageAmount: 10
   damageFrequency: 0
-  travelSpeed: 0
+  travelSpeed: 20
   spawnDistanceFromPlayer: 0
-  activeTime: 0
+  activeTime: 10
   holdTime: 0
   zoneRadius: 0
   zoneHeight: 0
@@ -10722,6 +10730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 0
   indicatorType: 1
+  indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -10766,6 +10775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 2
   indicatorType: 3
+  indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -10870,22 +10880,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityType: 0
-  indicatorType: 0
+  abilityType: 1
+  indicatorType: 3
+  indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
-  ability: {fileID: 0}
-  abilityCastTime: 0
+  ability: {fileID: 1041677828617672, guid: d7e5dff1cbb152048a06f50acb33bcb2, type: 2}
+  abilityCastTime: 2
   damageType: 0
-  damageAmount: 15
-  damageFrequency: 0
+  damageAmount: 5
+  damageFrequency: 0.5
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 0
+  activeTime: 5
   holdTime: 0
-  zoneRadius: 0
-  zoneHeight: 0
+  zoneRadius: 10
+  zoneHeight: 2
   healthCost: 0
   crystalCost: 0
   isMelee: 0
@@ -10895,7 +10906,7 @@ MonoBehaviour:
   effectStrength: 0
   effectTime: 0
   effectFrequency: 0
-  abilitySubType: 0
+  abilitySubType: 2
   redMask:
     serializedVersion: 2
     m_Bits: 256
@@ -10989,7 +11000,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
-  indicatorType: 0
+  indicatorType: 3
+  indicatorSize: 20
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -11061,6 +11073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 2
   indicatorType: 3
+  indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
@@ -11401,13 +11414,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062c416258928cc41be0f480c7058579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellIndicatorType: 1
-  spellIndicator: {fileID: 0}
-  isSpellIndicatorEnabled: 1
-  spellIndicatorCircle: {fileID: 0}
-  spellIndicatorPoint: {fileID: 0}
-  spellIndicatorArrow: {fileID: 0}
-  spellIndicatorCone: {fileID: 0}
+  holderObject: {fileID: 0}
+  aimIndicatorArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &114909512831180230
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11489,7 +11500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 1
   playerTeam: 1
   PlayerName: Matt
   PlayerNumber: 0
@@ -11615,18 +11626,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityType: 0
-  indicatorType: 0
+  indicatorType: 3
+  indicatorSize: 20
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
-  ability: {fileID: 0}
-  abilityCastTime: 0
-  damageType: 2
+  ability: {fileID: 1000095144429562, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
+  abilityCastTime: 3
+  damageType: 0
   damageAmount: 25
-  damageFrequency: 0
+  damageFrequency: 0.5
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 0
+  activeTime: 7
   holdTime: 0
   zoneRadius: 0
   zoneHeight: 0
@@ -17092,7 +17104,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 957402045
+  randomSeed: -1038187880
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -20089,7 +20101,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 223061292
+  randomSeed: -1185860252
   InitialModule:
     serializedVersion: 3
     enabled: 1

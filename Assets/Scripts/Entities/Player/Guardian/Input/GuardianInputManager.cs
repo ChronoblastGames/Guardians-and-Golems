@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class GuardianInputManager : MonoBehaviour 
 {
-    private GuardianPlayerController guardianController;
+    private GuardianSpellIndicatorController guardianSpellIndicators;
+
+    private GuardianPlayerController guardianPlayerController;
 
     [Header("Guardian Player Values")]
     public PlayerNum playerNum;
@@ -30,9 +32,6 @@ public class GuardianInputManager : MonoBehaviour
     [HideInInspector]
     public float rightTriggerAxis;
 
-    //private float modifierAxis;
-    //private float multicastAxis;
-
     [HideInInspector]
     public Vector3 aimVec;
 
@@ -40,8 +39,6 @@ public class GuardianInputManager : MonoBehaviour
     private string inputAxisZ = "";
     private string inputAimAxisX = "";
     private string inputAimAxisZ = "";
-    //private string inputModifierAxis = "";
-    //private string inputMulticastAxis = "";
     private string inputLeftTriggerAxis = "";
     private string inputRightTriggerAxis = "";
     private string inputCaptureButton = "";
@@ -66,7 +63,9 @@ public class GuardianInputManager : MonoBehaviour
 
     void PlayerSetup()
     {
-        guardianController = GetComponent<GuardianPlayerController>();
+        guardianSpellIndicators = GetComponent<GuardianSpellIndicatorController>();
+
+        guardianPlayerController = GetComponent<GuardianPlayerController>();
 
         switch (playerNum)
         {
@@ -91,9 +90,6 @@ public class GuardianInputManager : MonoBehaviour
 
         inputAimAxisX = "HorizontalAimPlayer" + PlayerNumber + "Win";
         inputAimAxisZ = "VerticalAimPlayer" + PlayerNumber + "Win";
-
-        //inputModifierAxis = "ModifierAxisPlayer" + PlayerNumber + "Win";
-        //inputMulticastAxis = "BlockAxisPlayer" + PlayerNumber + "Win";
 
         inputLeftTriggerAxis = "LeftTriggerAxisPlayer" + PlayerNumber + "Win";
         inputRightTriggerAxis = "RightTriggerAxisPlayer" + PlayerNumber + "Win";
@@ -135,14 +131,12 @@ public class GuardianInputManager : MonoBehaviour
         aimXAxis = Input.GetAxis(inputAimAxisX);
         aimZAxis = Input.GetAxis(inputAimAxisZ);
 
-        //modifierAxis = Input.GetAxis(inputModifierAxis);
-        //multicastAxis = Input.GetAxis(inputMulticastAxis);
         leftTriggerAxis = Input.GetAxis(inputLeftTriggerAxis);
         rightTriggerAxis = Input.GetAxis(inputRightTriggerAxis);
 
         if (Input.GetKeyDown(inputCaptureButton))
         {
-            guardianController.CaptureOrb();
+            guardianPlayerController.CaptureOrb();
         }
 
         if (!isLeftTriggerPressed && leftTriggerAxis != 0)
@@ -151,14 +145,19 @@ public class GuardianInputManager : MonoBehaviour
         }
         else if (isLeftTriggerPressed && leftTriggerAxis != 0)
         {
+            guardianSpellIndicators.SetNewIndicator(guardianPlayerController.guardianAbilites[2].indicatorType, guardianPlayerController.guardianAbilites[2].indicatorSize);
+
             holdTime += Time.deltaTime * holdTimeMultiplier;
             isHoldingAbility = true;
         }
         else if (isLeftTriggerPressed && leftTriggerAxis == 0)
         {
             isLeftTriggerPressed = false;
-            guardianController.UseAbility(2, playerTeam, holdTime);
+            isHoldingAbility = false;
+            guardianPlayerController.UseAbility(2, playerTeam, holdTime);
             holdTime = 0;
+
+            guardianSpellIndicators.SetNewIndicator(IndicatorType.ARROW, 0);
         }
 
         if (!isRightTriggerPressed && rightTriggerAxis != 0)
@@ -167,36 +166,51 @@ public class GuardianInputManager : MonoBehaviour
         }
         else if (isRightTriggerPressed && rightTriggerAxis != 0)
         {
+            guardianSpellIndicators.SetNewIndicator(guardianPlayerController.guardianAbilites[3].indicatorType, guardianPlayerController.guardianAbilites[3].indicatorSize);
+
             holdTime += Time.deltaTime * holdTimeMultiplier;
             isHoldingAbility = true;
         }
         else if (isRightTriggerPressed && rightTriggerAxis == 0)
         {
             isRightTriggerPressed = false;
-            guardianController.UseAbility(3, playerTeam, holdTime);
+            isHoldingAbility = false;
+            guardianPlayerController.UseAbility(3, playerTeam, holdTime);
             holdTime = 0;
+
+            guardianSpellIndicators.SetNewIndicator(IndicatorType.ARROW, 0);
         }
 
         if (Input.GetKeyUp(inputAbility1Button))
         {
-            guardianController.UseAbility(0, playerTeam, holdTime);
+            guardianPlayerController.UseAbility(0, playerTeam, holdTime);
+            isHoldingAbility = false;
             holdTime = 0;
+
+            guardianSpellIndicators.SetNewIndicator(IndicatorType.ARROW, 0);
         }
       
         if (Input.GetKeyUp(inputAbility2Button))
         {
-            guardianController.UseAbility(1, playerTeam, holdTime);
+            guardianPlayerController.UseAbility(1, playerTeam, holdTime);
+            isHoldingAbility = false;
             holdTime = 0;
+
+            guardianSpellIndicators.SetNewIndicator(IndicatorType.ARROW, 0);
         }
 
         if (Input.GetKey(inputAbility1Button))
         {
+            guardianSpellIndicators.SetNewIndicator(guardianPlayerController.guardianAbilites[0].indicatorType, guardianPlayerController.guardianAbilites[0].indicatorSize);
+
             holdTime += Time.deltaTime * holdTimeMultiplier;
             isHoldingAbility = true;
         }
         
         if (Input.GetKey(inputAbility2Button))
         {
+            guardianSpellIndicators.SetNewIndicator(guardianPlayerController.guardianAbilites[1].indicatorType, guardianPlayerController.guardianAbilites[1].indicatorSize);
+
             holdTime += Time.deltaTime * holdTimeMultiplier;
             isHoldingAbility = true;
         }

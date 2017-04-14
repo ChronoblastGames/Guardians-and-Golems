@@ -240,7 +240,7 @@ MonoBehaviour:
   golemRespawnTime: 4
   guardianGlobalCooldown: 1
   spellOrbCoolDown: 2
-  loseConduitCommandCost: 0
-  winConduitCommandCost: 0
-  golemDeathCommandCost: 0
-  golemKillCommandCost: 0
+  loseConduitCommandCost: 200
+  winConduitCommandCost: 150
+  golemDeathCommandCost: 350
+  golemKillCommandCost: 250

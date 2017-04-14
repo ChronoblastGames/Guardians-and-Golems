@@ -12,7 +12,8 @@ public enum StatusEffect
     SILENCE,
     SHIELD,
     KNOCKBACK,
-    HEALOVERTIME
+    HEALOVERTIME,
+    STAGGER,
 }
 
 
@@ -280,6 +281,8 @@ public class GolemResources : MonoBehaviour
                 if (staggerDamage > golemDefense.golemStability)
                 {
                     GetStaggered();
+
+                    UIManager.RequestStatusText(0, transform, StatusEffect.STAGGER);
                     staggerDamage = 0;
                 }        
             }

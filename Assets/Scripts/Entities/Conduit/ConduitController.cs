@@ -14,6 +14,7 @@ public enum ConduitState
 
 public class ConduitController : MonoBehaviour 
 {
+    private CommandManager commandManager;
     private CrystalManager crystalManager;
 
     private GuardianPlayerController guardianPlayerController;
@@ -80,6 +81,8 @@ public class ConduitController : MonoBehaviour
     void InitializeConduit()
     {
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
+
+        commandManager = GameObject.FindGameObjectWithTag("CommandManager").GetComponent<CommandManager>();
 
         conduitAnimator = GetComponent<Animator>();
 
@@ -330,12 +333,16 @@ public class ConduitController : MonoBehaviour
 
                 outerRingRenderer.material.color = yellowCaptureColor;
 
+                commandManager.ConduitCapture(PlayerTeam.RED);
+
                 PlayRedCaptureParticles();
                 break;
             case PlayerTeam.BLUE:
                 crystalManager.CaptureCrystal(PlayerTeam.BLUE);
 
                 outerRingRenderer.material.color = blueCaptureColor;
+
+                commandManager.ConduitCapture(PlayerTeam.BLUE);
 
                 PlayBlueCaptureParticles();
                 break;
@@ -382,7 +389,7 @@ public class ConduitController : MonoBehaviour
     {
         if (conduitColor != teamColor)
         {
-            ConduitDisable(length);
+            StartCoroutine(ConduitDisable(length));
         }
     }
 

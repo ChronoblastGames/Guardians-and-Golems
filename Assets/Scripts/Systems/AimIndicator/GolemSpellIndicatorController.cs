@@ -44,10 +44,10 @@ public class GolemSpellIndicatorController : MonoBehaviour
     {
         golemInput = GetComponent<GolemInputManager>();
 
-        SetNewIndicator(IndicatorType.ARROW);
+        SetNewIndicator(IndicatorType.ARROW, 0);
     }
 
-    public void SetNewIndicator(IndicatorType desiredIndicatorType)
+    public void SetNewIndicator(IndicatorType desiredIndicatorType, float indicatorSize)
     {
         if (currentSpellIndicatorType != desiredIndicatorType)
         {
@@ -74,6 +74,8 @@ public class GolemSpellIndicatorController : MonoBehaviour
                     }
 
                     currentIndicator = aimIndicatorArray[1];
+
+                    currentIndicator.GetComponent<Projector>().orthographicSize = indicatorSize;
 
                     currentSpellIndicatorType = IndicatorType.CIRCLE;
 
@@ -118,7 +120,7 @@ public class GolemSpellIndicatorController : MonoBehaviour
             }
             else if (currentSpellIndicatorType == IndicatorType.CIRCLE)
             {
-
+                currentIndicator.SetActive(true);
             }
             else
             {

@@ -37,6 +37,7 @@ public struct AbilityValues
     public AbilityType abilityType;
     [Space(10)]
     public IndicatorType indicatorType;
+    public float indicatorSize;
     [Space(10)]
     public GameObject createPoint;
     [HideInInspector]
@@ -84,6 +85,7 @@ public abstract class CreateAbilityBase : MonoBehaviour
     public AbilityType abilityType;
     [Space(10)]
     public IndicatorType indicatorType;
+    public float indicatorSize;
     [Space(10)]
     public GameObject spawnPos;
     [HideInInspector]

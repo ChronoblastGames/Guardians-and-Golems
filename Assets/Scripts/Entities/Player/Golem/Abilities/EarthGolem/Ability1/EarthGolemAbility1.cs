@@ -15,10 +15,7 @@ public class EarthGolemAbility1 : AbilityCastBase
     public int shardCount;
     public int ringCount;
 
-    public float minAbilityRadius;
-    public float maxAbilityRadius;
-
-    private float abilityRadius;
+    public float abilityRadius;
 
     public float shardDepth;
 
@@ -35,21 +32,6 @@ public class EarthGolemAbility1 : AbilityCastBase
     public override void InitializeAbility()
     {
         activeTimer = new TimerClass();
-
-        if (abilityValues.holdTime < minAbilityRadius)
-        {
-            abilityValues.holdTime = minAbilityRadius;
-            abilityRadius = abilityValues.holdTime;
-        }
-        else if (abilityValues.holdTime > maxAbilityRadius)
-        {
-            abilityValues.holdTime = maxAbilityRadius;
-            abilityRadius = abilityValues.holdTime;
-        }
-        else
-        {
-            abilityRadius = abilityValues.holdTime;
-        }
 
         if (abilityValues.activeTime > 0)
         {

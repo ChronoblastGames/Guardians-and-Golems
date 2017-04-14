@@ -333,6 +333,12 @@ public class GolemPlayerController : GolemStats
 
     void ResetGolem()
     {
+        StartMovement();
+
+        canAttack = true;
+        canDodge = true;
+        canUseAbilities = true;
+
         golemResources.currentHealth = golemResources.maxHealth;
 
         golemState.SetTrigger("Reset");

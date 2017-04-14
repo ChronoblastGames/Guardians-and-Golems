@@ -154,6 +154,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
         abilityInfo.abilityType = abilityType;
         abilityInfo.indicatorType = indicatorType;
+        abilityInfo.indicatorSize = indicatorSize;
         abilityInfo.casterGameObject = casterGameObject;
         abilityInfo.teamColor = teamColor;
         abilityInfo.createPoint = spawnPos;
