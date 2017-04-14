@@ -31,6 +31,7 @@ public class ConduitController : MonoBehaviour
     public List <PlayerTeam> attachedGuardianColor;
 
     private float captureSpeed;
+    private float assistedCaptureSpeed;
     [Space(10)]
     public float decaySpeed;
     public float totalCaptureAmount;
@@ -41,6 +42,11 @@ public class ConduitController : MonoBehaviour
     public bool isBeingAssistedByBlueGolem;
 
     public GameObject centerCrystal;
+
+    [Header("Attached Conduits")]
+    public GameObject[] neighbourConduits;
+
+    public LineRenderer[] lineRendererArray;
 
     [Header("Conduit Renderer Attributes")]
     public Renderer[] crystalRenderer;
@@ -98,10 +104,12 @@ public class ConduitController : MonoBehaviour
             switch (conduitColor)
             {
                 case PlayerTeam.RED:
-                    CompleteCapture(PlayerTeam.RED);
+                    GameObject redTeamGuardian = GameObject.FindGameObjectWithTag("RedGuardian");
+                    redTeamGuardian.GetComponent<GuardianPlayerController>().conduitCapturedList.Add(gameObject);
                     break;
                 case PlayerTeam.BLUE:
-                    CompleteCapture(PlayerTeam.BLUE);
+                    GameObject blueTeamGuardian = GameObject.FindGameObjectWithTag("BlueGuardian");
+                    blueTeamGuardian.GetComponent<GuardianPlayerController>().conduitCapturedList.Add(gameObject);
                     break;
             }
         }
@@ -286,22 +294,44 @@ public class ConduitController : MonoBehaviour
                 case PlayerTeam.RED:
                     if (attachedGuardianColor.Contains(PlayerTeam.RED) && !attachedGuardianColor.Contains(PlayerTeam.BLUE))
                     {
-                        if (blueTeamCaptureAmount > 0)
+                        if (isBeingAssistedByRedGolem)
                         {
-                            blueTeamCaptureAmount -= captureSpeed * Time.deltaTime;
+                            if (blueTeamCaptureAmount > 0)
+                            {
+                                blueTeamCaptureAmount -= assistedCaptureSpeed * Time.deltaTime;
+                            }
+                            else
+                            {
+                                redTeamCaptureAmount += assistedCaptureSpeed * Time.deltaTime;
+                                blueTeamCaptureAmount = 0;
+
+                                if (redTeamCaptureAmount > totalCaptureAmount)
+                                {
+                                    redTeamCaptureAmount = totalCaptureAmount;
+
+                                    CompleteCapture(PlayerTeam.RED);
+                                }
+                            }
                         }
                         else
                         {
-                            redTeamCaptureAmount += captureSpeed * Time.deltaTime;
-                            blueTeamCaptureAmount = 0;
-
-                            if (redTeamCaptureAmount > totalCaptureAmount)
+                            if (blueTeamCaptureAmount > 0)
                             {
-                                redTeamCaptureAmount = totalCaptureAmount;
-
-                                CompleteCapture(PlayerTeam.RED);
+                                blueTeamCaptureAmount -= captureSpeed * Time.deltaTime;
                             }
-                        }
+                            else
+                            {
+                                redTeamCaptureAmount += captureSpeed * Time.deltaTime;
+                                blueTeamCaptureAmount = 0;
+
+                                if (redTeamCaptureAmount > totalCaptureAmount)
+                                {
+                                    redTeamCaptureAmount = totalCaptureAmount;
+
+                                    CompleteCapture(PlayerTeam.RED);
+                                }
+                            }
+                        }             
                     }
                     else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
                     {
@@ -321,22 +351,44 @@ public class ConduitController : MonoBehaviour
                 case PlayerTeam.BLUE:
                     if (attachedGuardianColor.Contains(PlayerTeam.BLUE) && !attachedGuardianColor.Contains(PlayerTeam.RED))
                     {
-                        if (redTeamCaptureAmount > 0)
+                        if (isBeingAssistedByBlueGolem)
                         {
-                            redTeamCaptureAmount -= captureSpeed * Time.deltaTime;
+                            if (redTeamCaptureAmount > 0)
+                            {
+                                redTeamCaptureAmount -= assistedCaptureSpeed * Time.deltaTime;
+                            }
+                            else
+                            {
+                                blueTeamCaptureAmount += assistedCaptureSpeed * Time.deltaTime;
+                                redTeamCaptureAmount = 0;
+
+                                if (blueTeamCaptureAmount > totalCaptureAmount)
+                                {
+                                    blueTeamCaptureAmount = totalCaptureAmount;
+
+                                    CompleteCapture(PlayerTeam.BLUE);
+                                }
+                            }
                         }
                         else
                         {
-                            blueTeamCaptureAmount += captureSpeed * Time.deltaTime;
-                            redTeamCaptureAmount = 0;
-
-                            if (blueTeamCaptureAmount > totalCaptureAmount)
+                            if (redTeamCaptureAmount > 0)
                             {
-                                blueTeamCaptureAmount = totalCaptureAmount;
-
-                                CompleteCapture(PlayerTeam.BLUE);
+                                redTeamCaptureAmount -= captureSpeed * Time.deltaTime;
                             }
-                        }
+                            else
+                            {
+                                blueTeamCaptureAmount += captureSpeed * Time.deltaTime;
+                                redTeamCaptureAmount = 0;
+
+                                if (blueTeamCaptureAmount > totalCaptureAmount)
+                                {
+                                    blueTeamCaptureAmount = totalCaptureAmount;
+
+                                    CompleteCapture(PlayerTeam.BLUE);
+                                }
+                            }
+                        }                    
                     }
                     else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
                     {
@@ -396,9 +448,11 @@ public class ConduitController : MonoBehaviour
 
         captureSpeed = 0;
         guardianPlayerController.isCapturingOrb = false;
-        guardianPlayerController.orbList.Add(gameObject);
+        guardianPlayerController.conduitCapturedList.Add(gameObject);
         guardianPlayerController.FinishCapture();
         conduitState = ConduitState.CONTROLLED;
+
+        DrawLine();
     }
 
     void PlayRedCaptureParticles()
@@ -470,6 +524,22 @@ public class ConduitController : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    void DrawLine()
+    {
+        if (conduitState == ConduitState.CONTROLLED)
+        {
+            for (int i = 0; i < neighbourConduits.Length; i++)
+            {
+                if (neighbourConduits[i].GetComponent<ConduitController>().conduitState == ConduitState.CONTROLLED || neighbourConduits[i].GetComponent<ConduitController>().conduitState == ConduitState.HOMEBASE && neighbourConduits[i].GetComponent<ConduitController>().conduitColor == conduitColor)
+                {
+                    //Draw a Line between myself and neighbour
+                    lineRendererArray[i].SetPosition(0, transform.position);
+                    lineRendererArray[i].SetPosition(1, neighbourConduits[i].transform.position);
+                }
+            }
         }
     }
 }

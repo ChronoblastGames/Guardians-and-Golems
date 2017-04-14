@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 114898209385239010}
   m_Layer: 15
   m_Name: Guardian_Red
-  m_TagString: Untagged
+  m_TagString: RedGuardian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2944,7 +2944,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4162180482723390}
   - component: {fileID: 137217195778857704}
-  - component: {fileID: 114253411335134634}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -3324,7 +3323,7 @@ GameObject:
   - component: {fileID: 114120597122192858}
   m_Layer: 15
   m_Name: Guardian_Blue
-  m_TagString: Untagged
+  m_TagString: BlueGuardian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9606,21 +9605,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114253411335134634
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1566867609855686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 279148f5956647743aa4d1c8440ff0f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _model: {fileID: 11400000, guid: 2c4d1d8c209f8114cb2e34b082f27049, type: 2}
-  _replacementShader: {fileID: 4800000, guid: 3731eb6d7ec045947affb03711bfbc08, type: 3}
-  _placeholderMaterial: {fileID: 2100000, guid: ea72285045ca83441b0e1dcdc29cd32c,
-    type: 2}
 --- !u!114 &114262525168906212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9970,9 +9954,9 @@ MonoBehaviour:
   - 0
   - 0
   attackMovementSpeed:
-  - 0.1
-  - 0.2
   - 0.3
+  - 0.5
+  - 0.2
   attackMovementCurves:
   - serializedVersion: 2
     m_Curve:
@@ -10283,6 +10267,24 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  pullCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   isSlowed: 0
   isKnockedBack: 0
   isBleeding: 0
@@ -10290,6 +10292,7 @@ MonoBehaviour:
   isStunned: 0
   isSilenced: 0
   isHealingOverTime: 0
+  isPulled: 0
   golemDefense:
     baseDefense: 0
     slashDefense: 0
@@ -10512,6 +10515,24 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  pullCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
   isSlowed: 0
   isKnockedBack: 0
   isBleeding: 0
@@ -10519,6 +10540,7 @@ MonoBehaviour:
   isStunned: 0
   isSilenced: 0
   isHealingOverTime: 0
+  isPulled: 0
   golemDefense:
     baseDefense: 0
     slashDefense: 0
@@ -11001,14 +11023,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 0
   indicatorType: 3
-  indicatorSize: 20
+  indicatorSize: 15
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1000095144429562, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-  abilityCastTime: 3
+  abilityCastTime: 2
   damageType: 0
-  damageAmount: 25
+  damageAmount: 7.5
   damageFrequency: 0.5
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
@@ -11021,10 +11043,10 @@ MonoBehaviour:
   isMelee: 0
   isRanged: 1
   isHeld: 0
-  statusEffect: 3
+  statusEffect: 10
   effectStrength: 5
-  effectTime: 2.5
-  effectFrequency: 0.5
+  effectTime: 1
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -11283,9 +11305,9 @@ MonoBehaviour:
   - 0
   - 0
   attackMovementSpeed:
-  - 0.1
-  - 0.2
   - 0.3
+  - 0.5
+  - 0.2
   attackMovementCurves:
   - serializedVersion: 2
     m_Curve:
@@ -11500,7 +11522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 294271bf343667547906187aefcf7ec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 1
+  playerNum: 0
   playerTeam: 1
   PlayerName: Matt
   PlayerNumber: 0
@@ -11627,14 +11649,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 0
   indicatorType: 3
-  indicatorSize: 20
+  indicatorSize: 15
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1000095144429562, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-  abilityCastTime: 3
+  abilityCastTime: 2
   damageType: 0
-  damageAmount: 25
+  damageAmount: 7.5
   damageFrequency: 0.5
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
@@ -11647,10 +11669,10 @@ MonoBehaviour:
   isMelee: 0
   isRanged: 1
   isHeld: 0
-  statusEffect: 3
+  statusEffect: 10
   effectStrength: 5
-  effectTime: 2.5
-  effectFrequency: 0.5
+  effectTime: 1
+  effectFrequency: 0
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -17104,7 +17126,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1038187880
+  randomSeed: -344252932
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -20101,7 +20123,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1185860252
+  randomSeed: 1851160824
   InitialModule:
     serializedVersion: 3
     enabled: 1

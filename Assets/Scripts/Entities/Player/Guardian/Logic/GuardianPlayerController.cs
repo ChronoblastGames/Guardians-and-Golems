@@ -27,15 +27,15 @@ public class GuardianPlayerController : GuardianStats
     [Header("Guardian Orb Attributes")]
     public GameObject guardianModel;
 
-    public List<GameObject> orbList;
+    public List<GameObject> conduitCapturedList;
 
     public PlayerTeam playerTeam;
 
     public float hoverHeight;
 
     [Header("Selection Values")]
-    public GameObject attachedOrb;
-    private GameObject selectedOrb;
+    public GameObject attachedConduit;
+    private GameObject selectedConduit;
 
     public float selectionDistance;
 
@@ -43,7 +43,7 @@ public class GuardianPlayerController : GuardianStats
 
     private RaycastHit rayHit;
 
-    public LayerMask orbMask;
+    public LayerMask conduitMask;
 
     [Header("Guardian Booleans")]
     public bool canMove = true;
@@ -92,7 +92,7 @@ public class GuardianPlayerController : GuardianStats
 
     void ManageAttack()
     {
-        if (orbList.Contains(attachedOrb))
+        if (conduitCapturedList.Contains(attachedConduit))
         {
             if (conduitController.conduitState != ConduitState.DISABLED)
             {
@@ -111,18 +111,18 @@ public class GuardianPlayerController : GuardianStats
         {
             Vector3 lookVec = new Vector3(xAxis, 0, zAxis);
 
-            if (Physics.Raycast(transform.position, lookVec, out rayHit, selectionDistance, orbMask))
+            if (Physics.Raycast(transform.position, lookVec, out rayHit, selectionDistance, conduitMask))
             {
-                selectedOrb = rayHit.collider.gameObject;
+                selectedConduit = rayHit.collider.gameObject;
 
                 if (selectionTimer.TimerIsDone() && !isUsingAbility)
                 {
-                    if (selectedOrb != attachedOrb && attachedOrb != null)
+                    if (selectedConduit != attachedConduit && attachedConduit != null)
                     {
                         DeattachFromOrb();
                     }
 
-                    AttachToOrb(selectedOrb);
+                    AttachToOrb(selectedConduit);
                 }
             }
         }
@@ -134,8 +134,8 @@ public class GuardianPlayerController : GuardianStats
 
         transform.position = orb.transform.position;
         guardianModel.transform.position = orb.transform.position + new Vector3(0, hoverHeight, 0);
-        attachedOrb = orb;
-        conduitController = attachedOrb.GetComponent<ConduitController>();
+        attachedConduit = orb;
+        conduitController = attachedConduit.GetComponent<ConduitController>();
         selectionTimer.ResetTimer(selectionDelay);
         conduitController.attachedGuardianColor.Add(playerTeam);
     }
@@ -144,12 +144,12 @@ public class GuardianPlayerController : GuardianStats
     {
         conduitController.DeselectConduit(playerTeam);
         conduitController = null;
-        attachedOrb = null;
+        attachedConduit = null;
     }
 
     public void CaptureOrb()
     {
-        if (attachedOrb != null && !isCapturingOrb)
+        if (attachedConduit != null && !isCapturingOrb)
         {
             if (conduitController.CanCaptureConduit())
             {
@@ -167,7 +167,7 @@ public class GuardianPlayerController : GuardianStats
 
     public void UseAbility(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
-        if (canUseAbility && attachedOrb != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
+        if (canUseAbility && attachedConduit != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
         {
             if (crystalManager.TryCast(guardianAbilites[abilityNumber].crystalCost, teamColor, PlayerType.GUARDIAN))
             {
@@ -186,11 +186,11 @@ public class GuardianPlayerController : GuardianStats
 
     public void UseAbilityFromAllOrbs(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
-        if (canUseAbility && attachedOrb != null)
+        if (canUseAbility && attachedConduit != null)
         {
-            for (int i = 0; i < orbList.Count; i++)
+            for (int i = 0; i < conduitCapturedList.Count; i++)
             {
-                GameObject spawnObj = orbList[i].GetComponent<ConduitController>().centerCrystal;
+                GameObject spawnObj = conduitCapturedList[i].GetComponent<ConduitController>().centerCrystal;
 
                 guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
             }
