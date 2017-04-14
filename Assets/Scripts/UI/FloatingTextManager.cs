@@ -109,6 +109,11 @@ public class FloatingTextManager : MonoBehaviour
                 newText.transform.GetChild(0).GetComponent<Text>().text = "Stagger";
                 newText.transform.GetChild(0).GetComponent<Text>().color = Color.gray;
                 break;
+
+            case StatusEffect.PULL:
+                newText.transform.GetChild(0).GetComponent<Text>().text = "Pulled";
+                newText.transform.GetChild(0).GetComponent<Text>().color = Color.yellow;
+                break;
         }
 
         newText.transform.SetParent(transform, false);

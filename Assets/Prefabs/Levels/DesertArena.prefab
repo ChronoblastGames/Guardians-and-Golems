@@ -34,12 +34,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4188247363038176}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: InnerRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1005960082511400
 GameObject:
@@ -51,12 +51,12 @@ GameObject:
   - component: {fileID: 4656517167124004}
   - component: {fileID: 33036828570279234}
   - component: {fileID: 23522135632434648}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Cracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1006222746642254
 GameObject:
@@ -102,12 +102,12 @@ GameObject:
   - component: {fileID: 4332559324138622}
   - component: {fileID: 33203617993595160}
   - component: {fileID: 23667150583033334}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1022094083990378
 GameObject:
@@ -122,7 +122,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1027484589111786
 GameObject:
@@ -149,12 +149,12 @@ GameObject:
   - component: {fileID: 4935197273510010}
   - component: {fileID: 33081515965401972}
   - component: {fileID: 23865554437669602}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_RightLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1031134938788544
 GameObject:
@@ -183,12 +183,12 @@ GameObject:
   - component: {fileID: 4407088291047950}
   - component: {fileID: 33843015778637432}
   - component: {fileID: 23335379241631926}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1037649466449206
 GameObject:
@@ -215,12 +215,12 @@ GameObject:
   - component: {fileID: 4544675823900830}
   - component: {fileID: 33418223991855352}
   - component: {fileID: 23212358196682832}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1042416983844616
 GameObject:
@@ -249,12 +249,12 @@ GameObject:
   - component: {fileID: 4963394800170298}
   - component: {fileID: 33264666843067736}
   - component: {fileID: 23909073973759144}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_BotLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1044323668496832
 GameObject:
@@ -281,12 +281,12 @@ GameObject:
   - component: {fileID: 4521853370326908}
   - component: {fileID: 33301570179391126}
   - component: {fileID: 23921135726104786}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1044898182270914
 GameObject:
@@ -298,12 +298,12 @@ GameObject:
   - component: {fileID: 4376811071101042}
   - component: {fileID: 33457056302998068}
   - component: {fileID: 23792568772240970}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Inner_RIng
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1052028185428894
 GameObject:
@@ -315,12 +315,12 @@ GameObject:
   - component: {fileID: 4342328365462250}
   - component: {fileID: 33635276369102060}
   - component: {fileID: 23154683244974172}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_BotRight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1054265567827278
 GameObject:
@@ -337,7 +337,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1056841044155268
 GameObject:
@@ -369,7 +369,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1064480097988244
 GameObject:
@@ -379,12 +379,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4805906334794318}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1064559196748136
 GameObject:
@@ -409,12 +409,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4945674490385790}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1070203400640654
 GameObject:
@@ -443,12 +443,12 @@ GameObject:
   - component: {fileID: 4598949368742930}
   - component: {fileID: 33979612058315788}
   - component: {fileID: 23022823964913498}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1076104365820712
 GameObject:
@@ -526,12 +526,12 @@ GameObject:
   - component: {fileID: 4571213531446298}
   - component: {fileID: 33876554587520152}
   - component: {fileID: 23387468166843202}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1102028695710990
 GameObject:
@@ -560,12 +560,12 @@ GameObject:
   - component: {fileID: 4194343097057436}
   - component: {fileID: 33380898961961998}
   - component: {fileID: 23823156016610394}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1108645850886636
 GameObject:
@@ -607,12 +607,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4335424188956504}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OuterRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1120217724016756
 GameObject:
@@ -624,12 +624,12 @@ GameObject:
   - component: {fileID: 4928365304480020}
   - component: {fileID: 33778055765022656}
   - component: {fileID: 23049453041958936}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1122413478813058
 GameObject:
@@ -641,12 +641,12 @@ GameObject:
   - component: {fileID: 4523368890502204}
   - component: {fileID: 33353006994736718}
   - component: {fileID: 23077474694878864}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polymsh18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1124141157563392
 GameObject:
@@ -658,12 +658,12 @@ GameObject:
   - component: {fileID: 4047369470270388}
   - component: {fileID: 33259014657484844}
   - component: {fileID: 23144195550935168}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Cracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1129957311171480
 GameObject:
@@ -680,7 +680,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1132040466441030
 GameObject:
@@ -707,12 +707,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4037650614819478}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BigGemCtrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1142562467060284
 GameObject:
@@ -739,12 +739,12 @@ GameObject:
   - component: {fileID: 4762772136693104}
   - component: {fileID: 33040655006827422}
   - component: {fileID: 23832214090986192}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1143803251620758
 GameObject:
@@ -777,7 +777,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1147416236740708
 GameObject:
@@ -789,12 +789,12 @@ GameObject:
   - component: {fileID: 4560518776454308}
   - component: {fileID: 33639717709265408}
   - component: {fileID: 23710908315044624}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1149231266022866
 GameObject:
@@ -804,12 +804,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4906983051842080}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1153949262437582
 GameObject:
@@ -821,12 +821,12 @@ GameObject:
   - component: {fileID: 4392614771175520}
   - component: {fileID: 33567684943934002}
   - component: {fileID: 23298003282277818}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1154754699241510
 GameObject:
@@ -853,12 +853,12 @@ GameObject:
   - component: {fileID: 4559516949653540}
   - component: {fileID: 33856299537080434}
   - component: {fileID: 23901341280230426}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1161560294675512
 GameObject:
@@ -921,12 +921,12 @@ GameObject:
   - component: {fileID: 4233080918558632}
   - component: {fileID: 33218030853376736}
   - component: {fileID: 23772557772452544}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1174296443450574
 GameObject:
@@ -936,12 +936,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4521420149710794}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BigGemCtrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1174675986802060
 GameObject:
@@ -953,12 +953,12 @@ GameObject:
   - component: {fileID: 4259401021868510}
   - component: {fileID: 33511822888477882}
   - component: {fileID: 23090003393093356}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1186372310270098
 GameObject:
@@ -970,12 +970,12 @@ GameObject:
   - component: {fileID: 4212054334487822}
   - component: {fileID: 33821255520915610}
   - component: {fileID: 23622703562090022}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1187271040361768
 GameObject:
@@ -992,7 +992,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1188227356754192
 GameObject:
@@ -1021,12 +1021,12 @@ GameObject:
   - component: {fileID: 4184438730479418}
   - component: {fileID: 33596311178271006}
   - component: {fileID: 23686918827728418}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1190896130066982
 GameObject:
@@ -1043,7 +1043,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1193910393017114
 GameObject:
@@ -1060,7 +1060,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1198416454356698
 GameObject:
@@ -1070,12 +1070,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4754402424836232}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1206254584688338
 GameObject:
@@ -1102,12 +1102,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4805556480178946}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1212246514094360
 GameObject:
@@ -1141,7 +1141,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1217881883412694
 GameObject:
@@ -1151,12 +1151,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4183699195575434}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ConduitModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1223585470657476
 GameObject:
@@ -1168,12 +1168,12 @@ GameObject:
   - component: {fileID: 4074398064229326}
   - component: {fileID: 33470696814381748}
   - component: {fileID: 23951208313004568}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_BotLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1230202098088104
 GameObject:
@@ -1200,12 +1200,12 @@ GameObject:
   - component: {fileID: 4606923745244854}
   - component: {fileID: 33869928606539654}
   - component: {fileID: 23195017140819624}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1242066092365858
 GameObject:
@@ -1232,12 +1232,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4807756231733844}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1249824324517616
 GameObject:
@@ -1279,12 +1279,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4703107163915016}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1269088167606646
 GameObject:
@@ -1296,12 +1296,12 @@ GameObject:
   - component: {fileID: 4751785858565216}
   - component: {fileID: 33453403718277914}
   - component: {fileID: 23235833833055486}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: cube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1271833560373054
 GameObject:
@@ -1328,12 +1328,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4114152537782680}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ConduitModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1291125609218156
 GameObject:
@@ -1345,12 +1345,12 @@ GameObject:
   - component: {fileID: 4991438920206172}
   - component: {fileID: 33053638324047596}
   - component: {fileID: 23606221211712384}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_BotRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1292299959779642
 GameObject:
@@ -1360,12 +1360,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4074907060085102}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ConduitModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1296606351672852
 GameObject:
@@ -1377,12 +1377,12 @@ GameObject:
   - component: {fileID: 4772571822287694}
   - component: {fileID: 33348777668595924}
   - component: {fileID: 23583067214977886}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: TiledFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1308668310203316
 GameObject:
@@ -1411,12 +1411,12 @@ GameObject:
   - component: {fileID: 4910131531951244}
   - component: {fileID: 33758695884133314}
   - component: {fileID: 23874812035805052}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_BotLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1311357909112292
 GameObject:
@@ -1428,12 +1428,12 @@ GameObject:
   - component: {fileID: 4292721509500690}
   - component: {fileID: 33529012080356136}
   - component: {fileID: 23836824608550362}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1312663092932912
 GameObject:
@@ -1450,7 +1450,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1317802832531898
 GameObject:
@@ -1462,12 +1462,12 @@ GameObject:
   - component: {fileID: 4730648931506152}
   - component: {fileID: 33603459037050504}
   - component: {fileID: 23201136966177536}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Inner_RIng
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1323390526841254
 GameObject:
@@ -1482,7 +1482,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1323869215280476
 GameObject:
@@ -1494,12 +1494,12 @@ GameObject:
   - component: {fileID: 4219269927632048}
   - component: {fileID: 33747644974655110}
   - component: {fileID: 23819799566641512}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1330476740536134
 GameObject:
@@ -1516,7 +1516,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1332435905648530
 GameObject:
@@ -1545,12 +1545,12 @@ GameObject:
   - component: {fileID: 4810205277660614}
   - component: {fileID: 33113731543076090}
   - component: {fileID: 23953889459959582}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1340898364614438
 GameObject:
@@ -1562,12 +1562,12 @@ GameObject:
   - component: {fileID: 4436761730722186}
   - component: {fileID: 33439543631641828}
   - component: {fileID: 23728244484073810}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: TiledFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1341398303628914
 GameObject:
@@ -1579,12 +1579,12 @@ GameObject:
   - component: {fileID: 4270911511343080}
   - component: {fileID: 33313207154121386}
   - component: {fileID: 23247085446052334}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Inner_RIng
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1341549509421132
 GameObject:
@@ -1596,12 +1596,12 @@ GameObject:
   - component: {fileID: 4255131118676724}
   - component: {fileID: 33640542147823928}
   - component: {fileID: 23776765951817750}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polymsh18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1348779438287782
 GameObject:
@@ -1618,7 +1618,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1352515182824588
 GameObject:
@@ -1635,7 +1635,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1354922470734866
 GameObject:
@@ -1664,12 +1664,12 @@ GameObject:
   - component: {fileID: 4580134329139638}
   - component: {fileID: 33193849943106698}
   - component: {fileID: 23252859090455444}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_BotRight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1359593677230918
 GameObject:
@@ -1681,12 +1681,12 @@ GameObject:
   - component: {fileID: 4096425542398452}
   - component: {fileID: 33857243351960858}
   - component: {fileID: 23337119343001492}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1370247805127786
 GameObject:
@@ -1698,12 +1698,12 @@ GameObject:
   - component: {fileID: 4927290186321370}
   - component: {fileID: 33962312529165490}
   - component: {fileID: 23229795344594692}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1374309564776100
 GameObject:
@@ -1713,12 +1713,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4642312117704850}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: InnerRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1375935880790468
 GameObject:
@@ -1747,12 +1747,12 @@ GameObject:
   - component: {fileID: 4177682772684252}
   - component: {fileID: 33057124740808070}
   - component: {fileID: 23024437585103884}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_BotRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1382809667002990
 GameObject:
@@ -1764,12 +1764,12 @@ GameObject:
   - component: {fileID: 4315643603497892}
   - component: {fileID: 33033330396038728}
   - component: {fileID: 23270016528075178}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polymsh19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1383158572692702
 GameObject:
@@ -1803,7 +1803,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1391406428727728
 GameObject:
@@ -1835,7 +1835,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1403679902169066
 GameObject:
@@ -1847,12 +1847,12 @@ GameObject:
   - component: {fileID: 4704717685840084}
   - component: {fileID: 33580433562419076}
   - component: {fileID: 23260727948266416}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1408933539605020
 GameObject:
@@ -1862,12 +1862,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4788904376720528}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1411319743999504
 GameObject:
@@ -1884,7 +1884,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1416215013269942
 GameObject:
@@ -1913,12 +1913,12 @@ GameObject:
   - component: {fileID: 4989016478723594}
   - component: {fileID: 33553768361227548}
   - component: {fileID: 23593453513155184}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1417628341404664
 GameObject:
@@ -1930,12 +1930,12 @@ GameObject:
   - component: {fileID: 4826974954237102}
   - component: {fileID: 33846139769856348}
   - component: {fileID: 23980431615860718}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1420441665474942
 GameObject:
@@ -1947,12 +1947,12 @@ GameObject:
   - component: {fileID: 4566361220240954}
   - component: {fileID: 33857748671293182}
   - component: {fileID: 23977553897354606}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: cube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1422282661217544
 GameObject:
@@ -1962,12 +1962,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4369727584109498}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BigGemCtrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1430999786714850
 GameObject:
@@ -1979,12 +1979,12 @@ GameObject:
   - component: {fileID: 4653826390668886}
   - component: {fileID: 33727465297833880}
   - component: {fileID: 23481740879590274}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1431141297747296
 GameObject:
@@ -1996,12 +1996,12 @@ GameObject:
   - component: {fileID: 4312260392298534}
   - component: {fileID: 33155669992401664}
   - component: {fileID: 23708229219604890}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_BotRight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1439679812195726
 GameObject:
@@ -2013,12 +2013,12 @@ GameObject:
   - component: {fileID: 4781385724061260}
   - component: {fileID: 33808242462158316}
   - component: {fileID: 23388074021933698}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1441595999430434
 GameObject:
@@ -2050,7 +2050,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1451279877003614
 GameObject:
@@ -2060,12 +2060,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4481512980816996}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1460814500179010
 GameObject:
@@ -2077,12 +2077,12 @@ GameObject:
   - component: {fileID: 4395585871012326}
   - component: {fileID: 33063518629717336}
   - component: {fileID: 23324454627025420}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1467821045206776
 GameObject:
@@ -2126,12 +2126,12 @@ GameObject:
   - component: {fileID: 4672728651142182}
   - component: {fileID: 33314931333794310}
   - component: {fileID: 23417948247265712}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polymsh19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1481990382501720
 GameObject:
@@ -2141,12 +2141,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4100394409636472}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1486756323695252
 GameObject:
@@ -2163,7 +2163,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1494686125408518
 GameObject:
@@ -2205,12 +2205,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4107856650627424}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OuterRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1496832130191998
 GameObject:
@@ -2222,12 +2222,12 @@ GameObject:
   - component: {fileID: 4499179158028900}
   - component: {fileID: 33970405304084362}
   - component: {fileID: 23730660410420506}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_RightLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1497032191451538
 GameObject:
@@ -2244,7 +2244,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1504063248306280
 GameObject:
@@ -2293,7 +2293,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1507136131779018
 GameObject:
@@ -2303,12 +2303,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4885609500783306}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1507331015974216
 GameObject:
@@ -2337,12 +2337,12 @@ GameObject:
   - component: {fileID: 4565589789177044}
   - component: {fileID: 33237770353471666}
   - component: {fileID: 23871011717229256}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1527481025493642
 GameObject:
@@ -2375,7 +2375,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1532215933005536
 GameObject:
@@ -2387,12 +2387,12 @@ GameObject:
   - component: {fileID: 4691416706084984}
   - component: {fileID: 33739417597038746}
   - component: {fileID: 23672146594578790}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1547221099858514
 GameObject:
@@ -2421,12 +2421,12 @@ GameObject:
   - component: {fileID: 4274052905664336}
   - component: {fileID: 33721910202466726}
   - component: {fileID: 23174598478235734}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1562606366753284
 GameObject:
@@ -2438,12 +2438,12 @@ GameObject:
   - component: {fileID: 4490505933586674}
   - component: {fileID: 33070611327343178}
   - component: {fileID: 23836234069949884}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1563244852777806
 GameObject:
@@ -2460,7 +2460,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1565867038831088
 GameObject:
@@ -2489,12 +2489,12 @@ GameObject:
   - component: {fileID: 4788210760489466}
   - component: {fileID: 33634052903665064}
   - component: {fileID: 23119780040377750}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1568912162840106
 GameObject:
@@ -2539,12 +2539,12 @@ GameObject:
   - component: {fileID: 4892593333593932}
   - component: {fileID: 33885858459191944}
   - component: {fileID: 23744767438232126}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1591123517748386
 GameObject:
@@ -2556,12 +2556,12 @@ GameObject:
   - component: {fileID: 4958911945939814}
   - component: {fileID: 33512426217479256}
   - component: {fileID: 23675929587315778}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1593122120421286
 GameObject:
@@ -2571,12 +2571,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4019735568758668}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1595852192313592
 GameObject:
@@ -2593,7 +2593,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1596790807117088
 GameObject:
@@ -2610,7 +2610,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1603142962132182
 GameObject:
@@ -2678,7 +2678,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1612418536974200
 GameObject:
@@ -2688,12 +2688,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4237833111039268}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MidRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1614082459033876
 GameObject:
@@ -2705,12 +2705,12 @@ GameObject:
   - component: {fileID: 4644536219041556}
   - component: {fileID: 33758588582780564}
   - component: {fileID: 23135696221391720}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Cracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1614894066863120
 GameObject:
@@ -2742,7 +2742,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1622623198439482
 GameObject:
@@ -2769,12 +2769,12 @@ GameObject:
   - component: {fileID: 4076067365652352}
   - component: {fileID: 33916378297316644}
   - component: {fileID: 23980666468034532}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: TiledFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1624243519334736
 GameObject:
@@ -2804,12 +2804,12 @@ GameObject:
   - component: {fileID: 4325265335606870}
   - component: {fileID: 33486559028574790}
   - component: {fileID: 23232364871886838}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1637725924825206
 GameObject:
@@ -2821,12 +2821,12 @@ GameObject:
   - component: {fileID: 4842772124453174}
   - component: {fileID: 33357000140427186}
   - component: {fileID: 23647887501673078}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polymsh19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1638258701263576
 GameObject:
@@ -2836,12 +2836,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4897813747662248}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MidRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1641018313684006
 GameObject:
@@ -2868,12 +2868,12 @@ GameObject:
   - component: {fileID: 4800114713568646}
   - component: {fileID: 33560925905582982}
   - component: {fileID: 23613893639688088}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1653569764152186
 GameObject:
@@ -2885,12 +2885,12 @@ GameObject:
   - component: {fileID: 4094801889159058}
   - component: {fileID: 33588784075889138}
   - component: {fileID: 23469243563662570}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_BotLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1660228481084684
 GameObject:
@@ -2934,12 +2934,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4873097158864608}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1667216580222826
 GameObject:
@@ -2951,12 +2951,12 @@ GameObject:
   - component: {fileID: 4408815467838078}
   - component: {fileID: 33918457689628142}
   - component: {fileID: 23710064966680556}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_RightLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1678671036861130
 GameObject:
@@ -2968,12 +2968,12 @@ GameObject:
   - component: {fileID: 4530206332879262}
   - component: {fileID: 33097811080403634}
   - component: {fileID: 23562230790111532}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1684435988657942
 GameObject:
@@ -3000,12 +3000,12 @@ GameObject:
   - component: {fileID: 4431753416996944}
   - component: {fileID: 33778424179331744}
   - component: {fileID: 23308972196340656}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1688183351914594
 GameObject:
@@ -3030,12 +3030,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4708345159017430}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1691854371580958
 GameObject:
@@ -3045,12 +3045,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4194675415176770}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1696659028422914
 GameObject:
@@ -3062,12 +3062,12 @@ GameObject:
   - component: {fileID: 4699742967914182}
   - component: {fileID: 33240824479951654}
   - component: {fileID: 23030282165488126}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_BotRight1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1697803829799990
 GameObject:
@@ -3079,12 +3079,12 @@ GameObject:
   - component: {fileID: 4590331268936856}
   - component: {fileID: 33838747696356864}
   - component: {fileID: 23638379949565640}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1701708099465606
 GameObject:
@@ -3111,12 +3111,12 @@ GameObject:
   - component: {fileID: 4237876335971030}
   - component: {fileID: 33118293811883658}
   - component: {fileID: 23001615933219986}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polymsh18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1707663899468954
 GameObject:
@@ -3179,12 +3179,12 @@ GameObject:
   - component: {fileID: 4757059398051854}
   - component: {fileID: 33596326765229456}
   - component: {fileID: 23515578625441156}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polymsh18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1715744770541512
 GameObject:
@@ -3194,12 +3194,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4119982213160642}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: InnerRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1716462900439130
 GameObject:
@@ -3209,12 +3209,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4103831975763270}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OuterRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1717859363889430
 GameObject:
@@ -3224,12 +3224,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4998143401357386}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OuterRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1718419466502704
 GameObject:
@@ -3241,12 +3241,12 @@ GameObject:
   - component: {fileID: 4204410613329426}
   - component: {fileID: 33143461740492878}
   - component: {fileID: 23534309562907950}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1721474371910922
 GameObject:
@@ -3258,12 +3258,12 @@ GameObject:
   - component: {fileID: 4646610318745256}
   - component: {fileID: 33031978412905188}
   - component: {fileID: 23143125854466370}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: cube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1729743927654650
 GameObject:
@@ -3280,7 +3280,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1741851250537490
 GameObject:
@@ -3326,12 +3326,12 @@ GameObject:
   - component: {fileID: 4388575246780170}
   - component: {fileID: 33852858772242942}
   - component: {fileID: 23156696503733512}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Cracks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1752216448564732
 GameObject:
@@ -3348,7 +3348,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1759202417248290
 GameObject:
@@ -3375,12 +3375,12 @@ GameObject:
   - component: {fileID: 4858455560306978}
   - component: {fileID: 33258825095065312}
   - component: {fileID: 23448721134911096}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1763309000763092
 GameObject:
@@ -3431,7 +3431,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1766397079251262
 GameObject:
@@ -3443,12 +3443,12 @@ GameObject:
   - component: {fileID: 4124635671861670}
   - component: {fileID: 33309820483466292}
   - component: {fileID: 23073277813383538}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1775745888075196
 GameObject:
@@ -3477,12 +3477,12 @@ GameObject:
   - component: {fileID: 4924567678088304}
   - component: {fileID: 33845546087701580}
   - component: {fileID: 23506447557079866}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1777043198479956
 GameObject:
@@ -3511,12 +3511,12 @@ GameObject:
   - component: {fileID: 4940387501654948}
   - component: {fileID: 33517252829179196}
   - component: {fileID: 23915263940115674}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: cube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1780929533167522
 GameObject:
@@ -3528,12 +3528,12 @@ GameObject:
   - component: {fileID: 4118501253546258}
   - component: {fileID: 33318782597408480}
   - component: {fileID: 23802307734364798}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: cube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1782347975900016
 GameObject:
@@ -3548,7 +3548,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1787563954026788
 GameObject:
@@ -3563,7 +3563,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1791403372074262
 GameObject:
@@ -3575,12 +3575,12 @@ GameObject:
   - component: {fileID: 4976447143851006}
   - component: {fileID: 33510285620717956}
   - component: {fileID: 23618947046529632}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_BotRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1798287222571722
 GameObject:
@@ -3592,12 +3592,12 @@ GameObject:
   - component: {fileID: 4771944895932782}
   - component: {fileID: 33240919190242250}
   - component: {fileID: 23927669460546990}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: cube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1805168014374286
 GameObject:
@@ -3609,12 +3609,12 @@ GameObject:
   - component: {fileID: 4017813737867844}
   - component: {fileID: 33277998529752308}
   - component: {fileID: 23595043380188836}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: cube1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1806065520817402
 GameObject:
@@ -3675,12 +3675,12 @@ GameObject:
   - component: {fileID: 4500852994679872}
   - component: {fileID: 33300430315164454}
   - component: {fileID: 23901300763235926}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1834280291331180
 GameObject:
@@ -3692,12 +3692,12 @@ GameObject:
   - component: {fileID: 4386818891227100}
   - component: {fileID: 33722612440302152}
   - component: {fileID: 23501313224708880}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Inner_RIng
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1837920810591672
 GameObject:
@@ -3707,12 +3707,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4319286814412760}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BigGemCtrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1843880758451678
 GameObject:
@@ -3739,12 +3739,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4101991326734330}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: ConduitModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1853186893690130
 GameObject:
@@ -3756,12 +3756,12 @@ GameObject:
   - component: {fileID: 4835189509470706}
   - component: {fileID: 33876245534148290}
   - component: {fileID: 23537700935772260}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: cube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1857757634731640
 GameObject:
@@ -3771,12 +3771,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4606156623025296}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MidRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1862396584363684
 GameObject:
@@ -3805,12 +3805,12 @@ GameObject:
   - component: {fileID: 4232493689824406}
   - component: {fileID: 33821677717415900}
   - component: {fileID: 23929046413626350}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1866423692811396
 GameObject:
@@ -3820,12 +3820,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4730617296975020}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: MidRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1868331373781566
 GameObject:
@@ -3854,12 +3854,12 @@ GameObject:
   - component: {fileID: 4417367585183504}
   - component: {fileID: 33941504031342826}
   - component: {fileID: 23211249686655536}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_RightLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1871783165318600
 GameObject:
@@ -3889,7 +3889,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1888511971105894
 GameObject:
@@ -3916,12 +3916,12 @@ GameObject:
   - component: {fileID: 4682202809963956}
   - component: {fileID: 33587600430751056}
   - component: {fileID: 23759691699497794}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Diamond_TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1894773395313100
 GameObject:
@@ -3946,12 +3946,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4255358147830936}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: InnerRing_Ctrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1901639424884120
 GameObject:
@@ -3966,7 +3966,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1903514353262496
 GameObject:
@@ -3993,12 +3993,12 @@ GameObject:
   - component: {fileID: 4200761217672670}
   - component: {fileID: 33797103049133132}
   - component: {fileID: 23033896216259676}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1907229451722484
 GameObject:
@@ -4027,12 +4027,12 @@ GameObject:
   - component: {fileID: 4300367076772752}
   - component: {fileID: 33976096505833610}
   - component: {fileID: 23281359733187066}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: polymsh19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1920900147480798
 GameObject:
@@ -4044,12 +4044,12 @@ GameObject:
   - component: {fileID: 4479514751247218}
   - component: {fileID: 33988093391809502}
   - component: {fileID: 23306218672738498}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1922546453636854
 GameObject:
@@ -4110,12 +4110,12 @@ GameObject:
   - component: {fileID: 4368004139303312}
   - component: {fileID: 33092627932539600}
   - component: {fileID: 23312493339355676}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1936648335137836
 GameObject:
@@ -4144,12 +4144,12 @@ GameObject:
   - component: {fileID: 4199850156595800}
   - component: {fileID: 33319081157495926}
   - component: {fileID: 23560309622931386}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_BotRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1941030866095570
 GameObject:
@@ -4161,12 +4161,12 @@ GameObject:
   - component: {fileID: 4548915284727588}
   - component: {fileID: 33064197141561964}
   - component: {fileID: 23908519808406304}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: TiledFloor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1943948156728722
 GameObject:
@@ -4178,12 +4178,12 @@ GameObject:
   - component: {fileID: 4761314264966936}
   - component: {fileID: 33112058278286474}
   - component: {fileID: 23292185386890148}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1944834453730040
 GameObject:
@@ -4213,12 +4213,12 @@ GameObject:
   - component: {fileID: 4109259865089610}
   - component: {fileID: 33655408762241716}
   - component: {fileID: 23075574294312040}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_TopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1949285147366830
 GameObject:
@@ -4230,12 +4230,12 @@ GameObject:
   - component: {fileID: 4261369219236550}
   - component: {fileID: 33545328222943128}
   - component: {fileID: 23139409054648446}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1953177357445410
 GameObject:
@@ -4247,12 +4247,12 @@ GameObject:
   - component: {fileID: 4712398830357494}
   - component: {fileID: 33261478496321404}
   - component: {fileID: 23360446524892074}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1977052358000924
 GameObject:
@@ -4264,12 +4264,12 @@ GameObject:
   - component: {fileID: 4702039623561566}
   - component: {fileID: 33190432806324212}
   - component: {fileID: 23062882857570492}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: OvalGem_TopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1985478283294908
 GameObject:
@@ -4299,12 +4299,12 @@ GameObject:
   - component: {fileID: 4491371588439152}
   - component: {fileID: 33803916245235164}
   - component: {fileID: 23557572947564300}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: octahedron5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!1 &1988528850481054
 GameObject:
@@ -4314,12 +4314,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4837164398407064}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hook_Ctrl4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4017813737867844
 Transform:
@@ -13277,6 +13277,8 @@ MonoBehaviour:
   crackRenderer: {fileID: 23156696503733512}
   yellowCaptureColor: {r: 1, g: 0.93103445, b: 0, a: 1}
   blueCaptureColor: {r: 0, g: 0.95862055, b: 1, a: 1}
+  outerRingColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  gemColor: {r: 0.1254902, g: 0.32941177, b: 0.1254902, a: 1}
   yellowSelectionColor: {r: 1, g: 0.7241379, b: 0, a: 1}
   blueSelectionColor: {r: 0.15862082, g: 0, b: 1, a: 1}
   redCapturedParticles: {fileID: 198180605264611620}
@@ -13332,6 +13334,8 @@ MonoBehaviour:
   crackRenderer: {fileID: 23522135632434648}
   yellowCaptureColor: {r: 1, g: 0.93103445, b: 0, a: 1}
   blueCaptureColor: {r: 0, g: 0.95862055, b: 1, a: 1}
+  outerRingColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  gemColor: {r: 0.1254902, g: 0.32941177, b: 0.1254902, a: 1}
   yellowSelectionColor: {r: 1, g: 0.7241379, b: 0, a: 1}
   blueSelectionColor: {r: 0.15862082, g: 0, b: 1, a: 1}
   redCapturedParticles: {fileID: 198421270299553438}
@@ -13387,6 +13391,8 @@ MonoBehaviour:
   crackRenderer: {fileID: 23135696221391720}
   yellowCaptureColor: {r: 1, g: 0.93103445, b: 0, a: 1}
   blueCaptureColor: {r: 0, g: 0.95862055, b: 1, a: 1}
+  outerRingColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  gemColor: {r: 0.1254902, g: 0.32941177, b: 0.1254902, a: 1}
   yellowSelectionColor: {r: 1, g: 0.7241379, b: 0, a: 1}
   blueSelectionColor: {r: 0.15862082, g: 0, b: 1, a: 1}
   redCapturedParticles: {fileID: 198671782547988678}
@@ -13442,6 +13448,8 @@ MonoBehaviour:
   crackRenderer: {fileID: 23144195550935168}
   yellowCaptureColor: {r: 1, g: 0.93103445, b: 0, a: 1}
   blueCaptureColor: {r: 0, g: 0.95862055, b: 1, a: 1}
+  outerRingColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  gemColor: {r: 0.1254902, g: 0.32941177, b: 0.1254902, a: 1}
   yellowSelectionColor: {r: 1, g: 0.7241379, b: 0, a: 1}
   blueSelectionColor: {r: 0.15862082, g: 0, b: 1, a: 1}
   redCapturedParticles: {fileID: 198866386321911884}
@@ -13497,6 +13505,8 @@ MonoBehaviour:
   crackRenderer: {fileID: 23439267723599012}
   yellowCaptureColor: {r: 1, g: 0.93103445, b: 0, a: 1}
   blueCaptureColor: {r: 0, g: 0.95862055, b: 1, a: 1}
+  outerRingColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  gemColor: {r: 0.1254902, g: 0.32941177, b: 0.1254902, a: 1}
   yellowSelectionColor: {r: 1, g: 0.7241379, b: 0, a: 1}
   blueSelectionColor: {r: 0.15862082, g: 0, b: 1, a: 1}
   redCapturedParticles: {fileID: 198972781959920198}

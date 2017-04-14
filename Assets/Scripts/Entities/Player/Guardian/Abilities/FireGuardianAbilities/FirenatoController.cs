@@ -6,7 +6,7 @@ public class FirenatoController : AbilityCastBase
 {
     private Projector spellAreaProjector;
 
-    private List<GameObject> hitObjectList;
+    private List<GameObject> hitObjectList = new List<GameObject>();
 
     [Header("Ability Attributes")]
     public float rotationSpeed;

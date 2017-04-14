@@ -14,6 +14,7 @@ public enum StatusEffect
     KNOCKBACK,
     HEALOVERTIME,
     STAGGER,
+    PULL
 }
 
 
@@ -48,6 +49,8 @@ public class GolemResources : MonoBehaviour
     public List<StatusEffect> statusEffectList;
 
     public AnimationCurve knockBackCurve;
+    public AnimationCurve pullCurve;
+    [Space(10)]
 
     public bool isSlowed = false;
     public bool isKnockedBack = false;
@@ -56,6 +59,7 @@ public class GolemResources : MonoBehaviour
     public bool isStunned = false;
     public bool isSilenced = false;
     public bool isHealingOverTime = false;
+    public bool isPulled = false;
 
     [HideInInspector]
     public GolemDefense golemDefense;
@@ -368,6 +372,16 @@ public class GolemResources : MonoBehaviour
                 UIManager.RequestStatusText(effectStrength, transform, StatusEffect.HEALOVERTIME);
                 break;
 
+            case StatusEffect.PULL:
+                Vector3 pullVec = (damagingObject.transform.position - transform.position).normalized;
+                pullVec.y = 0;
+
+                StartCoroutine(Pull(-pullVec, pullCurve, effectStrength, effectTime));
+                statusEffectList.Add(StatusEffect.PULL);
+
+                UIManager.RequestStatusText(effectStrength, transform, StatusEffect.PULL);
+                break;
+
             default:
                 Debug.Log("Something went wrong in InflictStatusEffect, wrong argument passed, was: " + statusEffect);
                 break;
@@ -400,6 +414,8 @@ public class GolemResources : MonoBehaviour
         }
 
         StopKnockback();
+
+        yield return null;
     }
 
     void StopKnockback()
@@ -413,6 +429,49 @@ public class GolemResources : MonoBehaviour
         isKnockedBack = false;
 
         statusEffectList.Remove(StatusEffect.KNOCKBACK);
+    }
+
+    IEnumerator Pull (Vector3 interceptVec, AnimationCurve pullCurve, float pullStrength, float pullTime)
+    {
+        float pullTimer = 0f;
+
+        golemPlayerController.StopMovement();
+
+        GetStaggered();
+
+        golemPlayerController.canRotate = false;
+        golemPlayerController.canUseAbilities = false;
+        golemPlayerController.canAttack = false;
+
+        isPulled = true;
+
+        while (pullTimer <= pullTime)
+        {
+            pullTimer += Time.deltaTime / pullTime;
+
+            float pullCurrentSpeed = pullStrength * pullCurve.Evaluate(pullTimer);
+
+            golemPlayerController.characterController.Move((-interceptVec * pullCurrentSpeed) * Time.deltaTime);
+
+            yield return null;
+        }
+
+        StopPull();
+
+        yield return null;
+    }
+
+    void StopPull()
+    {
+        golemPlayerController.StartMovement();
+
+        golemPlayerController.canRotate = true;
+        golemPlayerController.canUseAbilities = true;
+        golemPlayerController.canAttack = true;
+
+        isPulled = false;
+
+        statusEffectList.Remove(StatusEffect.PULL);
     }
 
     IEnumerator Slow(float slowStrength, float slowTime)

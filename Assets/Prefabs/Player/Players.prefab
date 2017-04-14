@@ -9199,7 +9199,7 @@ MonoBehaviour:
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
-  abilityCastTime: 0.6
+  abilityCastTime: 0.4
   damageType: 3
   damageAmount: 15
   damageFrequency: 0
@@ -9820,7 +9820,7 @@ MonoBehaviour:
   zoneRadius: 10
   zoneHeight: 2
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 2
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -9854,13 +9854,13 @@ MonoBehaviour:
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
-  abilityCastTime: 1.25
+  abilityCastTime: 0.75
   damageType: 3
   damageAmount: 3
   damageFrequency: 0
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 5
+  activeTime: 7.5
   holdTime: 0
   zoneRadius: 0
   zoneHeight: 0
@@ -10062,7 +10062,7 @@ MonoBehaviour:
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
-  abilityCastTime: 0.7
+  abilityCastTime: 0.5
   damageType: 3
   damageAmount: 20
   damageFrequency: 0
@@ -10107,13 +10107,13 @@ MonoBehaviour:
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
-  abilityCastTime: 1.25
+  abilityCastTime: 0.75
   damageType: 3
   damageAmount: 3
   damageFrequency: 0
   travelSpeed: 0
   spawnDistanceFromPlayer: 0
-  activeTime: 5
+  activeTime: 7.5
   holdTime: 0
   zoneRadius: 0
   zoneHeight: 0
@@ -10200,7 +10200,7 @@ MonoBehaviour:
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
-  abilityCastTime: 0.7
+  abilityCastTime: 0.5
   damageType: 3
   damageAmount: 20
   damageFrequency: 0
@@ -10312,7 +10312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915aa1d54be46e04cae9a4973b14fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 12.5
+  baseMovementSpeed: 15
   dodgeDistance: 1
   dodgeSpeed: 0
   golemOffensiveValues:
@@ -10629,7 +10629,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 2
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -10701,7 +10701,7 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 2
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -10735,7 +10735,7 @@ MonoBehaviour:
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
-  abilityCastTime: 0.6
+  abilityCastTime: 0.4
   damageType: 3
   damageAmount: 15
   damageFrequency: 0
@@ -10780,7 +10780,7 @@ MonoBehaviour:
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
-  abilityCastTime: 0.5
+  abilityCastTime: 0.3
   damageType: 8
   damageAmount: 0
   damageFrequency: 0
@@ -10898,7 +10898,7 @@ MonoBehaviour:
   zoneRadius: 10
   zoneHeight: 2
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 2
   isMelee: 0
   isRanged: 1
   isHeld: 0
@@ -11017,14 +11017,14 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 4
   isMelee: 0
   isRanged: 1
   isHeld: 0
-  statusEffect: 0
-  effectStrength: 0
-  effectTime: 0
-  effectFrequency: 0
+  statusEffect: 3
+  effectStrength: 5
+  effectTime: 2.5
+  effectFrequency: 0.5
   abilitySubType: 0
   redMask:
     serializedVersion: 2
@@ -11078,7 +11078,7 @@ MonoBehaviour:
   casterGameObject: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
-  abilityCastTime: 0.5
+  abilityCastTime: 0.3
   damageType: 8
   damageAmount: 0
   damageFrequency: 0
@@ -11127,7 +11127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915aa1d54be46e04cae9a4973b14fd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMovementSpeed: 12.5
+  baseMovementSpeed: 15
   dodgeDistance: 1
   dodgeSpeed: 0
   golemOffensiveValues:
@@ -11643,14 +11643,14 @@ MonoBehaviour:
   zoneRadius: 0
   zoneHeight: 0
   healthCost: 0
-  crystalCost: 0
+  crystalCost: 4
   isMelee: 0
   isRanged: 1
   isHeld: 0
-  statusEffect: 0
-  effectStrength: 0
-  effectTime: 0
-  effectFrequency: 0
+  statusEffect: 3
+  effectStrength: 5
+  effectTime: 2.5
+  effectFrequency: 0.5
   abilitySubType: 0
   redMask:
     serializedVersion: 2

@@ -7,6 +7,7 @@ public enum ConduitState
     EMPTY,
     IN_PROGRESS,
     CONTROLLED,
+    DRAINING,
     CONTESTED,
     DISABLED,
     HOMEBASE
@@ -14,6 +15,8 @@ public enum ConduitState
 
 public class ConduitController : MonoBehaviour 
 {
+    private TimerClass waitTimer;
+
     private CommandManager commandManager;
     private CrystalManager crystalManager;
 
@@ -25,7 +28,7 @@ public class ConduitController : MonoBehaviour
     public ConduitState conduitState;
     public PlayerTeam conduitColor;
 
-    public List<PlayerTeam> attachedGuardianColor;
+    public List <PlayerTeam> attachedGuardianColor;
 
     private float captureSpeed;
     [Space(10)]
@@ -54,7 +57,9 @@ public class ConduitController : MonoBehaviour
     public Color blueCaptureColor;
 
     [Space(10)]
-    private Material outerRingMat;
+    public Color outerRingColor;
+
+    public Color gemColor;
 
     public Color yellowSelectionColor;
     public Color blueSelectionColor;
@@ -84,9 +89,9 @@ public class ConduitController : MonoBehaviour
 
         commandManager = GameObject.FindGameObjectWithTag("CommandManager").GetComponent<CommandManager>();
 
-        conduitAnimator = GetComponent<Animator>();
+        waitTimer = new TimerClass();
 
-        outerRingMat = outerRingRenderer.material;
+        conduitAnimator = GetComponent<Animator>();
 
         if (conduitState == ConduitState.HOMEBASE)
         {
@@ -166,17 +171,54 @@ public class ConduitController : MonoBehaviour
                 }
             }
         }
+        else if (conduitState == ConduitState.DRAINING)
+        {
+            if (redTeamCaptureAmount > 0)
+            {
+                float capturePercentage = (redTeamCaptureAmount / totalCaptureAmount) * 100;
+
+                if (capturePercentage > 25f && capturePercentage < 26f)
+                {
+                    foreach (Renderer gemRenderer in outerGemRenderer)
+                    {
+                        gemRenderer.material.color = gemColor;
+                    }
+                }
+                else if (capturePercentage > 50f && capturePercentage < 51f)
+                {
+                    foreach (Renderer gemRenderer in innerGemRenderer)
+                    {
+                        gemRenderer.material.color = gemColor;
+                    }
+                }           
+            }
+            else if (blueTeamCaptureAmount > 0)
+            {
+                float capturePercentage = blueTeamCaptureAmount / totalCaptureAmount;
+
+                if (capturePercentage > 25f && capturePercentage < 26f)
+                {
+                    foreach (Renderer gemRenderer in innerGemRenderer)
+                    {
+                        gemRenderer.material.color = gemColor;
+                    }
+                }
+                else if (capturePercentage > 50f && capturePercentage < 51f)
+                {
+                    foreach (Renderer gemRenderer in outerGemRenderer)
+                    {
+                        gemRenderer.material.color = gemColor;
+                    }
+                }       
+            }
+        }
     }
 
     public void ManageConduitOutline()
     {
         if (conduitState != ConduitState.CONTROLLED)
         {
-            if (conduitState == ConduitState.DISABLED)
-            {
-                outerRingRenderer.material.color = Color.black;
-            }
-            else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
+            if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
             {
                 outerRingRenderer.material.color = Color.green;
             }
@@ -187,19 +229,23 @@ public class ConduitController : MonoBehaviour
             else if (attachedGuardianColor.Contains(PlayerTeam.BLUE))
             {
                 outerRingRenderer.material.color = blueSelectionColor;
-            }
+            }        
         }
-        else if (attachedGuardianColor.Count == 0)
+        else if (conduitState == ConduitState.CONTROLLED)
         {
-            if (conduitColor == PlayerTeam.RED)
+            if (attachedGuardianColor.Contains(PlayerTeam.RED))
             {
-                outerRingRenderer.material.color = yellowCaptureColor;
+                outerRingRenderer.material.color = yellowSelectionColor;
             }
-            else if (conduitColor == PlayerTeam.BLUE)
+            else if (attachedGuardianColor.Contains(PlayerTeam.BLUE))
             {
-                outerRingRenderer.material.color = blueCaptureColor;
+                outerRingRenderer.material.color = blueSelectionColor;
             }
         }
+        else if (conduitState != ConduitState.DISABLED)
+        {
+            outerRingRenderer.material.color = Color.black;
+        }    
     }
 
     public void StartConduitCapture(PlayerTeam teamColor, GameObject Guardian)
@@ -367,7 +413,11 @@ public class ConduitController : MonoBehaviour
 
     public void ResetConduit()
     {
-        guardianPlayerController.isCapturingOrb = false;
+        if (guardianPlayerController != null)
+        {
+            guardianPlayerController.isCapturingOrb = false;
+        }
+
         redTeamCaptureAmount = 0;
         blueTeamCaptureAmount = 0;
 
@@ -381,7 +431,7 @@ public class ConduitController : MonoBehaviour
         
         if (attachedGuardianColor.Count == 0)
         {
-            outerRingRenderer.material.color = outerRingMat.color;
+            outerRingRenderer.material.color = outerRingColor;
         }
     }
 
@@ -396,8 +446,6 @@ public class ConduitController : MonoBehaviour
     private IEnumerator ConduitDisable (float disableTime)
     {
         conduitState = ConduitState.DISABLED;
-
-        Debug.Log("Off");
 
         yield return new WaitForSeconds(disableTime);
 
