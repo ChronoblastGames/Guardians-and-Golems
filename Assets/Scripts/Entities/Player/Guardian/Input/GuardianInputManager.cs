@@ -136,7 +136,7 @@ public class GuardianInputManager : MonoBehaviour
 
         if (Input.GetKeyDown(inputCaptureButton))
         {
-            guardianPlayerController.CaptureOrb();
+            guardianPlayerController.AttempToCaptureConduit();
         }
 
         if (!isLeftTriggerPressed && leftTriggerAxis != 0)

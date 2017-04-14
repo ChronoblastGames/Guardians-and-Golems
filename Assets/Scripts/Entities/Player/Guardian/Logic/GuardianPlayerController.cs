@@ -87,7 +87,7 @@ public class GuardianPlayerController : GuardianStats
         xAxis = guardianInputManager.xAxis;
         zAxis = guardianInputManager.zAxis;
 
-        SearchForOrb(xAxis, zAxis);
+        SearchForConduit(xAxis, zAxis);
     }
 
     void ManageAttack()
@@ -105,13 +105,13 @@ public class GuardianPlayerController : GuardianStats
         }
     }
 
-    void SearchForOrb(float xAxis, float zAxis)
+    void SearchForConduit(float xAxis, float zAxis)
     {
         if (xAxis != 0 || zAxis != 0)
         {
             Vector3 lookVec = new Vector3(xAxis, 0, zAxis);
 
-            if (Physics.Raycast(transform.position, lookVec, out rayHit, selectionDistance, conduitMask))
+            if (Physics.Raycast(transform.position, lookVec, out rayHit, selectionDistance, conduitMask, QueryTriggerInteraction.Ignore))
             {
                 selectedConduit = rayHit.collider.gameObject;
 
@@ -119,35 +119,35 @@ public class GuardianPlayerController : GuardianStats
                 {
                     if (selectedConduit != attachedConduit && attachedConduit != null)
                     {
-                        DeattachFromOrb();
+                        DeattachFromConduit();
                     }
 
-                    AttachToOrb(selectedConduit);
+                    AttachToConduit(selectedConduit);
                 }
             }
         }
     }
 
-    void AttachToOrb(GameObject orb)
+    void AttachToConduit(GameObject conduit)
     {
         guardianModel.SetActive(true);
 
-        transform.position = orb.transform.position;
-        guardianModel.transform.position = orb.transform.position + new Vector3(0, hoverHeight, 0);
-        attachedConduit = orb;
+        transform.position = conduit.transform.position;
+        guardianModel.transform.position = conduit.transform.position + new Vector3(0, hoverHeight, 0);
+        attachedConduit = conduit;
         conduitController = attachedConduit.GetComponent<ConduitController>();
         selectionTimer.ResetTimer(selectionDelay);
         conduitController.attachedGuardianColor.Add(playerTeam);
     }
 
-    void DeattachFromOrb()
+    void DeattachFromConduit()
     {
         conduitController.DeselectConduit(playerTeam);
         conduitController = null;
         attachedConduit = null;
     }
 
-    public void CaptureOrb()
+    public void AttempToCaptureConduit()
     {
         if (attachedConduit != null && !isCapturingOrb)
         {
@@ -182,25 +182,5 @@ public class GuardianPlayerController : GuardianStats
                 isUsingAbility = true;
             }
         }     
-    }
-
-    public void UseAbilityFromAllOrbs(int abilityNumber, PlayerTeam teamColor, float holdTime)
-    {
-        if (canUseAbility && attachedConduit != null)
-        {
-            for (int i = 0; i < conduitCapturedList.Count; i++)
-            {
-                GameObject spawnObj = conduitCapturedList[i].GetComponent<ConduitController>().centerCrystal;
-
-                guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
-            }
-
-            guardianState.SetTrigger("UseAbility");
-            guardianState.SetTrigger("Ability" + (abilityNumber + 1));
-
-            guardianCooldown.QueueGlobalCooldown();
-            guardianCooldown.QueueAbilityCooldown(abilityNumber);
-            isUsingAbility = true;
-        }
-    }
+    }  
 }

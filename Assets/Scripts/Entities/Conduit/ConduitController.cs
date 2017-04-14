@@ -15,8 +15,6 @@ public enum ConduitState
 
 public class ConduitController : MonoBehaviour 
 {
-    private TimerClass waitTimer;
-
     private CommandManager commandManager;
     private CrystalManager crystalManager;
 
@@ -94,8 +92,6 @@ public class ConduitController : MonoBehaviour
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
 
         commandManager = GameObject.FindGameObjectWithTag("CommandManager").GetComponent<CommandManager>();
-
-        waitTimer = new TimerClass();
 
         conduitAnimator = GetComponent<Animator>();
 
@@ -535,7 +531,6 @@ public class ConduitController : MonoBehaviour
             {
                 if (neighbourConduits[i].GetComponent<ConduitController>().conduitState == ConduitState.CONTROLLED || neighbourConduits[i].GetComponent<ConduitController>().conduitState == ConduitState.HOMEBASE && neighbourConduits[i].GetComponent<ConduitController>().conduitColor == conduitColor)
                 {
-                    //Draw a Line between myself and neighbour
                     lineRendererArray[i].SetPosition(0, transform.position);
                     lineRendererArray[i].SetPosition(1, neighbourConduits[i].transform.position);
                 }
