@@ -5,6 +5,7 @@ public abstract class GuardianStats : MonoBehaviour
 {
     [Header("Guardian Capture Speed")]
     public float captureSpeed;
+    public float assistedCaptureSpeed;
 
     [Header("Guardian Abilities")]
     public CreateAbilityBase[] guardianAbilites;

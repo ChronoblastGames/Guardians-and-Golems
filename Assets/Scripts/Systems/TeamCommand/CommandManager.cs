@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class CommandManager : MonoBehaviour
 {
+    private GuardianPlayerController redGuardianPlayerController;
+    private GuardianPlayerController blueGuardianPlayerController;
+
     private GlobalVariables globalVariables;
 
     [Header("Command Attributes")]
@@ -26,6 +29,9 @@ public class CommandManager : MonoBehaviour
     {
         globalVariables = GameObject.FindGameObjectWithTag("GlobalVariables").GetComponent<GlobalVariables>();
 
+        redGuardianPlayerController = GameObject.FindGameObjectWithTag("RedGuardian").GetComponent<GuardianPlayerController>();
+        blueGuardianPlayerController = GameObject.FindGameObjectWithTag("BlueGuardian").GetComponent<GuardianPlayerController>();
+
         redTeamCurrentCommand = startingCommand;
         blueTeamCurrentCommand = startingCommand;
     }
@@ -37,6 +43,15 @@ public class CommandManager : MonoBehaviour
 
     void ManageCommand()
     {
+        if (isRedTeamLosing)
+        {
+
+        }
+        else if (isBlueTeamLosing)
+        {
+
+        }
+
         if (redTeamCurrentCommand <= 0)
         {
             Lose(PlayerTeam.RED);
@@ -49,7 +64,7 @@ public class CommandManager : MonoBehaviour
 
     void Lose(PlayerTeam teamColor)
     {
-        Debug.Log(teamColor + " is out of Command!");
+        
     }
 
     public void GainCommand(float commandValue, PlayerTeam teamColor)

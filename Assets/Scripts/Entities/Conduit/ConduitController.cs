@@ -282,6 +282,7 @@ public class ConduitController : MonoBehaviour
                     guardianPlayerController = Guardian.GetComponent<GuardianPlayerController>();
                     guardianPlayerController.isCapturingOrb = true;
                     captureSpeed = guardianPlayerController.captureSpeed;
+                    assistedCaptureSpeed = guardianPlayerController.assistedCaptureSpeed;
 
                     conduitColor = teamColor;
                 }
@@ -293,7 +294,7 @@ public class ConduitController : MonoBehaviour
     {
         if (conduitState == ConduitState.IN_PROGRESS)
         {
-            switch(conduitColor)
+            switch (conduitColor)
             {
                 case PlayerTeam.RED:
                     if (attachedGuardianColor.Contains(PlayerTeam.RED) && !attachedGuardianColor.Contains(PlayerTeam.BLUE))
@@ -335,21 +336,16 @@ public class ConduitController : MonoBehaviour
                                     CompleteCapture(PlayerTeam.RED);
                                 }
                             }
-                        }             
+                        }
                     }
                     else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
                     {
-                        
+
                     }
                     else
                     {
-                        redTeamCaptureAmount -= decaySpeed * Time.deltaTime;
-
-                        if (redTeamCaptureAmount < 0)
-                        {
-                            ResetConduit();
-                        }
-                    }         
+                        conduitState = ConduitState.DRAINING;
+                    }
                     break;
 
                 case PlayerTeam.BLUE:
@@ -392,21 +388,16 @@ public class ConduitController : MonoBehaviour
                                     CompleteCapture(PlayerTeam.BLUE);
                                 }
                             }
-                        }                    
+                        }
                     }
                     else if (attachedGuardianColor.Contains(PlayerTeam.RED) && attachedGuardianColor.Contains(PlayerTeam.BLUE))
                     {
-                       
+
                     }
                     else
                     {
-                        blueTeamCaptureAmount -= decaySpeed * Time.deltaTime;
-
-                        if (blueTeamCaptureAmount < 0)
-                        {
-                            ResetConduit();
-                        }
-                    }                 
+                        conduitState = ConduitState.DRAINING;                    
+                    }
                     break;
                 default:
                     Debug.Log("Something wrong passed through CheckForOrbCapture, was " + conduitColor);
@@ -422,14 +413,7 @@ public class ConduitController : MonoBehaviour
                     {
                         if (drainWaitTime <= 0)
                         {
-                            if (redTeamCaptureAmount > 0)
-                            {
-                                redTeamCaptureAmount -= decaySpeed * Time.deltaTime;
-                            }
-                            else
-                            {
-                                ResetConduit();
-                            }
+                            conduitState = ConduitState.DRAINING;
                         }
                         else
                         {
@@ -446,6 +430,105 @@ public class ConduitController : MonoBehaviour
                     break;
 
                 case PlayerTeam.BLUE:
+                    if (!attachedGuardianColor.Contains(PlayerTeam.BLUE))
+                    {
+                        if (drainWaitTime <= 0)
+                        {
+                            conduitState = ConduitState.DRAINING;
+                        }
+                        else
+                        {
+                            drainWaitTime -= Time.deltaTime;
+                        }
+                    }
+                    else
+                    {
+                        if (drainWaitTime > 0)
+                        {
+                            drainWaitTime = initialDrainWaitTime;
+                        }
+                    }
+                    break;
+            }
+        }
+        else if (conduitState == ConduitState.DRAINING)
+        {
+            switch (conduitColor)
+            {
+                case PlayerTeam.RED:
+                    if (!attachedGuardianColor.Contains(PlayerTeam.RED))
+                    {
+                        if (redTeamCaptureAmount > 0)
+                        {
+                            redTeamCaptureAmount -= decaySpeed * Time.deltaTime;
+                        }
+                        else
+                        {
+                            ResetConduit();
+                        }
+                    }
+                    else if (attachedGuardianColor.Contains(PlayerTeam.RED))
+                    {
+                        if (redTeamCaptureAmount < totalCaptureAmount)
+                        {
+                            if (isBeingAssistedByRedGolem)
+                            {
+                                redTeamCaptureAmount += assistedCaptureSpeed * Time.deltaTime;
+
+                                if (redTeamCaptureAmount >= totalCaptureAmount)
+                                {
+                                    conduitState = ConduitState.CONTROLLED;
+                                }
+                            }
+                            else
+                            {
+                                redTeamCaptureAmount += captureSpeed * Time.deltaTime;
+
+                                if (redTeamCaptureAmount >= totalCaptureAmount)
+                                {
+                                    conduitState = ConduitState.CONTROLLED;
+                                }
+                            }
+                        }
+                    }       
+                    break;
+
+                case PlayerTeam.BLUE:
+                    if (!attachedGuardianColor.Contains(PlayerTeam.BLUE))
+                    {
+                        if (blueTeamCaptureAmount > 0)
+                        {
+                            blueTeamCaptureAmount -= decaySpeed * Time.deltaTime;
+                        }
+                        else
+                        {
+                            ResetConduit();
+                        }
+                    }
+                    else if (attachedGuardianColor.Contains(PlayerTeam.BLUE))
+                    {
+                        if (blueTeamCaptureAmount < totalCaptureAmount)
+                        {
+                            if (isBeingAssistedByBlueGolem)
+                            {
+                                blueTeamCaptureAmount += assistedCaptureSpeed * Time.deltaTime;
+
+                                if (blueTeamCaptureAmount >= totalCaptureAmount)
+                                {
+                                    conduitState = ConduitState.CONTROLLED;
+                                }
+                            }
+                            else
+                            {
+                                blueTeamCaptureAmount += captureSpeed * Time.deltaTime;
+
+                                if (blueTeamCaptureAmount >= totalCaptureAmount)
+                                {
+                                    conduitState = ConduitState.CONTROLLED;
+                                }
+                            }
+                        }
+                    }
                     break;
             }
         }
@@ -506,6 +589,8 @@ public class ConduitController : MonoBehaviour
 
         conduitState = ConduitState.EMPTY;
         conduitColor = PlayerTeam.NONE;
+
+        DrawLine();
     }
 
     public void DeselectConduit(PlayerTeam guardianColor)
@@ -567,6 +652,14 @@ public class ConduitController : MonoBehaviour
                     lineRendererArray[i].SetPosition(0, transform.position);
                     lineRendererArray[i].SetPosition(1, neighbourConduits[i].transform.position);
                 }
+            }
+        }
+        else if (conduitState == ConduitState.EMPTY)
+        {
+            for (int i = 0; i < neighbourConduits.Length; i++)
+            {
+                lineRendererArray[i].SetPosition(0, transform.position);
+                lineRendererArray[i].SetPosition(1, transform.position);
             }
         }
     }

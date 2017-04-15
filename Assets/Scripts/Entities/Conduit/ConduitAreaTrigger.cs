@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ConduitAreaTrigger : MonoBehaviour
 {
-    private ConduitController orbController;
+    private ConduitController conduitController;
 
     void Start()
     {
@@ -12,18 +12,18 @@ public class ConduitAreaTrigger : MonoBehaviour
 
     void Initialize()
     {
-        orbController = transform.parent.GetComponent<ConduitController>();
+        conduitController = transform.parent.GetComponent<ConduitController>();
     }
 
     void OnTriggerEnter(Collider golem)
     {
-        if (golem.CompareTag("GolemRed"))
+        if (golem.gameObject.CompareTag("GolemRed"))
         {
-            orbController.isBeingAssistedByRedGolem = true;
+            conduitController.isBeingAssistedByRedGolem = true;
         }
-        else if (golem.CompareTag("GolemBlue"))
+        else if (golem.gameObject.CompareTag("GolemBlue"))
         {
-            orbController.isBeingAssistedByBlueGolem = true;
+            conduitController.isBeingAssistedByBlueGolem = true;
         }
     }
 
@@ -31,11 +31,11 @@ public class ConduitAreaTrigger : MonoBehaviour
     {
         if (golem.CompareTag("GolemRed"))
         {
-            orbController.isBeingAssistedByRedGolem = false;
+            conduitController.isBeingAssistedByRedGolem = false;
         }
         else if (golem.CompareTag("GolemBlue"))
         {
-            orbController.isBeingAssistedByBlueGolem = false;
+            conduitController.isBeingAssistedByBlueGolem = false;
         }
     }
 }
