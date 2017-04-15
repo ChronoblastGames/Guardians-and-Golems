@@ -33,6 +33,9 @@ public class ConduitController : MonoBehaviour
     [Space(10)]
     public float decaySpeed;
     public float totalCaptureAmount;
+    public float drainWaitTime;
+    private float initialDrainWaitTime;
+    [Space(10)]
     public float redTeamCaptureAmount;
     public float blueTeamCaptureAmount;
 
@@ -45,6 +48,9 @@ public class ConduitController : MonoBehaviour
     public GameObject[] neighbourConduits;
 
     public LineRenderer[] lineRendererArray;
+
+    public Material redLineMaterial;
+    public Material blueLineMaterial;
 
     [Header("Conduit Renderer Attributes")]
     public Renderer[] crystalRenderer;
@@ -94,6 +100,8 @@ public class ConduitController : MonoBehaviour
         commandManager = GameObject.FindGameObjectWithTag("CommandManager").GetComponent<CommandManager>();
 
         conduitAnimator = GetComponent<Animator>();
+
+        initialDrainWaitTime = drainWaitTime;
 
         if (conduitState == ConduitState.HOMEBASE)
         {
@@ -410,6 +418,31 @@ public class ConduitController : MonoBehaviour
             switch (conduitColor)
             {
                 case PlayerTeam.RED:
+                    if (!attachedGuardianColor.Contains(PlayerTeam.RED))
+                    {
+                        if (drainWaitTime <= 0)
+                        {
+                            if (redTeamCaptureAmount > 0)
+                            {
+                                redTeamCaptureAmount -= decaySpeed * Time.deltaTime;
+                            }
+                            else
+                            {
+                                ResetConduit();
+                            }
+                        }
+                        else
+                        {
+                            drainWaitTime -= Time.deltaTime;
+                        }
+                    }
+                    else
+                    {
+                        if (drainWaitTime > 0)
+                        {
+                            drainWaitTime = initialDrainWaitTime;
+                        }
+                    }
                     break;
 
                 case PlayerTeam.BLUE:

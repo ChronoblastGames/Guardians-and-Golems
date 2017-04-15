@@ -4,7 +4,9 @@ using UnityEngine;
 public class EarthGolemUltimate : AbilityCastBase
 {
     [Header("Ability Attributes")]
-    public GameObject earthFragments;
+    public GameObject earthFragmentsYellow;
+    public GameObject earthFragmentsBlue;
+    private GameObject earthFragments;
 
     public float abilityRadius;
     public float ringCount;
@@ -20,6 +22,15 @@ public class EarthGolemUltimate : AbilityCastBase
         if (abilityValues.activeTime > 0)
         {
             Destroy(gameObject, abilityValues.activeTime);
+        }
+
+        if (abilityValues.teamColor == PlayerTeam.RED)
+        {
+            earthFragments = earthFragmentsYellow;
+        }
+        else if (abilityValues.teamColor == PlayerTeam.BLUE)
+        {
+            earthFragments = earthFragmentsBlue;
         }
 
         fragmentCountPerRing = (int)abilityRadius * 2;
@@ -47,8 +58,7 @@ public class EarthGolemUltimate : AbilityCastBase
                 Quaternion shardRotation = Quaternion.Euler(-60, shardAngle, 0);
                 GameObject newShard = Instantiate(earthFragments, shardPos, shardRotation, transform) as GameObject;
                 newShard.layer = gameObject.layer;       
-                newShard.GetComponent<EarthFragments>().ablityValues = abilityValues;
-
+                newShard.GetComponent<EarthFragments>().ablityValues = abilityValues;        
             }
         }
     }

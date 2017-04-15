@@ -350,6 +350,11 @@ Prefab:
       propertyPath: conduitArray.Array.data[4]
       value: 
       objectReference: {fileID: 788804303}
+    - target: {fileID: 114990218959114074, guid: 1d187cedd3aed864ba01bdf0840392dc,
+        type: 2}
+      propertyPath: gameStartDelay
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d187cedd3aed864ba01bdf0840392dc, type: 2}
   m_IsPrefabParent: 0

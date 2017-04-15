@@ -20,10 +20,6 @@ public class GlobalVariables : MonoBehaviour
     [Header("Guardian Global Variables")]
     public float guardianGlobalCooldown;
 
-    [Header("Orb Global Variables")]
-    public float spellOrbCoolDown;
-
-
     [Header("Command Values")]
     public float loseConduitCommandCost;
     public float winConduitCommandCost;

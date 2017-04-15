@@ -14,6 +14,9 @@ public class CommandManager : MonoBehaviour
     public float redTeamCurrentCommand;
     public float blueTeamCurrentCommand;
 
+    public bool isRedTeamLosing = false;
+    public bool isBlueTeamLosing = false;
+
     private void Start()
     {
         Initialize();

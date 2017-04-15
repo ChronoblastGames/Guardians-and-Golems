@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23561250576049396}
   - component: {fileID: 114507841732989046}
   m_Layer: 0
-  m_Name: EarthFragments
+  m_Name: EarthFragmentsBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 71d60d0c0fd24834ca8565f5da5c2196, type: 2}
+  - {fileID: 2100000, guid: eb30196296f97e24da28032339ca223a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -73,6 +73,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33568179633921666
 MeshFilter:

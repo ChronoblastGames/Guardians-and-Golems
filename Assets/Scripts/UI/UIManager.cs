@@ -38,7 +38,6 @@ public class UIManager : MonoBehaviour
     public List<Image> golemCrystalRed;
     public List<Image> golemCrystalBlue;
     
-
     [Header("UI Clock")]
     public Text timeText;
     public bool isCountingDown = true;

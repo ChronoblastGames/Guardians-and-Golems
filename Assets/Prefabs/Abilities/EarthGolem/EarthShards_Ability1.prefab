@@ -53,7 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAbilityActive: 0
-  earthShard: {fileID: 1689473895437552, guid: b885afc24a87b044a80c5223f95f7d97, type: 2}
+  earthShardYellow: {fileID: 1689473895437552, guid: b885afc24a87b044a80c5223f95f7d97,
+    type: 2}
+  earthShardBlue: {fileID: 1689473895437552, guid: 89dfe8ac926f4f94fa9b88dcce414702,
+    type: 2}
   activeTime: 0.5
   shardCount: 5
   ringCount: 1

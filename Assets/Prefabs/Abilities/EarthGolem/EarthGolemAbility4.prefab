@@ -52,7 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAbilityActive: 0
-  earthFragments: {fileID: 1235903987350220, guid: c696c945bee1fb748ad72063bc12afb1,
+  earthFragmentsYellow: {fileID: 1235903987350220, guid: c696c945bee1fb748ad72063bc12afb1,
+    type: 2}
+  earthFragmentsBlue: {fileID: 1235903987350220, guid: ac240b89fb5f12b4c98e41d8c0302645,
     type: 2}
   abilityRadius: 5
   ringCount: 4

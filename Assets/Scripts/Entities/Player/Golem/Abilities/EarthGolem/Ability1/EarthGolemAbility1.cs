@@ -6,7 +6,10 @@ public class EarthGolemAbility1 : AbilityCastBase
     private TimerClass activeTimer;
 
     [Header("Ability Attributes")]
-    public GameObject earthShard;
+    public GameObject earthShardYellow;
+    public GameObject earthShardBlue;
+
+    private GameObject earthShard;
 
     private SphereCollider abilityTrigger;
 
@@ -38,6 +41,16 @@ public class EarthGolemAbility1 : AbilityCastBase
             activeTimer.ResetTimer(abilityValues.activeTime);
 
             isAbilityActive = true;
+        }
+
+        if (abilityValues.teamColor == PlayerTeam.RED)
+        {
+            earthShard = earthShardYellow;
+        }
+        else if (abilityValues.teamColor == PlayerTeam.BLUE)
+        {
+            earthShard = earthShardBlue;
+
         }
 
         abilityTrigger = GetComponent<SphereCollider>();
