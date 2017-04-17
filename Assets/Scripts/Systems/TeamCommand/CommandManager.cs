@@ -44,27 +44,60 @@ public class CommandManager : MonoBehaviour
     void ManageCommand()
     {
         if (isRedTeamLosing)
-        {
-
+        { 
+            if (redGuardianPlayerController.conduitCapturedList.Count == 1)
+            {
+                Debug.Log("Red Team Lost!");
+            }
         }
-        else if (isBlueTeamLosing)
-        {
 
+        if (isBlueTeamLosing)
+        {
+            if (blueGuardianPlayerController.conduitCapturedList.Count == 1)
+            {
+                Debug.Log("Blue Team Lost");
+            }
         }
 
-        if (redTeamCurrentCommand <= 0)
+        if (!isRedTeamLosing)
         {
-            Lose(PlayerTeam.RED);
+            if (redTeamCurrentCommand <= 0)
+            {
+                Lose(PlayerTeam.RED);
+            }
         }
-        else if (blueTeamCurrentCommand <= 0)
+
+        if (!isBlueTeamLosing)
         {
-            Lose(PlayerTeam.BLUE);
+            if (blueTeamCurrentCommand <= 0)
+            {
+                Lose(PlayerTeam.BLUE);
+            }
         }
     }
 
     void Lose(PlayerTeam teamColor)
     {
-        
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                foreach(GameObject conduit in redGuardianPlayerController.conduitCapturedList)
+                {
+                    conduit.GetComponent<ConduitController>().conduitState = ConduitState.DRAINING;
+                }
+
+                isRedTeamLosing = true;
+                break;
+
+            case PlayerTeam.BLUE:
+                foreach (GameObject conduit in blueGuardianPlayerController.conduitCapturedList)
+                {
+                    conduit.GetComponent<ConduitController>().conduitState = ConduitState.DRAINING;
+                }
+
+                isBlueTeamLosing = true;
+                break;
+        }
     }
 
     public void GainCommand(float commandValue, PlayerTeam teamColor)

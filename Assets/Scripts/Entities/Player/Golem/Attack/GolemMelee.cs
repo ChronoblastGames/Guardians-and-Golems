@@ -38,6 +38,10 @@ public class GolemMelee : MonoBehaviour
 
     private int attackCount;
 
+    [Header("Weapon Effect")]
+    public GameObject effectPrefab;
+    private float effectSpawnHeight = 10f;
+
     private void Start()
     {
         InitializeWeapon();
@@ -184,5 +188,25 @@ public class GolemMelee : MonoBehaviour
     public void DisableWeaponCollider(int weaponNumber)
     {
         weaponCollider[weaponNumber].enabled = false;
+    }
+
+    public void EnableWeaponTrail(int weaponNumber)
+    {
+        weaponCollider[weaponNumber].gameObject.GetComponent<WeaponCollider>().EnableWeaponTrail();
+    }
+
+    public void DisableWeaponTrail(int weaponNumber)
+    {
+        weaponCollider[weaponNumber].gameObject.GetComponent<WeaponCollider>().DisableWeaponTrail();
+    }
+
+    public void SpawnWeaponEffect()
+    {
+        Vector3 spawnVec = transform.position;
+        spawnVec.y = 0;
+
+        spawnVec.y += effectSpawnHeight;
+
+        GameObject newWeaponEffect = Instantiate(effectPrefab, spawnVec, Quaternion.Euler(90, 0 , 0)) as GameObject;
     }
 }

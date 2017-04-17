@@ -128,61 +128,70 @@ public class ConduitController : MonoBehaviour
     {
         if (conduitState == ConduitState.IN_PROGRESS)
         {
-           if (redTeamCaptureAmount > 0)
+            switch (conduitColor)
             {
-                float capturePercentage = (redTeamCaptureAmount / totalCaptureAmount) * 100;
+                case PlayerTeam.RED:
 
-                if (capturePercentage > 25f && capturePercentage < 26f)
-                {
-                    ringParticlesRed[0].Play();
-
-                    foreach (Renderer gemRenderer in outerGemRenderer)
+                    if (redTeamCaptureAmount > 0)
                     {
-                        gemRenderer.material.color = yellowCaptureColor;
-                    }
-                }
-                else if (capturePercentage > 50f && capturePercentage < 51f)
-                {
-                    ringParticlesRed[1].Play();
+                        float capturePercentage = (redTeamCaptureAmount / totalCaptureAmount) * 100;
 
-                    foreach (Renderer gemRenderer in innerGemRenderer)
-                    {
-                        gemRenderer.material.color = yellowCaptureColor;
+                        if (capturePercentage > 25f && capturePercentage < 26f)
+                        {
+                            ringParticlesRed[0].Play();
+
+                            foreach (Renderer gemRenderer in outerGemRenderer)
+                            {
+                                gemRenderer.material.color = yellowCaptureColor;
+                            }
+                        }
+                        else if (capturePercentage > 50f && capturePercentage < 51f)
+                        {
+                            ringParticlesRed[1].Play();
+
+                            foreach (Renderer gemRenderer in innerGemRenderer)
+                            {
+                                gemRenderer.material.color = yellowCaptureColor;
+                            }
+                        }
+                        else if (capturePercentage > 90f && capturePercentage < 91f)
+                        {
+                            ringParticlesRed[2].Play();
+                        }
                     }
-                }
-                else if (capturePercentage > 90f && capturePercentage < 91f)
-                {
-                    ringParticlesRed[2].Play();
-                }
+                    break;
+
+                case PlayerTeam.BLUE:
+                    if (blueTeamCaptureAmount > 0)
+                    {
+                        float capturePercentage = (blueTeamCaptureAmount / totalCaptureAmount) * 100;
+
+                        if (capturePercentage > 25f && capturePercentage < 26f)
+                        {
+                            ringParticlesBlue[0].Play();
+
+                            foreach (Renderer gemRenderer in innerGemRenderer)
+                            {
+                                gemRenderer.material.color = blueCaptureColor;
+                            }
+                        }
+                        else if (capturePercentage > 50f && capturePercentage < 51f)
+                        {
+                            ringParticlesBlue[1].Play();
+
+                            foreach (Renderer gemRenderer in outerGemRenderer)
+                            {
+                                gemRenderer.material.color = blueCaptureColor;
+                            }
+                        }
+                        else if (capturePercentage > 90f && capturePercentage < 91f)
+                        {
+                            ringParticlesBlue[2].Play();
+                        }
+                    }
+                    break;
             }
-            else if (blueTeamCaptureAmount > 0)
-            {
-                float capturePercentage = blueTeamCaptureAmount / totalCaptureAmount;
-
-                if (capturePercentage > 25f && capturePercentage < 26f)
-                {
-                    ringParticlesBlue[0].Play();
-
-                    foreach (Renderer gemRenderer in innerGemRenderer)
-                    {
-                        gemRenderer.material.color = blueCaptureColor;
-                    }
-                }
-                else if (capturePercentage > 50f && capturePercentage < 51f)
-                {
-                    ringParticlesBlue[1].Play();
-
-                    foreach (Renderer gemRenderer in outerGemRenderer)
-                    {
-                        gemRenderer.material.color = blueCaptureColor;
-                    }
-                }
-                else if (capturePercentage > 90f && capturePercentage < 91f)
-                {
-                    ringParticlesBlue[2].Play();
-                }
-            }
-        }
+        }        
         else if (conduitState == ConduitState.DRAINING)
         {
             if (redTeamCaptureAmount > 0)
@@ -202,7 +211,14 @@ public class ConduitController : MonoBehaviour
                     {
                         gemRenderer.material.color = gemColor;
                     }
-                }           
+                }   
+                else if (capturePercentage > 90f && capturePercentage < 91f)
+                {
+                    foreach (Renderer gem in crystalRenderer)
+                    {
+                        gem.material.color = gemColor;
+                    }
+                }
             }
             else if (blueTeamCaptureAmount > 0)
             {
@@ -221,7 +237,14 @@ public class ConduitController : MonoBehaviour
                     {
                         gemRenderer.material.color = gemColor;
                     }
-                }       
+                }
+                else if (capturePercentage > 90f && capturePercentage < 91f)
+                {
+                    foreach (Renderer gem in crystalRenderer)
+                    {
+                        gem.material.color = gemColor;
+                    }
+                }
             }
         }
     }
@@ -543,6 +566,11 @@ public class ConduitController : MonoBehaviour
 
                 outerRingRenderer.material.color = yellowCaptureColor;
 
+                foreach(Renderer gem in crystalRenderer)
+                {
+                    gem.material.color = yellowCaptureColor;
+                }
+
                 commandManager.ConduitCapture(PlayerTeam.RED);
 
                 PlayRedCaptureParticles();
@@ -551,6 +579,11 @@ public class ConduitController : MonoBehaviour
                 crystalManager.CaptureCrystal(PlayerTeam.BLUE);
 
                 outerRingRenderer.material.color = blueCaptureColor;
+
+                foreach (Renderer gem in crystalRenderer)
+                {
+                    gem.material.color = blueCaptureColor;
+                }
 
                 commandManager.ConduitCapture(PlayerTeam.BLUE);
 

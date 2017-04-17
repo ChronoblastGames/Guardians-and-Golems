@@ -5860,6 +5860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fbeba74199ec84985dd3e8f52ef4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yellowColor: {r: 1, g: 1, b: 0, a: 1}
+  blueColor: {r: 0, g: 1, b: 1, a: 1}
   redGolemHealthBar: {fileID: 114894881986634284}
   blueGolemHealthBar: {fileID: 114512084101537592}
   redTeamCommandImage: {fileID: 114015059989809096}

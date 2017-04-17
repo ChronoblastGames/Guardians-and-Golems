@@ -15,6 +15,8 @@ public class WeaponCollider : MonoBehaviour
 
     private Collider weaponCol;
 
+    private TrailRenderer trailRenderer;
+
     void Start()
     {
         InitializeDetection();
@@ -23,6 +25,8 @@ public class WeaponCollider : MonoBehaviour
     void InitializeDetection()
     {
         weaponCol = GetComponent<Collider>();
+
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     public void SetValues(DamageType attackType, float attackDamage, StatusEffect attackEffect, float effectStrength, float effectTime, float effectFrequency)
@@ -33,6 +37,16 @@ public class WeaponCollider : MonoBehaviour
         statusEffectStrength = effectStrength;
         statusEffectTime = effectTime;
         statusEffectFrequency = effectFrequency;
+    }
+
+    public void EnableWeaponTrail()
+    {
+        trailRenderer.enabled = true;
+    }
+
+    public void DisableWeaponTrail()
+    {
+        trailRenderer.enabled = false;
     }
 
     void OnTriggerEnter(Collider other)

@@ -23,6 +23,10 @@ public class UIManager : MonoBehaviour
     private GolemResources redGolemResources;
     private GolemResources blueGolemResources;
 
+    [Header("UI Color")]
+    public Color yellowColor;
+    public Color blueColor;
+
     [Header("Golem HealthBar")]
     public Image redGolemHealthBar;
     public Image blueGolemHealthBar;

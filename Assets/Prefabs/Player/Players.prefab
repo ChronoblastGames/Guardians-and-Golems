@@ -9075,7 +9075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 1
   playerTeam: 0
   PlayerName: Van
   PlayerNumber: 0
@@ -9491,7 +9491,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f4735c0e1e7a041bd176a993b9cf61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captureSpeed: 1
+  captureSpeed: 0.75
+  assistedCaptureSpeed: 1.25
   guardianAbilites:
   - {fileID: 114594454905436366}
   - {fileID: 114681289363000118}
@@ -9499,15 +9500,15 @@ MonoBehaviour:
   - {fileID: 114996735460179544}
   teamColor: 1
   guardianModel: {fileID: 1244940507768070}
-  orbList: []
+  conduitCapturedList: []
   playerTeam: 1
   hoverHeight: 10
-  attachedOrb: {fileID: 0}
+  attachedConduit: {fileID: 0}
   selectionDistance: 40
   selectionDelay: 0.3
-  orbMask:
+  conduitMask:
     serializedVersion: 2
-    m_Bits: 1376256
+    m_Bits: 65536
   canMove: 1
   canCaptureOrb: 1
   isCapturingOrb: 0
@@ -10851,7 +10852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 849a99acdfda3cc4f99dd2d5b46990db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 3
+  playerNum: 0
   playerTeam: 1
   PlayerName: Van
   PlayerNumber: 0
@@ -11403,7 +11404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9f4735c0e1e7a041bd176a993b9cf61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captureSpeed: 1
+  captureSpeed: 0.75
+  assistedCaptureSpeed: 1.25
   guardianAbilites:
   - {fileID: 114589205260284584}
   - {fileID: 114368704936252592}
@@ -11411,15 +11413,15 @@ MonoBehaviour:
   - {fileID: 114781096506621612}
   teamColor: 0
   guardianModel: {fileID: 1770684983511430}
-  orbList: []
+  conduitCapturedList: []
   playerTeam: 0
   hoverHeight: 10
-  attachedOrb: {fileID: 0}
+  attachedConduit: {fileID: 0}
   selectionDistance: 40
   selectionDelay: 0.3
-  orbMask:
+  conduitMask:
     serializedVersion: 2
-    m_Bits: 1376256
+    m_Bits: 65536
   canMove: 1
   canCaptureOrb: 1
   isCapturingOrb: 0
