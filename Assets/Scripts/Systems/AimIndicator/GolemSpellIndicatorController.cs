@@ -12,7 +12,7 @@ public enum IndicatorType
 
 public class GolemSpellIndicatorController : MonoBehaviour 
 {
-    private GolemInputManager golemInput;
+    private GolemInputController golemInput;
 
     private float aimXAxis;
     private float aimZAxis;
@@ -42,7 +42,7 @@ public class GolemSpellIndicatorController : MonoBehaviour
 
     void Initialize()
     {
-        golemInput = GetComponent<GolemInputManager>();
+        golemInput = GetComponent<GolemInputController>();
 
         SetNewIndicator(IndicatorType.ARROW, 0);
     }

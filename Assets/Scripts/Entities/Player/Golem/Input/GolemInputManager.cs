@@ -1,20 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public enum PlayerNum
-{
-    PLAYER_1,
-    PLAYER_2,
-    PLAYER_3,
-    PLAYER_4
-}
 
-public enum PlayerTeam
-{
-    RED,
-    BLUE,
-    NONE
-}
 
 public class GolemInputManager : MonoBehaviour 
 {

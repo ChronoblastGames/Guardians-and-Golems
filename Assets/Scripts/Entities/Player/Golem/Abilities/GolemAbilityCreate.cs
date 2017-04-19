@@ -6,7 +6,7 @@ public class GolemAbilityCreate : CreateAbilityBase
 {
     private CrystalManager crystalManager;
 
-    private GolemInputManager golemInputManager;
+    private GolemInputController golemInputController;
     private GolemPlayerController golemPlayerController;
     private GolemResources golemResources;
     private GolemCooldownManager golemCooldown;
@@ -30,10 +30,10 @@ public class GolemAbilityCreate : CreateAbilityBase
     {
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
 
-        golemInputManager = transform.parent.parent.GetComponent<GolemInputManager>();
-        golemPlayerController = golemInputManager.GetComponent<GolemPlayerController>();
-        golemResources = golemInputManager.GetComponent<GolemResources>();
-        golemCooldown = golemInputManager.GetComponent<GolemCooldownManager>();
+        golemInputController = transform.parent.parent.GetComponent<GolemInputController>();
+        golemPlayerController = golemInputController.GetComponent<GolemPlayerController>();
+        golemResources = golemInputController.GetComponent<GolemResources>();
+        golemCooldown = golemInputController.GetComponent<GolemCooldownManager>();
     }
 
     public override void CastAbility(PlayerTeam newTeamColor, float heldTime, GameObject casterObject)
@@ -58,7 +58,7 @@ public class GolemAbilityCreate : CreateAbilityBase
     {
         golemPlayerController.isCastingAbility = true;
 
-        Vector3 storedAimVec = golemInputManager.aimVec;
+        Vector3 storedAimVec = golemInputController.aimVec;
 
         if (abilityInfo.abilityCastTime > 0)
         {
@@ -71,7 +71,7 @@ public class GolemAbilityCreate : CreateAbilityBase
 
         Vector3 newSpawnPosition = Vector3.zero;
 
-        Vector3 newAimVector = golemInputManager.aimVec;
+        Vector3 newAimVector = golemInputController.aimVec;
 
         if (newAimVector != storedAimVec)
         {

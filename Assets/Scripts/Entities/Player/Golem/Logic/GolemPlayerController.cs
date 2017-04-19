@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof (GolemInputManager))]
+[RequireComponent(typeof (GolemInputController))]
 [System.Serializable]
 public class GolemPlayerController : GolemStats 
 {
@@ -14,7 +14,7 @@ public class GolemPlayerController : GolemStats
     [HideInInspector]
     public CharacterController characterController;
 
-    private GolemInputManager golemInputManager;
+    private GolemInputController golemInputController;
     private GolemResources golemResources;
     private GolemMelee golemMelee;
     private GolemCooldownManager golemCooldown;
@@ -96,7 +96,7 @@ public class GolemPlayerController : GolemStats
 
         characterController = GetComponent<CharacterController>();
 
-        golemInputManager = GetComponent<GolemInputManager>();
+        golemInputController = GetComponent<GolemInputController>();
 
         golemResources = GetComponent<GolemResources>();
 
@@ -110,15 +110,15 @@ public class GolemPlayerController : GolemStats
 
         golemState = GetComponent<Animator>();
 
-        playerColor = golemInputManager.playerTeam;
+        playerColor = golemInputController.playerTeam;
 
         movementSpeed = baseMovementSpeed;
     }
 
     void GatherInput()
     {
-        moveVec = golemInputManager.moveVec;
-        directionVec = golemInputManager.moveDirection;
+        moveVec = golemInputController.moveVec;
+        directionVec = golemInputController.moveDirection;
     }
 
     void ManageMovement()
@@ -165,9 +165,9 @@ public class GolemPlayerController : GolemStats
         }
         else if (isCastingAbility)
         {
-            if (golemInputManager.aimVec != Vector3.zero)
+            if (golemInputController.aimVec != Vector3.zero)
             {
-                float targetRotation = Mathf.Atan2(golemInputManager.aimVec.x, golemInputManager.aimVec.z) * Mathf.Rad2Deg;
+                float targetRotation = Mathf.Atan2(golemInputController.aimVec.x, golemInputController.aimVec.z) * Mathf.Rad2Deg;
 
                 if (targetRotation < 0)
                 {
