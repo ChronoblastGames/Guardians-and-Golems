@@ -3,12 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum FloatingTextType
-{
-    DAMAGE,
-    STATUS
-}
-
 public class FloatingTextManager : MonoBehaviour 
 {
     public List<GameObject> damageTextPool = new List<GameObject>();
@@ -18,7 +12,7 @@ public class FloatingTextManager : MonoBehaviour
     public GameObject damageTextPrefab;
     public GameObject statusTextPrefab;
 
-    public void CreateDamageText(float damageValue, Transform textLocation, FloatingDamageTextType effectType)
+    public void CreateDamageText(float damageValue, Transform textLocation, FloatingDamageSubTextType effectType)
     {
         Color textColor = Color.black;
         GameObject newText = GetNextDamageText();
@@ -30,19 +24,19 @@ public class FloatingTextManager : MonoBehaviour
 
         switch(effectType)
         {
-            case FloatingDamageTextType.DAMAGE:
+            case FloatingDamageSubTextType.DAMAGE:
                 textColor = Color.red;
                 break;
 
-            case FloatingDamageTextType.HEAL:
+            case FloatingDamageSubTextType.HEAL:
                 textColor = Color.green;
                 break;
 
-            case FloatingDamageTextType.CRITICAL:
+            case FloatingDamageSubTextType.CRITICAL:
                 textColor = Color.yellow;
                 break;
 
-            case FloatingDamageTextType.SHIELD:
+            case FloatingDamageSubTextType.SHIELD:
                 textColor = Color.blue;
                 break;
 

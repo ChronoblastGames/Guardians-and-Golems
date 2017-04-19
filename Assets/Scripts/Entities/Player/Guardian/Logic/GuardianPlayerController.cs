@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(GuardianInputManager))]
+[RequireComponent(typeof(GuardianInputController))]
 [System.Serializable]
 public class GuardianPlayerController : GuardianStats 
 {
     private CrystalManager crystalManager;
 
-    private GuardianInputManager guardianInputManager;
+    private GuardianInputController guardianInputController;
     private GuardianResources guardianResources;
     private GuardianCooldownManager guardianCooldown;
 
@@ -67,7 +67,7 @@ public class GuardianPlayerController : GuardianStats
     {
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
 
-        guardianInputManager = GetComponent<GuardianInputManager>();
+        guardianInputController = GetComponent<GuardianInputController>();
         guardianResources = GetComponent<GuardianResources>();
         guardianCooldown = GetComponent<GuardianCooldownManager>();
 
@@ -77,15 +77,15 @@ public class GuardianPlayerController : GuardianStats
 
         selectionTimer.ResetTimer(selectionDelay);
 
-        playerTeam = guardianInputManager.playerTeam;
+        playerTeam = guardianInputController.playerTeam;
 
         guardianModel.SetActive(false);
     }
 
     void GatherInput()
     {
-        xAxis = guardianInputManager.xAxis;
-        zAxis = guardianInputManager.zAxis;
+        xAxis = guardianInputController.xAxis;
+        zAxis = guardianInputController.zAxis;
 
         SearchForConduit(xAxis, zAxis);
     }
@@ -147,7 +147,7 @@ public class GuardianPlayerController : GuardianStats
         attachedConduit = null;
     }
 
-    public void AttempToCaptureConduit()
+    public void AttemptToCaptureConduit()
     {
         if (attachedConduit != null && !isCapturingOrb)
         {

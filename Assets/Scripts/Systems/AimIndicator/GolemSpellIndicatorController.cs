@@ -1,15 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public enum IndicatorType
-{
-    NONE,
-    ARROW,
-    CONE,
-    CIRCLE,
-    POINT
-}
-
 public class GolemSpellIndicatorController : MonoBehaviour 
 {
     private GolemInputController golemInput;

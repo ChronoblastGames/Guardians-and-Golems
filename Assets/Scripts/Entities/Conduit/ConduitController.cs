@@ -2,17 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ConduitState
-{
-    EMPTY,
-    IN_PROGRESS,
-    CONTROLLED,
-    DRAINING,
-    CONTESTED,
-    DISABLED,
-    HOMEBASE
-}
-
 public class ConduitController : MonoBehaviour 
 {
     private CommandManager commandManager;

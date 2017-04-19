@@ -3,18 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum FloatingDamageTextType
-{
-    DAMAGE,
-    HEAL,
-    CRITICAL,
-    SHIELD,
-    NONE
-}
-
 public class UIManager : MonoBehaviour
 {
-
     private FloatingTextManager floatingTextManager;
 
     private CrystalManager crystalManager;
@@ -30,6 +20,13 @@ public class UIManager : MonoBehaviour
     [Header("Golem HealthBar")]
     public Image redGolemHealthBar;
     public Image blueGolemHealthBar;
+
+    [Header("Golem UI")]
+    public GameObject redGolemUI;
+    public GameObject blueGolemUI;
+
+    private GameObject redGolem;
+    private GameObject blueGolem;
 
     [Header("Command UI")]
     public Image redTeamCommandImage;
@@ -61,6 +58,9 @@ public class UIManager : MonoBehaviour
         redGolemResources = GameObject.FindGameObjectWithTag("GolemRed").GetComponent<GolemResources>();
         blueGolemResources = GameObject.FindGameObjectWithTag("GolemBlue").GetComponent<GolemResources>();
 
+        redGolem = redGolemResources.gameObject;
+        blueGolem = blueGolemResources.gameObject;
+
         floatingTextManager = GetComponent<FloatingTextManager>();
     }
 
@@ -70,6 +70,7 @@ public class UIManager : MonoBehaviour
         ManageClock();
         ManageCrystals();
         ManageCommand();
+        ManageGolemUI();
     }
 
     void ManageHealthBars()
@@ -112,7 +113,20 @@ public class UIManager : MonoBehaviour
         blueTeamCommandImage.fillAmount = commandManager.blueTeamCurrentCommand / commandManager.maxCommand;
     }
 
-    public void RequestDamageText(float textValue, Transform textPosition, FloatingDamageTextType effectType)
+    void ManageGolemUI()
+    {
+        Vector3 redGolemPos = redGolem.transform.position;
+        redGolemPos.y = 1;
+
+        redGolemUI.transform.position = redGolemPos;
+
+        Vector3 blueGolemPos = blueGolem.transform.position;
+        blueGolemPos.y = 1;
+
+        blueGolemUI.transform.position = blueGolemPos;
+    }
+
+    public void RequestDamageText(float textValue, Transform textPosition, FloatingDamageSubTextType effectType)
     {
         if (textValue > 0)
         {

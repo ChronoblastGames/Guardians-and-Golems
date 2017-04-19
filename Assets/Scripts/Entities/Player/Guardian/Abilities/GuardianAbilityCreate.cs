@@ -5,7 +5,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
 {
     private CrystalManager crystalManager;
 
-    private GuardianInputManager guardianInputManager;
+    private GuardianInputController guardianInputController;
     private GuardianPlayerController guardianPlayerController;
     private GuardianResources guardianResources;
     private GuardianCooldownManager guardianCooldown;
@@ -28,10 +28,10 @@ public class GuardianAbilityCreate : CreateAbilityBase
     {
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
 
-        guardianInputManager = transform.parent.parent.GetComponent<GuardianInputManager>();
-        guardianPlayerController = guardianInputManager.GetComponent<GuardianPlayerController>();    
-        guardianResources = guardianInputManager.GetComponent<GuardianResources>();
-        guardianCooldown = guardianInputManager.GetComponent<GuardianCooldownManager>();
+        guardianInputController = transform.parent.parent.GetComponent<GuardianInputController>();
+        guardianPlayerController = guardianInputController.GetComponent<GuardianPlayerController>();    
+        guardianResources = guardianInputController.GetComponent<GuardianResources>();
+        guardianCooldown = guardianInputController.GetComponent<GuardianCooldownManager>();
     }
 
     public override void CastGuardianAbility(PlayerTeam teamColor, float holdTime, GameObject spawnObject, GameObject casterObject)
@@ -54,7 +54,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
     {
         guardianPlayerController.isUsingAbility = true;
 
-        Vector3 storedAimVec = guardianInputManager.aimVec;
+        Vector3 storedAimVec = guardianInputController.aimVec;
 
         if (abilityInfo.abilityCastTime > 0)
         {
@@ -67,7 +67,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
         Vector3 newSpawnPosition = Vector3.zero;
 
-        Vector3 newAimVector = guardianInputManager.aimVec;
+        Vector3 newAimVector = guardianInputController.aimVec;
 
         if (newAimVector != storedAimVec)
         {

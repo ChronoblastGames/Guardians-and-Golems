@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerType
-{
-    GOLEM,
-    GUARDIAN
-}
-
-
 public class CrystalManager : MonoBehaviour
 {
     private UIManager UI;

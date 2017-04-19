@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class GuardianSpellIndicatorController : MonoBehaviour 
 {
-    private GuardianInputManager guardianInput;
+    private GuardianInputController guardianInput;
 
     private float aimXAxis;
     private float aimZAxis;
@@ -33,7 +33,7 @@ public class GuardianSpellIndicatorController : MonoBehaviour
 
     void Initialize()
     {
-        guardianInput = GetComponent<GuardianInputManager>();
+        guardianInput = GetComponent<GuardianInputController>();
 
         SetNewIndicator(IndicatorType.ARROW, 0);
     }

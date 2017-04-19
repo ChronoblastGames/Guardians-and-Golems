@@ -2,22 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatusEffect
-{
-    NONE,
-    STUN,
-    SLOW,
-    BLEED,
-    MANA_DRAIN,
-    SILENCE,
-    SHIELD,
-    KNOCKBACK,
-    HEALOVERTIME,
-    STAGGER,
-    PULL
-}
-
-
 public class GolemResources : MonoBehaviour
 {
     private GolemPlayerController golemPlayerController;
@@ -248,7 +232,7 @@ public class GolemResources : MonoBehaviour
             Die();
         }
 
-        UIManager.RequestDamageText(damageValue, transform, FloatingDamageTextType.DAMAGE);
+        UIManager.RequestDamageText(damageValue, transform, FloatingDamageSubTextType.DAMAGE);
     }
 
     public void GetHealed(float healAmount, StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject healingObject)
@@ -256,7 +240,7 @@ public class GolemResources : MonoBehaviour
         if (currentHealth < maxHealth)
         {
             currentHealth += healAmount;
-            UIManager.RequestDamageText(healAmount, transform, FloatingDamageTextType.HEAL);
+            UIManager.RequestDamageText(healAmount, transform, FloatingDamageSubTextType.HEAL);
         }
 
         if (statusEffect != StatusEffect.NONE)
@@ -525,7 +509,7 @@ public class GolemResources : MonoBehaviour
             {
                 currentHealth -= bleedStrength;
 
-                UIManager.RequestDamageText(bleedStrength, transform, FloatingDamageTextType.DAMAGE);
+                UIManager.RequestDamageText(bleedStrength, transform, FloatingDamageSubTextType.DAMAGE);
 
                 yield return new WaitForSeconds(bleedFrequency);
             }
@@ -556,7 +540,7 @@ public class GolemResources : MonoBehaviour
                 {
                     currentHealth += healStrength;
 
-                    UIManager.RequestDamageText(healStrength, transform, FloatingDamageTextType.HEAL);
+                    UIManager.RequestDamageText(healStrength, transform, FloatingDamageSubTextType.HEAL);
                 }
           
                 yield return new WaitForSeconds(healFrequency);

@@ -1,36 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public enum DamageType
-{
-    FIRE,
-    ICE,
-    WIND,
-    EARTH,
-    SLASH,
-    SMASH,
-    PIERCE,
-    PURE,
-    NONE
-}
-
-public enum AbilityType
-{
-    DAMAGE,
-    HEAL,
-    SUPPORT,
-    UTILITY
-}
-
-public enum AbilitySubType
-{
-    PROJECTILE,
-    STATIC,
-    ZONE,
-    BEAM,
-    SELF,
-}
-
 public struct AbilityValues
 {
     [Header("Cast Info")]
