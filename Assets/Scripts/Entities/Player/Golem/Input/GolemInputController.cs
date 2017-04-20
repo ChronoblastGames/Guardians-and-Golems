@@ -40,6 +40,8 @@ public class GolemInputController : MonoBehaviour
 
     private float maxHoldTime = 10f;
 
+    public bool isInitialize = false;
+
     private void Start()
     {
         Initialize();
@@ -56,6 +58,11 @@ public class GolemInputController : MonoBehaviour
 
         golemPlayerController = GetComponent<GolemPlayerController>();
 
+        PlayerSetup();
+    }
+
+    public void PlayerSetup()
+    {
         switch (playerNum)
         {
             case PlayerNum.PLAYER_1:
@@ -76,124 +83,129 @@ public class GolemInputController : MonoBehaviour
         }
 
         playerInput = ReInput.players.GetPlayer(playerNumber);
+
+        isInitialize = true;
     }
 
     private void GetInput()
     {
-        xAxis = playerInput.GetAxis("HorizontalMovement");
-        zAxis = playerInput.GetAxis("VerticalMovement");
-
-        moveVec = new Vector2(xAxis, zAxis);
-        moveDirection = moveVec.normalized;
-
-        aimXAxis = playerInput.GetAxis("HorizontalAimAxis");
-        aimZAxis = playerInput.GetAxis("VerticalAimAxis");
-
-        if (aimXAxis != 0 || aimZAxis != 0)
+        if (isInitialize)
         {
-            aimVec = new Vector3(aimXAxis, 0, aimZAxis).normalized;
-        }
-        else
-        {
-            aimVec = Vector3.zero;
-        }
+            xAxis = playerInput.GetAxis("HorizontalMovement");
+            zAxis = playerInput.GetAxis("VerticalMovement");
 
-        if (playerInput.GetButtonDown("Melee/Capture"))
-        {
-            golemPlayerController.UseAttack();
-        }
+            moveVec = new Vector2(xAxis, zAxis);
+            moveDirection = moveVec.normalized;
 
-        if (playerInput.GetButtonDown("Dash"))
-        {
-            golemPlayerController.DodgeSetup();
-        }
+            aimXAxis = playerInput.GetAxis("HorizontalAimAxis");
+            aimZAxis = playerInput.GetAxis("VerticalAimAxis");
 
-        if (playerInput.GetButton("Ability1"))
-        {
-            golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[0].indicatorType, golemPlayerController.golemAbilities[0].indicatorSize);
-
-            if (holdTime <= maxHoldTime)
+            if (aimXAxis != 0 || aimZAxis != 0)
             {
-                holdTime += Time.deltaTime * holdTimeMultiplier;
+                aimVec = new Vector3(aimXAxis, 0, aimZAxis).normalized;
             }
             else
             {
-                holdTime = maxHoldTime;
+                aimVec = Vector3.zero;
             }
-        }
 
-        if (playerInput.GetButtonUp("Ability1"))
-        {
-            golemPlayerController.UseAbility(0, playerTeam, holdTime);
-            holdTime = 0;
-
-            golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
-        }
-
-        if (playerInput.GetButton("Ability2"))
-        {
-            golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[1].indicatorType, golemPlayerController.golemAbilities[1].indicatorSize);
-
-            if (holdTime <= maxHoldTime)
+            if (playerInput.GetButtonDown("Melee/Capture"))
             {
-                holdTime += Time.deltaTime * holdTimeMultiplier;
+                golemPlayerController.UseAttack();
             }
-            else
+
+            if (playerInput.GetButtonDown("Dash"))
             {
-                holdTime = maxHoldTime;
+                golemPlayerController.DodgeSetup();
             }
-        }
 
-        if (playerInput.GetButtonUp("Ability2"))
-        {
-            golemPlayerController.UseAbility(1, playerTeam, holdTime);
-            holdTime = 0;
-
-            golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
-        }
-
-        if (playerInput.GetButton("Ability3"))
-        {
-            golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[2].indicatorType, golemPlayerController.golemAbilities[2].indicatorSize);
-
-            if (holdTime <= maxHoldTime)
+            if (playerInput.GetButton("Ability1"))
             {
-                holdTime += Time.deltaTime * holdTimeMultiplier;
+                golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[0].indicatorType, golemPlayerController.golemAbilities[0].indicatorSize);
+
+                if (holdTime <= maxHoldTime)
+                {
+                    holdTime += Time.deltaTime * holdTimeMultiplier;
+                }
+                else
+                {
+                    holdTime = maxHoldTime;
+                }
             }
-            else
+
+            if (playerInput.GetButtonUp("Ability1"))
             {
-                holdTime = maxHoldTime;
+                golemPlayerController.UseAbility(0, playerTeam, holdTime);
+                holdTime = 0;
+
+                golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
             }
-        }
 
-        if (playerInput.GetButtonUp("Ability3"))
-        {
-            golemPlayerController.UseAbility(2, playerTeam, holdTime);
-            holdTime = 0;
-
-            golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
-        }
-
-        if (playerInput.GetButton("Ability4"))
-        {
-            golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[3].indicatorType, golemPlayerController.golemAbilities[3].indicatorSize);
-
-            if (holdTime <= maxHoldTime)
+            if (playerInput.GetButton("Ability2"))
             {
-                holdTime += Time.deltaTime * holdTimeMultiplier;
+                golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[1].indicatorType, golemPlayerController.golemAbilities[1].indicatorSize);
+
+                if (holdTime <= maxHoldTime)
+                {
+                    holdTime += Time.deltaTime * holdTimeMultiplier;
+                }
+                else
+                {
+                    holdTime = maxHoldTime;
+                }
             }
-            else
+
+            if (playerInput.GetButtonUp("Ability2"))
             {
-                holdTime = maxHoldTime;
+                golemPlayerController.UseAbility(1, playerTeam, holdTime);
+                holdTime = 0;
+
+                golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
+            }
+
+            if (playerInput.GetButton("Ability3"))
+            {
+                golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[2].indicatorType, golemPlayerController.golemAbilities[2].indicatorSize);
+
+                if (holdTime <= maxHoldTime)
+                {
+                    holdTime += Time.deltaTime * holdTimeMultiplier;
+                }
+                else
+                {
+                    holdTime = maxHoldTime;
+                }
+            }
+
+            if (playerInput.GetButtonUp("Ability3"))
+            {
+                golemPlayerController.UseAbility(2, playerTeam, holdTime);
+                holdTime = 0;
+
+                golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
+            }
+
+            if (playerInput.GetButton("Ability4"))
+            {
+                golemSpellIndicator.SetNewIndicator(golemPlayerController.golemAbilities[3].indicatorType, golemPlayerController.golemAbilities[3].indicatorSize);
+
+                if (holdTime <= maxHoldTime)
+                {
+                    holdTime += Time.deltaTime * holdTimeMultiplier;
+                }
+                else
+                {
+                    holdTime = maxHoldTime;
+                }
+            }
+
+            if (playerInput.GetButtonUp("Ability4"))
+            {
+                golemPlayerController.UseAbility(3, playerTeam, holdTime);
+                holdTime = 0;
+
+                golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
             }
         }
-
-        if (playerInput.GetButtonUp("Ability4"))
-        {
-            golemPlayerController.UseAbility(3, playerTeam, holdTime);
-            holdTime = 0;
-
-            golemSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
-        }
-    }
+    }       
 }

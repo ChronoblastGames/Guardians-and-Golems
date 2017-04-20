@@ -12,16 +12,33 @@ public class LobbyManager : MonoBehaviour
     public List<GameObject> redTeamPlayers;
     [Space(10)]
     public List<GameObject> blueTeamPlayers;
+    [Space(10)]
+    public GameObject redTeamGolem;
+    public GameObject redTeamGuardian;
+    [Space(10)]
+    public GameObject blueTeamGolem;
+    public GameObject blueTeamGuardian;
 
     private bool isRedTeamReady = false;
     private bool isBlueTeamReady = false;
 
-    public void JoinGame(int playerNumber)
-    {
+    [Header("Locations")]
+    public List<Transform> noTeamLocations;
+    public List<Transform> redTeamLocations;
+    public List<Transform> blueTeamLocations;
+    [Space(10)]
+    public Transform redTeamGolemPosition;
+    public Transform redTeamGuardianPosition;
+    [Space(10)]
+    public Transform blueTeamGolemPosition;
+    public Transform blueTeamGuardianPositon;
 
+    public void JoinLobby(GameObject playerObject)
+    {
+        unselectedPlayers.Add(playerObject);
     }
 
-    public void JoinTeam(PlayerTeam teamColor, int playerNumber)
+    public void JoinTeam(PlayerTeam teamColor, int playerNumber, GameObject playerObject)
     {
         switch (teamColor)
         {
@@ -33,35 +50,128 @@ public class LobbyManager : MonoBehaviour
         }
     }
 
-    public void LeaveTeam(int playerNumber)
+    public void LeaveTeam(PlayerTeam teamColor, int playerNumber, GameObject playerObject)
     {
-       
-    }
-
-    public void StartGame()
-    {
-
-    }
-
-    private bool IsTeamReady(PlayerTeam teamColor)
-    {
-        switch(teamColor)
+        switch (teamColor)
         {
             case PlayerTeam.RED:
-                if (redTeamPlayers.Count == 2)
+                
+                break;
+
+            case PlayerTeam.BLUE:
+                break;
+        }
+    }
+
+    public bool CheckForPlayer(PlayerTeam teamColor, PlayerType playerType)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                if (playerType == PlayerType.GOLEM)
                 {
-                    return true;
+
+                }
+                else if (playerType == PlayerType.GUARDIAN)
+                {
+
                 }
                 break;
 
             case PlayerTeam.BLUE:
-                if (blueTeamPlayers.Count == 2)
+                if (playerType == PlayerType.GOLEM)
                 {
-                    return true;
+
+                }
+                else if (playerType == PlayerType.GUARDIAN)
+                {
+
                 }
                 break;
         }
 
         return false;
+    }
+
+    private bool CheckForReady()
+    {
+        foreach(GameObject player in totalPlayers)
+        {
+            if (player.GetComponent<LobbyPlayerManager>().isReady)
+            {
+                continue;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public void AddGolem(PlayerTeam teamColor, GameObject playerObject)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                redTeamGolem = playerObject;
+                break;
+
+            case PlayerTeam.BLUE:
+                blueTeamGolem = playerObject;
+                break;
+        }
+    }
+
+    public void RemoveGolem(PlayerTeam teamColor)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                redTeamGolem = null;
+                break;
+
+            case PlayerTeam.BLUE:
+                blueTeamGolem = null;
+                break;
+        }
+    }
+
+    public void AddGuardian(PlayerTeam teamColor, GameObject playerObject)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                redTeamGuardian = playerObject;
+                break;
+
+            case PlayerTeam.BLUE:
+                blueTeamGuardian = playerObject;
+                break;
+        }
+    }
+
+    public void RemoveGuardian(PlayerTeam teamColor)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                redTeamGuardian = null;
+                break;
+
+            case PlayerTeam.BLUE:
+                blueTeamGuardian = null;
+                break;
+        }
+    }
+
+
+    public void StartGame()
+    {
+        if (CheckForReady())
+        {
+            Debug.Log("Everyone is Ready... Starting Game");
+        }
     }
 }

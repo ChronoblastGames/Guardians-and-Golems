@@ -101,3 +101,11 @@ public enum AbilitySubType
     BEAM,
     SELF,
 }
+
+public enum Direction
+{
+    LEFT,
+    RIGHT,
+    UP,
+    DOWN
+}
