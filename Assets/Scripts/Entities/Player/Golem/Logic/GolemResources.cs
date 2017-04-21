@@ -378,9 +378,6 @@ public class GolemResources : MonoBehaviour
 
         golemPlayerController.StopMovement();
 
-        GetStaggered();
-
-        golemPlayerController.canRotate = false;
         golemPlayerController.canUseAbilities = false;
         golemPlayerController.canAttack = false;
 
@@ -406,7 +403,6 @@ public class GolemResources : MonoBehaviour
     {
         golemPlayerController.StartMovement();
 
-        golemPlayerController.canRotate = true;
         golemPlayerController.canUseAbilities = true;
         golemPlayerController.canAttack = true;
 
@@ -421,9 +417,6 @@ public class GolemResources : MonoBehaviour
 
         golemPlayerController.StopMovement();
 
-        GetStaggered();
-
-        golemPlayerController.canRotate = false;
         golemPlayerController.canUseAbilities = false;
         golemPlayerController.canAttack = false;
 
@@ -449,7 +442,6 @@ public class GolemResources : MonoBehaviour
     {
         golemPlayerController.StartMovement();
 
-        golemPlayerController.canRotate = true;
         golemPlayerController.canUseAbilities = true;
         golemPlayerController.canAttack = true;
 

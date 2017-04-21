@@ -165,44 +165,54 @@ public class LobbyPlayerManager : MonoBehaviour
             case Direction.LEFT:
                 if (!isReady)
                 {
-                    if (!isOnTeam)
+                    if (!isGolem && !isGuardian)
                     {
-                        isOnTeam = true;
-                        isOnRedTeam = true;
-                        lobbyManager.redTeamPlayers.Add(gameObject);
-                        lobbyManager.unselectedPlayers.Remove(gameObject);
-                        transform.position = lobbyManager.redTeamLocations[playerNumber].position;
-                    }
-                    else if (isOnBlueTeam)
-                    {
-                        isOnTeam = false;
-                        isOnBlueTeam = false;
-                        lobbyManager.blueTeamPlayers.Remove(gameObject);
-                        lobbyManager.unselectedPlayers.Add(gameObject);
-                        transform.position = lobbyManager.noTeamLocations[playerNumber].position;
-                    }
+                        if (!isOnTeam)
+                        {
+                            isOnTeam = true;
+                            isOnRedTeam = true;
+                            lobbyManager.redTeamPlayers.Add(gameObject);
+                            currentTeamColor = PlayerTeam.RED;
+                            lobbyManager.unselectedPlayers.Remove(gameObject);
+                            transform.position = lobbyManager.redTeamLocations[playerNumber].position;
+                        }
+                        else if (isOnBlueTeam)
+                        {
+                            isOnTeam = false;
+                            isOnBlueTeam = false;
+                            lobbyManager.blueTeamPlayers.Remove(gameObject);
+                            currentTeamColor = PlayerTeam.NONE;
+                            lobbyManager.unselectedPlayers.Add(gameObject);
+                            transform.position = lobbyManager.noTeamLocations[playerNumber].position;
+                        }
+                    }           
                 }       
                 break;
 
             case Direction.RIGHT:
                 if (!isReady)
                 {
-                    if (!isOnTeam)
+                    if (!isGolem && !isGuardian)
                     {
-                        isOnTeam = true;
-                        isOnBlueTeam = true;
-                        lobbyManager.blueTeamPlayers.Add(gameObject);
-                        lobbyManager.unselectedPlayers.Remove(gameObject);
-                        transform.position = lobbyManager.blueTeamLocations[playerNumber].position;
-                    }
-                    else if (isOnRedTeam)
-                    {
-                        isOnTeam = false;
-                        isOnRedTeam = false;
-                        lobbyManager.redTeamPlayers.Remove(gameObject);
-                        lobbyManager.unselectedPlayers.Add(gameObject);
-                        transform.position = lobbyManager.noTeamLocations[playerNumber].position;
-                    }                   
+                        if (!isOnTeam)
+                        {
+                            isOnTeam = true;
+                            isOnBlueTeam = true;
+                            lobbyManager.blueTeamPlayers.Add(gameObject);
+                            currentTeamColor = PlayerTeam.BLUE;
+                            lobbyManager.unselectedPlayers.Remove(gameObject);
+                            transform.position = lobbyManager.blueTeamLocations[playerNumber].position;
+                        }
+                        else if (isOnRedTeam)
+                        {
+                            isOnTeam = false;
+                            isOnRedTeam = false;
+                            lobbyManager.redTeamPlayers.Remove(gameObject);
+                            currentTeamColor = PlayerTeam.NONE;
+                            lobbyManager.unselectedPlayers.Add(gameObject);
+                            transform.position = lobbyManager.noTeamLocations[playerNumber].position;
+                        }
+                    }                      
                 }            
                 break;
 
