@@ -17,6 +17,7 @@ TagManager:
   - RedGuardian
   - BlueGuardian
   - LobbyManager
+  - PlayerInfo
   layers:
   - Default
   - TransparentFX

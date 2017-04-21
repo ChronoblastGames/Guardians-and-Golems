@@ -4,7 +4,8 @@ using UnityEngine;
 public enum PlayerType
 {
     GOLEM,
-    GUARDIAN
+    GUARDIAN,
+    NONE
 }
 
 public enum PlayerNum

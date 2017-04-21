@@ -10,6 +10,9 @@ public class LobbyPlayerManager : MonoBehaviour
 
     [Header("Player Attributes")]
     public PlayerNum playerNum;
+    public PlayerTeam currentTeamColor;
+    public PlayerType currentPlayerType;
+
     public int playerNumber;
 
     public bool isReady = false;
@@ -22,7 +25,6 @@ public class LobbyPlayerManager : MonoBehaviour
     private bool canMove = true;
 
     [Header("Team Attributes")]
-    public PlayerTeam currentTeamColor;
 
     private bool isInLobby = false;
     private bool isOnTeam = false;
@@ -228,6 +230,7 @@ public class LobbyPlayerManager : MonoBehaviour
                                 if (lobbyManager.redTeamGolem == null)
                                 {
                                     lobbyManager.AddGolem(PlayerTeam.RED, gameObject);
+                                    currentPlayerType = PlayerType.GOLEM;
                                     isGolem = true;
                                     transform.position = lobbyManager.redTeamGolemPosition.position;
                                 }
@@ -237,6 +240,7 @@ public class LobbyPlayerManager : MonoBehaviour
                                 if (lobbyManager.blueTeamGolem == null)
                                 {
                                     lobbyManager.AddGolem(PlayerTeam.BLUE, gameObject);
+                                    currentPlayerType = PlayerType.GOLEM;
                                     isGolem = true;
                                     transform.position = lobbyManager.blueTeamGolemPosition.position;
                                 }
@@ -247,12 +251,14 @@ public class LobbyPlayerManager : MonoBehaviour
                             if (isOnRedTeam)
                             {
                                 lobbyManager.RemoveGuardian(PlayerTeam.RED);
+                                currentPlayerType = PlayerType.NONE;
                                 isGuardian = false;
                                 transform.position = lobbyManager.redTeamLocations[playerNumber].position;
                             }
                             else if (isOnBlueTeam)
                             {
                                 lobbyManager.RemoveGuardian(PlayerTeam.BLUE);
+                                currentPlayerType = PlayerType.NONE;
                                 isGuardian = false;
                                 transform.position = lobbyManager.blueTeamLocations[playerNumber].position;
                             }
@@ -273,6 +279,7 @@ public class LobbyPlayerManager : MonoBehaviour
                                 if (lobbyManager.redTeamGuardian == null)
                                 {
                                     lobbyManager.AddGuardian(PlayerTeam.RED, gameObject);
+                                    currentPlayerType = PlayerType.GUARDIAN;
                                     isGuardian = true;
                                     transform.position = lobbyManager.redTeamGuardianPosition.position;
                                 }
@@ -282,6 +289,7 @@ public class LobbyPlayerManager : MonoBehaviour
                                 if (lobbyManager.blueTeamGuardian == null)
                                 {
                                     lobbyManager.AddGuardian(PlayerTeam.BLUE, gameObject);
+                                    currentPlayerType = PlayerType.GUARDIAN;
                                     isGuardian = true;
                                     transform.position = lobbyManager.blueTeamGuardianPositon.position;
                                 }
@@ -292,12 +300,14 @@ public class LobbyPlayerManager : MonoBehaviour
                             if (isOnRedTeam)
                             {
                                 lobbyManager.RemoveGolem(PlayerTeam.RED);
+                                currentPlayerType = PlayerType.NONE;
                                 isGolem = false;
                                 transform.position = lobbyManager.redTeamLocations[playerNumber].position;
                             }
                             else if (isOnBlueTeam)
                             {
                                 lobbyManager.RemoveGolem(PlayerTeam.BLUE);
+                                currentPlayerType = PlayerType.NONE;
                                 isGolem = false;
                                 transform.position = lobbyManager.blueTeamLocations[playerNumber].position;
                             }
@@ -306,6 +316,17 @@ public class LobbyPlayerManager : MonoBehaviour
                 }             
                 break;
         }
+    }
+
+    public PlayerInfo ReturnPlayerInfo()
+    {
+        PlayerInfo newPlayerInfo;
+
+        newPlayerInfo.playerNumber = playerNum;
+        newPlayerInfo.playerColor = currentTeamColor;
+        newPlayerInfo.playerType = currentPlayerType;
+
+        return newPlayerInfo;
     }
 
     private IEnumerator SelectionCooldown(float cooldownTime)
