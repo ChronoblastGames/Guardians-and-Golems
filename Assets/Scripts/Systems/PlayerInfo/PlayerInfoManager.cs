@@ -5,10 +5,7 @@ using UnityEngine;
 public class PlayerInfoManager : MonoBehaviour
 {
     [Header("Player Info")]
-    public PlayerInfo playerOneInfo;
-    public PlayerInfo playerTwoInfo;
-    public PlayerInfo playerThreeInfo;
-    public PlayerInfo playerFourInfo;
+    public List<PlayerInfo> playerInfoList = new List<PlayerInfo>();
 
     private void Start()
     {

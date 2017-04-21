@@ -150,10 +150,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 0
+  currentTeamColor: 2
+  currentPlayerType: 2
   playerNumber: 0
   isReady: 0
   selectionCooldownDelay: 0.25
-  currentTeamColor: 2
 --- !u!1 &7917629
 GameObject:
   m_ObjectHideFlags: 0
@@ -811,6 +812,15 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
+    - _id: 10
+      _name: StartGame
+      _type: 1
+      _descriptiveName: Game Start
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 1
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -827,7 +837,7 @@ MonoBehaviour:
       - categoryId: 0
         actionIds: 
       - categoryId: 1
-        actionIds: 060000000700000008000000090000000300000004000000
+        actionIds: 0600000007000000080000000900000003000000040000000a000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -950,12 +960,23 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 10
+        _elementType: 1
+        _elementIdentifierId: 15
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps: []
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 5
-    actionIdCounter: 10
+    actionIdCounter: 11
     actionCategoryIdCounter: 2
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -1383,10 +1404,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 3
+  currentTeamColor: 2
+  currentPlayerType: 2
   playerNumber: 0
   isReady: 0
   selectionCooldownDelay: 0.25
-  currentTeamColor: 2
 --- !u!1 &976728612
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,10 +2379,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
+  currentTeamColor: 2
+  currentPlayerType: 2
   playerNumber: 0
   isReady: 0
   selectionCooldownDelay: 0.25
-  currentTeamColor: 2
 --- !u!1 &2069244454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,10 +2491,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 2
+  currentTeamColor: 2
+  currentPlayerType: 2
   playerNumber: 0
   isReady: 0
   selectionCooldownDelay: 0.25
-  currentTeamColor: 2
 --- !u!1 &2126470703
 GameObject:
   m_ObjectHideFlags: 0

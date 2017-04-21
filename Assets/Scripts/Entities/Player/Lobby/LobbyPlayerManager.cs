@@ -158,6 +158,14 @@ public class LobbyPlayerManager : MonoBehaviour
                 }
             }     
         }
+
+        if (playerInput.GetButtonDown("StartGame"))
+        {
+            if (isReady)
+            {
+                lobbyManager.StartGame();
+            }
+        }
     }
 
     private void Move(Direction moveDirection)

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LobbyManager : MonoBehaviour
 {
+    private PlayerInfoManager playerInfoManager;
+
     [Header("Lobby Attributes")]
     public List<GameObject> totalPlayers;
     [Space(10)]
@@ -32,6 +34,11 @@ public class LobbyManager : MonoBehaviour
     [Space(10)]
     public Transform blueTeamGolemPosition;
     public Transform blueTeamGuardianPositon;
+
+    private void Start()
+    {
+        playerInfoManager = GameObject.FindGameObjectWithTag("PlayerInfo").GetComponent<PlayerInfoManager>();
+    }
 
     public void JoinLobby(GameObject playerObject)
     {
@@ -171,7 +178,21 @@ public class LobbyManager : MonoBehaviour
     {
         if (CheckForReady())
         {
+            PassInformationToPlayerInfo();
+
             Debug.Log("Everyone is Ready... Starting Game");
+
+            Debug.Log(playerInfoManager.playerInfoList.Count);
+        }
+    }
+
+    private void PassInformationToPlayerInfo()
+    {
+        foreach (GameObject player in totalPlayers)
+        {
+            PlayerInfo newPlayerInfo = player.GetComponent<LobbyPlayerManager>().ReturnPlayerInfo();
+
+            playerInfoManager.playerInfoList.Add(newPlayerInfo);
         }
     }
 }
