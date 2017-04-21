@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 114898209385239010}
   m_Layer: 15
   m_Name: Guardian_Red
-  m_TagString: RedGuardian
+  m_TagString: GuardianRed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2953,7 +2953,7 @@ GameObject:
   - component: {fileID: 114120597122192858}
   m_Layer: 15
   m_Name: Guardian_Blue
-  m_TagString: BlueGuardian
+  m_TagString: GuardianBlue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9003,7 +9003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bf7a12cd04189408477d4ae5ebd6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 1
+  playerNum: 4
   playerTeam: 1
   playerNumber: 1
   playerName: Ryon
@@ -9016,6 +9016,7 @@ MonoBehaviour:
   aimVec: {x: 0, y: 0, z: 0}
   holdTime: 0
   holdTimeMultiplier: 2
+  isInitialized: 0
 --- !u!114 &114098945095900492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10113,7 +10114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bf7a12cd04189408477d4ae5ebd6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 4
   playerTeam: 0
   playerNumber: 0
   playerName: Matt
@@ -10126,6 +10127,7 @@ MonoBehaviour:
   aimVec: {x: 0, y: 0, z: 0}
   holdTime: 0
   holdTimeMultiplier: 2
+  isInitialized: 0
 --- !u!114 &114681289363000118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10303,7 +10305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d414cf662e738dc4fbb180a26eb0c4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 0
+  playerNum: 4
   playerTeam: 0
   playerName: 
   playerNumber: 0
@@ -10578,7 +10580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d414cf662e738dc4fbb180a26eb0c4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 3
+  playerNum: 4
   playerTeam: 1
   playerName: 
   playerNumber: 0
@@ -16112,7 +16114,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -2063947653
+  randomSeed: -248835384
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -19109,7 +19111,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1097235428
+  randomSeed: 1805061760
   InitialModule:
     serializedVersion: 3
     enabled: 1

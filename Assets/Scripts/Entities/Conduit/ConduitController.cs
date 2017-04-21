@@ -97,11 +97,11 @@ public class ConduitController : MonoBehaviour
             switch (conduitColor)
             {
                 case PlayerTeam.RED:
-                    GameObject redTeamGuardian = GameObject.FindGameObjectWithTag("RedGuardian");
+                    GameObject redTeamGuardian = GameObject.FindGameObjectWithTag("GuardianRed");
                     redTeamGuardian.GetComponent<GuardianPlayerController>().conduitCapturedList.Add(gameObject);
                     break;
                 case PlayerTeam.BLUE:
-                    GameObject blueTeamGuardian = GameObject.FindGameObjectWithTag("BlueGuardian");
+                    GameObject blueTeamGuardian = GameObject.FindGameObjectWithTag("GuardianBlue");
                     blueTeamGuardian.GetComponent<GuardianPlayerController>().conduitCapturedList.Add(gameObject);
                     break;
             }

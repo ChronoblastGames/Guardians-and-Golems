@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadingScreenManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class LoadingScreenManager : MonoBehaviour
     public float loadDelay;
     public float loadingTransitionTime;
 
+    [Header("UI Attributes")]
+    public Text loadingText;
+
     [Header("Sprites")]
     public GameObject wireframeSprite;
     public GameObject fullSprite;
@@ -22,7 +26,7 @@ public class LoadingScreenManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(LoadScene(sceneID));
+        StartCoroutine(LoadScene());
     }
 
     private void Update()
@@ -30,11 +34,9 @@ public class LoadingScreenManager : MonoBehaviour
         CheckForInput();
     }
 
-    private IEnumerator LoadScene (int sceneIndex)
+    private IEnumerator LoadScene ()
     {
-        Debug.Log("Starting Load");
-
-        asyncLoader = SceneManager.LoadSceneAsync(sceneIndex, LoadSceneMode.Single);
+        asyncLoader = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
         asyncLoader.allowSceneActivation = false;
 
         while (!asyncLoader.isDone)
@@ -46,8 +48,6 @@ public class LoadingScreenManager : MonoBehaviour
             yield return new WaitForSeconds(loadDelay);
 
             isReadyToGo = true;
-
-            Debug.Log("Ready to Go!");
 
             yield return null;
         }

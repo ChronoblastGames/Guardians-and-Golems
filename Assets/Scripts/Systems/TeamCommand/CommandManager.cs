@@ -29,8 +29,8 @@ public class CommandManager : MonoBehaviour
     {
         globalVariables = GameObject.FindGameObjectWithTag("GlobalVariables").GetComponent<GlobalVariables>();
 
-        redGuardianPlayerController = GameObject.FindGameObjectWithTag("RedGuardian").GetComponent<GuardianPlayerController>();
-        blueGuardianPlayerController = GameObject.FindGameObjectWithTag("BlueGuardian").GetComponent<GuardianPlayerController>();
+        redGuardianPlayerController = GameObject.FindGameObjectWithTag("GuardianRed").GetComponent<GuardianPlayerController>();
+        blueGuardianPlayerController = GameObject.FindGameObjectWithTag("GuardianBlue").GetComponent<GuardianPlayerController>();
 
         redTeamCurrentCommand = startingCommand;
         blueTeamCurrentCommand = startingCommand;

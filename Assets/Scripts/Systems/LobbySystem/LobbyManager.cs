@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LobbyManager : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class LobbyManager : MonoBehaviour
 
     private void Start()
     {
-        playerInfoManager = GameObject.FindGameObjectWithTag("PlayerInfo").GetComponent<PlayerInfoManager>();
+        playerInfoManager = GameObject.FindGameObjectWithTag("PlayerInfoManager").GetComponent<PlayerInfoManager>();
     }
 
     public void JoinLobby(GameObject playerObject)
@@ -180,9 +181,8 @@ public class LobbyManager : MonoBehaviour
         {
             PassInformationToPlayerInfo();
 
-            Debug.Log("Everyone is Ready... Starting Game");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
 
-            Debug.Log(playerInfoManager.playerInfoList.Count);
         }
     }
 

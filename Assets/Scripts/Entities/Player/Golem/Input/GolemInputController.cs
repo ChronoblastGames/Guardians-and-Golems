@@ -40,7 +40,7 @@ public class GolemInputController : MonoBehaviour
 
     private float maxHoldTime = 10f;
 
-    public bool isInitialize = false;
+    public bool isInitialized = false;
 
     private void Start()
     {
@@ -57,8 +57,6 @@ public class GolemInputController : MonoBehaviour
         golemSpellIndicator = GetComponent<GolemSpellIndicatorController>();
 
         golemPlayerController = GetComponent<GolemPlayerController>();
-
-        PlayerSetup();
     }
 
     public void PlayerSetup()
@@ -84,12 +82,12 @@ public class GolemInputController : MonoBehaviour
 
         playerInput = ReInput.players.GetPlayer(playerNumber);
 
-        isInitialize = true;
+        isInitialized = true;
     }
 
     private void GetInput()
     {
-        if (isInitialize)
+        if (isInitialized)
         {
             xAxis = playerInput.GetAxis("HorizontalMovement");
             zAxis = playerInput.GetAxis("VerticalMovement");

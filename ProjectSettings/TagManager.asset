@@ -14,10 +14,10 @@ TagManager:
   - BlueTeamCommand
   - CommandManager
   - MapManager
-  - RedGuardian
-  - BlueGuardian
   - LobbyManager
-  - PlayerInfo
+  - GuardianRed
+  - GuardianBlue
+  - PlayerInfoManager
   layers:
   - Default
   - TransparentFX

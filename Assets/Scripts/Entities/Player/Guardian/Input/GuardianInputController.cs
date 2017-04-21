@@ -36,9 +36,11 @@ public class GuardianInputController : MonoBehaviour
     [HideInInspector]
     public float aimZAxis;
 
+    private bool isInitialized = false;
+
     private void Start()
     {
-        PlayerSetup();
+        Initialize();
     }
     
     private void Update()
@@ -46,12 +48,15 @@ public class GuardianInputController : MonoBehaviour
         GetInput();
     }
     
-    private void PlayerSetup()
+    private void Initialize()
     {
         guardianSpellIndicator = GetComponent<GuardianSpellIndicatorController>();
 
         guardianPlayerController = GetComponent<GuardianPlayerController>();
+    }
 
+    public void PlayerSetup()
+    {   
         switch (playerNum)
         {
             case PlayerNum.PLAYER_1:
@@ -72,113 +77,118 @@ public class GuardianInputController : MonoBehaviour
         }
 
         playerInput = ReInput.players.GetPlayer(playerNumber);
+
+        isInitialized = true;
     }
 
     private void GetInput()
     {
-        xAxis = playerInput.GetAxis("HorizontalMovement");
-        zAxis = playerInput.GetAxis("VerticalMovement");
-
-        aimXAxis = playerInput.GetAxis("HorizontalAimAxis");
-        aimZAxis = playerInput.GetAxis("VerticalAimAxis");
-
-        if (aimXAxis != 0 || aimZAxis != 0)
+        if (isInitialized)
         {
-            aimVec = new Vector3(aimXAxis, 0, aimZAxis).normalized;
-        }
-        else
-        {
-            aimVec = Vector3.zero;
-        }
+            xAxis = playerInput.GetAxis("HorizontalMovement");
+            zAxis = playerInput.GetAxis("VerticalMovement");
 
-        if (playerInput.GetButtonDown("Melee/Capture"))
-        {
-            guardianPlayerController.AttemptToCaptureConduit();
-        }
+            aimXAxis = playerInput.GetAxis("HorizontalAimAxis");
+            aimZAxis = playerInput.GetAxis("VerticalAimAxis");
 
-        if (playerInput.GetButton("Ability1"))
-        {
-            guardianSpellIndicator.SetNewIndicator(guardianPlayerController.guardianAbilites[0].indicatorType, guardianPlayerController.guardianAbilites[0].indicatorSize);
-
-            if (holdTime <= maxHoldTime)
+            if (aimXAxis != 0 || aimZAxis != 0)
             {
-                holdTime += Time.deltaTime * holdTimeMultiplier;
+                aimVec = new Vector3(aimXAxis, 0, aimZAxis).normalized;
             }
             else
             {
-                holdTime = maxHoldTime;
+                aimVec = Vector3.zero;
             }
-        }
 
-        if (playerInput.GetButtonUp("Ability1"))
-        {
-            guardianPlayerController.UseAbility(0, playerTeam, holdTime);
-            holdTime = 0;
-
-            guardianSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
-        }
-
-        if (playerInput.GetButton("Ability2"))
-        {
-            guardianSpellIndicator.SetNewIndicator(guardianPlayerController.guardianAbilites[1].indicatorType, guardianPlayerController.guardianAbilites[1].indicatorSize);
-            if (holdTime <= maxHoldTime)
+            if (playerInput.GetButtonDown("Melee/Capture"))
             {
-                holdTime += Time.deltaTime * holdTimeMultiplier;
+                guardianPlayerController.AttemptToCaptureConduit();
             }
-            else
+
+            if (playerInput.GetButton("Ability1"))
             {
-                holdTime = maxHoldTime;
+                guardianSpellIndicator.SetNewIndicator(guardianPlayerController.guardianAbilites[0].indicatorType, guardianPlayerController.guardianAbilites[0].indicatorSize);
+
+                if (holdTime <= maxHoldTime)
+                {
+                    holdTime += Time.deltaTime * holdTimeMultiplier;
+                }
+                else
+                {
+                    holdTime = maxHoldTime;
+                }
             }
-        }
 
-        if (playerInput.GetButtonUp("Ability2"))
-        {
-            guardianPlayerController.UseAbility(1, playerTeam, holdTime);
-            holdTime = 0;
-
-            guardianSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
-        }
-
-        if (playerInput.GetButton("Ability3"))
-        {
-            guardianSpellIndicator.SetNewIndicator(guardianPlayerController.guardianAbilites[2].indicatorType, guardianPlayerController.guardianAbilites[2].indicatorSize);
-            if (holdTime <= maxHoldTime)
+            if (playerInput.GetButtonUp("Ability1"))
             {
-                holdTime += Time.deltaTime * holdTimeMultiplier;
+                guardianPlayerController.UseAbility(0, playerTeam, holdTime);
+                holdTime = 0;
+
+                guardianSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
             }
-            else
+
+            if (playerInput.GetButton("Ability2"))
             {
-                holdTime = maxHoldTime;
+                guardianSpellIndicator.SetNewIndicator(guardianPlayerController.guardianAbilites[1].indicatorType, guardianPlayerController.guardianAbilites[1].indicatorSize);
+                if (holdTime <= maxHoldTime)
+                {
+                    holdTime += Time.deltaTime * holdTimeMultiplier;
+                }
+                else
+                {
+                    holdTime = maxHoldTime;
+                }
             }
-        }
 
-        if (playerInput.GetButtonUp("Ability3"))
-        {
-            guardianPlayerController.UseAbility(2, playerTeam, holdTime);
-            holdTime = 0;
-
-            guardianSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
-        }
-
-        if (playerInput.GetButton("Ability4"))
-        {
-            guardianSpellIndicator.SetNewIndicator(guardianPlayerController.guardianAbilites[3].indicatorType, guardianPlayerController.guardianAbilites[3].indicatorSize);
-            if (holdTime <= maxHoldTime)
+            if (playerInput.GetButtonUp("Ability2"))
             {
-                holdTime += Time.deltaTime * holdTimeMultiplier;
+                guardianPlayerController.UseAbility(1, playerTeam, holdTime);
+                holdTime = 0;
+
+                guardianSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
             }
-            else
+
+            if (playerInput.GetButton("Ability3"))
             {
-                holdTime = maxHoldTime;
+                guardianSpellIndicator.SetNewIndicator(guardianPlayerController.guardianAbilites[2].indicatorType, guardianPlayerController.guardianAbilites[2].indicatorSize);
+                if (holdTime <= maxHoldTime)
+                {
+                    holdTime += Time.deltaTime * holdTimeMultiplier;
+                }
+                else
+                {
+                    holdTime = maxHoldTime;
+                }
+            }
+
+            if (playerInput.GetButtonUp("Ability3"))
+            {
+                guardianPlayerController.UseAbility(2, playerTeam, holdTime);
+                holdTime = 0;
+
+                guardianSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
+            }
+
+            if (playerInput.GetButton("Ability4"))
+            {
+                guardianSpellIndicator.SetNewIndicator(guardianPlayerController.guardianAbilites[3].indicatorType, guardianPlayerController.guardianAbilites[3].indicatorSize);
+                if (holdTime <= maxHoldTime)
+                {
+                    holdTime += Time.deltaTime * holdTimeMultiplier;
+                }
+                else
+                {
+                    holdTime = maxHoldTime;
+                }
+            }
+
+            if (playerInput.GetButtonUp("Ability4"))
+            {
+                guardianPlayerController.UseAbility(3, playerTeam, holdTime);
+                holdTime = 0;
+
+                guardianSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
             }
         }
-
-        if (playerInput.GetButtonUp("Ability4"))
-        {
-            guardianPlayerController.UseAbility(3, playerTeam, holdTime);
-            holdTime = 0;
-
-            guardianSpellIndicator.SetNewIndicator(IndicatorType.ARROW, 0);
-        }
-    }
+    }        
 }
