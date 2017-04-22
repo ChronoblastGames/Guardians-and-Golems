@@ -4,6 +4,8 @@ using Rewired;
 
 public class LobbyPlayerManager : MonoBehaviour 
 {
+    private LobbyAudio lobbyAudio;
+
     private LobbyManager lobbyManager;
 
     private Player playerInput;
@@ -48,6 +50,7 @@ public class LobbyPlayerManager : MonoBehaviour
         playerIcon = transform.GetChild(0).gameObject;
 
         lobbyManager = GameObject.FindGameObjectWithTag("LobbyManager").GetComponent<LobbyManager>();
+        lobbyAudio = lobbyManager.gameObject.GetComponent<LobbyAudio>();
 
         switch (playerNum)
         {
@@ -133,6 +136,7 @@ public class LobbyPlayerManager : MonoBehaviour
                     }
                     else if (isGuardian)
                     {
+                        lobbyAudio.PlayReadySound();
                         isReady = true;
                     }
                 }

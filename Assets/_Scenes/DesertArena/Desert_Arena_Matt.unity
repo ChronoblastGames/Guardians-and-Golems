@@ -326,6 +326,26 @@ Prefab:
       propertyPath: aimIndicatorArray.Array.data[2]
       value: 
       objectReference: {fileID: 976023527}
+    - target: {fileID: 114662846313769384, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: playerNum
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114903366999629612, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: playerNum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114814437549820960, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: playerNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114087428740705774, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: playerNum
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
   m_IsPrefabParent: 0
@@ -459,6 +479,11 @@ Prefab:
       propertyPath: conduitArray.Array.data[4]
       value: 
       objectReference: {fileID: 788804303}
+    - target: {fileID: 114691370787095552, guid: 1d187cedd3aed864ba01bdf0840392dc,
+        type: 2}
+      propertyPath: isDevMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d187cedd3aed864ba01bdf0840392dc, type: 2}
   m_IsPrefabParent: 0

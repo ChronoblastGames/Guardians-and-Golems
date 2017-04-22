@@ -18,7 +18,10 @@ public class PlayerManager : MonoBehaviour
 
     private void Start()
     {
-        playerInfoManager = GameObject.FindGameObjectWithTag("PlayerInfoManager").GetComponent<PlayerInfoManager>();
+        if (!isDevMode)
+        {
+            playerInfoManager = GameObject.FindGameObjectWithTag("PlayerInfoManager").GetComponent<PlayerInfoManager>();
+        }
 
         SetupPlayers();
     }
@@ -64,6 +67,18 @@ public class PlayerManager : MonoBehaviour
                         break;
                 }
             }
-        }   
+        }
+        else
+        {
+            GameObject newRedGolem = GameObject.FindGameObjectWithTag("GolemRed");
+            GameObject newBlueGolem = GameObject.FindGameObjectWithTag("GolemBlue");
+            GameObject newRedGuardian = GameObject.FindGameObjectWithTag("GuardianRed");
+            GameObject newBlueGuardian = GameObject.FindGameObjectWithTag("GuardianBlue");
+
+            newRedGolem.GetComponent<GolemInputController>().PlayerSetup();
+            newBlueGolem.GetComponent<GolemInputController>().PlayerSetup();
+            newRedGuardian.GetComponent<GuardianInputController>().PlayerSetup();
+            newBlueGuardian.GetComponent<GuardianInputController>().PlayerSetup();
+        }
     }
 }
