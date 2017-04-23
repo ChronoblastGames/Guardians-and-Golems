@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EarthFragments : MonoBehaviour
 {
-    public AbilityValues ablityValues;
+    public AbilityValues abilityValues;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,7 +11,7 @@ public class EarthFragments : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemBlue"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(ablityValues.damageAmount, ablityValues.damageType, ablityValues.statusEffect, ablityValues.effectStrength, ablityValues.effectTime, ablityValues.effectFrequency, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject, abilityValues.casterGameObject);
                 Destroy(gameObject);
             }
         }
@@ -19,7 +19,7 @@ public class EarthFragments : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemRed"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(ablityValues.damageAmount, ablityValues.damageType, ablityValues.statusEffect, ablityValues.effectStrength, ablityValues.effectTime, ablityValues.effectFrequency, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject, abilityValues.casterGameObject);
                 Destroy(gameObject);
             }
         }

@@ -4,6 +4,12 @@ using UnityEngine;
 public class GolemDodgeAbilityBase : MonoBehaviour
 {
     [HideInInspector]
+    public GameObject myGolem;
+
+    private GameObject redGolem;
+    private GameObject blueGolem;
+
+    [HideInInspector]
     public GolemPlayerController golemPlayerController;
     [HideInInspector]
     public Collider dodgeCollider;
@@ -30,7 +36,19 @@ public class GolemDodgeAbilityBase : MonoBehaviour
 
     private void Start()
     {
-        golemPlayerController = transform.parent.parent.GetComponent<GolemPlayerController>();
+        redGolem = GameObject.FindGameObjectWithTag("GolemRed");
+        blueGolem = GameObject.FindGameObjectWithTag("GolemBlue");
+
+        if (gameObject.layer == LayerMask.NameToLayer("GolemRed"))
+        {
+            myGolem = redGolem;
+        }
+        else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
+        {
+            myGolem = blueGolem;
+        }
+
+        golemPlayerController = myGolem.GetComponent<GolemPlayerController>();
 
         dodgeCollider = GetComponent<Collider>();
     }

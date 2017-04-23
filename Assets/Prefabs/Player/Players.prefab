@@ -168,6 +168,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1030178798491448
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4051522882375672}
+  - component: {fileID: 114911247962602224}
+  m_Layer: 19
+  m_Name: Ability1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1033454595509534
 GameObject:
   m_ObjectHideFlags: 1
@@ -592,6 +608,22 @@ GameObject:
   - component: {fileID: 4333206377823044}
   m_Layer: 0
   m_Name: mixamorig:LeftFoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1143727512076368
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4616954909479660}
+  - component: {fileID: 114872254270443490}
+  m_Layer: 19
+  m_Name: Ability3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2053,22 +2085,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1461037541036600
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4444591589128376}
-  - component: {fileID: 114996735460179544}
-  m_Layer: 19
-  m_Name: Ability4
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1465296988713750
 GameObject:
   m_ObjectHideFlags: 1
@@ -2156,6 +2172,22 @@ GameObject:
   - component: {fileID: 137811668844698586}
   m_Layer: 0
   m_Name: Bottom_Ab1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1491278200894722
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4500705354533038}
+  - component: {fileID: 114404800304358656}
+  m_Layer: 19
+  m_Name: Ability4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2396,6 +2428,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1530792668580486
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4886890487111794}
+  - component: {fileID: 114909535747881456}
+  m_Layer: 19
+  m_Name: Ability2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1531764424632424
 GameObject:
   m_ObjectHideFlags: 1
@@ -2422,22 +2470,6 @@ GameObject:
   - component: {fileID: 137292700648184002}
   m_Layer: 0
   m_Name: Forearm1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1535613353375668
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4819551969299610}
-  - component: {fileID: 114282139674183840}
-  m_Layer: 19
-  m_Name: Ability3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2548,7 +2580,7 @@ GameObject:
   - component: {fileID: 4614206146980830}
   - component: {fileID: 114589205260284584}
   m_Layer: 19
-  m_Name: Ability1
+  m_Name: Ability2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2817,22 +2849,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1612961708611502
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4332201431381484}
-  - component: {fileID: 114594454905436366}
-  m_Layer: 19
-  m_Name: Ability1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1614042438297650
 GameObject:
   m_ObjectHideFlags: 1
@@ -2984,22 +3000,6 @@ GameObject:
   - component: {fileID: 137303829698925850}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1636867375177676
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4976930761110966}
-  - component: {fileID: 114681289363000118}
-  m_Layer: 19
-  m_Name: Ability2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3619,7 +3619,7 @@ GameObject:
   - component: {fileID: 4247964993953152}
   - component: {fileID: 114368704936252592}
   m_Layer: 19
-  m_Name: Ability2
+  m_Name: Ability1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4514,6 +4514,19 @@ Transform:
   m_Father: {fileID: 4391352302487876}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4051522882375672
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1030178798491448}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4385445953753288}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4052342613930456
 Transform:
   m_ObjectHideFlags: 1
@@ -4877,10 +4890,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4332201431381484}
-  - {fileID: 4976930761110966}
-  - {fileID: 4819551969299610}
-  - {fileID: 4444591589128376}
+  - {fileID: 4247964993953152}
+  - {fileID: 4614206146980830}
+  - {fileID: 4292210487089686}
+  - {fileID: 4397171281057006}
   m_Father: {fileID: 4104821579528044}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5176,8 +5189,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4385445953753288}
-  m_RootOrder: 1
+  m_Father: {fileID: 4150605445350480}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4251144572886444
 Transform:
@@ -5298,7 +5311,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4385445953753288}
+  m_Father: {fileID: 4150605445350480}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4294620557018222
@@ -5358,19 +5371,6 @@ Transform:
   - {fileID: 4963590426402786}
   m_Father: {fileID: 4828389875817982}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4332201431381484
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612961708611502}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4150605445350480}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4333206377823044
 Transform:
@@ -5545,10 +5545,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4614206146980830}
-  - {fileID: 4247964993953152}
-  - {fileID: 4292210487089686}
-  - {fileID: 4397171281057006}
+  - {fileID: 4051522882375672}
+  - {fileID: 4886890487111794}
+  - {fileID: 4616954909479660}
+  - {fileID: 4500705354533038}
   m_Father: {fileID: 4763283721907166}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5705,7 +5705,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4385445953753288}
+  m_Father: {fileID: 4150605445350480}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4403440134341442
@@ -5856,19 +5856,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4391352302487876}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4444591589128376
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1461037541036600}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4150605445350480}
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4444895381507052
 Transform:
@@ -6113,6 +6100,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4138963063737136}
   m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4500705354533038
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1491278200894722}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4385445953753288}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4501154992039142
 Transform:
@@ -6553,12 +6553,25 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1560513220566384}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4150605445350480}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4616954909479660
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143727512076368}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4385445953753288}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4629398665218532
 Transform:
@@ -7450,19 +7463,6 @@ Transform:
   m_Father: {fileID: 4719178103761466}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4819551969299610
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1535613353375668}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4150605445350480}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4821635605758880
 Transform:
   m_ObjectHideFlags: 1
@@ -7775,6 +7775,19 @@ Transform:
   - {fileID: 4763283721907166}
   - {fileID: 4104821579528044}
   m_Father: {fileID: 4491020558324022}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4886890487111794
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530792668580486}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4385445953753288}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4887229434673950
@@ -8157,19 +8170,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4842550406030252}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4976930761110966
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1636867375177676}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4150605445350480}
-  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4982701307948224
 Transform:
@@ -9003,7 +9003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bf7a12cd04189408477d4ae5ebd6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 4
+  playerNum: 1
   playerTeam: 1
   playerNumber: 1
   playerName: Ryon
@@ -9159,10 +9159,10 @@ MonoBehaviour:
   captureSpeed: 0.75
   assistedCaptureSpeed: 1.25
   guardianAbilites:
-  - {fileID: 114594454905436366}
-  - {fileID: 114681289363000118}
-  - {fileID: 114282139674183840}
-  - {fileID: 114996735460179544}
+  - {fileID: 114368704936252592}
+  - {fileID: 114589205260284584}
+  - {fileID: 114223523441695250}
+  - {fileID: 114781096506621612}
   teamColor: 1
   guardianModel: {fileID: 1244940507768070}
   conduitCapturedList: []
@@ -9255,51 +9255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b5347fe3f99ba4fa94fbe43bb5aa50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114282139674183840
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1535613353375668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityType: 0
-  indicatorType: 2
-  indicatorSize: 0
-  spawnPos: {fileID: 0}
-  casterGameObject: {fileID: 0}
-  teamColor: 0
-  ability: {fileID: 0}
-  abilityCastTime: 0
-  damageType: 3
-  damageAmount: 20
-  damageFrequency: 0
-  travelSpeed: 0
-  spawnDistanceFromPlayer: 0
-  activeTime: 0
-  holdTime: 0
-  zoneRadius: 0
-  zoneHeight: 0
-  healthCost: 0
-  crystalCost: 0
-  isMelee: 0
-  isRanged: 1
-  isHeld: 0
-  statusEffect: 0
-  effectStrength: 0
-  effectTime: 0
-  effectFrequency: 0
-  abilitySubType: 0
-  redMask:
-    serializedVersion: 2
-    m_Bits: 256
-  blueMask:
-    serializedVersion: 2
-    m_Bits: 512
-  minHoldTime: 0.25
 --- !u!114 &114313627837826256
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9544,6 +9499,51 @@ MonoBehaviour:
   currentMana: Infinity
   maxMana: Infinity
   manaRegenerationSpeed: 1.5
+--- !u!114 &114404800304358656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1491278200894722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityType: 0
+  indicatorType: 3
+  indicatorSize: 15
+  spawnPos: {fileID: 0}
+  casterGameObject: {fileID: 0}
+  teamColor: 0
+  ability: {fileID: 1000095144429562, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
+  abilityCastTime: 2
+  damageType: 0
+  damageAmount: 7.5
+  damageFrequency: 0.5
+  travelSpeed: 0
+  spawnDistanceFromPlayer: 0
+  activeTime: 7
+  holdTime: 0
+  zoneRadius: 0
+  zoneHeight: 0
+  healthCost: 0
+  crystalCost: 4
+  isMelee: 0
+  isRanged: 1
+  isHeld: 0
+  statusEffect: 10
+  effectStrength: 5
+  effectTime: 1
+  effectFrequency: 0
+  abilitySubType: 0
+  redMask:
+    serializedVersion: 2
+    m_Bits: 256
+  blueMask:
+    serializedVersion: 2
+    m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114422803445682008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9957,51 +9957,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   minHoldTime: 0.25
---- !u!114 &114594454905436366
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1612961708611502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityType: 0
-  indicatorType: 1
-  indicatorSize: 0
-  spawnPos: {fileID: 0}
-  casterGameObject: {fileID: 0}
-  teamColor: 0
-  ability: {fileID: 1879156958085216, guid: a14c0acc6eeba074b99c9c809ff7b8d0, type: 2}
-  abilityCastTime: 0
-  damageType: 0
-  damageAmount: 10
-  damageFrequency: 0
-  travelSpeed: 20
-  spawnDistanceFromPlayer: 0
-  activeTime: 10
-  holdTime: 0
-  zoneRadius: 0
-  zoneHeight: 0
-  healthCost: 0
-  crystalCost: 2
-  isMelee: 0
-  isRanged: 1
-  isHeld: 0
-  statusEffect: 0
-  effectStrength: 0
-  effectTime: 0
-  effectFrequency: 0
-  abilitySubType: 0
-  redMask:
-    serializedVersion: 2
-    m_Bits: 256
-  blueMask:
-    serializedVersion: 2
-    m_Bits: 512
-  minHoldTime: 0.25
 --- !u!114 &114617749060180200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10114,7 +10069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bf7a12cd04189408477d4ae5ebd6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 4
+  playerNum: 2
   playerTeam: 0
   playerNumber: 0
   playerName: Matt
@@ -10128,51 +10083,6 @@ MonoBehaviour:
   holdTime: 0
   holdTimeMultiplier: 2
   isInitialized: 0
---- !u!114 &114681289363000118
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1636867375177676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityType: 1
-  indicatorType: 3
-  indicatorSize: 10
-  spawnPos: {fileID: 0}
-  casterGameObject: {fileID: 0}
-  teamColor: 0
-  ability: {fileID: 1041677828617672, guid: d7e5dff1cbb152048a06f50acb33bcb2, type: 2}
-  abilityCastTime: 2
-  damageType: 0
-  damageAmount: 5
-  damageFrequency: 0.5
-  travelSpeed: 0
-  spawnDistanceFromPlayer: 0
-  activeTime: 5
-  holdTime: 0
-  zoneRadius: 10
-  zoneHeight: 2
-  healthCost: 0
-  crystalCost: 2
-  isMelee: 0
-  isRanged: 1
-  isHeld: 0
-  statusEffect: 0
-  effectStrength: 0
-  effectTime: 0
-  effectFrequency: 0
-  abilitySubType: 2
-  redMask:
-    serializedVersion: 2
-    m_Bits: 256
-  blueMask:
-    serializedVersion: 2
-    m_Bits: 512
-  minHoldTime: 0.25
 --- !u!114 &114699408743882646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10305,7 +10215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d414cf662e738dc4fbb180a26eb0c4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 4
+  playerNum: 0
   playerTeam: 0
   playerName: 
   playerNumber: 0
@@ -10533,10 +10443,10 @@ MonoBehaviour:
   captureSpeed: 0.75
   assistedCaptureSpeed: 1.25
   guardianAbilites:
-  - {fileID: 114589205260284584}
-  - {fileID: 114368704936252592}
-  - {fileID: 114223523441695250}
-  - {fileID: 114781096506621612}
+  - {fileID: 114911247962602224}
+  - {fileID: 114909535747881456}
+  - {fileID: 114872254270443490}
+  - {fileID: 114404800304358656}
   teamColor: 0
   guardianModel: {fileID: 1770684983511430}
   conduitCapturedList: []
@@ -10553,6 +10463,51 @@ MonoBehaviour:
   isCapturingOrb: 0
   canUseAbility: 0
   isUsingAbility: 0
+--- !u!114 &114872254270443490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143727512076368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityType: 0
+  indicatorType: 2
+  indicatorSize: 0
+  spawnPos: {fileID: 0}
+  casterGameObject: {fileID: 0}
+  teamColor: 0
+  ability: {fileID: 0}
+  abilityCastTime: 0
+  damageType: 3
+  damageAmount: 20
+  damageFrequency: 0
+  travelSpeed: 0
+  spawnDistanceFromPlayer: 0
+  activeTime: 0
+  holdTime: 0
+  zoneRadius: 0
+  zoneHeight: 0
+  healthCost: 0
+  crystalCost: 0
+  isMelee: 0
+  isRanged: 1
+  isHeld: 0
+  statusEffect: 0
+  effectStrength: 0
+  effectTime: 0
+  effectFrequency: 0
+  abilitySubType: 0
+  redMask:
+    serializedVersion: 2
+    m_Bits: 256
+  blueMask:
+    serializedVersion: 2
+    m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114898209385239010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10580,7 +10535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d414cf662e738dc4fbb180a26eb0c4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 4
+  playerNum: 3
   playerTeam: 1
   playerName: 
   playerNumber: 0
@@ -10608,6 +10563,96 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &114909535747881456
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1530792668580486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityType: 0
+  indicatorType: 1
+  indicatorSize: 0
+  spawnPos: {fileID: 0}
+  casterGameObject: {fileID: 0}
+  teamColor: 0
+  ability: {fileID: 1879156958085216, guid: a14c0acc6eeba074b99c9c809ff7b8d0, type: 2}
+  abilityCastTime: 0
+  damageType: 0
+  damageAmount: 10
+  damageFrequency: 0
+  travelSpeed: 20
+  spawnDistanceFromPlayer: 0
+  activeTime: 10
+  holdTime: 0
+  zoneRadius: 0
+  zoneHeight: 0
+  healthCost: 0
+  crystalCost: 2
+  isMelee: 0
+  isRanged: 1
+  isHeld: 0
+  statusEffect: 0
+  effectStrength: 0
+  effectTime: 0
+  effectFrequency: 0
+  abilitySubType: 0
+  redMask:
+    serializedVersion: 2
+    m_Bits: 256
+  blueMask:
+    serializedVersion: 2
+    m_Bits: 512
+  minHoldTime: 0.25
+--- !u!114 &114911247962602224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1030178798491448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityType: 1
+  indicatorType: 3
+  indicatorSize: 10
+  spawnPos: {fileID: 0}
+  casterGameObject: {fileID: 0}
+  teamColor: 0
+  ability: {fileID: 1041677828617672, guid: d7e5dff1cbb152048a06f50acb33bcb2, type: 2}
+  abilityCastTime: 2
+  damageType: 0
+  damageAmount: 5
+  damageFrequency: 0.5
+  travelSpeed: 0
+  spawnDistanceFromPlayer: 0
+  activeTime: 5
+  holdTime: 0
+  zoneRadius: 10
+  zoneHeight: 2
+  healthCost: 0
+  crystalCost: 2
+  isMelee: 0
+  isRanged: 1
+  isHeld: 0
+  statusEffect: 0
+  effectStrength: 0
+  effectTime: 0
+  effectFrequency: 0
+  abilitySubType: 2
+  redMask:
+    serializedVersion: 2
+    m_Bits: 256
+  blueMask:
+    serializedVersion: 2
+    m_Bits: 512
+  minHoldTime: 0.25
 --- !u!114 &114994750649921852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10624,51 +10669,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &114996735460179544
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1461037541036600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff2b028afbb382149a00a284a649c766, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityType: 0
-  indicatorType: 3
-  indicatorSize: 15
-  spawnPos: {fileID: 0}
-  casterGameObject: {fileID: 0}
-  teamColor: 0
-  ability: {fileID: 1000095144429562, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
-  abilityCastTime: 2
-  damageType: 0
-  damageAmount: 7.5
-  damageFrequency: 0.5
-  travelSpeed: 0
-  spawnDistanceFromPlayer: 0
-  activeTime: 7
-  holdTime: 0
-  zoneRadius: 0
-  zoneHeight: 0
-  healthCost: 0
-  crystalCost: 4
-  isMelee: 0
-  isRanged: 1
-  isHeld: 0
-  statusEffect: 10
-  effectStrength: 5
-  effectTime: 1
-  effectFrequency: 0
-  abilitySubType: 0
-  redMask:
-    serializedVersion: 2
-    m_Bits: 256
-  blueMask:
-    serializedVersion: 2
-    m_Bits: 512
-  minHoldTime: 0.25
 --- !u!119 &119306145474046394
 Projector:
   m_ObjectHideFlags: 1

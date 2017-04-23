@@ -140,12 +140,20 @@ public class CrystalManager : MonoBehaviour
                     {
                         return true;
                     }
+                    else
+                    {
+                        UI.GolemCantCastCrystalUI(PlayerTeam.RED, crystalAmount);
+                    }
                 }
                 else if (playerType == PlayerType.GUARDIAN)
                 {
                     if (redTeamGuardianCurrentCrystalCount >= crystalAmount)
                     {
                         return true;
+                    }
+                    else
+                    {
+
                     }
                 }
                 
@@ -158,12 +166,20 @@ public class CrystalManager : MonoBehaviour
                     {
                         return true;
                     }
+                    else
+                    {
+                        UI.GolemCantCastCrystalUI(PlayerTeam.BLUE, crystalAmount);
+                    }
                 }
                 else if (playerType == PlayerType.GUARDIAN)
                 {
                     if (blueTeamGuardianCurrentCrystalCount >= crystalAmount)
                     {
                         return true;
+                    }
+                    else
+                    {
+
                     }
                 }       
                 break;

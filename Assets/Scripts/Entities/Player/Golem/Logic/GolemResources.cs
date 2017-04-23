@@ -8,6 +8,8 @@ public class GolemResources : MonoBehaviour
     private GlobalVariables globalVariables;
     private UIManager UIManager;
 
+    private StatTracker statTracker;
+
     private TimerClass staggerTimer;
 
     private ParticleSystem hitParticles;
@@ -74,6 +76,8 @@ public class GolemResources : MonoBehaviour
 
         staggerTimer = new TimerClass();
 
+        statTracker = GameObject.FindGameObjectWithTag("StatTracker").GetComponent<StatTracker>();
+
         hitParticles = GetComponent<ParticleSystem>();
 
         currentHealth = maxHealth;
@@ -117,7 +121,6 @@ public class GolemResources : MonoBehaviour
             }
             else
             {
-                Debug.Log(gameObject.name + "can't Cast");
                 return false;
             }
         }
@@ -127,7 +130,7 @@ public class GolemResources : MonoBehaviour
         }    
     }
 
-    public void TakeDamage(float damageValue, DamageType damageType, StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject damagingObject)
+    public void TakeDamage(float damageValue, DamageType damageType, StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject damagingObject, GameObject damageCaster)
     {
         if (!golemPlayerController.isDead)
         {
@@ -148,49 +151,49 @@ public class GolemResources : MonoBehaviour
                 case DamageType.EARTH:
                     calculatedResistance = baseDefense * golemDefense.earthDefense;
                     calculatedDamage = damageValue / calculatedResistance;
-                    DealDamage(calculatedDamage, damagingObject, DamageType.EARTH);
+                    DealDamage(calculatedDamage, DamageType.EARTH, damagingObject, damageCaster);
                     break;
 
                 case DamageType.FIRE:
                     calculatedResistance = baseDefense * golemDefense.fireDefense;
                     calculatedDamage = damageValue / calculatedResistance;
-                    DealDamage(calculatedDamage, damagingObject, DamageType.FIRE);
+                    DealDamage(calculatedDamage, DamageType.FIRE, damagingObject, damageCaster);
                     break;
 
                 case DamageType.ICE:
                     calculatedResistance = baseDefense * golemDefense.waterDefense;
                     calculatedDamage = damageValue / calculatedResistance;
-                    DealDamage(calculatedDamage, damagingObject, DamageType.ICE);
+                    DealDamage(calculatedDamage, DamageType.ICE, damagingObject, damageCaster);
                     break;
 
                 case DamageType.WIND:
                     calculatedResistance = baseDefense * golemDefense.windDefense;
                     calculatedDamage = damageValue / calculatedResistance;
-                    DealDamage(calculatedDamage, damagingObject, DamageType.WIND);
+                    DealDamage(calculatedDamage, DamageType.WIND, damagingObject, damageCaster);
                     break;
 
                 case DamageType.PIERCE:
                     calculatedResistance = baseDefense * golemDefense.pierceDefense;
                     calculatedDamage = damageValue / calculatedResistance;
-                    DealDamage(calculatedDamage, damagingObject, DamageType.PIERCE);
+                    DealDamage(calculatedDamage, DamageType.PIERCE, damagingObject, damageCaster);
                     break;
 
                 case DamageType.SLASH:
                     calculatedResistance = baseDefense * golemDefense.slashDefense;
                     calculatedDamage = damageValue / calculatedResistance;
-                    DealDamage(calculatedDamage, damagingObject, DamageType.SLASH);
+                    DealDamage(calculatedDamage, DamageType.SLASH, damagingObject, damageCaster);
                     break;
 
                 case DamageType.SMASH:
                     calculatedResistance = baseDefense * golemDefense.smashDefense;
                     calculatedDamage = damageValue / calculatedResistance;
-                    DealDamage(calculatedDamage, damagingObject, DamageType.SMASH);
+                    DealDamage(calculatedDamage, DamageType.SMASH, damagingObject, damageCaster);
                     break;
 
                 case DamageType.PURE:
                     calculatedResistance = baseDefense;
                     calculatedDamage = damageValue / calculatedResistance;
-                    DealDamage(calculatedDamage, damagingObject, DamageType.PURE);
+                    DealDamage(calculatedDamage, DamageType.PURE, damagingObject, damageCaster);
                     break;
 
                 default:
@@ -200,8 +203,10 @@ public class GolemResources : MonoBehaviour
         }      
     }
 
-    public void DealDamage(float damageValue, GameObject damagingObject, DamageType damageType)
+    public void DealDamage(float damageValue, DamageType damageType, GameObject damagingObject, GameObject damageCaster)
     {
+        statTracker.AddToTotalDamage(damageCaster, damageValue);
+
         if (temporaryHealth > 0)
         {
             float calculateDamage = temporaryHealth - damageValue;
@@ -229,7 +234,10 @@ public class GolemResources : MonoBehaviour
         else
         {
             currentHealth = 0;
+
             Die();
+
+            statTracker.AddToKillingBlows(damageCaster);
         }
 
         UIManager.RequestDamageText(damageValue, transform, FloatingDamageSubTextType.DAMAGE);

@@ -18,6 +18,7 @@ TagManager:
   - GuardianRed
   - GuardianBlue
   - PlayerInfoManager
+  - StatTracker
   layers:
   - Default
   - TransparentFX

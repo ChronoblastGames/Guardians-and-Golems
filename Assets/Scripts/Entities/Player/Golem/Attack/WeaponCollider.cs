@@ -13,6 +13,8 @@ public class WeaponCollider : MonoBehaviour
     private float statusEffectTime;
     private float statusEffectFrequency;
 
+    private GameObject weaponOwner;
+
     private Collider weaponCol;
 
     private TrailRenderer trailRenderer;
@@ -29,8 +31,9 @@ public class WeaponCollider : MonoBehaviour
         trailRenderer = GetComponent<TrailRenderer>();
     }
 
-    public void SetValues(DamageType attackType, float attackDamage, StatusEffect attackEffect, float effectStrength, float effectTime, float effectFrequency)
+    public void SetValues(DamageType attackType, float attackDamage, StatusEffect attackEffect, float effectStrength, float effectTime, float effectFrequency, GameObject attachedObject)
     {
+        weaponOwner = attachedObject;
         damageType = attackType;
         damageValue = attackDamage;
         statusEffect = attackEffect;
@@ -55,7 +58,7 @@ public class WeaponCollider : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemBlue"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, statusEffectFrequency, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, statusEffectFrequency, gameObject, weaponOwner);
                 weaponCol.enabled = false;
             }
         }
@@ -63,7 +66,7 @@ public class WeaponCollider : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemRed"))
             { 
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, statusEffectFrequency, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(damageValue, damageType, statusEffect, statusEffectStrength, statusEffectTime, statusEffectFrequency, gameObject, weaponOwner);
                 weaponCol.enabled = false;
             }
         } 

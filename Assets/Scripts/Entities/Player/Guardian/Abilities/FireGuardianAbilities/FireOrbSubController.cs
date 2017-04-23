@@ -24,7 +24,7 @@ public class FireOrbSubController : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemBlue"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(fireballAbilityValues.damageAmount, fireballAbilityValues.damageType, fireballAbilityValues.statusEffect, fireballAbilityValues.effectStrength, fireballAbilityValues.effectTime, fireballAbilityValues.effectFrequency, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(fireballAbilityValues.damageAmount, fireballAbilityValues.damageType, fireballAbilityValues.statusEffect, fireballAbilityValues.effectStrength, fireballAbilityValues.effectTime, fireballAbilityValues.effectFrequency, gameObject, fireballAbilityValues.casterGameObject);
                 fireBola.fireballList.Remove(gameObject);
                 Destroy(gameObject);
             }
@@ -33,7 +33,7 @@ public class FireOrbSubController : MonoBehaviour
         {
             if (other.gameObject.CompareTag("GolemRed"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(fireballAbilityValues.damageAmount, fireballAbilityValues.damageType, fireballAbilityValues.statusEffect, fireballAbilityValues.effectStrength, fireballAbilityValues.effectTime, fireballAbilityValues.effectFrequency, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(fireballAbilityValues.damageAmount, fireballAbilityValues.damageType, fireballAbilityValues.statusEffect, fireballAbilityValues.effectStrength, fireballAbilityValues.effectTime, fireballAbilityValues.effectFrequency, gameObject, fireballAbilityValues.casterGameObject);
                 fireBola.fireballList.Remove(gameObject);
                 Destroy(gameObject);
             }

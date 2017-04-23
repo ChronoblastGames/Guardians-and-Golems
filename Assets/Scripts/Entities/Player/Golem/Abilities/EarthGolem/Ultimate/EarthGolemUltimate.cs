@@ -58,7 +58,7 @@ public class EarthGolemUltimate : AbilityCastBase
                 Quaternion shardRotation = Quaternion.Euler(-60, shardAngle, 0);
                 GameObject newShard = Instantiate(earthFragments, shardPos, shardRotation, transform) as GameObject;
                 newShard.layer = gameObject.layer;       
-                newShard.GetComponent<EarthFragments>().ablityValues = abilityValues;        
+                newShard.GetComponent<EarthFragments>().abilityValues = abilityValues;        
             }
         }
     }

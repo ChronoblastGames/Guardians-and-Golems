@@ -343,14 +343,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
-        functionName: EnableWeaponTrail
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
       - time: 0.49799198
         functionName: EnableWeaponCollider
         data: 
@@ -361,14 +353,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0.7491172
         functionName: DisableWeaponCollider
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d,
-          type: 3}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.7738516
-        functionName: DisableWeaponTrail
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d,
           type: 3}
@@ -507,14 +491,6 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
-        functionName: EnableWeaponTrail
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d,
-          type: 3}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
       - time: 0.66867465
         functionName: EnableWeaponCollider
         data: 
@@ -525,14 +501,6 @@ ModelImporter:
         messageOptions: 0
       - time: 0.9187537
         functionName: DisableWeaponCollider
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d,
-          type: 3}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.93639576
-        functionName: DisableWeaponTrail
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d,
           type: 3}
@@ -671,15 +639,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0
-        functionName: EnableWeaponTrail
-        data: 
-        objectReferenceParameter: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d,
-          type: 3}
-        floatParameter: 0
-        intParameter: 2
-        messageOptions: 0
-      - time: 0.58099866
+      - time: 0.5774651
         functionName: EnableWeaponCollider
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d,
@@ -695,7 +655,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 2
         messageOptions: 0
-      - time: 0.67313594
+      - time: 0.67136914
         functionName: DisableWeaponCollider
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 61dbcdf33640a264eadc5ef82574f23d,

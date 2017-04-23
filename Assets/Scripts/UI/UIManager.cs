@@ -153,6 +153,26 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void GolemCantCastCrystalUI(PlayerTeam teamColor, int crystalAmount)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                for (int i = 0; i < crystalAmount; i++)
+                {
+                    golemCrystalRed[i].GetComponent<Animator>().SetTrigger("canFlash");
+                }
+                break;
+
+            case PlayerTeam.BLUE:
+                for (int i = 0; i < crystalAmount; i++)
+                {
+                    golemCrystalBlue[i].GetComponent<Animator>().SetTrigger("canFlash");
+                }
+                break;
+        }
+    }
+
     public void ResetCrystalUI(int crystalNumber, PlayerTeam teamColor, PlayerType playerType)
     {
         switch(teamColor)

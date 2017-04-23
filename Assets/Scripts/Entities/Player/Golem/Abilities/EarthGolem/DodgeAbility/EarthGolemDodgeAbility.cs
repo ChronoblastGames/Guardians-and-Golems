@@ -31,7 +31,7 @@ public class EarthGolemDodgeAbility : GolemDodgeAbilityBase
         {
             if (other.gameObject.CompareTag("GolemBlue"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(dodgeDamage, dodgeDamageType, dodgeEffect, effectStrength, effectTime, effectFrequency, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(dodgeDamage, dodgeDamageType, dodgeEffect, effectStrength, effectTime, effectFrequency, gameObject, myGolem);
                 dodgeCollider.enabled = false;
             }
         }
@@ -39,7 +39,7 @@ public class EarthGolemDodgeAbility : GolemDodgeAbilityBase
         {
             if (other.gameObject.CompareTag("GolemRed"))
             {
-                other.gameObject.GetComponent<GolemResources>().TakeDamage(dodgeDamage, dodgeDamageType, dodgeEffect, effectStrength, effectTime, effectFrequency, gameObject);
+                other.gameObject.GetComponent<GolemResources>().TakeDamage(dodgeDamage, dodgeDamageType, dodgeEffect, effectStrength, effectTime, effectFrequency, gameObject, myGolem);
                 dodgeCollider.enabled = false;
             }
         }
