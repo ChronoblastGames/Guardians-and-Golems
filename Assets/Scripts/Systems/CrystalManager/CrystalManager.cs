@@ -153,7 +153,7 @@ public class CrystalManager : MonoBehaviour
                     }
                     else
                     {
-
+                        UI.GuardianCantCastCrystalUI(PlayerTeam.RED, crystalAmount);
                     }
                 }
                 
@@ -179,7 +179,7 @@ public class CrystalManager : MonoBehaviour
                     }
                     else
                     {
-
+                        UI.GuardianCantCastCrystalUI(PlayerTeam.BLUE, crystalAmount);
                     }
                 }       
                 break;

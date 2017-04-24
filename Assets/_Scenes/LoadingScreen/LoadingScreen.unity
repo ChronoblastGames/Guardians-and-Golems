@@ -266,7 +266,7 @@ MonoBehaviour:
   wireframeSprite: {fileID: 1154039201}
   fullSprite: {fileID: 975237244}
   firstLerpTime: 1.5
-  secondLerpTime: 1
+  secondLerpTime: 1.5
   firstPoint: {fileID: 336878482}
   secondPoint: {fileID: 1197781253}
   thirdPoint: {fileID: 2043082387}

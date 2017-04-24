@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class BoulderToss : AbilityCastBase 
 {
+    public Material yellowMaterial;
+    public Material blueMaterial;
+
     private TimerClass activeTimer;
 
     private Animator boulderAnimator;
@@ -36,6 +39,21 @@ public class BoulderToss : AbilityCastBase
             activeTimer.ResetTimer(abilityValues.activeTime);
 
             isTimerActive = true;
+        }
+
+        if (abilityValues.teamColor == PlayerTeam.RED)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).GetComponent<Renderer>().material = yellowMaterial;
+            }
+        }
+        else if (abilityValues.teamColor == PlayerTeam.BLUE)
+        {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                transform.GetChild(i).GetComponent<Renderer>().material = blueMaterial;
+            }
         }
 
         isAbilityActive = true;

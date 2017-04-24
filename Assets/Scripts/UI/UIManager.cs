@@ -145,11 +145,11 @@ public class UIManager : MonoBehaviour
     {
         if (playerTeam == PlayerTeam.RED)
         {
-            guardianCrystalLeft[crystalNumber].color = Color.yellow;
+            guardianCrystalLeft[crystalNumber].color = yellowColor;
         }
         else if (playerTeam == PlayerTeam.BLUE)
         {
-            guardianCrystalRight[crystalNumber].color = Color.blue;
+            guardianCrystalRight[crystalNumber].color = blueColor;
         }
     }
 
@@ -168,6 +168,26 @@ public class UIManager : MonoBehaviour
                 for (int i = 0; i < crystalAmount; i++)
                 {
                     golemCrystalBlue[i].GetComponent<Animator>().SetTrigger("canFlash");
+                }
+                break;
+        }
+    }
+
+    public void GuardianCantCastCrystalUI(PlayerTeam teamColor, int crystalAmount)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                for (int i = 0; i < crystalAmount; i++)
+                {
+                    guardianCrystalLeft[i].GetComponent<Animator>().SetTrigger("canFlash");
+                }
+                break;
+
+            case PlayerTeam.BLUE:
+                for (int i = 0; i < crystalAmount; i++)
+                {
+                    guardianCrystalRight[i].GetComponent<Animator>().SetTrigger("canFlash");
                 }
                 break;
         }
