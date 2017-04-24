@@ -586,6 +586,8 @@ public class ConduitController : MonoBehaviour
         guardianPlayerController.FinishCapture();
         conduitState = ConduitState.CONTROLLED;
 
+        drainWaitTime = initialDrainWaitTime;
+
         DrawLine();
     }
 
@@ -601,6 +603,18 @@ public class ConduitController : MonoBehaviour
 
     public void ResetConduit()
     {
+        if (conduitColor != PlayerTeam.NONE)
+        {
+            if (conduitColor == PlayerTeam.RED)
+            {
+                crystalManager.RemoveCrystal(PlayerTeam.RED);
+            }
+            else if (conduitColor == PlayerTeam.BLUE)
+            {
+                crystalManager.RemoveCrystal(PlayerTeam.BLUE);
+            }
+        }
+
         if (guardianPlayerController != null)
         {
             guardianPlayerController.isCapturingOrb = false;
@@ -608,6 +622,8 @@ public class ConduitController : MonoBehaviour
 
         redTeamCaptureAmount = 0;
         blueTeamCaptureAmount = 0;
+
+        drainWaitTime = initialDrainWaitTime;
 
         conduitState = ConduitState.EMPTY;
         conduitColor = PlayerTeam.NONE;

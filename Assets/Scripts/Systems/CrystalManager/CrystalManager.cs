@@ -315,11 +315,37 @@ public class CrystalManager : MonoBehaviour
         switch (teamColor)
         {
             case PlayerTeam.RED:
-                redTeamTotalCrystalCount--;
+                if (redTeamTotalCrystalCount > startingCrystalCount)
+                {
+                    redTeamTotalCrystalCount--;
+
+                    if (redTeamGolemCurrentCrystalCount > redTeamTotalCrystalCount)
+                    {
+                        redTeamGolemCurrentCrystalCount = redTeamTotalCrystalCount;
+                    }
+
+                    if (redTeamGuardianCurrentCrystalCount > redTeamTotalCrystalCount)
+                    {
+                        redTeamGuardianCurrentCrystalCount = redTeamTotalCrystalCount;
+                    }
+                }
                 break;
 
             case PlayerTeam.BLUE:
-                blueTeamTotalCrystalCount--;
+                if (blueTeamTotalCrystalCount > startingCrystalCount)
+                {
+                    blueTeamTotalCrystalCount--;
+
+                    if (blueTeamGolemCurrentCrystalCount > blueTeamTotalCrystalCount)
+                    {
+                        blueTeamGolemCurrentCrystalCount = blueTeamTotalCrystalCount;
+                    }
+
+                    if (blueTeamGuardianCurrentCrystalCount > blueTeamTotalCrystalCount)
+                    {
+                        blueTeamGuardianCurrentCrystalCount = blueTeamTotalCrystalCount;
+                    }
+                }
                 break;
         }
     }
