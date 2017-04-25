@@ -8,11 +8,6 @@ public class CrystalManager : MonoBehaviour
 
     [Header("Crystal Attributes")]
     public int totalMapCrystalCount = 0;
-
-    [Header("Team Crystal Attributes")]
-    public List<GameObject> redTeamCapturedCrystals;
-    public List<GameObject> blueTeamCapturedCrystals;
-
     public int startingCrystalCount = 2;
     [Space(10)]
     public float redTeamGuardianRefill = 0f;
@@ -305,7 +300,7 @@ public class CrystalManager : MonoBehaviour
 
             case PlayerTeam.BLUE:
                 blueTeamTotalCrystalCount++;
-                UI.SetCrystalColor(blueTeamTotalCrystalCount, PlayerTeam.RED);
+                UI.SetCrystalColor(blueTeamTotalCrystalCount, PlayerTeam.BLUE);
                 break;
         }
     }

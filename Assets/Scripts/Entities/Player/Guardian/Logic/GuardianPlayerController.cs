@@ -33,6 +33,8 @@ public class GuardianPlayerController : GuardianStats
 
     public float hoverHeight;
 
+    public float startDelay;
+
     [Header("Selection Values")]
     public GameObject attachedConduit;
     private GameObject selectedConduit;
@@ -80,6 +82,8 @@ public class GuardianPlayerController : GuardianStats
         playerTeam = guardianInputController.playerTeam;
 
         guardianModel.SetActive(false);
+
+        StartDelay(startDelay);
     }
 
     void GatherInput()
@@ -182,5 +186,14 @@ public class GuardianPlayerController : GuardianStats
                 isUsingAbility = true;
             }
         }     
-    }  
+    }
+    
+    private IEnumerator StartDelay(float delay)
+    {
+        canMove = false;
+
+        yield return new WaitForSeconds(delay);
+
+        canMove = true;
+    }
 }

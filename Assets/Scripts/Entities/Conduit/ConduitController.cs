@@ -183,58 +183,64 @@ public class ConduitController : MonoBehaviour
         }        
         else if (conduitState == ConduitState.DRAINING)
         {
-            if (redTeamCaptureAmount > 0)
+            if (conduitColor == PlayerTeam.RED)
             {
-                float capturePercentage = (redTeamCaptureAmount / totalCaptureAmount) * 100;
+                if (redTeamCaptureAmount > 0)
+                {
+                    float capturePercentage = (redTeamCaptureAmount / totalCaptureAmount) * 100;
 
-                if (capturePercentage > 25f && capturePercentage < 26f)
-                {
-                    foreach (Renderer gemRenderer in outerGemRenderer)
+                    if (capturePercentage > 25f && capturePercentage < 26f)
                     {
-                        gemRenderer.material.color = gemColor;
+                        foreach (Renderer gemRenderer in outerGemRenderer)
+                        {
+                            gemRenderer.material.color = gemColor;
+                        }
                     }
-                }
-                else if (capturePercentage > 50f && capturePercentage < 51f)
-                {
-                    foreach (Renderer gemRenderer in innerGemRenderer)
+                    else if (capturePercentage > 50f && capturePercentage < 51f)
                     {
-                        gemRenderer.material.color = gemColor;
+                        foreach (Renderer gemRenderer in innerGemRenderer)
+                        {
+                            gemRenderer.material.color = gemColor;
+                        }
                     }
-                }   
-                else if (capturePercentage > 90f && capturePercentage < 91f)
-                {
-                    foreach (Renderer gem in crystalRenderer)
+                    else if (capturePercentage > 90f && capturePercentage < 91f)
                     {
-                        gem.material.color = gemColor;
+                        foreach (Renderer gem in crystalRenderer)
+                        {
+                            gem.material.color = gemColor;
+                        }
                     }
                 }
             }
-            else if (blueTeamCaptureAmount > 0)
+            else if (conduitColor == PlayerTeam.BLUE)
             {
-                float capturePercentage = blueTeamCaptureAmount / totalCaptureAmount;
+                if (blueTeamCaptureAmount > 0)
+                {
+                    float capturePercentage = (blueTeamCaptureAmount / totalCaptureAmount) * 100;
 
-                if (capturePercentage > 25f && capturePercentage < 26f)
-                {
-                    foreach (Renderer gemRenderer in innerGemRenderer)
+                    if (capturePercentage > 25f && capturePercentage < 26f)
                     {
-                        gemRenderer.material.color = gemColor;
+                        foreach (Renderer gemRenderer in outerGemRenderer)
+                        {
+                            gemRenderer.material.color = gemColor;
+                        }
+                    }
+                    else if (capturePercentage > 50f && capturePercentage < 51f)
+                    {
+                        foreach (Renderer gemRenderer in innerGemRenderer)
+                        {
+                            gemRenderer.material.color = gemColor;
+                        }
+                    }
+                    else if (capturePercentage > 90f && capturePercentage < 91f)
+                    {
+                        foreach (Renderer gem in crystalRenderer)
+                        {
+                            gem.material.color = gemColor;
+                        }
                     }
                 }
-                else if (capturePercentage > 50f && capturePercentage < 51f)
-                {
-                    foreach (Renderer gemRenderer in outerGemRenderer)
-                    {
-                        gemRenderer.material.color = gemColor;
-                    }
-                }
-                else if (capturePercentage > 90f && capturePercentage < 91f)
-                {
-                    foreach (Renderer gem in crystalRenderer)
-                    {
-                        gem.material.color = gemColor;
-                    }
-                }
-            }
+            }     
         }
     }
 
@@ -617,6 +623,7 @@ public class ConduitController : MonoBehaviour
 
         if (guardianPlayerController != null)
         {
+            guardianPlayerController.conduitCapturedList.Remove(gameObject);
             guardianPlayerController.isCapturingOrb = false;
         }
 

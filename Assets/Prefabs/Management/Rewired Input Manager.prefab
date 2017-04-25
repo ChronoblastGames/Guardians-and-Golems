@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581b3e3c96df0ef42aef16b63b27b87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 1
+  _dontDestroyOnLoad: 0
   _userData:
     configVars:
       updateLoop: 1
@@ -310,6 +310,42 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 4
+    - _id: 10
+      _name: UISubmit
+      _type: 1
+      _descriptiveName: 
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 5
+    - _id: 11
+      _name: UICancel
+      _type: 1
+      _descriptiveName: 
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 5
+    - _id: 14
+      _name: UIHorizontal
+      _type: 0
+      _descriptiveName: 
+      _positiveDescriptiveName: UIHorizontalPositive
+      _negativeDescriptiveName: UIHorizontalNegative
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 5
+    - _id: 15
+      _name: UIVertical
+      _type: 0
+      _descriptiveName: 
+      _positiveDescriptiveName: UIVerticalPositive
+      _negativeDescriptiveName: UIVerticalNegative
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 5
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -336,6 +372,11 @@ MonoBehaviour:
       _tag: 
       _id: 4
       _userAssignable: 1
+    - _name: UI EventSystem
+      _descriptiveName: 
+      _tag: 
+      _id: 5
+      _userAssignable: 1
     actionCategoryMap:
       list:
       - categoryId: 0
@@ -348,6 +389,8 @@ MonoBehaviour:
         actionIds: 04000000050000000600000007000000
       - categoryId: 4
         actionIds: 0800000009000000
+      - categoryId: 5
+        actionIds: 0a0000000b0000000e0000000f000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -560,13 +603,57 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 14
+        _elementType: 0
+        _elementIdentifierId: 0
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 15
+        _elementType: 0
+        _elementIdentifierId: 1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 10
+        _elementType: 1
+        _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 11
+        _elementType: 1
+        _elementIdentifierId: 5
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps: []
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     playerIdCounter: 5
-    actionIdCounter: 10
-    actionCategoryIdCounter: 5
+    actionIdCounter: 16
+    actionCategoryIdCounter: 6
     inputBehaviorIdCounter: 3
     mapCategoryIdCounter: 1
     joystickLayoutIdCounter: 1

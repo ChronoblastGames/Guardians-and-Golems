@@ -8,6 +8,6 @@ public class LobbyAudio : MonoBehaviour
 
     public void PlayReadySound()
     {
-        readyUpSFX.Play();
+
     }
 }
