@@ -83,7 +83,7 @@ public class GuardianPlayerController : GuardianStats
 
         guardianModel.SetActive(false);
 
-        StartDelay(startDelay);
+        StartCoroutine(StartDelay(startDelay));
     }
 
     void GatherInput()
@@ -119,7 +119,7 @@ public class GuardianPlayerController : GuardianStats
             {
                 selectedConduit = rayHit.collider.gameObject;
 
-                if (selectionTimer.TimerIsDone() && !isUsingAbility)
+                if (selectionTimer.TimerIsDone() && !isUsingAbility && canMove)
                 {
                     if (selectedConduit != attachedConduit && attachedConduit != null)
                     {
@@ -149,6 +149,7 @@ public class GuardianPlayerController : GuardianStats
         conduitController.DeselectConduit(playerTeam);
         conduitController = null;
         attachedConduit = null;
+        isCapturingOrb = false;
     }
 
     public void AttemptToCaptureConduit()
@@ -183,7 +184,6 @@ public class GuardianPlayerController : GuardianStats
                 guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
                 guardianCooldown.QueueGlobalCooldown();
                 guardianCooldown.QueueAbilityCooldown(abilityNumber);
-                isUsingAbility = true;
             }
         }     
     }

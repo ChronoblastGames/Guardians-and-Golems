@@ -58,11 +58,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
         if (abilityInfo.abilityCastTime > 0)
         {
-            guardianPlayerController.canMove = false;
-
             yield return new WaitForSeconds(abilityInfo.abilityCastTime);
-
-            guardianPlayerController.canMove = true;
         }
 
         Vector3 newSpawnPosition = Vector3.zero;

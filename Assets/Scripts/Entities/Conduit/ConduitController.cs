@@ -38,7 +38,7 @@ public class ConduitController : MonoBehaviour
 
     public LineRenderer[] lineRendererArray;
 
-    public Material redLineMaterial;
+    public Material yellowLineMaterial;
     public Material blueLineMaterial;
 
     [Header("Conduit Renderer Attributes")]
@@ -696,6 +696,15 @@ public class ConduitController : MonoBehaviour
                 {
                     lineRendererArray[i].SetPosition(0, transform.position);
                     lineRendererArray[i].SetPosition(1, neighbourConduits[i].transform.position);
+
+                    if (conduitColor == PlayerTeam.RED)
+                    {
+                        lineRendererArray[i].material = yellowLineMaterial;
+                    }
+                    else if (conduitColor == PlayerTeam.BLUE)
+                    {
+                        lineRendererArray[i].material = blueLineMaterial;
+                    }
                 }
             }
         }
