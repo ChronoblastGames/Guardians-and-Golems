@@ -26,11 +26,11 @@ public class FirenatoController : AbilityCastBase
 
         if (abilityValues.teamColor == PlayerTeam.RED)
         {
-            spellAreaProjector.material.color = Color.yellow;
+            spellAreaProjector.material.color = Colors.YellowTeamColor;
         }
         else if (abilityValues.teamColor == PlayerTeam.BLUE)
         {
-            spellAreaProjector.material.color = Color.blue;
+            spellAreaProjector.material.color = Colors.BlueTeamColor;
         }
 
         if (abilityValues.activeTime > 0)

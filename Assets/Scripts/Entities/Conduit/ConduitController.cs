@@ -328,7 +328,7 @@ public class ConduitController : MonoBehaviour
                                 redTeamCaptureAmount += assistedCaptureSpeed * Time.deltaTime;
                                 blueTeamCaptureAmount = 0;
 
-                                if (redTeamCaptureAmount > totalCaptureAmount)
+                                if (redTeamCaptureAmount >= totalCaptureAmount)
                                 {
                                     redTeamCaptureAmount = totalCaptureAmount;
 
@@ -347,7 +347,7 @@ public class ConduitController : MonoBehaviour
                                 redTeamCaptureAmount += captureSpeed * Time.deltaTime;
                                 blueTeamCaptureAmount = 0;
 
-                                if (redTeamCaptureAmount > totalCaptureAmount)
+                                if (redTeamCaptureAmount >= totalCaptureAmount)
                                 {
                                     redTeamCaptureAmount = totalCaptureAmount;
 
@@ -686,7 +686,7 @@ public class ConduitController : MonoBehaviour
         }
     }
 
-    void DrawLine()
+    void DrawLine() //Rewrite
     {
         if (conduitState == ConduitState.CONTROLLED)
         {

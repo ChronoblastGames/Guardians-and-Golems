@@ -172,7 +172,7 @@ public class GuardianPlayerController : GuardianStats
 
     public void UseAbility(int abilityNumber, PlayerTeam teamColor, float holdTime)
     {
-        if (canUseAbility && attachedConduit != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
+        if (canUseAbility && !isUsingAbility && attachedConduit != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
         {
             if (crystalManager.TryCast(guardianAbilites[abilityNumber].crystalCost, teamColor, PlayerType.GUARDIAN))
             {

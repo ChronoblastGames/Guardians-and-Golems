@@ -344,5 +344,7 @@ public class GolemPlayerController : GolemStats
         golemState.SetTrigger("Reset");
 
         isDead = false;
+
+        golemResources.GolemRespawn();
     }
 }

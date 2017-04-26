@@ -40,6 +40,8 @@ public class GuardianAbilityCreate : CreateAbilityBase
 
         newAbilityValues.casterGameObject = casterObject;
 
+        newAbilityValues.teamColor = teamColor;
+
         if (holdTime < minHoldTime)
         {
             holdTime = 0;
@@ -89,7 +91,9 @@ public class GuardianAbilityCreate : CreateAbilityBase
                 }
                 else
                 {
-                    newSpawnPosition = spawnObject.transform.position + Vector3.up + new Vector3(0, 0, abilityInfo.spawnDistanceFromPlayer);
+                    newSpawnPosition = spawnObject.transform.position + Vector3.up + new Vector3(0, 0, spawnDistanceFromPlayer);
+
+                    Debug.Log("Spawning at " + newSpawnPosition);
                 }
 
                 break;

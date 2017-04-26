@@ -14,6 +14,7 @@ public static class Colors
     public static readonly Color BlanchedAlmond = new Color32(255, 235, 205, 255);
     public static readonly Color Blue = new Color32(0, 0, 255, 255);
     public static readonly Color BlueViolet = new Color32(138, 43, 226, 255);
+    public static readonly Color BlueTeamColor = new Color32(0, 255, 255, 255);
     public static readonly Color Brown = new Color32(165, 42, 42, 255);
     public static readonly Color Burlywood = new Color32(222, 184, 135, 255);
     public static readonly Color CadetBlue = new Color32(95, 158, 160, 255);
@@ -143,4 +144,5 @@ public static class Colors
     public static readonly Color WhiteSmoke = new Color32(245, 245, 245, 255);
     public static readonly Color Yellow = new Color32(255, 255, 0, 255);
     public static readonly Color YellowGreen = new Color32(154, 205, 50, 255);
+    public static readonly Color YellowTeamColor = new Color32(225, 225, 0, 255);
 }

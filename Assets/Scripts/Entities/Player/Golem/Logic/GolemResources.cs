@@ -24,6 +24,9 @@ public class GolemResources : MonoBehaviour
 
     public bool canRegenerateHealth = true;
 
+    [Header("Respawn Attributes")]
+    public float respawnInvicibilityTime = 3f;
+
     [Header("Stagger Attributes")]
     public bool isStaggerTimerActive;
 
@@ -37,6 +40,8 @@ public class GolemResources : MonoBehaviour
     public AnimationCurve knockBackCurve;
     public AnimationCurve pullCurve;
     [Space(10)]
+
+    public bool canTakeDamage = true;
 
     public bool isSlowed = false;
     public bool isKnockedBack = false;
@@ -132,7 +137,7 @@ public class GolemResources : MonoBehaviour
 
     public void TakeDamage(float damageValue, DamageType damageType, StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject damagingObject, GameObject damageCaster)
     {
-        if (!golemPlayerController.isDead)
+        if (!golemPlayerController.isDead && canTakeDamage)
         {
             float baseDefense = golemDefense.baseDefense;
 
@@ -575,6 +580,22 @@ public class GolemResources : MonoBehaviour
     void StopStun()
     {
         statusEffectList.Remove(StatusEffect.STUN);
+    }
+
+    public void GolemRespawn()
+    {
+        StartCoroutine(GolemRespawnInvicibility(respawnInvicibilityTime));
+    }
+
+    private IEnumerator GolemRespawnInvicibility(float invincibilityTime)
+    {
+        canTakeDamage = false;
+
+        yield return new WaitForSeconds(invincibilityTime);
+
+        canTakeDamage = true;
+
+        yield return null;
     }
 
 }
