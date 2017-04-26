@@ -100,9 +100,9 @@ public class GuardianInputController : MonoBehaviour
                 aimVec = Vector3.zero;
             }
 
-            if (playerInput.GetButtonDown("Melee/Capture"))
+            if (playerInput.GetButton("Melee/Capture"))
             {
-                guardianPlayerController.AttemptToCaptureConduit();
+                guardianPlayerController.CaptureCurrentConduit();
             }
 
             if (playerInput.GetButton("Ability1"))

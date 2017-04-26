@@ -366,7 +366,7 @@ Prefab:
     - target: {fileID: 114814437549820960, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: playerNum
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114870925424427208, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
@@ -897,6 +897,11 @@ Prefab:
         type: 2}
       propertyPath: guardianGlobalCooldown
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114966891457267906, guid: 1d187cedd3aed864ba01bdf0840392dc,
+        type: 2}
+      propertyPath: startingCrystalCount
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d187cedd3aed864ba01bdf0840392dc, type: 2}
@@ -3817,6 +3822,41 @@ Prefab:
         type: 2}
       propertyPath: drainWaitTime
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 114918089130210560, guid: 5fe6803c2480a0b4eb67aab64d30f173,
+        type: 2}
+      propertyPath: captureSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114617267869725728, guid: 5fe6803c2480a0b4eb67aab64d30f173,
+        type: 2}
+      propertyPath: captureSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114022406150580114, guid: 5fe6803c2480a0b4eb67aab64d30f173,
+        type: 2}
+      propertyPath: captureSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114463681255200036, guid: 5fe6803c2480a0b4eb67aab64d30f173,
+        type: 2}
+      propertyPath: captureSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114956498463179572, guid: 5fe6803c2480a0b4eb67aab64d30f173,
+        type: 2}
+      propertyPath: captureSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114421338545414392, guid: 5fe6803c2480a0b4eb67aab64d30f173,
+        type: 2}
+      propertyPath: captureSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473008043120062, guid: 5fe6803c2480a0b4eb67aab64d30f173,
+        type: 2}
+      propertyPath: captureSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5fe6803c2480a0b4eb67aab64d30f173, type: 2}

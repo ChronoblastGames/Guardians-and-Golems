@@ -62,7 +62,7 @@ public class GuardianPlayerController : GuardianStats
     private void Update()
     {
         GatherInput();
-        ManageAttack();
+        ManageAbilityCasting();
     }
 
     void PlayerSetup()
@@ -81,8 +81,6 @@ public class GuardianPlayerController : GuardianStats
 
         playerTeam = guardianInputController.playerTeam;
 
-        guardianModel.SetActive(false);
-
         StartCoroutine(StartDelay(startDelay));
     }
 
@@ -94,7 +92,7 @@ public class GuardianPlayerController : GuardianStats
         SearchForConduit(xAxis, zAxis);
     }
 
-    void ManageAttack()
+    void ManageAbilityCasting()
     {
         if (conduitCapturedList.Contains(attachedConduit))
         {
@@ -134,35 +132,47 @@ public class GuardianPlayerController : GuardianStats
 
     void AttachToConduit(GameObject conduit)
     {
-        guardianModel.SetActive(true);
-
         transform.position = conduit.transform.position;
         guardianModel.transform.position = conduit.transform.position + new Vector3(0, hoverHeight, 0);
         attachedConduit = conduit;
         conduitController = attachedConduit.GetComponent<ConduitController>();
         selectionTimer.ResetTimer(selectionDelay);
-        conduitController.attachedGuardianColor.Add(playerTeam);
+
+        conduitController.GuardianAttachToConduit(playerTeam);
     }
 
     void DeattachFromConduit()
     {
-        conduitController.DeselectConduit(playerTeam);
+        conduitController.GuardianDeattachToConduit(playerTeam);
+
         conduitController = null;
         attachedConduit = null;
+
         isCapturingOrb = false;
     }
 
-    public void AttemptToCaptureConduit()
+    public void CaptureCurrentConduit()
     {
-        if (attachedConduit != null && !isCapturingOrb)
+        if (attachedConduit != null)
         {
-            if (conduitController.CanCaptureConduit())
+            if (conduitController.CanCaptureConduit(playerTeam))
             {
-                conduitController.StartConduitCapture(playerTeam, gameObject);
+                conduitController.ConduitCapturingSetup(playerTeam);
 
                 guardianState.SetTrigger("StartCapture");
             }
+            else if (conduitController.CanIncreaseCapture(playerTeam))
+            {
+                conduitController.CapturingConduit(playerTeam);
+            }
         }
+    }
+
+    public void CaptureConduit(GameObject conduitToCapture)
+    {
+        conduitCapturedList.Add(conduitToCapture);
+
+        crystalManager.CaptureCrystal(playerTeam);
     }
 
     public void FinishCapture()

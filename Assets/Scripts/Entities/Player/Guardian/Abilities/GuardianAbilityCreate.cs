@@ -92,8 +92,6 @@ public class GuardianAbilityCreate : CreateAbilityBase
                 else
                 {
                     newSpawnPosition = spawnObject.transform.position + Vector3.up + new Vector3(0, 0, spawnDistanceFromPlayer);
-
-                    Debug.Log("Spawning at " + newSpawnPosition);
                 }
 
                 break;

@@ -19,11 +19,11 @@ public class ConduitAreaTrigger : MonoBehaviour
     {
         if (golem.gameObject.CompareTag("GolemRed"))
         {
-            conduitController.isBeingAssistedByRedGolem = true;
+            conduitController.isRedGolemInRange = true;
         }
         else if (golem.gameObject.CompareTag("GolemBlue"))
         {
-            conduitController.isBeingAssistedByBlueGolem = true;
+            conduitController.isBlueGolemInRange = true;
         }
     }
 
@@ -31,11 +31,11 @@ public class ConduitAreaTrigger : MonoBehaviour
     {
         if (golem.CompareTag("GolemRed"))
         {
-            conduitController.isBeingAssistedByRedGolem = false;
+            conduitController.isRedGolemInRange = false;
         }
         else if (golem.CompareTag("GolemBlue"))
         {
-            conduitController.isBeingAssistedByBlueGolem = false;
+            conduitController.isBlueGolemInRange = false;
         }
     }
 }

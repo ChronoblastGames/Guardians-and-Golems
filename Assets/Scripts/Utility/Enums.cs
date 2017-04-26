@@ -51,8 +51,8 @@ public enum FloatingTextType
 public enum ConduitState
 {
     EMPTY,
-    IN_PROGRESS,
-    CONTROLLED,
+    CAPTURING,
+    CAPTURED,
     DRAINING,
     CONTESTED,
     DISABLED,
