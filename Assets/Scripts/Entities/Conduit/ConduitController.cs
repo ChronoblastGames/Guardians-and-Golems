@@ -23,6 +23,7 @@ public class ConduitController : MonoBehaviour
     public float currentCaptureAmount;
     public float totalCaptureAmount;
     [Space(10)]
+    public float capturePercentage;
 
     public GameObject centerCrystal;
 
@@ -60,7 +61,8 @@ public class ConduitController : MonoBehaviour
 
     private void FixedUpdate()
     {
-  
+        ManageConduitProgressEffects();
+        ManageConduitOutline();
     }
 
     void InitializeConduit()
@@ -82,6 +84,7 @@ public class ConduitController : MonoBehaviour
                 case PlayerTeam.RED:
                     SetupHomeBase(PlayerTeam.RED);
                     break;
+
                 case PlayerTeam.BLUE:
                     SetupHomeBase(PlayerTeam.BLUE);
                     break;
@@ -183,11 +186,15 @@ public class ConduitController : MonoBehaviour
             case PlayerTeam.RED:
                 redTeamGuardianPlayerController.CaptureConduit(gameObject);
 
+                redTeamGuardianPlayerController.isCapturingConduit = false;
+
                 PlayConduitCaptureEffects(PlayerTeam.RED);
                 break;
 
             case PlayerTeam.BLUE:
                 blueTeamGuardianPlayerController.CaptureConduit(gameObject);
+
+                blueTeamGuardianPlayerController.isCapturingConduit = false;
 
                 PlayConduitCaptureEffects(PlayerTeam.BLUE);
                 break;
@@ -196,6 +203,8 @@ public class ConduitController : MonoBehaviour
         currentCaptureAmount = totalCaptureAmount;
 
         conduitState = ConduitState.CAPTURED;
+
+        DrawLine();
     }
 
     public void ResetConduit()
@@ -298,11 +307,50 @@ public class ConduitController : MonoBehaviour
         switch (teamColor)
         {
             case PlayerTeam.RED:
+                redCapturedParticles.Play();
                 break;
 
             case PlayerTeam.BLUE:
+                blueCapturedParticles.Play();
                 break;
         }
+    }
+
+    private void ManageConduitProgressEffects()
+    {
+        capturePercentage = (currentCaptureAmount / totalCaptureAmount) * 100;
+
+        switch (conduitState)
+        {
+            case ConduitState.CAPTURING:
+                break;
+
+            case ConduitState.DRAINING:
+                break;
+        }
+    }
+
+    private void ManageConduitOutline()
+    {
+        if (attachedGuardians.Count > 0)
+        {
+            if (attachedGuardians.Contains(PlayerTeam.RED) && attachedGuardians.Contains(PlayerTeam.BLUE))
+            {
+                outerRingRenderer.material.color = Colors.LightSeaGreen;
+            }
+            else if (attachedGuardians.Contains(PlayerTeam.RED))
+            {
+                outerRingRenderer.material.color = Colors.YellowTeamColor;
+            }
+            else if (attachedGuardians.Contains(PlayerTeam.BLUE))
+            {
+                outerRingRenderer.material.color = Colors.BlueTeamColor;
+            }
+        }
+        else
+        {
+            outerRingRenderer.material.color = outerRingColor;
+        }     
     }
 
     void DrawLine() //Rewrite

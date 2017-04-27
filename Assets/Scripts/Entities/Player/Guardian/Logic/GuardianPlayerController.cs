@@ -49,8 +49,8 @@ public class GuardianPlayerController : GuardianStats
 
     [Header("Guardian Booleans")]
     public bool canMove = true;
-    public bool canCaptureOrb = true;
-    public bool isCapturingOrb = false;
+    public bool canCaptureConduit = true;
+    public bool isCapturingConduit = false;
     public bool canUseAbility = false;
     public bool isUsingAbility = false;
 
@@ -117,7 +117,7 @@ public class GuardianPlayerController : GuardianStats
             {
                 selectedConduit = rayHit.collider.gameObject;
 
-                if (selectionTimer.TimerIsDone() && !isUsingAbility && canMove)
+                if (selectionTimer.TimerIsDone() && !isUsingAbility && canMove && !isCapturingConduit)
                 {
                     if (selectedConduit != attachedConduit && attachedConduit != null)
                     {
@@ -148,7 +148,7 @@ public class GuardianPlayerController : GuardianStats
         conduitController = null;
         attachedConduit = null;
 
-        isCapturingOrb = false;
+        isCapturingConduit = false;
     }
 
     public void CaptureCurrentConduit()
@@ -163,9 +163,16 @@ public class GuardianPlayerController : GuardianStats
             }
             else if (conduitController.CanIncreaseCapture(playerTeam))
             {
+                isCapturingConduit = true;
+
                 conduitController.CapturingConduit(playerTeam);
             }
         }
+    }
+
+    public void StopCapturingConduit()
+    {
+        isCapturingConduit = false;
     }
 
     public void CaptureConduit(GameObject conduitToCapture)

@@ -104,6 +104,10 @@ public class GuardianInputController : MonoBehaviour
             {
                 guardianPlayerController.CaptureCurrentConduit();
             }
+            else if (playerInput.GetButtonUp("Melee/Capture"))
+            {
+                guardianPlayerController.StopCapturingConduit();
+            }
 
             if (playerInput.GetButton("Ability1"))
             {
