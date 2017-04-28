@@ -25,7 +25,7 @@ public class GuardianPlayerController : GuardianStats
     public PlayerTeam teamColor;
 
     [Header("Guardian Orb Attributes")]
-    public GameObject guardianModel;
+    private GameObject guardianModel;
 
     public List<GameObject> conduitCapturedList;
 
@@ -68,6 +68,8 @@ public class GuardianPlayerController : GuardianStats
     void PlayerSetup()
     {
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
+
+        guardianModel = transform.GetChild(0).gameObject;
 
         guardianInputController = GetComponent<GuardianInputController>();
         guardianResources = GetComponent<GuardianResources>();

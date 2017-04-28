@@ -151,6 +151,25 @@ public class ConduitController : MonoBehaviour
         }
     }
 
+    public bool CanReverseCapture(PlayerTeam teamColor)
+    {
+        if (conduitState == ConduitState.CAPTURED)
+        {
+            if (conduitColor != teamColor)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void ConduitCapturingSetup(PlayerTeam teamColor)
     {
         if (conduitState == ConduitState.EMPTY)
@@ -188,7 +207,7 @@ public class ConduitController : MonoBehaviour
 
                 redTeamGuardianPlayerController.isCapturingConduit = false;
 
-                PlayConduitCaptureEffects(PlayerTeam.RED);
+                ConduitCaptureEffects(PlayerTeam.RED);
                 break;
 
             case PlayerTeam.BLUE:
@@ -196,7 +215,7 @@ public class ConduitController : MonoBehaviour
 
                 blueTeamGuardianPlayerController.isCapturingConduit = false;
 
-                PlayConduitCaptureEffects(PlayerTeam.BLUE);
+                ConduitCaptureEffects(PlayerTeam.BLUE);
                 break;
         }
 
@@ -302,20 +321,6 @@ public class ConduitController : MonoBehaviour
         yield return null;
     }
 
-    public void PlayConduitCaptureEffects(PlayerTeam teamColor)
-    {
-        switch (teamColor)
-        {
-            case PlayerTeam.RED:
-                redCapturedParticles.Play();
-                break;
-
-            case PlayerTeam.BLUE:
-                blueCapturedParticles.Play();
-                break;
-        }
-    }
-
     private void ManageConduitProgressEffects()
     {
         capturePercentage = (currentCaptureAmount / totalCaptureAmount) * 100;
@@ -323,9 +328,149 @@ public class ConduitController : MonoBehaviour
         switch (conduitState)
         {
             case ConduitState.CAPTURING:
+                if (capturePercentage >= 30f && capturePercentage <= 31f)
+                {
+                    FirstStateConduitCapturingEffect(conduitColor);
+                }
+                else if (capturePercentage >= 60f && capturePercentage <= 61f)
+                {
+                    SecondStateConduitCapturingEffect(conduitColor);
+                }
+                else if (capturePercentage >= 85f && capturePercentage <= 86f)
+                {
+                    ThirdStateConduitCapturingEffect(conduitColor);
+                }
                 break;
 
             case ConduitState.DRAINING:
+                if (capturePercentage >= 84f && capturePercentage <= 85f)
+                {
+                    FirstStateConduitDrainEffect();
+                }
+                else if (capturePercentage >= 59f && capturePercentage <= 60f)
+                {
+                    SecondStateConduitDrainEffect();
+                }
+                else if (capturePercentage >= 31f && capturePercentage <= 30f)
+                {
+                    ThirdStateConduitDrainEffect();
+                }
+                break;
+        }
+    }
+
+    private void FirstStateConduitCapturingEffect(PlayerTeam teamColor)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                ringParticlesRed[0].Play();
+
+                foreach (Renderer currentRenderer in outerGemRenderer)
+                {
+                    currentRenderer.material.color = Colors.YellowTeamColor;
+                }
+                break;
+
+            case PlayerTeam.BLUE:
+                ringParticlesBlue[0].Play();
+
+                foreach (Renderer currentRenderer in outerGemRenderer)
+                {
+                    currentRenderer.material.color = Colors.BlueTeamColor;
+                }
+                break;
+        }
+    }
+
+    private void SecondStateConduitCapturingEffect(PlayerTeam teamColor)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                ringParticlesRed[1].Play();
+
+                foreach (Renderer currentRenderer in innerGemRenderer)
+                {
+                    currentRenderer.material.color = Colors.YellowTeamColor;
+                }
+                break;
+
+            case PlayerTeam.BLUE:
+                ringParticlesBlue[1].Play();
+
+                foreach (Renderer currentRenderer in innerGemRenderer)
+                {
+                    currentRenderer.material.color = Colors.BlueTeamColor;
+                }
+                break;
+        }
+    }
+
+    private void ThirdStateConduitCapturingEffect(PlayerTeam teamColor)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                ringParticlesRed[2].Play();
+
+                foreach(Renderer currentRenderer in crystalRenderer)
+                {
+                    currentRenderer.material.color = Colors.YellowTeamColor;
+                }
+                break;
+
+            case PlayerTeam.BLUE:
+                ringParticlesBlue[2].Play();
+
+                foreach (Renderer currentRenderer in crystalRenderer)
+                {
+                    currentRenderer.material.color = Colors.BlueTeamColor;
+                }
+                break;
+        }
+    }
+
+    private void FirstStateConduitDrainEffect()
+    {
+        centerCrystal.GetComponent<Renderer>().material.color = gemColor;
+
+        foreach(Renderer currentRenderer in crystalRenderer)
+        {
+            currentRenderer.material.color = gemColor;
+        }
+    }
+
+    private void SecondStateConduitDrainEffect()
+    {
+        foreach (Renderer currentRenderer in innerGemRenderer)
+        {
+            currentRenderer.material.color = gemColor;
+        }
+    }
+
+    private void ThirdStateConduitDrainEffect()
+    {
+        foreach (Renderer currentRenderer in outerGemRenderer)
+        {
+            currentRenderer.material.color = gemColor;
+        }
+    }
+
+    private void ConduitCaptureEffects(PlayerTeam teamColor)
+    {
+        switch (teamColor)
+        {
+            case PlayerTeam.RED:
+                redCapturedParticles.Play();
+
+                centerCrystal.GetComponent<Renderer>().material.color = Colors.YellowTeamColor;
+                break;
+
+            case PlayerTeam.BLUE:
+                blueCapturedParticles.Play();
+
+                centerCrystal.GetComponent<Renderer>().material.color = Colors.BlueTeamColor;
                 break;
         }
     }
@@ -336,7 +481,7 @@ public class ConduitController : MonoBehaviour
         {
             if (attachedGuardians.Contains(PlayerTeam.RED) && attachedGuardians.Contains(PlayerTeam.BLUE))
             {
-                outerRingRenderer.material.color = Colors.LightSeaGreen;
+                outerRingRenderer.material.color = Colors.Green;
             }
             else if (attachedGuardians.Contains(PlayerTeam.RED))
             {
