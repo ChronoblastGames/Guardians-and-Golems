@@ -334,6 +334,16 @@ Prefab:
       propertyPath: playerNum
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114214877838828300, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: turnSmoothTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114870925424427208, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: turnSmoothTime
+      value: 0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
   m_IsPrefabParent: 0

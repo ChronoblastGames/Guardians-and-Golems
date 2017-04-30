@@ -24,8 +24,12 @@ public class ConduitController : MonoBehaviour
     public float totalCaptureAmount;
     [Space(10)]
     public float capturePercentage;
+    [Space(10)]
+    public float captureGracePeriod;
 
     public GameObject centerCrystal;
+
+    private bool canBeRecaptured = true;
 
     public bool isRedGolemInRange = false;
     public bool isBlueGolemInRange = false;
@@ -145,6 +149,10 @@ public class ConduitController : MonoBehaviour
                 return false;
             }
         }
+        else if (conduitState == ConduitState.DRAINING)
+        {
+            return true;
+        }
         else
         {
             return false;
@@ -157,7 +165,14 @@ public class ConduitController : MonoBehaviour
         {
             if (conduitColor != teamColor)
             {
-                return true;
+                if (canBeRecaptured)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
@@ -180,6 +195,14 @@ public class ConduitController : MonoBehaviour
         }
     }
 
+    public void ConduitDrainSetup(PlayerTeam teamColor)
+    {
+        if (conduitState == ConduitState.CAPTURED)
+        {
+            conduitState = ConduitState.DRAINING;
+        }
+    }
+
     public void CapturingConduit(PlayerTeam teamColor)
     {
         if (conduitState == ConduitState.CAPTURING)
@@ -195,7 +218,21 @@ public class ConduitController : MonoBehaviour
                     CaptureConduit(teamColor);
                 }
             }
-        }    
+        }
+        else if (conduitState == ConduitState.DRAINING)
+        {
+            if (teamColor != conduitColor)
+            {
+                if (currentCaptureAmount >= 0)
+                {
+                    currentCaptureAmount -= Time.fixedDeltaTime * captureSpeed;
+                }
+                else if (currentCaptureAmount <= 0)
+                {
+                    ResetConduit();
+                }
+            }
+        }
     }
 
     private void CaptureConduit(PlayerTeam teamColor)
@@ -528,5 +565,14 @@ public class ConduitController : MonoBehaviour
                 lineRendererArray[i].SetPosition(1, transform.position);
             }
         }
+    }
+
+    private IEnumerator CaptureGracePeriod (float captureGracePeriod)
+    {
+        canBeRecaptured = false;
+
+        yield return new WaitForSeconds(captureGracePeriod);
+
+        canBeRecaptured = true;
     }
 }

@@ -21,6 +21,8 @@ public class GuardianPlayerController : GuardianStats
     private float xAxis;
     private float zAxis;
 
+    private Vector3 aimVec;
+
     [Header("Guardian Attributes")]
     public PlayerTeam teamColor;
 
@@ -34,6 +36,10 @@ public class GuardianPlayerController : GuardianStats
     public float hoverHeight;
 
     public float startDelay;
+
+    public float turnSmoothTime;
+
+    private float turnSmoothVelocity;
 
     [Header("Selection Values")]
     public GameObject attachedConduit;
@@ -91,7 +97,10 @@ public class GuardianPlayerController : GuardianStats
         xAxis = guardianInputController.xAxis;
         zAxis = guardianInputController.zAxis;
 
+        aimVec = guardianInputController.aimVec;
+
         SearchForConduit(xAxis, zAxis);
+        ManageRotation();
     }
 
     void ManageAbilityCasting()
@@ -106,6 +115,18 @@ public class GuardianPlayerController : GuardianStats
         else
         {
             canUseAbility = false;
+        }
+    }
+
+    void ManageRotation()
+    {
+        if (aimVec != Vector3.zero)
+        {
+            float targetRotation = Mathf.Atan2(aimVec.x, aimVec.z) * Mathf.Rad2Deg;
+
+            targetRotation += 180f;
+
+            transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
         }
     }
 
@@ -168,6 +189,10 @@ public class GuardianPlayerController : GuardianStats
                 isCapturingConduit = true;
 
                 conduitController.CapturingConduit(playerTeam);
+            }
+            else if (conduitController.CanReverseCapture(playerTeam))
+            {
+                conduitController.ConduitDrainSetup(playerTeam);
             }
         }
     }
