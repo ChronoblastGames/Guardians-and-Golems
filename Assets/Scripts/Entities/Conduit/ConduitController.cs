@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ConduitController : MonoBehaviour 
 {
@@ -57,6 +58,9 @@ public class ConduitController : MonoBehaviour
 
     public ParticleSystem[] ringParticlesRed;
     public ParticleSystem[] ringParticlesBlue;
+
+    [Header("Conduit UI Attributes")]
+    public Image conduitFillImage;
 
     private void Start()
     {
@@ -192,6 +196,17 @@ public class ConduitController : MonoBehaviour
             conduitColor = teamColor;
 
             conduitState = ConduitState.CAPTURING;
+
+            conduitFillImage.gameObject.SetActive(true);
+
+            if (teamColor == PlayerTeam.RED)
+            {
+                conduitFillImage.color = Colors.YellowTeamColor;
+            }
+            else if (teamColor == PlayerTeam.BLUE)
+            {
+                conduitFillImage.color = Colors.BlueTeamColor;
+            }
         }
     }
 
@@ -199,6 +214,8 @@ public class ConduitController : MonoBehaviour
     {
         if (conduitState == ConduitState.CAPTURED)
         {
+            conduitFillImage.gameObject.SetActive(true);
+
             conduitState = ConduitState.DRAINING;
         }
     }
@@ -258,6 +275,8 @@ public class ConduitController : MonoBehaviour
 
         currentCaptureAmount = totalCaptureAmount;
 
+        conduitFillImage.gameObject.SetActive(false);
+
         conduitState = ConduitState.CAPTURED;
 
         DrawLine();
@@ -284,6 +303,10 @@ public class ConduitController : MonoBehaviour
         }
 
         outerRingRenderer.material.color = outerRingColor;
+
+        conduitFillImage.gameObject.SetActive(false);
+
+        conduitFillImage.color = Colors.White;
     }
 
     private void SetupHomeBase(PlayerTeam teamColor)
@@ -361,6 +384,8 @@ public class ConduitController : MonoBehaviour
     private void ManageConduitProgressEffects()
     {
         capturePercentage = (currentCaptureAmount / totalCaptureAmount) * 100;
+
+        conduitFillImage.fillAmount = currentCaptureAmount / totalCaptureAmount;
 
         switch (conduitState)
         {
