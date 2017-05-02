@@ -19,6 +19,7 @@ TagManager:
   - GuardianBlue
   - PlayerInfoManager
   - StatTracker
+  - AudioManager
   layers:
   - Default
   - TransparentFX

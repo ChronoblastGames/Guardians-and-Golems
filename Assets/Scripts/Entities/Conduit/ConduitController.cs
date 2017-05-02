@@ -18,8 +18,10 @@ public class ConduitController : MonoBehaviour
     public PlayerTeam conduitColor;
 
     public List <PlayerTeam> attachedGuardians;
+    public List<PlayerTeam> golemInRange;
 
-    public float captureSpeed;
+    public float currentCaptureSpeed;
+    private float baseCaptureSpeed;
     [Space(10)]
     public float currentCaptureAmount;
     public float totalCaptureAmount;
@@ -31,9 +33,6 @@ public class ConduitController : MonoBehaviour
     public GameObject centerCrystal;
 
     private bool canBeRecaptured = true;
-
-    public bool isRedGolemInRange = false;
-    public bool isBlueGolemInRange = false;
 
     [Header("Attached Conduits")]
     public GameObject[] neighbourConduits;
@@ -71,6 +70,7 @@ public class ConduitController : MonoBehaviour
     {
         ManageConduitProgressEffects();
         ManageConduitOutline();
+        ManageGolems();
     }
 
     void InitializeConduit()
@@ -84,6 +84,8 @@ public class ConduitController : MonoBehaviour
         redTeamGuardianPlayerController = GameObject.FindGameObjectWithTag("GuardianRed").GetComponent<GuardianPlayerController>();
 
         blueTeamGuardianPlayerController = GameObject.FindGameObjectWithTag("GuardianBlue").GetComponent<GuardianPlayerController>();
+
+        baseCaptureSpeed = currentCaptureSpeed;
 
         if (conduitState == ConduitState.HOMEBASE)
         {
@@ -228,7 +230,7 @@ public class ConduitController : MonoBehaviour
             {
                 if (currentCaptureAmount <= totalCaptureAmount)
                 {
-                    currentCaptureAmount += Time.fixedDeltaTime * captureSpeed;
+                    currentCaptureAmount += Time.fixedDeltaTime * currentCaptureSpeed;
                 }
                 else if (currentCaptureAmount >= totalCaptureAmount)
                 {
@@ -242,7 +244,7 @@ public class ConduitController : MonoBehaviour
             {
                 if (currentCaptureAmount >= 0)
                 {
-                    currentCaptureAmount -= Time.fixedDeltaTime * captureSpeed;
+                    currentCaptureAmount -= Time.fixedDeltaTime * currentCaptureSpeed;
                 }
                 else if (currentCaptureAmount <= 0)
                 {
@@ -307,6 +309,8 @@ public class ConduitController : MonoBehaviour
         conduitFillImage.gameObject.SetActive(false);
 
         conduitFillImage.color = Colors.White;
+
+        DrawLine();
     }
 
     private void SetupHomeBase(PlayerTeam teamColor)
@@ -560,25 +564,62 @@ public class ConduitController : MonoBehaviour
         }     
     }
 
+    private void ManageGolems()
+    {
+        if (golemInRange.Contains(PlayerTeam.RED) && golemInRange.Contains(PlayerTeam.BLUE))
+        {
+            currentCaptureSpeed = 1f;
+        }
+        else if (golemInRange.Contains(PlayerTeam.RED))
+        {
+            if (conduitColor == PlayerTeam.RED)
+            {
+                currentCaptureSpeed = 1.5f;
+            }
+            else if (conduitColor == PlayerTeam.BLUE)
+            {
+                currentCaptureSpeed = 0.3f;
+            }
+        }
+        else if (golemInRange.Contains(PlayerTeam.BLUE))
+        {
+            if (conduitColor == PlayerTeam.BLUE)
+            {
+                currentCaptureSpeed = 1.5f;
+            }
+            else if (conduitColor == PlayerTeam.RED)
+            {
+                currentCaptureSpeed = 0.3f;
+            }
+        }
+        else
+        {
+            currentCaptureSpeed = baseCaptureSpeed;
+        }
+    }
+
     void DrawLine() //Rewrite
     {
         if (conduitState == ConduitState.CAPTURED)
         {
             for (int i = 0; i < neighbourConduits.Length; i++)
             {
-                if (neighbourConduits[i].GetComponent<ConduitController>().conduitState == ConduitState.CAPTURED || neighbourConduits[i].GetComponent<ConduitController>().conduitState == ConduitState.HOMEBASE && neighbourConduits[i].GetComponent<ConduitController>().conduitColor == conduitColor)
+                if (neighbourConduits[i].GetComponent<ConduitController>().conduitState == ConduitState.CAPTURED || neighbourConduits[i].GetComponent<ConduitController>().conduitState == ConduitState.HOMEBASE)
                 {
-                    lineRendererArray[i].SetPosition(0, transform.position);
-                    lineRendererArray[i].SetPosition(1, neighbourConduits[i].transform.position);
+                    if (neighbourConduits[i].GetComponent<ConduitController>().conduitColor == conduitColor)
+                    {
+                        lineRendererArray[i].SetPosition(0, transform.position);
+                        lineRendererArray[i].SetPosition(1, neighbourConduits[i].transform.position);
 
-                    if (conduitColor == PlayerTeam.RED)
-                    {
-                        lineRendererArray[i].material.color = Colors.YellowTeamColor;
-                    }
-                    else if (conduitColor == PlayerTeam.BLUE)
-                    {
-                        lineRendererArray[i].material.color = Colors.BlueTeamColor;
-                    }
+                        if (conduitColor == PlayerTeam.RED)
+                        {
+                            lineRendererArray[i].material.color = Colors.YellowTeamColor;
+                        }
+                        else if (conduitColor == PlayerTeam.BLUE)
+                        {
+                            lineRendererArray[i].material.color = Colors.BlueTeamColor;
+                        }
+                    }          
                 }
             }
         }

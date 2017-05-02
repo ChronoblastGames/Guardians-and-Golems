@@ -19,11 +19,17 @@ public class ConduitAreaTrigger : MonoBehaviour
     {
         if (golem.gameObject.CompareTag("GolemRed"))
         {
-            conduitController.isRedGolemInRange = true;
+            if (!conduitController.golemInRange.Contains(PlayerTeam.RED))
+            {
+                conduitController.golemInRange.Add(PlayerTeam.RED);
+            }
         }
         else if (golem.gameObject.CompareTag("GolemBlue"))
         {
-            conduitController.isBlueGolemInRange = true;
+            if (!conduitController.golemInRange.Contains(PlayerTeam.BLUE))
+            {
+                conduitController.golemInRange.Add(PlayerTeam.BLUE);
+            }
         }
     }
 
@@ -31,11 +37,17 @@ public class ConduitAreaTrigger : MonoBehaviour
     {
         if (golem.CompareTag("GolemRed"))
         {
-            conduitController.isRedGolemInRange = false;
+            if (conduitController.golemInRange.Contains(PlayerTeam.RED))
+            {
+                conduitController.golemInRange.Remove(PlayerTeam.RED);
+            }
         }
         else if (golem.CompareTag("GolemBlue"))
         {
-            conduitController.isBlueGolemInRange = false;
+            if (conduitController.golemInRange.Contains(PlayerTeam.BLUE))
+            {
+                conduitController.golemInRange.Remove(PlayerTeam.BLUE);
+            }
         }
     }
 }
