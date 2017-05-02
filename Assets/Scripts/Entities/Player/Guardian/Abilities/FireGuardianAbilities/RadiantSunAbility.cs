@@ -6,8 +6,21 @@ public class RadiantSunAbility : AbilityCastBase
 {
     public List<GameObject> recentlyHealedList;
 
+    private Projector abilityProjector;
+
     public override void InitializeAbility()
     {
+        abilityProjector = transform.GetChild(3).gameObject.GetComponent<Projector>();
+
+        if (abilityValues.teamColor == PlayerTeam.RED)
+        {
+            abilityProjector.material.color = Colors.YellowTeamColor;
+        }
+        else if (abilityValues.teamColor == PlayerTeam.BLUE)
+        {
+            abilityProjector.material.color = Colors.BlueTeamColor;
+        }
+
         if (abilityValues.activeTime > 0)
         {
             Destroy(gameObject, abilityValues.activeTime);
