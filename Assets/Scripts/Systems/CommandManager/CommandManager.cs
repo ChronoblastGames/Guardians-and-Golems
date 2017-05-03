@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CommandManager : MonoBehaviour
 {
+    private UIManager UI;
+
     private GuardianPlayerController redGuardianPlayerController;
     private GuardianPlayerController blueGuardianPlayerController;
 
@@ -20,6 +22,10 @@ public class CommandManager : MonoBehaviour
     public bool isRedTeamLosing = false;
     public bool isBlueTeamLosing = false;
 
+    [Header("Command Text Locations")]
+    public Transform yellowTeamTextLocation;
+    public Transform blueTeamTextLocation;
+
     private void Start()
     {
         Initialize();
@@ -28,6 +34,8 @@ public class CommandManager : MonoBehaviour
     void Initialize()
     {
         globalVariables = GameObject.FindGameObjectWithTag("GlobalVariables").GetComponent<GlobalVariables>();
+
+        UI = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
         redGuardianPlayerController = GameObject.FindGameObjectWithTag("GuardianRed").GetComponent<GuardianPlayerController>();
         blueGuardianPlayerController = GameObject.FindGameObjectWithTag("GuardianBlue").GetComponent<GuardianPlayerController>();
@@ -105,10 +113,14 @@ public class CommandManager : MonoBehaviour
         if (teamColor == PlayerTeam.RED)
         {
             redTeamCurrentCommand += commandValue;
+
+            UI.RequestGenericText("Gained " + commandValue + " command!", yellowTeamTextLocation, Colors.Yellow);
         }
         else if (teamColor == PlayerTeam.BLUE)
         {
             blueTeamCurrentCommand += commandValue;
+
+            UI.RequestGenericText("Gained " + commandValue + " command!", blueTeamTextLocation, Colors.BlueTeamColor);
         }
     }
 
@@ -117,10 +129,14 @@ public class CommandManager : MonoBehaviour
         if (teamColor == PlayerTeam.RED)
         {
             redTeamCurrentCommand -= commandValue;
+
+            UI.RequestGenericText("Lost " + commandValue + " command!", yellowTeamTextLocation, Colors.Yellow);
         }
         else if (teamColor == PlayerTeam.BLUE)
         {
             blueTeamCurrentCommand -= commandValue;
+
+            UI.RequestGenericText("Lost " + commandValue + " command!", blueTeamTextLocation, Colors.Yellow);
         }
     }
 

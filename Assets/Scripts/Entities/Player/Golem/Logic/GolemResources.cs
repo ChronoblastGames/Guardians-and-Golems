@@ -12,8 +12,6 @@ public class GolemResources : MonoBehaviour
 
     private TimerClass staggerTimer;
 
-    private ParticleSystem hitParticles;
-
     [Header("Player Health Attributes")]
     public float currentHealth;
     public float maxHealth;
@@ -23,6 +21,10 @@ public class GolemResources : MonoBehaviour
     public float healthRegenerationSpeed;
 
     public bool canRegenerateHealth = true;
+
+    [Header("Player Particle Systems")]
+    public ParticleSystem hitParticles;
+    public ParticleSystem deathParticles;
 
     [Header("Respawn Attributes")]
     public float respawnInvicibilityTime = 3f;
@@ -82,8 +84,6 @@ public class GolemResources : MonoBehaviour
         staggerTimer = new TimerClass();
 
         statTracker = GameObject.FindGameObjectWithTag("StatTracker").GetComponent<StatTracker>();
-
-        hitParticles = GetComponent<ParticleSystem>();
 
         currentHealth = maxHealth;
 
@@ -229,12 +229,12 @@ public class GolemResources : MonoBehaviour
                 temporaryHealth -= damageValue;
             }
 
-            hitParticles.Emit(100);
+            hitParticles.Play();
         }
         else if (currentHealth > damageValue)
         {
             currentHealth -= damageValue;
-            hitParticles.Emit(100);
+            hitParticles.Play();
         }
         else
         {
@@ -304,6 +304,8 @@ public class GolemResources : MonoBehaviour
     void Die()
     {
         golemPlayerController.Die();
+
+        deathParticles.Play();
 
         canRegenerateHealth = false;
     }

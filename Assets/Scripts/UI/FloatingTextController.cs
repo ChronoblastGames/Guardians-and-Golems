@@ -55,6 +55,6 @@ public class FloatingTextController : MonoBehaviour
 
         gameObject.SetActive(false);
 
-        textPool.ReturnToDamagePool(gameObject, textType);      
+        textPool.ReturnToTextPool(gameObject, textType);      
     }
 }

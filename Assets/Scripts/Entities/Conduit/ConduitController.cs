@@ -263,6 +263,8 @@ public class ConduitController : MonoBehaviour
 
                 redTeamGuardianPlayerController.isCapturingConduit = false;
 
+                commandManager.ConduitCapture(PlayerTeam.RED);
+
                 ConduitCaptureEffects(PlayerTeam.RED);
                 break;
 
@@ -270,6 +272,8 @@ public class ConduitController : MonoBehaviour
                 blueTeamGuardianPlayerController.CaptureConduit(gameObject);
 
                 blueTeamGuardianPlayerController.isCapturingConduit = false;
+
+                commandManager.ConduitCapture(PlayerTeam.BLUE);
 
                 ConduitCaptureEffects(PlayerTeam.BLUE);
                 break;
@@ -285,7 +289,19 @@ public class ConduitController : MonoBehaviour
     }
 
     public void ResetConduit()
-    {
+    {     
+        if (conduitColor != PlayerTeam.NONE)
+        {
+            if (conduitColor == PlayerTeam.RED)
+            {
+                commandManager.LoseConduit(PlayerTeam.RED);
+            }
+            else if (conduitColor == PlayerTeam.BLUE)
+            {
+                commandManager.LoseConduit(PlayerTeam.BLUE);
+            }
+        }
+
         currentCaptureAmount = 0;
         conduitState = ConduitState.EMPTY;
 
@@ -309,6 +325,8 @@ public class ConduitController : MonoBehaviour
         conduitFillImage.gameObject.SetActive(false);
 
         conduitFillImage.color = Colors.White;
+
+        conduitColor = PlayerTeam.NONE;
 
         DrawLine();
     }

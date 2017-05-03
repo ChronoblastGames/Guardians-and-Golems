@@ -123,6 +123,11 @@ public class UIManager : MonoBehaviour
         floatingTextManager.CreateStatusText(effectStrength, textPos, statusEffect);
     }
 
+    public void RequestGenericText(string textString, Transform textPos, Color textColor)
+    {
+        floatingTextManager.CreateGenericText(textString, textPos, textColor);
+    }
+
     public void SetCrystalColor(int crystalNumber, PlayerTeam playerTeam)
     {
         if (playerTeam == PlayerTeam.RED)

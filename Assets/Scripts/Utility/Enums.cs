@@ -45,7 +45,8 @@ public enum FloatingDamageSubTextType
 public enum FloatingTextType
 {
     DAMAGE,
-    STATUS
+    STATUS,
+    GENERIC
 }
 
 public enum ConduitState

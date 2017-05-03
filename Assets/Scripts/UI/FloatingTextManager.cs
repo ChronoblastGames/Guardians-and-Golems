@@ -6,11 +6,26 @@ using UnityEngine.UI;
 public class FloatingTextManager : MonoBehaviour 
 {
     public List<GameObject> damageTextPool = new List<GameObject>();
-
+    public List<GameObject> genericTextPool = new List<GameObject>();
     public List<GameObject> statusTextPool = new List<GameObject>();
 
     public GameObject damageTextPrefab;
     public GameObject statusTextPrefab;
+    public GameObject genericTextPrefab;
+
+    public void CreateGenericText(string textString, Transform textLocation, Color textColor)
+    {
+        GameObject newText = GetNextGenericText();
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(textLocation.position);
+
+        newText.transform.position = screenPos;
+
+        newText.transform.GetChild(0).GetComponent<Text>().text = textString;
+        newText.transform.GetChild(0).GetComponent<Text>().color = textColor;
+        newText.transform.SetParent(transform, false);
+
+        newText.GetComponent<FloatingTextController>().Initialize();
+    }
 
     public void CreateDamageText(float damageValue, Transform textLocation, FloatingDamageSubTextType effectType)
     {
@@ -149,7 +164,24 @@ public class FloatingTextManager : MonoBehaviour
         }
     }
 
-    public void ReturnToDamagePool(GameObject objectToReturn, FloatingTextType textType)
+    private GameObject GetNextGenericText()
+    {
+        if (genericTextPool.Count > 0)
+        {
+            GameObject newText = genericTextPool[0];
+            genericTextPool.Remove(newText);
+            return newText;
+        }
+        else
+        {
+            GameObject newText = Instantiate(genericTextPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+            newText.name = "GenericText" + damageTextPool.Count;
+
+            return newText;
+        }
+    }
+
+    public void ReturnToTextPool(GameObject objectToReturn, FloatingTextType textType)
     {
         switch (textType)
         {
@@ -159,6 +191,10 @@ public class FloatingTextManager : MonoBehaviour
 
             case FloatingTextType.STATUS:
                 statusTextPool.Add(objectToReturn);
+                break;
+
+            case FloatingTextType.GENERIC:
+                genericTextPool.Add(objectToReturn);
                 break;
         }
     }
