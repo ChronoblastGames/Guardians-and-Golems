@@ -59,6 +59,8 @@ public class EarthShatter : AbilityCastBase
 
         SpawnShards();
 
+        castAudio.Play();
+
         StartCoroutine(ActiveTimer(activeTime));
     }
 

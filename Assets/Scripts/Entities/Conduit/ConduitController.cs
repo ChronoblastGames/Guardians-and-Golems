@@ -230,7 +230,7 @@ public class ConduitController : MonoBehaviour
             {
                 if (currentCaptureAmount <= totalCaptureAmount)
                 {
-                    currentCaptureAmount += Time.fixedDeltaTime * currentCaptureSpeed;
+                    currentCaptureAmount += Time.deltaTime * currentCaptureSpeed;
                 }
                 else if (currentCaptureAmount >= totalCaptureAmount)
                 {
