@@ -39,11 +39,6 @@ public class UIManager : MonoBehaviour
     public List<Image> golemCrystalRed;
     public List<Image> golemCrystalBlue;
     
-    [Header("UI Clock")]
-    public Text timeText;
-    public bool isCountingDown = true;
-    public bool isCountingUp = false;
-
     void Start()
     {
         UISetup();
@@ -67,7 +62,6 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         ManageHealthBars();
-        ManageClock();
         ManageCrystals();
         ManageCommand();
         ManageGolemUI();
@@ -92,18 +86,6 @@ public class UIManager : MonoBehaviour
 
         golemCrystalRed[redTeamGolemCrystal].fillAmount = crystalManager.redTeamGolemRefill / 1;
         golemCrystalBlue[blueTeamGolemCrystal].fillAmount = crystalManager.blueTeamGolemRefill / 1;
-    }
-
-    void ManageClock()
-    {
-        if (isCountingDown)
-        {
-
-        }
-        else if (isCountingUp)
-        {
-
-        }
     }
 
     void ManageCommand()

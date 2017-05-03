@@ -9,6 +9,10 @@ public class AbilityCastBase : MonoBehaviour
 
     public bool isAbilityActive = false;
 
+    [Header("Audio Attributes")]
+    public AudioSource castAudio;
+    public AudioSource collisionAudio;
+
 	public virtual void InitializeAbility()
     {
 

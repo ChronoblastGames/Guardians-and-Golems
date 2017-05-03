@@ -56,6 +56,8 @@ public class BoulderToss : AbilityCastBase
             }
         }
 
+        castAudio.Play();
+
         isAbilityActive = true;
     }
 
@@ -78,6 +80,8 @@ public class BoulderToss : AbilityCastBase
 
                     Destroy(gameObject, 2f);
                     isAbilityActive = false;
+
+                    collisionAudio.Play();
                 }
             }
             else if (gameObject.layer == LayerMask.NameToLayer("GolemBlue"))
@@ -90,6 +94,8 @@ public class BoulderToss : AbilityCastBase
 
                     Destroy(gameObject, 2f);
                     isAbilityActive = false;
+
+                    collisionAudio.Play();
                 }
             }
         }   
@@ -101,5 +107,7 @@ public class BoulderToss : AbilityCastBase
 
         isAbilityActive = false;
         Destroy(gameObject, 2f);
+
+        collisionAudio.Play();
     }
 }
