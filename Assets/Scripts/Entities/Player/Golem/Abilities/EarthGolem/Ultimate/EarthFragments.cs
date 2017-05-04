@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EarthFragments : MonoBehaviour
 {
+    public EarthGolemUltimate earthGolemUltimate;
+
     public AbilityValues abilityValues;
 
     private void OnTriggerEnter(Collider other)
@@ -12,6 +14,7 @@ public class EarthFragments : MonoBehaviour
             if (other.gameObject.CompareTag("GolemBlue"))
             {
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject, abilityValues.casterGameObject);
+                earthGolemUltimate.collisionAudio.Play();
                 Destroy(gameObject);
             }
         }
@@ -20,6 +23,7 @@ public class EarthFragments : MonoBehaviour
             if (other.gameObject.CompareTag("GolemRed"))
             {
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(abilityValues.damageAmount, abilityValues.damageType, abilityValues.statusEffect, abilityValues.effectStrength, abilityValues.effectTime, abilityValues.effectFrequency, gameObject, abilityValues.casterGameObject);
+                earthGolemUltimate.collisionAudio.Play();
                 Destroy(gameObject);
             }
         }

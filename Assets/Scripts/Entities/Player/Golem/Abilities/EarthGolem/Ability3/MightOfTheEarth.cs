@@ -12,6 +12,8 @@ public class MightOfTheEarth : AbilityCastBase
 
         GiveShield();
 
+        castAudio.Play();
+
         Destroy(gameObject, abilityValues.activeTime);
     }
 

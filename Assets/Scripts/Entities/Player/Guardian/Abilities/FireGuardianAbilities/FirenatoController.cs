@@ -41,6 +41,8 @@ public class FirenatoController : AbilityCastBase
         isAbilityActive = true;
 
         canIncreaseProjectorSize = true;
+
+        castAudio.Play();
     }
 
     private void FixedUpdate()

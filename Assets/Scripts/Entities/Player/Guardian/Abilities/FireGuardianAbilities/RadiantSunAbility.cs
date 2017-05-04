@@ -26,6 +26,8 @@ public class RadiantSunAbility : AbilityCastBase
             Destroy(gameObject, abilityValues.activeTime);
         }
 
+        castAudio.Play();
+
         isAbilityActive = true;
     }
 

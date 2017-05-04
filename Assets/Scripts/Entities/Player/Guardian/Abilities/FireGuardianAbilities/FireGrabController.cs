@@ -33,6 +33,8 @@ public class FireGrabController : AbilityCastBase
         }
 
         isAbilityActive = true;
+
+        castAudio.Play();
     }
 
     private void MoveHand()

@@ -26,6 +26,7 @@ public class FireOrbSubController : MonoBehaviour
             {
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(fireballAbilityValues.damageAmount, fireballAbilityValues.damageType, fireballAbilityValues.statusEffect, fireballAbilityValues.effectStrength, fireballAbilityValues.effectTime, fireballAbilityValues.effectFrequency, gameObject, fireballAbilityValues.casterGameObject);
                 fireBola.fireballList.Remove(gameObject);
+                fireBola.collisionAudio.Play();
                 Destroy(gameObject);
             }
         }
@@ -35,6 +36,7 @@ public class FireOrbSubController : MonoBehaviour
             {
                 other.gameObject.GetComponent<GolemResources>().TakeDamage(fireballAbilityValues.damageAmount, fireballAbilityValues.damageType, fireballAbilityValues.statusEffect, fireballAbilityValues.effectStrength, fireballAbilityValues.effectTime, fireballAbilityValues.effectFrequency, gameObject, fireballAbilityValues.casterGameObject);
                 fireBola.fireballList.Remove(gameObject);
+                fireBola.collisionAudio.Play();
                 Destroy(gameObject);
             }
         }
