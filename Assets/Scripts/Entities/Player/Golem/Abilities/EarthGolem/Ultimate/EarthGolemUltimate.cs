@@ -9,13 +9,10 @@ public class EarthGolemUltimate : AbilityCastBase
     private GameObject earthFragments;
 
     public float abilityRadius;
+    [Space(10)]
+    public float shardDepth;
     public float ringCount;
     private int fragmentCountPerRing;
-
-    private void Start()
-    {
-        InitializeAbility();
-    }
 
     public override void InitializeAbility()
     {
@@ -46,7 +43,7 @@ public class EarthGolemUltimate : AbilityCastBase
 
         float distanceBetweenShards = 360 / fragmentCountPerRing;
 
-        for (int o = 1; o < ringCount + 1; o++)
+        for (int o = 0; o < ringCount; o++)
         {
             float newRadius = abilityRadius + (o * ringCount);
 
@@ -55,7 +52,7 @@ public class EarthGolemUltimate : AbilityCastBase
                 Vector3 shardPos = CalculateCircle(transform.position, newRadius, distanceBetweenShards, i);
                 float shardAngle = distanceBetweenShards * i;
 
-                Quaternion shardRotation = Quaternion.Euler(-60, shardAngle, 0);
+                Quaternion shardRotation = Quaternion.Euler(-80, shardAngle + 180f, 0);
                 GameObject newShard = Instantiate(earthFragments, shardPos, shardRotation, transform) as GameObject;
                 newShard.layer = gameObject.layer;       
                 newShard.GetComponent<EarthFragments>().abilityValues = abilityValues;        
@@ -70,7 +67,7 @@ public class EarthGolemUltimate : AbilityCastBase
 
         positionVec.x = centerVector.x + circleRadius * Mathf.Sin(angle * Mathf.Deg2Rad);
         positionVec.z = centerVector.z + circleRadius * Mathf.Cos(angle * Mathf.Deg2Rad);
-        positionVec.y = 0;
+        positionVec.y = shardDepth;
 
         return positionVec;
     }

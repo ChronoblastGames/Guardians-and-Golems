@@ -218,9 +218,10 @@ MonoBehaviour:
   isAbilityActive: 0
   castAudio: {fileID: 82687898516810930}
   collisionAudio: {fileID: 82183160801004030}
-  earthFragmentsYellow: {fileID: 1235903987350220, guid: c696c945bee1fb748ad72063bc12afb1,
+  earthFragmentsYellow: {fileID: 1150420698263260, guid: 2ade0bd0b6c5ff04a927f04ca3d4ac00,
     type: 2}
-  earthFragmentsBlue: {fileID: 1235903987350220, guid: ac240b89fb5f12b4c98e41d8c0302645,
+  earthFragmentsBlue: {fileID: 1150420698263260, guid: 52b989b73c50e6143a35e320a14e4389,
     type: 2}
   abilityRadius: 5
+  shardDepth: -1
   ringCount: 4
