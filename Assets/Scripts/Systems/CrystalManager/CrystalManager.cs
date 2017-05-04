@@ -296,8 +296,6 @@ public class CrystalManager : MonoBehaviour
             case PlayerTeam.RED:
                 redTeamTotalCrystalCount++;
                 UI.SetCrystalColor(redTeamTotalCrystalCount, PlayerTeam.RED);
-
-                Debug.Log("UI Set: " + redTeamTotalCrystalCount);
                 break;
 
             case PlayerTeam.BLUE:

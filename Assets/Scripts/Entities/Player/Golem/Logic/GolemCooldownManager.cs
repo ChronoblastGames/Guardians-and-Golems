@@ -26,7 +26,6 @@ public class GolemCooldownManager : MonoBehaviour
     public bool isAbility3Ready = true;
     public bool isAbility4Ready = true;
 
-
     private void Start()
     {
         Initialize();

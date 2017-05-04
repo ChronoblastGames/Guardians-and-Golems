@@ -34,13 +34,13 @@ public class UIManager : MonoBehaviour
     [Space(10)]
     public List<Image> golemCrystalRed;
     public List<Image> golemCrystalBlue;
-    
-    void Start()
+
+    private void Start()
     {
         UISetup();
     }
 
-    void UISetup()
+    private void UISetup()
     {
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
 
@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour
         floatingTextManager = GetComponent<FloatingTextManager>();
     }
 
-    void Update()
+    private void Update()
     {
         ManageHealthBars();
         ManageCrystals();
@@ -63,13 +63,13 @@ public class UIManager : MonoBehaviour
         ManageGolemUI();
     }
 
-    void ManageHealthBars()
+    private void ManageHealthBars()
     {
         redGolemHealthBar.fillAmount = redGolemResources.currentHealth / redGolemResources.maxHealth;
         blueGolemHealthBar.fillAmount = blueGolemResources.currentHealth / blueGolemResources.maxHealth;
     }
 
-    void ManageCrystals()
+    private void ManageCrystals()
     {
         int redTeamGuardianCrystal = crystalManager.redTeamGuardianCurrentCrystalCount;
         int blueTeamGuardianCrystal = crystalManager.blueTeamGuardianCurrentCrystalCount;
@@ -84,14 +84,14 @@ public class UIManager : MonoBehaviour
         golemCrystalBlue[blueTeamGolemCrystal].fillAmount = crystalManager.blueTeamGolemRefill / 1;
     }
 
-    void ManageCommand()
+    private void ManageCommand()
     {
         redTeamCommandImage.fillAmount = commandManager.redTeamCurrentCommand / commandManager.maxCommand;
 
         blueTeamCommandImage.fillAmount = commandManager.blueTeamCurrentCommand / commandManager.maxCommand;
     }
 
-    void ManageGolemUI()
+    private void ManageGolemUI()
     {
         Vector3 redGolemPos = redGolem.transform.position;
         redGolemPos.y = 1;
@@ -129,8 +129,6 @@ public class UIManager : MonoBehaviour
         if (playerTeam == PlayerTeam.RED)
         {
             guardianCrystalLeft[crystalNumber].color = Colors.YellowTeamColor;
-
-            Debug.Log("Setting " + guardianCrystalLeft[crystalNumber].name + " to Yellow!");
         }
         else if (playerTeam == PlayerTeam.BLUE)
         {
