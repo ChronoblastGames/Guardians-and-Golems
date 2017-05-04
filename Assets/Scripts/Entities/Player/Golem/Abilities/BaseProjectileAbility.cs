@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-[System.Serializable]
 public class BaseProjectileAbility : AbilityCastBase
 {
     private TimerClass projectileTimer;

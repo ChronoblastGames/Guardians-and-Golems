@@ -20,11 +20,11 @@ public class CrystalManager : MonoBehaviour
     public int redTeamGuardianCurrentCrystalCount = 0;
     public int blueTeamGuardianCurrentCrystalCount = 0;
     [Space(10)]
-    public int redTeamGolemCurrentCrystalCount = 0;
-    public int blueTeamGolemCurrentCrystalCount = 0;
+    public int redTeamGolemCurrentCrystalCount = -1;
+    public int blueTeamGolemCurrentCrystalCount = -1;
     [Space(10)]
-    public int redTeamTotalCrystalCount = 0;
-    public int blueTeamTotalCrystalCount = 0;
+    public int redTeamTotalCrystalCount = -1;
+    public int blueTeamTotalCrystalCount = -1;
 
     [Space(10)]
     public float redTeamGuardianCrystalRegenerationRate = 0f;
@@ -296,6 +296,8 @@ public class CrystalManager : MonoBehaviour
             case PlayerTeam.RED:
                 redTeamTotalCrystalCount++;
                 UI.SetCrystalColor(redTeamTotalCrystalCount, PlayerTeam.RED);
+
+                Debug.Log("UI Set: " + redTeamTotalCrystalCount);
                 break;
 
             case PlayerTeam.BLUE:

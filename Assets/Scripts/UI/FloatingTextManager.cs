@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class FloatingTextManager : MonoBehaviour 
 {
+    [Header("Pool Options")]
+    public GameObject poolHolder;
+
+    [Header("Text Options")]
     public List<GameObject> damageTextPool = new List<GameObject>();
     public List<GameObject> genericTextPool = new List<GameObject>();
     public List<GameObject> statusTextPool = new List<GameObject>();
@@ -187,14 +191,20 @@ public class FloatingTextManager : MonoBehaviour
         {
             case FloatingTextType.DAMAGE:
                 damageTextPool.Add(objectToReturn);
+
+                objectToReturn.transform.SetParent(poolHolder.transform);
                 break;
 
             case FloatingTextType.STATUS:
                 statusTextPool.Add(objectToReturn);
+
+                objectToReturn.transform.SetParent(poolHolder.transform);
                 break;
 
             case FloatingTextType.GENERIC:
                 genericTextPool.Add(objectToReturn);
+
+                objectToReturn.transform.SetParent(poolHolder.transform);
                 break;
         }
     }

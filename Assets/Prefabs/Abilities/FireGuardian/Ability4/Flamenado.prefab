@@ -296,7 +296,7 @@ Projector:
   m_AspectRatio: 1
   m_Orthographic: 1
   m_OrthographicSize: 2
-  m_Material: {fileID: 2100000, guid: 77ca7767968b8e741b650f0f3528b834, type: 2}
+  m_Material: {fileID: 2100000, guid: 489ad77868da0ed43a5874e15861fd74, type: 2}
   m_IgnoreLayers:
     serializedVersion: 2
     m_Bits: 4294885375
@@ -367,7 +367,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1429623882
+  randomSeed: -999834941
   InitialModule:
     serializedVersion: 3
     enabled: 1

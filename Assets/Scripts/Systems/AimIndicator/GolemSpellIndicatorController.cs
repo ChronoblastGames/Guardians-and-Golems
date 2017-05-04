@@ -9,9 +9,9 @@ public class GolemSpellIndicatorController : MonoBehaviour
     private float aimZAxis;
 
     [Header("Golem Spell Indicator")]
-    public GameObject holderObject;
+    public IndicatorType currentSpellIndicatorType;
 
-    private IndicatorType currentSpellIndicatorType;
+    public GameObject holderObject;
 
     private GameObject currentIndicator;
 
