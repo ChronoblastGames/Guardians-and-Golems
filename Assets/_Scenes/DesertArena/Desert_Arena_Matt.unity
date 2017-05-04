@@ -2185,34 +2185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textType: 2
   textAnim: {fileID: 7400000, guid: 212e582943334b043a31bd42566a25f8, type: 2}
---- !u!1 &204993821
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 204993822}
-  m_Layer: 0
-  m_Name: YellowTeamTextLocation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &204993822
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 204993821}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 525243879}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &211834056
 Prefab:
   m_ObjectHideFlags: 0
@@ -3296,75 +3268,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &328972390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 328972391}
-  m_Layer: 0
-  m_Name: BlueTeamTextLocation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &328972391
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 328972390}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 525243879}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &336085926
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 336085927}
-  - component: {fileID: 336085928}
-  m_Layer: 0
-  m_Name: AudioQueuer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &336085927
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 336085926}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 611717617}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &336085928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 336085926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e62db7ed5476ec4a9b423571ab75d17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  queuedClip: {fileID: 0}
 --- !u!1 &337297824
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,11 +5992,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 523508861}
---- !u!4 &525243879 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4899999028855838, guid: 1d187cedd3aed864ba01bdf0840392dc,
-    type: 2}
-  m_PrefabInternal: {fileID: 611717615}
 --- !u!1 &527661988
 GameObject:
   m_ObjectHideFlags: 0
@@ -7472,56 +7370,11 @@ Prefab:
       propertyPath: conduitArray.Array.data[0]
       value: 
       objectReference: {fileID: 1029910053}
-    - target: {fileID: 114498902436942964, guid: 1d187cedd3aed864ba01bdf0840392dc,
-        type: 2}
-      propertyPath: conduitArray.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114498902436942964, guid: 1d187cedd3aed864ba01bdf0840392dc,
-        type: 2}
-      propertyPath: conduitArray.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114498902436942964, guid: 1d187cedd3aed864ba01bdf0840392dc,
-        type: 2}
-      propertyPath: conduitArray.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114498902436942964, guid: 1d187cedd3aed864ba01bdf0840392dc,
-        type: 2}
-      propertyPath: conduitArray.Array.data[4]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 114691370787095552, guid: 1d187cedd3aed864ba01bdf0840392dc,
         type: 2}
       propertyPath: isDevMode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114990218959114074, guid: 1d187cedd3aed864ba01bdf0840392dc,
-        type: 2}
-      propertyPath: golemGlobalCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114990218959114074, guid: 1d187cedd3aed864ba01bdf0840392dc,
-        type: 2}
-      propertyPath: guardianGlobalCooldown
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114966891457267906, guid: 1d187cedd3aed864ba01bdf0840392dc,
-        type: 2}
-      propertyPath: startingCrystalCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114459821134874510, guid: 1d187cedd3aed864ba01bdf0840392dc,
-        type: 2}
-      propertyPath: yellowTeamTextLocation
-      value: 
-      objectReference: {fileID: 204993822}
-    - target: {fileID: 114459821134874510, guid: 1d187cedd3aed864ba01bdf0840392dc,
-        type: 2}
-      propertyPath: blueTeamTextLocation
-      value: 
-      objectReference: {fileID: 328972391}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d187cedd3aed864ba01bdf0840392dc, type: 2}
   m_IsPrefabParent: 0
@@ -7531,11 +7384,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 611717615}
   m_Script: {fileID: 11500000, guid: 4dedc4507f1d9e441b563e55ddd24847, type: 3}
---- !u!4 &611717617 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4364261998513088, guid: 1d187cedd3aed864ba01bdf0840392dc,
-    type: 2}
-  m_PrefabInternal: {fileID: 611717615}
 --- !u!1 &641724037
 GameObject:
   m_ObjectHideFlags: 0

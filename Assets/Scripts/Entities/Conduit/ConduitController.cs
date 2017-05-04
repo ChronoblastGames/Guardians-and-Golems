@@ -303,10 +303,14 @@ public class ConduitController : MonoBehaviour
             if (conduitColor == PlayerTeam.RED)
             {
                 commandManager.LoseConduit(PlayerTeam.RED);
+
+                crystalManager.RemoveCrystal(PlayerTeam.RED);
             }
             else if (conduitColor == PlayerTeam.BLUE)
             {
                 commandManager.LoseConduit(PlayerTeam.BLUE);
+
+                crystalManager.RemoveCrystal(PlayerTeam.BLUE);
             }
         }
 
