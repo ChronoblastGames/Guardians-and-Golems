@@ -11,6 +11,8 @@ public class BoulderToss : AbilityCastBase
     private Animator boulderAnimator;
 
     private bool isTimerActive;
+
+    private bool hasShattered = false;
 	
 	void FixedUpdate () 
     {
@@ -103,11 +105,16 @@ public class BoulderToss : AbilityCastBase
 
     private void OnCollisionEnter(Collision collision)
     {
-        boulderAnimator.SetTrigger("isShatter");
+        if (!hasShattered)
+        {
+            boulderAnimator.SetTrigger("isShatter");
 
-        isAbilityActive = false;
-        Destroy(gameObject, 2f);
+            isAbilityActive = false;
+            Destroy(gameObject, 2f);
 
-        collisionAudio.Play();
+            collisionAudio.Play();
+
+            hasShattered = true;
+        }
     }
 }

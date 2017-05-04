@@ -5,7 +5,12 @@ using UnityEngine;
 public class FirebolaController : AbilityCastBase
 {
     [Header("Fireball Attributes")]
-    public GameObject fireballPrefab;
+    public GameObject fireballYellowPrefab;
+    public GameObject fireballBluePrefab;
+
+    private GameObject fireballGameObject;
+
+    [Space(10)]
     public GameObject fireballHolder;
 
     public List<GameObject> fireballList;
@@ -66,11 +71,20 @@ public class FirebolaController : AbilityCastBase
 
         float distanceBetween = 360 / fireballCount;
 
+        if (abilityValues.teamColor == PlayerTeam.RED)
+        {
+            fireballGameObject = fireballYellowPrefab;
+        }
+        else if (abilityValues.teamColor == PlayerTeam.BLUE)
+        {
+            fireballGameObject = fireballBluePrefab;
+        }
+
         for (int i = 0; i < fireballCount; i++)
         {
             Vector3 fireballPos = CalculateCircle(transform.position, fireballRadius, distanceBetween, i);
 
-            GameObject newFireball = Instantiate(fireballPrefab, fireballPos, Quaternion.identity, fireballHolder.transform);
+            GameObject newFireball = Instantiate(fireballGameObject, fireballPos, Quaternion.identity, fireballHolder.transform);
             newFireball.GetComponent<FireOrbSubController>().fireballAbilityValues = abilityValues;
             newFireball.layer = gameObject.layer;
 

@@ -114,7 +114,7 @@ public class CommandManager : MonoBehaviour
         {
             redTeamCurrentCommand += commandValue;
 
-            UI.RequestGenericText("Gained " + commandValue + " command!", yellowTeamTextLocation, Colors.Yellow);
+            UI.RequestGenericText("Gained " + commandValue + " command!", yellowTeamTextLocation, Colors.YellowTeamColor);
         }
         else if (teamColor == PlayerTeam.BLUE)
         {
@@ -130,13 +130,13 @@ public class CommandManager : MonoBehaviour
         {
             redTeamCurrentCommand -= commandValue;
 
-            UI.RequestGenericText("Lost " + commandValue + " command!", yellowTeamTextLocation, Colors.Yellow);
+            UI.RequestGenericText("Lost " + commandValue + " command!", yellowTeamTextLocation, Colors.YellowTeamColor);
         }
         else if (teamColor == PlayerTeam.BLUE)
         {
             blueTeamCurrentCommand -= commandValue;
 
-            UI.RequestGenericText("Lost " + commandValue + " command!", blueTeamTextLocation, Colors.Yellow);
+            UI.RequestGenericText("Lost " + commandValue + " command!", blueTeamTextLocation, Colors.BlueTeamColor);
         }
     }
 

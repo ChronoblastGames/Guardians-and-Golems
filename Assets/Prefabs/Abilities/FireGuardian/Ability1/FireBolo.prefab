@@ -81,7 +81,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAbilityActive: 0
-  fireballPrefab: {fileID: 1796508949500550, guid: 78d40d4b42498a447847c26031e9f56d,
+  castAudio: {fileID: 0}
+  collisionAudio: {fileID: 0}
+  fireballYellowPrefab: {fileID: 1683167857385280, guid: 849e26612e4fa564ab61948ec63a5c5c,
+    type: 2}
+  fireballBluePrefab: {fileID: 1683167857385280, guid: 2660462afdd9789449a5358b49642a95,
     type: 2}
   fireballHolder: {fileID: 1417350289636178}
   fireballList: []

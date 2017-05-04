@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class ConduitController : MonoBehaviour 
 {
+    private UIManager UI;
+
     private CommandManager commandManager;
     private CrystalManager crystalManager;
 
-    private Animator conduitAnimator;
-
     private GuardianPlayerController redTeamGuardianPlayerController;
     private GuardianPlayerController blueTeamGuardianPlayerController;
+
+    private Animator conduitAnimator;
 
     [Header("Conduit Attributes")]
     public ConduitState conduitState;
@@ -78,6 +80,8 @@ public class ConduitController : MonoBehaviour
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
 
         commandManager = GameObject.FindGameObjectWithTag("CommandManager").GetComponent<CommandManager>();
+
+        UI = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
         conduitAnimator = GetComponent<Animator>();
 
@@ -263,6 +267,8 @@ public class ConduitController : MonoBehaviour
 
                 redTeamGuardianPlayerController.isCapturingConduit = false;
 
+                UI.RequestGenericText("Captured Conduit", transform, Colors.YellowTeamColor);
+
                 commandManager.ConduitCapture(PlayerTeam.RED);
 
                 ConduitCaptureEffects(PlayerTeam.RED);
@@ -272,6 +278,8 @@ public class ConduitController : MonoBehaviour
                 blueTeamGuardianPlayerController.CaptureConduit(gameObject);
 
                 blueTeamGuardianPlayerController.isCapturingConduit = false;
+
+                UI.RequestGenericText("Captured Conduit", transform, Colors.BlueTeamColor);
 
                 commandManager.ConduitCapture(PlayerTeam.BLUE);
 
@@ -541,7 +549,7 @@ public class ConduitController : MonoBehaviour
         }
     }
 
-    private void ConduitCaptureEffects(PlayerTeam teamColor)
+    private void ConduitCaptureEffects(PlayerTeam teamColor) //Plays Captured Conduit Effects
     {
         switch (teamColor)
         {
@@ -559,7 +567,7 @@ public class ConduitController : MonoBehaviour
         }
     }
 
-    private void ManageConduitOutline()
+    private void ManageConduitOutline() //Manages Outlines for Guardians attached to Conduit
     {
         if (attachedGuardians.Count > 0)
         {
@@ -582,7 +590,7 @@ public class ConduitController : MonoBehaviour
         }     
     }
 
-    private void ManageGolems()
+    private void ManageGolems() //Manages Golem Participation in Capturing
     {
         if (golemInRange.Contains(PlayerTeam.RED) && golemInRange.Contains(PlayerTeam.BLUE))
         {
@@ -616,7 +624,7 @@ public class ConduitController : MonoBehaviour
         }
     }
 
-    void DrawLine() //Rewrite
+    void DrawLine() //Draws Lines Between Connect Conduits
     {
         if (conduitState == ConduitState.CAPTURED)
         {
