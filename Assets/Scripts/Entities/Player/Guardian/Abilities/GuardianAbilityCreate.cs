@@ -34,11 +34,13 @@ public class GuardianAbilityCreate : CreateAbilityBase
         guardianCooldown = guardianInputController.GetComponent<GuardianCooldownManager>();
     }
 
-    public override void CastGuardianAbility(PlayerTeam teamColor, float holdTime, GameObject spawnObject, GameObject casterObject)
+    public override void CastGuardianAbility(PlayerTeam teamColor, float holdTime, GameObject spawnObject, GameObject casterObject, GameObject casterConduit)
     {
         AbilityValues newAbilityValues = CreateAbilityStruct();
 
         newAbilityValues.casterGameObject = casterObject;
+
+        newAbilityValues.casterConduit = casterConduit;
 
         newAbilityValues.teamColor = teamColor;
 
@@ -154,6 +156,7 @@ public class GuardianAbilityCreate : CreateAbilityBase
         abilityInfo.indicatorType = indicatorType;
         abilityInfo.indicatorSize = indicatorSize;
         abilityInfo.casterGameObject = casterGameObject;
+        abilityInfo.casterConduit = casterConduit;
         abilityInfo.teamColor = teamColor;
         abilityInfo.createPoint = spawnPos;
         abilityInfo.abilityCastTime = abilityCastTime;

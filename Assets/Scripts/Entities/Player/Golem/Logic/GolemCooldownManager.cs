@@ -10,12 +10,21 @@ public class GolemCooldownManager : MonoBehaviour
 
     [Header("Ability Cooldown Attributes")]
     public float dodgeCooldownTime;
-    [Space(10)]
 
+    [Space(10)]
     public float ability1Time = 0f;
     public float ability2Time = 0f;
     public float ability3Time = 0f;
     public float ability4Time = 0f;
+
+    [HideInInspector]
+    public float ability1StartTime = 0f;
+    [HideInInspector]
+    public float ability2StartTime = 0f;
+    [HideInInspector]
+    public float ability3StartTime = 0f;
+    [HideInInspector]
+    public float ability4StartTime = 0f;
 
     public bool isGlobalCooldownReady = true;
 
@@ -154,6 +163,8 @@ public class GolemCooldownManager : MonoBehaviour
             case 0:
                 isAbility1Ready = false;
 
+                ability1StartTime = Time.time;
+
                 yield return new WaitForSeconds(ability1Time);
 
                 isAbility1Ready = true;
@@ -161,6 +172,8 @@ public class GolemCooldownManager : MonoBehaviour
 
             case 1:
                 isAbility2Ready = false;
+
+                ability2StartTime = Time.time;
 
                 yield return new WaitForSeconds(ability2Time);
 
@@ -170,6 +183,8 @@ public class GolemCooldownManager : MonoBehaviour
             case 2:
                 isAbility3Ready = false;
 
+                ability3StartTime = Time.time;
+
                 yield return new WaitForSeconds(ability3Time);
 
                 isAbility3Ready = true;
@@ -177,6 +192,8 @@ public class GolemCooldownManager : MonoBehaviour
 
             case 3:
                 isAbility4Ready = false;
+
+                ability4StartTime = Time.time;
 
                 yield return new WaitForSeconds(ability4Time);
 

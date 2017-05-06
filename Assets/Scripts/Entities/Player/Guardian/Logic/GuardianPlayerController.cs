@@ -225,7 +225,7 @@ public class GuardianPlayerController : GuardianStats
                 guardianState.SetTrigger("UseAbility");
                 guardianState.SetTrigger("Ability" + (abilityNumber + 1));
 
-                guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject);
+                guardianAbilites[abilityNumber].CastGuardianAbility(teamColor, holdTime, spawnObj, gameObject, attachedConduit);
                 guardianCooldown.QueueGlobalCooldown();
                 guardianCooldown.QueueAbilityCooldown(abilityNumber);
             }

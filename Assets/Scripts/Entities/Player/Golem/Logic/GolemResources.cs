@@ -143,7 +143,7 @@ public class GolemResources : MonoBehaviour
 
             if (statusEffect != StatusEffect.NONE)
             {
-                InflictStatusEffect(statusEffect, effectStrength, effectTime, effectFrequency, damagingObject);
+                InflictStatusEffect(statusEffect, effectStrength, effectTime, effectFrequency, damagingObject, damageCaster);
             }
 
             float calculatedResistance;
@@ -248,7 +248,7 @@ public class GolemResources : MonoBehaviour
         UIManager.RequestDamageText(damageValue, transform, FloatingDamageSubTextType.DAMAGE);
     }
 
-    public void GetHealed(float healAmount, StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject healingObject)
+    public void GetHealed(float healAmount, StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject healingObject, GameObject healCaster)
     {
         if (currentHealth < maxHealth)
         {
@@ -258,7 +258,7 @@ public class GolemResources : MonoBehaviour
 
         if (statusEffect != StatusEffect.NONE)
         {
-            InflictStatusEffect(statusEffect, effectStrength, effectTime, effectFrequency, healingObject);
+            InflictStatusEffect(statusEffect, effectStrength, effectTime, effectFrequency, healingObject, healCaster);
         }
     }
 
@@ -310,7 +310,7 @@ public class GolemResources : MonoBehaviour
         canRegenerateHealth = false;
     }
 
-    public void InflictStatusEffect(StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject damagingObject)
+    public void InflictStatusEffect(StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject damagingObject, GameObject damagingCaster)
     {
         switch(statusEffect)
         {
@@ -372,10 +372,10 @@ public class GolemResources : MonoBehaviour
                 break;
 
             case StatusEffect.PULL:
-                Vector3 pullVec = (damagingObject.transform.position - transform.position).normalized;
+                Vector3 pullVec = (damagingCaster.transform.position - transform.position).normalized;
                 pullVec.y = 0;
 
-                StartCoroutine(Pull(-pullVec, pullCurve, effectStrength, effectTime));
+                StartCoroutine(Pull(pullVec, pullCurve, effectStrength, effectTime));
                 statusEffectList.Add(StatusEffect.PULL);
 
                 UIManager.RequestStatusText(effectStrength, transform, StatusEffect.PULL);
@@ -443,7 +443,7 @@ public class GolemResources : MonoBehaviour
 
             float pullCurrentSpeed = pullStrength * pullCurve.Evaluate(pullTimer);
 
-            golemPlayerController.characterController.Move((-interceptVec * pullCurrentSpeed) * Time.deltaTime);
+            golemPlayerController.characterController.Move((interceptVec * pullCurrentSpeed) * Time.deltaTime);
 
             yield return null;
         }

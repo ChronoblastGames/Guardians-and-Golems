@@ -14,6 +14,15 @@ public class GuardianCooldownManager : MonoBehaviour
     public float ability3Time = 0f;
     public float ability4Time = 0f;
 
+    [HideInInspector]
+    public float ability1StartTime = 0f;
+    [HideInInspector]
+    public float ability2StartTime = 0f;
+    [HideInInspector]
+    public float ability3StartTime = 0f;
+    [HideInInspector]
+    public float ability4StartTime = 0f;
+
     public bool isGlobalCooldownReady = true;
 
     public bool isAbility1Ready = true;
@@ -124,6 +133,8 @@ public class GuardianCooldownManager : MonoBehaviour
             case 0:
                 isAbility1Ready = false;
 
+                ability1StartTime = Time.time;
+
                 yield return new WaitForSeconds(ability1Time);
 
                 isAbility1Ready = true;
@@ -131,6 +142,8 @@ public class GuardianCooldownManager : MonoBehaviour
 
             case 1:
                 isAbility2Ready = false;
+
+                ability2StartTime = Time.time;
 
                 yield return new WaitForSeconds(ability2Time);
 
@@ -140,6 +153,8 @@ public class GuardianCooldownManager : MonoBehaviour
             case 2:
                 isAbility3Ready = false;
 
+                ability3StartTime = Time.time;
+
                 yield return new WaitForSeconds(ability3Time);
 
                 isAbility3Ready = true;
@@ -147,6 +162,8 @@ public class GuardianCooldownManager : MonoBehaviour
 
             case 3:
                 isAbility4Ready = false;
+
+                ability4StartTime = Time.time;
 
                 yield return new WaitForSeconds(ability4Time);
 
