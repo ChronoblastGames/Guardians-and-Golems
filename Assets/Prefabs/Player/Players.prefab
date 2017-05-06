@@ -11299,7 +11299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bf7a12cd04189408477d4ae5ebd6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 1
+  playerNum: 0
   playerTeam: 1
   playerNumber: 1
   playerName: Ryon
@@ -11329,6 +11329,10 @@ MonoBehaviour:
   ability2Time: 4
   ability3Time: 5
   ability4Time: 10
+  ability1StartTime: 0
+  ability2StartTime: 0
+  ability3StartTime: 0
+  ability4StartTime: 0
   isGlobalCooldownReady: 1
   isDodgeCooldownReady: 1
   isAbility1Ready: 1
@@ -11367,6 +11371,7 @@ MonoBehaviour:
   indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
   abilityCastTime: 0.4
@@ -11493,6 +11498,7 @@ MonoBehaviour:
   indicatorSize: 15
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1008284217714858, guid: eedc93773df866d4681fb6d74405da25, type: 2}
   abilityCastTime: 1
@@ -11510,7 +11516,7 @@ MonoBehaviour:
   isMelee: 0
   isRanged: 1
   isHeld: 0
-  statusEffect: 10
+  statusEffect: 7
   effectStrength: 5
   effectTime: 1
   effectFrequency: 0
@@ -11537,6 +11543,10 @@ MonoBehaviour:
   ability2Time: 2
   ability3Time: 2
   ability4Time: 1
+  ability1StartTime: 0
+  ability2StartTime: 0
+  ability3StartTime: 0
+  ability4StartTime: 0
   isGlobalCooldownReady: 1
   isAbility1Ready: 1
   isAbility2Ready: 1
@@ -11580,6 +11590,10 @@ MonoBehaviour:
   ability2Time: 4
   ability3Time: 5
   ability4Time: 10
+  ability1StartTime: 0
+  ability2StartTime: 0
+  ability3StartTime: 0
+  ability4StartTime: 0
   isGlobalCooldownReady: 1
   isDodgeCooldownReady: 1
   isAbility1Ready: 1
@@ -11613,6 +11627,7 @@ MonoBehaviour:
   indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1041677828617672, guid: d7e5dff1cbb152048a06f50acb33bcb2, type: 2}
   abilityCastTime: 2
@@ -11658,6 +11673,7 @@ MonoBehaviour:
   indicatorSize: 25
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
   abilityCastTime: 0.75
@@ -11799,6 +11815,7 @@ MonoBehaviour:
   indicatorSize: 15
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1000095144429562, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
   abilityCastTime: 1
@@ -11844,6 +11861,7 @@ MonoBehaviour:
   indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
   abilityCastTime: 0.5
@@ -11889,6 +11907,7 @@ MonoBehaviour:
   indicatorSize: 25
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1802295525235270, guid: 76735f1e796a61549a53812353a5ff7a, type: 2}
   abilityCastTime: 0.75
@@ -11934,6 +11953,7 @@ MonoBehaviour:
   indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1773927997418614, guid: 04be20c811bfe1749b46fe4a6c5f4298, type: 2}
   abilityCastTime: 0.5
@@ -12206,6 +12226,7 @@ MonoBehaviour:
   indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1879156958085216, guid: a14c0acc6eeba074b99c9c809ff7b8d0, type: 2}
   abilityCastTime: 0
@@ -12251,6 +12272,7 @@ MonoBehaviour:
   indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1270915693619320, guid: 0e8cbec8b44f0614888102af912a74f7, type: 2}
   abilityCastTime: 0.4
@@ -12296,6 +12318,7 @@ MonoBehaviour:
   indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
   abilityCastTime: 0.3
@@ -12306,7 +12329,7 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 1.25
   holdTime: 0
-  zoneRadius: 100
+  zoneRadius: 5
   zoneHeight: 0
   healthCost: 0
   crystalCost: 1
@@ -12376,6 +12399,10 @@ MonoBehaviour:
   ability2Time: 2
   ability3Time: 2
   ability4Time: 1
+  ability1StartTime: 0
+  ability2StartTime: 0
+  ability3StartTime: 0
+  ability4StartTime: 0
   isGlobalCooldownReady: 1
   isAbility1Ready: 1
   isAbility2Ready: 1
@@ -12397,6 +12424,7 @@ MonoBehaviour:
   indicatorSize: 15
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1000095144429562, guid: 39b3dad7bb1e96f45966f9b58f1a2162, type: 2}
   abilityCastTime: 1
@@ -12442,6 +12470,7 @@ MonoBehaviour:
   indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1679534557253984, guid: ed444b1e6d46bc646ad7bdffc72eec32, type: 2}
   abilityCastTime: 0.3
@@ -12452,7 +12481,7 @@ MonoBehaviour:
   spawnDistanceFromPlayer: 0
   activeTime: 1.25
   holdTime: 0
-  zoneRadius: 100
+  zoneRadius: 5
   zoneHeight: 0
   healthCost: 0
   crystalCost: 1
@@ -12759,15 +12788,16 @@ MonoBehaviour:
   indicatorSize: 15
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1008284217714858, guid: eedc93773df866d4681fb6d74405da25, type: 2}
   abilityCastTime: 1
   damageType: 0
   damageAmount: 7.5
   damageFrequency: 0.5
-  travelSpeed: 1
-  spawnDistanceFromPlayer: 10
-  activeTime: 3
+  travelSpeed: 15
+  spawnDistanceFromPlayer: 25
+  activeTime: 2
   holdTime: 0
   zoneRadius: 0
   zoneHeight: 0
@@ -12778,8 +12808,8 @@ MonoBehaviour:
   isHeld: 0
   statusEffect: 10
   effectStrength: 5
-  effectTime: 1
-  effectFrequency: 0
+  effectTime: 2
+  effectFrequency: 0.25
   abilitySubType: 1
   redMask:
     serializedVersion: 2
@@ -12815,7 +12845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d414cf662e738dc4fbb180a26eb0c4ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNum: 1
+  playerNum: 0
   playerTeam: 1
   playerName: 
   playerNumber: 0
@@ -12838,6 +12868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e0be4b5c6053c4b805b19f5f0dc219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpellIndicatorType: 0
   holderObject: {fileID: 0}
   aimIndicatorArray:
   - {fileID: 0}
@@ -12859,6 +12890,7 @@ MonoBehaviour:
   indicatorSize: 0
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1879156958085216, guid: a14c0acc6eeba074b99c9c809ff7b8d0, type: 2}
   abilityCastTime: 0
@@ -12904,6 +12936,7 @@ MonoBehaviour:
   indicatorSize: 10
   spawnPos: {fileID: 0}
   casterGameObject: {fileID: 0}
+  casterConduit: {fileID: 0}
   teamColor: 0
   ability: {fileID: 1041677828617672, guid: d7e5dff1cbb152048a06f50acb33bcb2, type: 2}
   abilityCastTime: 2
@@ -12944,6 +12977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e0be4b5c6053c4b805b19f5f0dc219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpellIndicatorType: 0
   holderObject: {fileID: 0}
   aimIndicatorArray:
   - {fileID: 0}
@@ -20964,7 +20998,7 @@ ParticleSystem:
     enabled: 1
     strength:
       minMaxState: 0
-      scalar: 4
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21080,7 +21114,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     separateAxes: 0
-    frequency: 0.5
+    frequency: 0.1
     damping: 1
     octaves: 1
     octaveMultiplier: 0.5

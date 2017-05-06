@@ -393,25 +393,54 @@ public class ConduitController : MonoBehaviour
     {
         if (conduitColor != teamColor)
         {
-            StartCoroutine(ConduitDisable(length));
+            if (conduitState != ConduitState.HOMEBASE)
+            {
+                StartCoroutine(ConduitDisable(length));
+            }
         }
     }
 
     private IEnumerator ConduitDisable (float disableTime)
     {
+        Debug.Log("Disabled : " + gameObject.name);
+
+        ConduitState previousState = conduitState;
+
+        foreach (Renderer gemRenderer in crystalRenderer)
+        {
+            gemRenderer.material.color = Colors.Black;
+        }
+
         conduitState = ConduitState.DISABLED;
 
         yield return new WaitForSeconds(disableTime);
 
-        if (conduitColor == PlayerTeam.RED || conduitColor == PlayerTeam.BLUE)
+        conduitState = previousState;
+
+        if (conduitColor == PlayerTeam.RED)
         {
-            conduitState = ConduitState.CAPTURED;
+            foreach (Renderer gemRenderer in crystalRenderer)
+            {
+                gemRenderer.material.color = Colors.YellowTeamColor;
+            }
         }
-        else
+        else if (conduitColor == PlayerTeam.BLUE)
         {
-            conduitState = ConduitState.EMPTY;
+            foreach (Renderer gemRenderer in crystalRenderer)
+            {
+                gemRenderer.material.color = Colors.BlueTeamColor;
+            }
+        }
+        else if (conduitColor == PlayerTeam.NONE)
+        {
+            foreach (Renderer gemRenderer in crystalRenderer)
+            {
+                gemRenderer.material.color = gemColor;
+            }
         }
 
+        Debug.Log("Renabling : " + gameObject.name);
+     
         yield return null;
     }
 
