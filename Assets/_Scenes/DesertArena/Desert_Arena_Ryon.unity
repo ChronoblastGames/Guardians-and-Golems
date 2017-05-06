@@ -619,6 +619,26 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3df5d566be017a4418732803b27e9be4, type: 2}
+    - target: {fileID: 114872254270443490, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: travelSpeed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872254270443490, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: spawnDistanceFromPlayer
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872254270443490, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: effectStrength
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114872254270443490, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: damageFrequency
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
   m_IsPrefabParent: 0
@@ -887,6 +907,10 @@ Prefab:
       propertyPath: startingCrystalCount
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4457648268671568, guid: 1d187cedd3aed864ba01bdf0840392dc, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1d187cedd3aed864ba01bdf0840392dc, type: 2}
   m_IsPrefabParent: 0
@@ -1036,6 +1060,26 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 611717616}
+    - target: {fileID: 114471394820549600, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114299346919222146, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114943672658443600, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114545973513064180, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fdcb5473c3099f5418f9149c2cb45bcc, type: 2}
   m_IsPrefabParent: 0
