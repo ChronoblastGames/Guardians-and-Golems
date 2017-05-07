@@ -24,54 +24,47 @@ public class CooldownUI : MonoBehaviour
     {
         if (playerType == PlayerType.GOLEM)
         {
-           if (!targetGolemCooldowns.isAbility1Ready)
-           {
-                ability1CooldownImage.fillAmount = targetGolemCooldowns.ability1StartTime / Time.time;
-           }
+            if (!targetGolemCooldowns.isAbility1Ready)
+            {
+                ability1CooldownImage.fillAmount = targetGolemCooldowns.ability1CooldownEndTime / targetGolemCooldowns.ability1CooldownTime;
+            }
 
-           if (!targetGolemCooldowns.isAbility2Ready)
-           {
-                ability2CooldownImage.fillAmount = targetGolemCooldowns.ability2StartTime / Time.time;
-
-                Debug.Log(targetGolemCooldowns.ability2StartTime / Time.time);
+            if (!targetGolemCooldowns.isAbility2Ready)
+            {
+                ability2CooldownImage.fillAmount = targetGolemCooldowns.ability2CooldownEndTime / targetGolemCooldowns.ability2CooldownTime;
             }
 
             if (!targetGolemCooldowns.isAbility3Ready)
-           {
-                ability3CooldownImage.fillAmount = targetGolemCooldowns.ability3StartTime / Time.time;
-           }
+            {
+                ability3CooldownImage.fillAmount = targetGolemCooldowns.ability3CooldownEndTime / targetGolemCooldowns.ability3CooldownTime;
+            }
 
-           if (!targetGolemCooldowns.isAbility4Ready)
-           {
-                ability4CooldownImage.fillAmount = targetGolemCooldowns.ability4StartTime / Time.time;
-           }
+            if (!targetGolemCooldowns.isAbility4Ready)
+            {
+                ability4CooldownImage.fillAmount = targetGolemCooldowns.ability1CooldownEndTime / targetGolemCooldowns.ability4CooldownTime;
+            }
         }
         else if (playerType == PlayerType.GUARDIAN)
         {
             if (!targetGuardianCooldowns.isAbility1Ready)
             {
-                ability1CooldownImage.fillAmount = targetGuardianCooldowns.ability1StartTime / Time.time;
+                ability1CooldownImage.fillAmount = targetGuardianCooldowns.ability1CooldownEndTime / targetGuardianCooldowns.ability1CooldownTime;
             }
 
             if (!targetGuardianCooldowns.isAbility2Ready)
             {
-                ability2CooldownImage.fillAmount = targetGuardianCooldowns.ability2StartTime / Time.time;
+                ability2CooldownImage.fillAmount = targetGuardianCooldowns.ability2CooldownEndTime / targetGuardianCooldowns.ability2CooldownTime;
             }
 
             if (!targetGuardianCooldowns.isAbility3Ready)
             {
-                ability3CooldownImage.fillAmount = targetGuardianCooldowns.ability3StartTime / Time.time;
+                ability3CooldownImage.fillAmount = targetGuardianCooldowns.ability3CooldownEndTime / targetGuardianCooldowns.ability3CooldownTime;
             }
 
             if (!targetGuardianCooldowns.isAbility4Ready)
             {
-                ability4CooldownImage.fillAmount = targetGuardianCooldowns.ability4StartTime / Time.time;
+                ability4CooldownImage.fillAmount = targetGuardianCooldowns.ability4CooldownEndTime / targetGuardianCooldowns.ability4CooldownTime;
             }
         }
-    }
-
-    public void StartCooldownUI(int cooldownID)
-    {
-
     }
 }

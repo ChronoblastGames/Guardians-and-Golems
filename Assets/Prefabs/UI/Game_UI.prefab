@@ -9254,7 +9254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetGolemCooldowns: {fileID: 0}
   targetGuardianCooldowns: {fileID: 0}
-  playerType: 0
+  playerType: 1
   ability1CooldownImage: {fileID: 114989834074808408}
   ability2CooldownImage: {fileID: 114292266716654794}
   ability3CooldownImage: {fileID: 114470352497647610}
@@ -11861,7 +11861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetGolemCooldowns: {fileID: 0}
   targetGuardianCooldowns: {fileID: 0}
-  playerType: 0
+  playerType: 1
   ability1CooldownImage: {fileID: 114493900838911902}
   ability2CooldownImage: {fileID: 114524610231737650}
   ability3CooldownImage: {fileID: 114809797924994940}
@@ -14734,10 +14734,10 @@ RectTransform:
   m_Father: {fileID: 224915306813253278}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 38.5, y: -50}
-  m_SizeDelta: {x: 77, y: 77}
+  m_AnchorMin: {x: 0, y: 0.120000005}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -6}
+  m_SizeDelta: {x: 1, y: -11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224213947943128682
 RectTransform:
@@ -16761,10 +16761,10 @@ RectTransform:
   m_Father: {fileID: 224915306813253278}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 38.5, y: -50}
-  m_SizeDelta: {x: 77, y: 77}
+  m_AnchorMin: {x: 0, y: 0.120000005}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.5, y: -6}
+  m_SizeDelta: {x: 1, y: -11}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224687488089569316
 RectTransform:

@@ -9,31 +9,33 @@ public class GuardianCooldownManager : MonoBehaviour
     private float globalCooldownTime;
 
     [Header("Ability Cooldown Attributes")]
-    public float ability1Time = 0f;
-    public float ability2Time = 0f;
-    public float ability3Time = 0f;
-    public float ability4Time = 0f;
+    public float ability1CooldownTime = 0f;
+    public float ability2CooldownTime = 0f;
+    public float ability3CooldownTime = 0f;
+    public float ability4CooldownTime = 0f;
 
-    [HideInInspector]
-    public float ability1StartTime = 0f;
-    [HideInInspector]
-    public float ability2StartTime = 0f;
-    [HideInInspector]
-    public float ability3StartTime = 0f;
-    [HideInInspector]
-    public float ability4StartTime = 0f;
+    [Header("Ability Cooldown End Time <<DONT EDIT>>")]
+    public float ability1CooldownEndTime = 0f;
+    public float ability2CooldownEndTime = 0f;
+    public float ability3CooldownEndTime = 0f;
+    public float ability4CooldownEndTime = 0f;
 
     public bool isGlobalCooldownReady = true;
 
+    [Header("Ability Booleans")]
     public bool isAbility1Ready = true;
     public bool isAbility2Ready = true;
     public bool isAbility3Ready = true;
     public bool isAbility4Ready = true;
 
-
     private void Start()
     {
         Initialize();
+    }
+
+    private void Update()
+    {
+        ManageCooldown();
     }
 
     void Initialize()
@@ -41,6 +43,29 @@ public class GuardianCooldownManager : MonoBehaviour
         globalVariables = GameObject.FindObjectOfType<GlobalVariables>();
 
         globalCooldownTime = globalVariables.guardianGlobalCooldown;
+    }
+
+    private void ManageCooldown()
+    {
+        if (!isAbility1Ready)
+        {
+            ability1CooldownEndTime -= Time.deltaTime;
+        }
+
+        if (!isAbility2Ready)
+        {
+            ability2CooldownEndTime -= Time.deltaTime;
+        }
+
+        if (!isAbility3Ready)
+        {
+            ability3CooldownEndTime -= Time.deltaTime;
+        }
+
+        if (!isAbility4Ready)
+        {
+            ability4CooldownEndTime -= Time.deltaTime;
+        }
     }
 
     public void QueueGlobalCooldown()
@@ -133,9 +158,9 @@ public class GuardianCooldownManager : MonoBehaviour
             case 0:
                 isAbility1Ready = false;
 
-                ability1StartTime = Time.time;
+                ability1CooldownEndTime = ability1CooldownTime;
 
-                yield return new WaitForSeconds(ability1Time);
+                yield return new WaitForSeconds(ability1CooldownTime);
 
                 isAbility1Ready = true;
                 break;
@@ -143,9 +168,9 @@ public class GuardianCooldownManager : MonoBehaviour
             case 1:
                 isAbility2Ready = false;
 
-                ability2StartTime = Time.time;
+                ability2CooldownEndTime = ability2CooldownTime;
 
-                yield return new WaitForSeconds(ability2Time);
+                yield return new WaitForSeconds(ability2CooldownTime);
 
                 isAbility2Ready = true;
                 break;
@@ -153,9 +178,9 @@ public class GuardianCooldownManager : MonoBehaviour
             case 2:
                 isAbility3Ready = false;
 
-                ability3StartTime = Time.time;
+                ability3CooldownEndTime = ability3CooldownTime;
 
-                yield return new WaitForSeconds(ability3Time);
+                yield return new WaitForSeconds(ability3CooldownTime);
 
                 isAbility3Ready = true;
                 break;
@@ -163,9 +188,9 @@ public class GuardianCooldownManager : MonoBehaviour
             case 3:
                 isAbility4Ready = false;
 
-                ability4StartTime = Time.time;
+                ability4CooldownEndTime = ability4CooldownTime;
 
-                yield return new WaitForSeconds(ability4Time);
+                yield return new WaitForSeconds(ability4CooldownTime);
 
                 isAbility4Ready = true;
                 break;

@@ -459,6 +459,86 @@ Prefab:
       propertyPath: golemOffensiveValues.windAttack
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114315794757719410, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability1CooldownTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098945095900492, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability1CooldownTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114315794757719410, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability2CooldownTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098945095900492, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability2CooldownTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114315794757719410, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability3CooldownTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098945095900492, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability3CooldownTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114315794757719410, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability4CooldownTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098945095900492, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability4CooldownTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245793341340274, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability1CooldownTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699408743882646, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability1CooldownTime
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245793341340274, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability2CooldownTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699408743882646, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability2CooldownTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245793341340274, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability3CooldownTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699408743882646, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability3CooldownTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245793341340274, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability4CooldownTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114699408743882646, guid: 2cc910c8b15959441bd93412f23de693,
+        type: 2}
+      propertyPath: ability4CooldownTime
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2cc910c8b15959441bd93412f23de693, type: 2}
   m_IsPrefabParent: 0
@@ -635,56 +715,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 223446343618661018, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1900266707}
-    - target: {fileID: 223082864239086558, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1900266707}
-    - target: {fileID: 114021936499329456, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 611717616}
-    - target: {fileID: 223479823380426134, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1900266707}
-    - target: {fileID: 114284140220931318, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 611717616}
-    - target: {fileID: 114986633357577678, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 611717616}
-    - target: {fileID: 114943672658443600, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: playerType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114471394820549600, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: playerType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114545973513064180, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: targetGolemCooldowns
-      value: 
-      objectReference: {fileID: 211834060}
     - target: {fileID: 114299346919222146, guid: fdcb5473c3099f5418f9149c2cb45bcc,
         type: 2}
       propertyPath: targetGolemCooldowns
       value: 
       objectReference: {fileID: 211834057}
+    - target: {fileID: 114545973513064180, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: targetGolemCooldowns
+      value: 
+      objectReference: {fileID: 211834060}
     - target: {fileID: 114471394820549600, guid: fdcb5473c3099f5418f9149c2cb45bcc,
         type: 2}
       propertyPath: targetGuardianCooldowns
@@ -695,75 +735,40 @@ Prefab:
       propertyPath: targetGuardianCooldowns
       value: 
       objectReference: {fileID: 211834058}
-    - target: {fileID: 114989834074808408, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+    - target: {fileID: 114986633357577678, guid: fdcb5473c3099f5418f9149c2cb45bcc,
         type: 2}
-      propertyPath: m_FillAmount
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 611717616}
+    - target: {fileID: 114284140220931318, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 611717616}
+    - target: {fileID: 223479823380426134, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1900266707}
+    - target: {fileID: 114021936499329456, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 611717616}
+    - target: {fileID: 223082864239086558, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1900266707}
+    - target: {fileID: 223446343618661018, guid: fdcb5473c3099f5418f9149c2cb45bcc,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1900266707}
     - target: {fileID: 114456763562644220, guid: fdcb5473c3099f5418f9149c2cb45bcc,
         type: 2}
       propertyPath: m_FillAmount
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224681223742930490, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0.120000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 224681223742930490, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224681223742930490, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224681223742930490, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 224681223742930490, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224681223742930490, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: -11
-      objectReference: {fileID: 0}
-    - target: {fileID: 224213085979060372, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0.120000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 224213085979060372, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224213085979060372, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224213085979060372, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -6
-      objectReference: {fileID: 0}
-    - target: {fileID: 224213085979060372, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224213085979060372, guid: fdcb5473c3099f5418f9149c2cb45bcc,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: -11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fdcb5473c3099f5418f9149c2cb45bcc, type: 2}
