@@ -24,6 +24,8 @@ public class ConduitController : MonoBehaviour
 
     public float currentCaptureSpeed;
     private float baseCaptureSpeed;
+
+    public float loseDrainSpeed;
     [Space(10)]
     public float currentCaptureAmount;
     public float totalCaptureAmount;
@@ -73,6 +75,7 @@ public class ConduitController : MonoBehaviour
         ManageConduitProgressEffects();
         ManageConduitOutline();
         ManageGolems();
+        ManageConduitState();
     }
 
     void InitializeConduit()
@@ -305,12 +308,16 @@ public class ConduitController : MonoBehaviour
                 commandManager.LoseConduit(PlayerTeam.RED);
 
                 crystalManager.RemoveCrystal(PlayerTeam.RED);
+
+                redTeamGuardianPlayerController.LoseConduit(gameObject);
             }
             else if (conduitColor == PlayerTeam.BLUE)
             {
                 commandManager.LoseConduit(PlayerTeam.BLUE);
 
                 crystalManager.RemoveCrystal(PlayerTeam.BLUE);
+
+                blueTeamGuardianPlayerController.LoseConduit(gameObject);
             }
         }
 
@@ -341,6 +348,24 @@ public class ConduitController : MonoBehaviour
         conduitColor = PlayerTeam.NONE;
 
         DrawLine();
+    }
+
+    private void ManageConduitState()
+    {
+        if (conduitState == ConduitState.LOSING)
+        {
+            if (conduitColor != PlayerTeam.NONE)
+            {
+                if (currentCaptureAmount > 0)
+                {
+                    currentCaptureAmount -= Time.fixedDeltaTime * loseDrainSpeed;
+                }
+                else if (currentCaptureAmount <= 0)
+                {
+                    ResetConduit();
+                }
+            }
+        }
     }
 
     private void SetupHomeBase(PlayerTeam teamColor)
@@ -468,6 +493,21 @@ public class ConduitController : MonoBehaviour
                 break;
 
             case ConduitState.DRAINING:
+                if (capturePercentage >= 84f && capturePercentage <= 85f)
+                {
+                    FirstStateConduitDrainEffect();
+                }
+                else if (capturePercentage >= 59f && capturePercentage <= 60f)
+                {
+                    SecondStateConduitDrainEffect();
+                }
+                else if (capturePercentage >= 31f && capturePercentage <= 30f)
+                {
+                    ThirdStateConduitDrainEffect();
+                }
+                break;
+
+            case ConduitState.LOSING:
                 if (capturePercentage >= 84f && capturePercentage <= 85f)
                 {
                     FirstStateConduitDrainEffect();

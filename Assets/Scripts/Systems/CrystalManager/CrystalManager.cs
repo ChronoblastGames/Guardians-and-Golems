@@ -20,8 +20,8 @@ public class CrystalManager : MonoBehaviour
     public int redTeamGuardianCurrentCrystalCount = 0;
     public int blueTeamGuardianCurrentCrystalCount = 0;
     [Space(10)]
-    public int redTeamGolemCurrentCrystalCount = -1;
-    public int blueTeamGolemCurrentCrystalCount = -1;
+    public int redTeamGolemCurrentCrystalCount = 0;
+    public int blueTeamGolemCurrentCrystalCount = 0;
     [Space(10)]
     public int redTeamTotalCrystalCount = -1;
     public int blueTeamTotalCrystalCount = -1;
@@ -58,7 +58,7 @@ public class CrystalManager : MonoBehaviour
 
     void SetupStartingCrystals()
     {
-        for (int i = -1; i < startingCrystalCount; i++)
+        for (int i = 0; i < startingCrystalCount; i++)
         {
             CaptureCrystal(PlayerTeam.RED);
             CaptureCrystal(PlayerTeam.BLUE);
@@ -294,13 +294,13 @@ public class CrystalManager : MonoBehaviour
         switch (teamColor)
         {
             case PlayerTeam.RED:
-                redTeamTotalCrystalCount++;
                 UI.SetCrystalColor(redTeamTotalCrystalCount, PlayerTeam.RED);
+                redTeamTotalCrystalCount++;
                 break;
 
             case PlayerTeam.BLUE:
-                blueTeamTotalCrystalCount++;
                 UI.SetCrystalColor(blueTeamTotalCrystalCount, PlayerTeam.BLUE);
+                blueTeamTotalCrystalCount++;
                 break;
         }
     }

@@ -41,7 +41,7 @@ public class CooldownUI : MonoBehaviour
 
             if (!targetGolemCooldowns.isAbility4Ready)
             {
-                ability4CooldownImage.fillAmount = targetGolemCooldowns.ability1CooldownEndTime / targetGolemCooldowns.ability4CooldownTime;
+                ability4CooldownImage.fillAmount = targetGolemCooldowns.ability4CooldownEndTime / targetGolemCooldowns.ability4CooldownTime;
             }
         }
         else if (playerType == PlayerType.GUARDIAN)

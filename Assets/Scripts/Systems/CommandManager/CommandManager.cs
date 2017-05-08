@@ -53,7 +53,7 @@ public class CommandManager : MonoBehaviour
     {
         if (isRedTeamLosing)
         { 
-            if (redGuardianPlayerController.conduitCapturedList.Count == 1)
+            if (redGuardianPlayerController.conduitCapturedList.Count <= 1)
             {
                 Debug.Log("Red Team Lost!");
             }
@@ -61,7 +61,7 @@ public class CommandManager : MonoBehaviour
 
         if (isBlueTeamLosing)
         {
-            if (blueGuardianPlayerController.conduitCapturedList.Count == 1)
+            if (blueGuardianPlayerController.conduitCapturedList.Count <= 1)
             {
                 Debug.Log("Blue Team Lost");
             }
@@ -89,21 +89,31 @@ public class CommandManager : MonoBehaviour
         switch (teamColor)
         {
             case PlayerTeam.RED:
-                foreach(GameObject conduit in redGuardianPlayerController.conduitCapturedList)
+                if (!isRedTeamLosing)
                 {
-                    conduit.GetComponent<ConduitController>().conduitState = ConduitState.DRAINING;
-                }
+                    foreach (GameObject conduit in redGuardianPlayerController.conduitCapturedList)
+                    {
+                        conduit.GetComponent<ConduitController>().conduitState = ConduitState.LOSING;
+                    }
 
-                isRedTeamLosing = true;
+                    isRedTeamLosing = true;
+
+                    Debug.Log("Red Team Losing");
+                }          
                 break;
 
             case PlayerTeam.BLUE:
-                foreach (GameObject conduit in blueGuardianPlayerController.conduitCapturedList)
+                if (!isBlueTeamLosing)
                 {
-                    conduit.GetComponent<ConduitController>().conduitState = ConduitState.DRAINING;
-                }
+                    foreach (GameObject conduit in blueGuardianPlayerController.conduitCapturedList)
+                    {
+                        conduit.GetComponent<ConduitController>().conduitState = ConduitState.LOSING;
+                    }
 
-                isBlueTeamLosing = true;
+                    isBlueTeamLosing = true;
+
+                    Debug.Log("Blue Team Losing");
+                }            
                 break;
         }
     }
@@ -115,12 +125,22 @@ public class CommandManager : MonoBehaviour
             redTeamCurrentCommand += commandValue;
 
             UI.RequestGenericText("Gained " + commandValue + " command!", yellowTeamTextLocation, Colors.YellowTeamColor);
+
+            if (isRedTeamLosing)
+            {
+                isRedTeamLosing = false;
+            }
         }
         else if (teamColor == PlayerTeam.BLUE)
         {
             blueTeamCurrentCommand += commandValue;
 
             UI.RequestGenericText("Gained " + commandValue + " command!", blueTeamTextLocation, Colors.BlueTeamColor);
+
+            if (isBlueTeamLosing)
+            {
+                isBlueTeamLosing = false;
+            }
         }
     }
 

@@ -57,7 +57,8 @@ public enum ConduitState
     DRAINING,
     CONTESTED,
     DISABLED,
-    HOMEBASE
+    HOMEBASE,
+    LOSING
 }
 
 public enum StatusEffect

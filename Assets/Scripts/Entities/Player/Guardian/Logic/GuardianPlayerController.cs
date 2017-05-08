@@ -209,6 +209,11 @@ public class GuardianPlayerController : GuardianStats
         crystalManager.CaptureCrystal(playerTeam);
     }
 
+    public void LoseConduit(GameObject conduitLost)
+    {
+        conduitCapturedList.Remove(conduitLost);
+    }
+
     public void FinishCapture()
     {
         guardianState.SetTrigger("EndCapture");
