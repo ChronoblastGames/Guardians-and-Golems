@@ -23,8 +23,8 @@ public class CrystalManager : MonoBehaviour
     public int redTeamGolemCurrentCrystalCount = 0;
     public int blueTeamGolemCurrentCrystalCount = 0;
     [Space(10)]
-    public int redTeamTotalCrystalCount = -1;
-    public int blueTeamTotalCrystalCount = -1;
+    public int redTeamTotalCrystalCount =0;
+    public int blueTeamTotalCrystalCount = 0;
 
     [Space(10)]
     public float redTeamGuardianCrystalRegenerationRate = 0f;

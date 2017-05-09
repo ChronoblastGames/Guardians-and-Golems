@@ -71,23 +71,22 @@ public class UIManager : MonoBehaviour
 
     private void ManageCrystals()
     {
-        int redTeamGuardianCrystal = crystalManager.redTeamGuardianCurrentCrystalCount;
-        int blueTeamGuardianCrystal = crystalManager.blueTeamGuardianCurrentCrystalCount;
-
-        guardianCrystalLeft[redTeamGuardianCrystal].fillAmount = crystalManager.redTeamGuardianRefill / 1;
-        guardianCrystalRight[blueTeamGuardianCrystal].fillAmount = crystalManager.blueTeamGuardianRefill / 1;
-
         int redTeamGolemCrystal = crystalManager.redTeamGolemCurrentCrystalCount;
         int blueTeamGolemCrystal = crystalManager.blueTeamGolemCurrentCrystalCount;
 
+        int redTeamGuardianCrystal = crystalManager.redTeamGuardianCurrentCrystalCount;
+        int blueTeamGuardianCrystal = crystalManager.blueTeamGuardianCurrentCrystalCount;
+
         golemCrystalRed[redTeamGolemCrystal].fillAmount = crystalManager.redTeamGolemRefill / 1;
         golemCrystalBlue[blueTeamGolemCrystal].fillAmount = crystalManager.blueTeamGolemRefill / 1;
+
+        guardianCrystalLeft[redTeamGuardianCrystal].fillAmount = crystalManager.redTeamGuardianRefill / 1;
+        guardianCrystalRight[blueTeamGuardianCrystal].fillAmount = crystalManager.blueTeamGuardianRefill / 1;
     }
 
     private void ManageCommand()
     {
         redTeamCommandImage.fillAmount = commandManager.redTeamCurrentCommand / commandManager.maxCommand;
-
         blueTeamCommandImage.fillAmount = commandManager.blueTeamCurrentCommand / commandManager.maxCommand;
     }
 
