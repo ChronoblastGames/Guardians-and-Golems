@@ -312,6 +312,9 @@ public class CrystalManager : MonoBehaviour
             case PlayerTeam.RED:
                 if (redTeamTotalCrystalCount > startingCrystalCount)
                 {
+                    UI.ResetCrystalUI(redTeamTotalCrystalCount, PlayerTeam.RED, PlayerType.GOLEM);
+                    UI.ResetCrystalUI(redTeamTotalCrystalCount, PlayerTeam.RED, PlayerType.GUARDIAN);
+
                     redTeamTotalCrystalCount--;
 
                     if (redTeamGolemCurrentCrystalCount > redTeamTotalCrystalCount)
@@ -329,6 +332,9 @@ public class CrystalManager : MonoBehaviour
             case PlayerTeam.BLUE:
                 if (blueTeamTotalCrystalCount > startingCrystalCount)
                 {
+                    UI.ResetCrystalUI(blueTeamTotalCrystalCount, PlayerTeam.BLUE, PlayerType.GOLEM);
+                    UI.ResetCrystalUI(blueTeamTotalCrystalCount, PlayerTeam.BLUE, PlayerType.GUARDIAN);
+
                     blueTeamTotalCrystalCount--;
 
                     if (blueTeamGolemCurrentCrystalCount > blueTeamTotalCrystalCount)
