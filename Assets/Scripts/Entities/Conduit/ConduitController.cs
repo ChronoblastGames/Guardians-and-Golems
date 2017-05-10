@@ -681,28 +681,48 @@ public class ConduitController : MonoBehaviour
     {
         if (golemInRange.Contains(PlayerTeam.RED) && golemInRange.Contains(PlayerTeam.BLUE))
         {
-            currentCaptureSpeed = 2f;
+            currentCaptureSpeed = baseCaptureSpeed;
         }
         else if (golemInRange.Contains(PlayerTeam.RED))
         {
-            if (conduitColor == PlayerTeam.RED)
+            if (conduitState == ConduitState.CAPTURING)
             {
-                currentCaptureSpeed = 3f;
+                if (conduitColor == PlayerTeam.RED)
+                {
+                    currentCaptureSpeed = 3f;
+                }
+                else if (conduitColor == PlayerTeam.BLUE)
+                {
+                    currentCaptureSpeed = 0.75f;
+                }
             }
-            else if (conduitColor == PlayerTeam.BLUE)
+            else if (conduitState == ConduitState.DRAINING)
             {
-                currentCaptureSpeed = 0.75f;
-            }
+                if (conduitColor == PlayerTeam.BLUE)
+                {
+                    currentCaptureSpeed = 3f;
+                }
+            }           
         }
         else if (golemInRange.Contains(PlayerTeam.BLUE))
         {
-            if (conduitColor == PlayerTeam.BLUE)
+            if (conduitState == ConduitState.CAPTURING)
             {
-                currentCaptureSpeed = 3f;
+                if (conduitColor == PlayerTeam.BLUE)
+                {
+                    currentCaptureSpeed = 3f;
+                }
+                else if (conduitColor == PlayerTeam.BLUE)
+                {
+                    currentCaptureSpeed = 0.75f;
+                }
             }
-            else if (conduitColor == PlayerTeam.RED)
+            else if (conduitState == ConduitState.DRAINING)
             {
-                currentCaptureSpeed = 0.75f;
+                if (conduitColor == PlayerTeam.RED)
+                {
+                    currentCaptureSpeed = 3f;
+                }
             }
         }
         else
