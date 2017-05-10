@@ -223,7 +223,7 @@ public class GuardianPlayerController : GuardianStats
     {
         if (canUseAbility && !isUsingAbility && attachedConduit != null && guardianCooldown.GlobalCooldownReady() && guardianCooldown.CanUseAbility(abilityNumber))
         {
-            if (crystalManager.TryCast(guardianAbilites[abilityNumber].crystalCost, teamColor, PlayerType.GUARDIAN))
+            if (crystalManager.TryCast(guardianAbilites[abilityNumber].crystalCost, teamColor, PlayerType.GUARDIAN) && conduitController.CanCastAbility())
             {
                 GameObject spawnObj = conduitController.centerCrystal;
 

@@ -13,7 +13,10 @@ EditorBuildSettings:
     guid: b93519faef3b0f140b2e8b5473ed28c2
   - enabled: 1
     path: Assets/_Scenes/LoadingScreen/LoadingScreen.unity
-    guid: 00000000000000000000000000000000
+    guid: 21dd6ca620ffae34eba587e41d4dc885
   - enabled: 1
     path: Assets/_Scenes/DesertArena/Desert_Arena_Matt.unity
-    guid: c68cf6a2a2b143948a1a8600c68d3dea
+    guid: c941fa130f1d1534a85707644bfaae13
+  - enabled: 1
+    path: Assets/_Scenes/TileArena/Tile_Arena_Matt.unity
+    guid: 00000000000000000000000000000000

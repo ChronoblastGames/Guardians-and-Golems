@@ -172,6 +172,18 @@ public class ConduitController : MonoBehaviour
         }
     }
 
+    public bool CanCastAbility()
+    {
+        if (conduitState == ConduitState.DISABLED)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     public bool CanReverseCapture(PlayerTeam teamColor)
     {
         if (conduitState == ConduitState.CAPTURED)
@@ -348,6 +360,8 @@ public class ConduitController : MonoBehaviour
         conduitColor = PlayerTeam.NONE;
 
         DrawLine();
+
+        Debug.Log("Resetting Conduit :: " + gameObject.name);
     }
 
     private void ManageConduitState()
@@ -667,28 +681,28 @@ public class ConduitController : MonoBehaviour
     {
         if (golemInRange.Contains(PlayerTeam.RED) && golemInRange.Contains(PlayerTeam.BLUE))
         {
-            currentCaptureSpeed = 1f;
+            currentCaptureSpeed = 2f;
         }
         else if (golemInRange.Contains(PlayerTeam.RED))
         {
             if (conduitColor == PlayerTeam.RED)
             {
-                currentCaptureSpeed = 1.5f;
+                currentCaptureSpeed = 3f;
             }
             else if (conduitColor == PlayerTeam.BLUE)
             {
-                currentCaptureSpeed = 0.3f;
+                currentCaptureSpeed = 0.75f;
             }
         }
         else if (golemInRange.Contains(PlayerTeam.BLUE))
         {
             if (conduitColor == PlayerTeam.BLUE)
             {
-                currentCaptureSpeed = 1.5f;
+                currentCaptureSpeed = 3f;
             }
             else if (conduitColor == PlayerTeam.RED)
             {
-                currentCaptureSpeed = 0.3f;
+                currentCaptureSpeed = 0.75f;
             }
         }
         else
