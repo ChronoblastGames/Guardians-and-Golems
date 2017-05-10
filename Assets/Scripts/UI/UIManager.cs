@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    private GameOverUI gameOverUI;
+
     private FloatingTextManager floatingTextManager;
 
     private CrystalManager crystalManager;
@@ -42,6 +44,8 @@ public class UIManager : MonoBehaviour
 
     private void UISetup()
     {
+        gameOverUI = GameObject.FindGameObjectWithTag("GameOverUI").GetComponent<GameOverUI>();
+
         crystalManager = GameObject.FindGameObjectWithTag("CrystalManager").GetComponent<CrystalManager>();
 
         commandManager = GameObject.FindGameObjectWithTag("CommandManager").GetComponent<CommandManager>();
@@ -201,5 +205,10 @@ public class UIManager : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void PassInformationToGameOverUI(PlayerTeam winningTeam, PlayerType yellowTeamMVP, PlayerType blueTeamMVP)
+    {
+        gameOverUI.PassInfoThrough(winningTeam, yellowTeamMVP, blueTeamMVP);
     }
 }

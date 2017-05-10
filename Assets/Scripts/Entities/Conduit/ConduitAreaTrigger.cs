@@ -12,7 +12,7 @@ public class ConduitAreaTrigger : MonoBehaviour
 
     void Initialize()
     {
-        conduitController = transform.parent.GetComponent<ConduitController>();
+        conduitController = transform.parent.GetComponent<ConduitController>();     
     }
 
     void OnTriggerEnter(Collider golem)

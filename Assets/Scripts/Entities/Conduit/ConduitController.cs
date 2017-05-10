@@ -13,6 +13,9 @@ public class ConduitController : MonoBehaviour
     private GuardianPlayerController redTeamGuardianPlayerController;
     private GuardianPlayerController blueTeamGuardianPlayerController;
 
+    private GolemResources redTeamGolemResources;
+    private GolemResources blueTeamGolemResources;
+
     private Animator conduitAnimator;
 
     [Header("Conduit Attributes")]
@@ -22,10 +25,16 @@ public class ConduitController : MonoBehaviour
     public List <PlayerTeam> attachedGuardians;
     public List<PlayerTeam> golemInRange;
 
-    public float currentCaptureSpeed;
-    private float baseCaptureSpeed;
+    public GameObject centerCrystal;
 
+    [Header("Conduit Capture Values")]
+    public float currentCaptureSpeed;
+    [Space(10)]
+    public float baseCaptureSpeed;
+    public float acceleratedCaptureSpeed;
+    public float slowedCaptureSpeed;
     public float loseDrainSpeed;
+
     [Space(10)]
     public float currentCaptureAmount;
     public float totalCaptureAmount;
@@ -33,8 +42,6 @@ public class ConduitController : MonoBehaviour
     public float capturePercentage;
     [Space(10)]
     public float captureGracePeriod;
-
-    public GameObject centerCrystal;
 
     private bool canBeRecaptured = true;
 
@@ -88,11 +95,11 @@ public class ConduitController : MonoBehaviour
 
         conduitAnimator = GetComponent<Animator>();
 
+        redTeamGolemResources = GameObject.FindGameObjectWithTag("GolemRed").GetComponent<GolemResources>();
+        blueTeamGolemResources = GameObject.FindGameObjectWithTag("GolemBlue").GetComponent<GolemResources>();
+
         redTeamGuardianPlayerController = GameObject.FindGameObjectWithTag("GuardianRed").GetComponent<GuardianPlayerController>();
-
         blueTeamGuardianPlayerController = GameObject.FindGameObjectWithTag("GuardianBlue").GetComponent<GuardianPlayerController>();
-
-        baseCaptureSpeed = currentCaptureSpeed;
 
         if (conduitState == ConduitState.HOMEBASE)
         {
@@ -110,6 +117,8 @@ public class ConduitController : MonoBehaviour
         else
         {
             currentCaptureAmount = 0;
+
+            currentCaptureSpeed = baseCaptureSpeed;
 
             conduitState = ConduitState.EMPTY;
             conduitColor = PlayerTeam.NONE;
@@ -263,11 +272,26 @@ public class ConduitController : MonoBehaviour
             {
                 if (currentCaptureAmount >= 0)
                 {
-                    currentCaptureAmount -= Time.fixedDeltaTime * currentCaptureSpeed;
+                    currentCaptureAmount -= Time.deltaTime * currentCaptureSpeed;
                 }
                 else if (currentCaptureAmount <= 0)
                 {
                     ResetConduit();
+                }
+            }
+            else if (teamColor == conduitColor)
+            {
+                if (currentCaptureAmount < totalCaptureAmount)
+                {
+                    currentCaptureAmount += Time.deltaTime * currentCaptureSpeed;
+                }
+                else if (currentCaptureAmount >= totalCaptureAmount)
+                {
+                    currentCaptureAmount = totalCaptureAmount;
+
+                    conduitState = ConduitState.CAPTURED;
+
+                    conduitFillImage.gameObject.SetActive(false);
                 }
             }
         }
@@ -360,8 +384,6 @@ public class ConduitController : MonoBehaviour
         conduitColor = PlayerTeam.NONE;
 
         DrawLine();
-
-        Debug.Log("Resetting Conduit :: " + gameObject.name);
     }
 
     private void ManageConduitState()
@@ -679,50 +701,70 @@ public class ConduitController : MonoBehaviour
 
     private void ManageGolems() //Manages Golem Participation in Capturing
     {
-        if (golemInRange.Contains(PlayerTeam.RED) && golemInRange.Contains(PlayerTeam.BLUE))
+        if (conduitState == ConduitState.CAPTURING)
         {
-            currentCaptureSpeed = baseCaptureSpeed;
-        }
-        else if (golemInRange.Contains(PlayerTeam.RED))
-        {
-            if (conduitState == ConduitState.CAPTURING)
+            if (golemInRange.Contains(PlayerTeam.RED) && golemInRange.Contains(PlayerTeam.BLUE))
+            {
+                currentCaptureSpeed = baseCaptureSpeed;
+            }
+            else if (golemInRange.Contains(PlayerTeam.RED) && !redTeamGolemResources.isDead)
             {
                 if (conduitColor == PlayerTeam.RED)
                 {
-                    currentCaptureSpeed = 3f;
+                    currentCaptureSpeed = acceleratedCaptureSpeed;
                 }
                 else if (conduitColor == PlayerTeam.BLUE)
                 {
-                    currentCaptureSpeed = 0.75f;
+                    currentCaptureSpeed = slowedCaptureSpeed;
                 }
             }
-            else if (conduitState == ConduitState.DRAINING)
-            {
-                if (conduitColor == PlayerTeam.BLUE)
-                {
-                    currentCaptureSpeed = 3f;
-                }
-            }           
-        }
-        else if (golemInRange.Contains(PlayerTeam.BLUE))
-        {
-            if (conduitState == ConduitState.CAPTURING)
-            {
-                if (conduitColor == PlayerTeam.BLUE)
-                {
-                    currentCaptureSpeed = 3f;
-                }
-                else if (conduitColor == PlayerTeam.BLUE)
-                {
-                    currentCaptureSpeed = 0.75f;
-                }
-            }
-            else if (conduitState == ConduitState.DRAINING)
+            else if (golemInRange.Contains(PlayerTeam.BLUE) && !blueTeamGolemResources.isDead)
             {
                 if (conduitColor == PlayerTeam.RED)
                 {
-                    currentCaptureSpeed = 3f;
+                    currentCaptureSpeed = slowedCaptureSpeed;
                 }
+                else if (conduitColor == PlayerTeam.BLUE)
+                {
+                    currentCaptureSpeed = acceleratedCaptureSpeed;
+                }
+            }
+            else
+            {
+                currentCaptureSpeed = baseCaptureSpeed;
+            }
+        }
+        else if (conduitState == ConduitState.DRAINING)
+        {
+            if (golemInRange.Contains(PlayerTeam.RED) && golemInRange.Contains(PlayerTeam.BLUE))
+            {
+                currentCaptureSpeed = baseCaptureSpeed;
+            }
+            else if (golemInRange.Contains(PlayerTeam.RED) && !redTeamGolemResources.isDead)
+            {
+                if (conduitColor == PlayerTeam.RED)
+                {
+                    currentCaptureSpeed = slowedCaptureSpeed;
+                }
+                else if (conduitColor == PlayerTeam.BLUE)
+                {
+                    currentCaptureSpeed = acceleratedCaptureSpeed;
+                }
+            }
+            else if (golemInRange.Contains(PlayerTeam.BLUE) && !blueTeamGolemResources.isDead)
+            {
+                if (conduitColor == PlayerTeam.RED)
+                {
+                    currentCaptureSpeed = acceleratedCaptureSpeed;
+                }
+                else if (conduitColor == PlayerTeam.BLUE)
+                {
+                    currentCaptureSpeed = slowedCaptureSpeed;
+                }
+            }
+            else
+            {
+                currentCaptureSpeed = baseCaptureSpeed;
             }
         }
         else

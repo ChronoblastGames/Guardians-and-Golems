@@ -45,6 +45,8 @@ public class GolemResources : MonoBehaviour
 
     public bool canTakeDamage = true;
 
+    public bool isDead = false;
+
     public bool isSlowed = false;
     public bool isKnockedBack = false;
     public bool isBleeding = false;
@@ -308,6 +310,8 @@ public class GolemResources : MonoBehaviour
         deathParticles.Play();
 
         canRegenerateHealth = false;
+
+        isDead = true;
     }
 
     public void InflictStatusEffect(StatusEffect statusEffect, float effectStrength, float effectTime, float effectFrequency, GameObject damagingObject, GameObject damagingCaster)
@@ -586,6 +590,8 @@ public class GolemResources : MonoBehaviour
 
     public void GolemRespawn()
     {
+        isDead = false;
+
         StartCoroutine(GolemRespawnInvicibility(respawnInvicibilityTime));
     }
 

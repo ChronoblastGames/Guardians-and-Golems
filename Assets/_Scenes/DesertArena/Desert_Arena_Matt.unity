@@ -67,7 +67,7 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 1
+    m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
@@ -1853,7 +1853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4078251742373478, guid: e5224de7a2ea59f46b98c08e34476a0a, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -60
+      value: -61
       objectReference: {fileID: 0}
     - target: {fileID: 4078251742373478, guid: e5224de7a2ea59f46b98c08e34476a0a, type: 2}
       propertyPath: m_LocalRotation.x

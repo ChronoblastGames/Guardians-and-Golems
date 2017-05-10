@@ -20,6 +20,7 @@ TagManager:
   - PlayerInfoManager
   - StatTracker
   - AudioManager
+  - GameOverUI
   layers:
   - Default
   - TransparentFX

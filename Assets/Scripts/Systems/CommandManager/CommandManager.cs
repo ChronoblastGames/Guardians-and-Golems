@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CommandManager : MonoBehaviour
 {
+    private StatTracker statTracker;
+
     private UIManager UI;
 
     private GuardianPlayerController redGuardianPlayerController;
@@ -35,6 +37,8 @@ public class CommandManager : MonoBehaviour
     {
         globalVariables = GameObject.FindGameObjectWithTag("GlobalVariables").GetComponent<GlobalVariables>();
 
+        statTracker = GameObject.FindGameObjectWithTag("StatTracker").GetComponent<StatTracker>();
+
         UI = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
 
         redGuardianPlayerController = GameObject.FindGameObjectWithTag("GuardianRed").GetComponent<GuardianPlayerController>();
@@ -55,7 +59,7 @@ public class CommandManager : MonoBehaviour
         { 
             if (redGuardianPlayerController.conduitCapturedList.Count <= 1)
             {
-                Debug.Log("Red Team Lost!");
+                statTracker.InformationPassthrough(PlayerTeam.RED);
             }
         }
 
@@ -63,7 +67,7 @@ public class CommandManager : MonoBehaviour
         {
             if (blueGuardianPlayerController.conduitCapturedList.Count <= 1)
             {
-                Debug.Log("Blue Team Lost");
+                statTracker.InformationPassthrough(PlayerTeam.BLUE);
             }
         }
 
@@ -93,7 +97,10 @@ public class CommandManager : MonoBehaviour
                 {
                     foreach (GameObject conduit in redGuardianPlayerController.conduitCapturedList)
                     {
-                        conduit.GetComponent<ConduitController>().conduitState = ConduitState.LOSING;
+                        if (conduit.GetComponent<ConduitController>().conduitState != ConduitState.HOMEBASE)
+                        {
+                            conduit.GetComponent<ConduitController>().conduitState = ConduitState.LOSING;
+                        }
                     }
 
                     isRedTeamLosing = true;

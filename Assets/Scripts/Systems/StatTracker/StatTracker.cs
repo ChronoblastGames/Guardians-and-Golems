@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class StatTracker : MonoBehaviour 
 {
+    private UIManager UI;
+
     [Header("Golem Game Stats")]
     public int redGolemKillingBlows;
     public int blueGolemKillingBlows;
@@ -19,6 +21,11 @@ public class StatTracker : MonoBehaviour
     [Space(20)]
     public float redGuardianTotalDamage;
     public float blueGuardianTotalDamage;
+
+    private void Start()
+    {
+        UI = GameObject.FindGameObjectWithTag("UIManager").GetComponent<UIManager>();
+    }
 
     public void AddToKillingBlows(GameObject killerObject)
     {
@@ -62,5 +69,50 @@ public class StatTracker : MonoBehaviour
                 blueGuardianTotalDamage += damageValue;
                 break;
         }
+    }
+
+    public void InformationPassthrough(PlayerTeam losingTeam)
+    {
+        PlayerTeam winningTeam = PlayerTeam.NONE;
+
+        PlayerType yellowTeamMVP = PlayerType.NONE;
+        PlayerType blueTeamMVP = PlayerType.NONE;
+
+        if (losingTeam == PlayerTeam.RED)
+        {
+            winningTeam = PlayerTeam.BLUE;
+        }
+        else if (losingTeam == PlayerTeam.BLUE)
+        {
+            winningTeam = PlayerTeam.RED;
+        }
+
+        if (redGolemKillingBlows > redGuardianKillingBlows)
+        {
+            yellowTeamMVP = PlayerType.GOLEM;
+        }
+        else if (redGuardianKillingBlows > redGolemKillingBlows)
+        {
+            yellowTeamMVP = PlayerType.GUARDIAN;
+        }
+        else if (redGolemKillingBlows == redGuardianKillingBlows)
+        {
+            yellowTeamMVP = PlayerType.NONE;
+        }
+
+        if (blueGolemKillingBlows > blueGuardianKillingBlows)
+        {
+            blueTeamMVP = PlayerType.GOLEM;
+        }
+        else if (blueGuardianKillingBlows > blueGolemKillingBlows)
+        {
+            blueTeamMVP = PlayerType.GUARDIAN;
+        }
+        else if (blueGolemKillingBlows == blueGuardianKillingBlows)
+        {
+            blueTeamMVP = PlayerType.NONE;
+        }
+
+        UI.PassInformationToGameOverUI(winningTeam, yellowTeamMVP, blueTeamMVP);
     }
 }
