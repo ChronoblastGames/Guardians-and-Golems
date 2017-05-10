@@ -463,14 +463,14 @@ public class ConduitController : MonoBehaviour
 
     private IEnumerator ConduitDisable (float disableTime)
     {
-        Debug.Log("Disabled : " + gameObject.name);
-
         ConduitState previousState = conduitState;
 
         foreach (Renderer gemRenderer in crystalRenderer)
         {
-            gemRenderer.material.color = Colors.Black;
+            gemRenderer.material.color = Colors.DarkSlateGray;
         }
+
+        centerCrystal.GetComponent<Renderer>().material.color = Colors.DarkSlateGray;
 
         conduitState = ConduitState.DISABLED;
 
@@ -484,6 +484,8 @@ public class ConduitController : MonoBehaviour
             {
                 gemRenderer.material.color = Colors.YellowTeamColor;
             }
+
+            centerCrystal.GetComponent<Renderer>().material.color = Colors.YellowTeamColor;
         }
         else if (conduitColor == PlayerTeam.BLUE)
         {
@@ -491,6 +493,8 @@ public class ConduitController : MonoBehaviour
             {
                 gemRenderer.material.color = Colors.BlueTeamColor;
             }
+
+            centerCrystal.GetComponent<Renderer>().material.color = Colors.BlueTeamColor;
         }
         else if (conduitColor == PlayerTeam.NONE)
         {
@@ -498,10 +502,10 @@ public class ConduitController : MonoBehaviour
             {
                 gemRenderer.material.color = gemColor;
             }
+
+            centerCrystal.GetComponent<Renderer>().material.color = gemColor;
         }
 
-        Debug.Log("Renabling : " + gameObject.name);
-     
         yield return null;
     }
 

@@ -107,7 +107,7 @@ public class CommandManager : MonoBehaviour
 
                     isRedTeamLosing = true;
 
-                    Debug.Log("Red Team Losing");
+                    UI.RequestGenericText("Yellow Team on the verge of Losing!", yellowTeamTextLocation, Colors.YellowTeamColor);
                 }          
                 break;
 
@@ -121,7 +121,7 @@ public class CommandManager : MonoBehaviour
 
                     isBlueTeamLosing = true;
 
-                    Debug.Log("Blue Team Losing");
+                    UI.RequestGenericText("Blue Team on the verge of Losing!", blueTeamTextLocation, Colors.BlueTeamColor);
                 }            
                 break;
         }

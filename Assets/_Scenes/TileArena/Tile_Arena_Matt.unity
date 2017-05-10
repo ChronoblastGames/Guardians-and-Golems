@@ -340,12 +340,12 @@ Prefab:
     - target: {fileID: 114814437549820960, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: playerNum
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114903366999629612, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
       propertyPath: playerNum
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114098945095900492, guid: 2cc910c8b15959441bd93412f23de693,
         type: 2}
@@ -1344,7 +1344,7 @@ Prefab:
     - target: {fileID: 114691370787095552, guid: 1d187cedd3aed864ba01bdf0840392dc,
         type: 2}
       propertyPath: isDevMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114990218959114074, guid: 1d187cedd3aed864ba01bdf0840392dc,
         type: 2}
