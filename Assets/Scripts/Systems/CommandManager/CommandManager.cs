@@ -60,6 +60,7 @@ public class CommandManager : MonoBehaviour
             if (redGuardianPlayerController.conduitCapturedList.Count <= 1)
             {
                 statTracker.InformationPassthrough(PlayerTeam.RED);
+                Time.timeScale = 0;
             }
         }
 
@@ -68,6 +69,7 @@ public class CommandManager : MonoBehaviour
             if (blueGuardianPlayerController.conduitCapturedList.Count <= 1)
             {
                 statTracker.InformationPassthrough(PlayerTeam.BLUE);
+                Time.timeScale = 0;
             }
         }
 

@@ -57,7 +57,7 @@ public class LoadingScreenManager : MonoBehaviour
 
         firstLerp = true;
 
-        asyncLoader = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
+        asyncLoader = SceneManager.LoadSceneAsync(sceneID, LoadSceneMode.Single);
         asyncLoader.allowSceneActivation = false;
 
         while (!asyncLoader.isDone)
